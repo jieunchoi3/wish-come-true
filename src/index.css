@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #faf6ef;
+  --color-paper-shadow: #ebe4d6;
+  --color-desk: #ede6da;
+  --color-ink: #2b2a27;
+  --color-ink-muted: #6b6560;
+  --color-sage: #a8b5a2;
+  --color-sage-deep: #8a9a82;
+  --color-rose: #d4a5a5;
+  --color-rose-deep: #b08e8b;
+  --color-ochre: #d9a85f;
+  --color-ochre-deep: #a88b5c;
+  --color-stamp: #8b3a3a;
+
+  --font-serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Nunito", ui-rounded, "Segoe UI", sans-serif;
+  --font-hand: "Nunito", ui-rounded, "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-desk);
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.01em;
+}
+
+/* Binder scales to fit viewport — zero scroll on desktop spread */
+.binder-shell {
+  width: min(1500px, calc(100vw - 64px), calc((100vh - 64px) * 4 / 3));
+  aspect-ratio: 4 / 3;
+  max-height: calc(100vh - 64px);
+}
+
+.binder-spread,
+.binder-mobile {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 1023px) {
+  html,
+  body,
+  #root {
+    overflow: auto;
+  }
+
+  .binder-shell {
+    width: min(100vw - 24px, 600px);
+    aspect-ratio: auto;
+    max-height: none;
+    min-height: calc(100vh - 32px);
+  }
+
+  .binder-desk {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+}
+
+.book-scene {
+  perspective: 1600px;
+  transform-style: preserve-3d;
+}
+
+.book-cover {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+/* Bigger closed cover — portrait 3:4 */
+.book-cover-outer {
+  height: clamp(620px, 78vh, 880px);
+  width: calc(clamp(620px, 78vh, 880px) * 0.75);
+}
+
+.first-page-slot {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.first-page-slot .first-page {
+  height: clamp(620px, 78vh, 880px);
+  width: calc(clamp(620px, 78vh, 880px) * 0.75);
+}
+
+.book-strap-swing {
+  animation: strap-swing 450ms ease-out forwards;
+}
+
+@keyframes strap-swing {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(-98deg);
+  }
+}
+
+.book-cover-open {
+  animation: cover-swing 800ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes cover-swing {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-168deg);
+  }
+}
+
+.book-cover-open-reduced {
+  animation: cover-fade 400ms ease-out forwards;
+}
+
+@keyframes cover-fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+}
+
+.first-page {
+  animation: page-reveal 350ms ease-out forwards;
+}
+
+@keyframes page-reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.lock-latch-popped {
+  animation: latch-pop 280ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes latch-pop {
+  0% {
+    transform: translate(0, 0);
+  }
+  60% {
+    transform: translate(-5px, -3px);
+  }
+  100% {
+    transform: translate(-4px, -2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-strap-swing,
+  .book-cover-open,
+  .book-cover-open-reduced,
+  .first-page,
+  .lock-latch-popped {
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Wishes scroll with edge fade */
+.wishes-scroll {
+  overflow-y: auto;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 20px,
+    black calc(100% - 20px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    black 20px,
+    black calc(100% - 20px),
+    transparent 100%
+  );
+}
+
+.paper-sheet {
+  animation: sheet-in 300ms ease-out forwards;
+}
+
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wish-tear {
+  animation: wish-tear 260ms ease-out forwards;
+}
+
+@keyframes wish-tear {
+  to {
+    opacity: 0;
+    clip-path: polygon(
+      0% 0%, 100% 0%, 100% 40%,
+      85% 55%, 100% 70%, 70% 85%,
+      100% 100%, 0% 100%
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .paper-sheet {
+    animation: none;
+  }
+}
+
