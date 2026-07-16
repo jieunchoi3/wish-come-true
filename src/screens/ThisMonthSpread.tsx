@@ -179,13 +179,16 @@ function EmptyMonthPreview({
   listTitleById,
   onBrowseLists,
   onCommit,
+  hasLeftPicks = false,
 }: {
   items: ListItemView[]
   listEmojiById: Map<string, string>
   listTitleById: Map<string, string>
   onBrowseLists: () => void
   onCommit: (item: ListItemView) => Promise<void>
+  hasLeftPicks?: boolean
 }) {
+  const monthKey = currentMonthKey()
   const [previewItems, setPreviewItems] = useState<ListItemView[]>([])
   const generatedRef = useRef(false)
 
@@ -195,19 +198,23 @@ function EmptyMonthPreview({
     generatedRef.current = true
   }, [items])
 
+  const visiblePreview = previewItems.filter(
+    (item) => !isFocusedThisMonth(item, monthKey),
+  )
+
   return (
     <div className="flex h-full min-h-0 flex-col">
       <p
         className="mb-4 shrink-0 font-hand text-xl text-ink/50"
         style={{ transform: 'rotate(-0.3deg)' }}
       >
-        nothing chosen yet.
+        {hasLeftPicks ? 'more you might pick.' : 'nothing chosen yet.'}
       </p>
 
-      {previewItems.length > 0 && (
+      {visiblePreview.length > 0 && (
         <div className="wishes-scroll min-h-0 flex-1">
           <ScrapCollage className="pb-6">
-            {previewItems.map((item, index) => (
+            {visiblePreview.map((item, index) => (
               <MonthPreviewCard
                 key={item.id}
                 item={item}
@@ -375,29 +382,14 @@ export function ThisMonthRightPage({ onBrowseLists }: { onBrowseLists: () => voi
     )
   }
 
-  if (focused.length === 0) {
-    return (
-      <EmptyMonthPreview
-        items={items}
-        listEmojiById={listEmojiById}
-        listTitleById={listTitleById}
-        onBrowseLists={onBrowseLists}
-        onCommit={commitItem}
-      />
-    )
-  }
-
   return (
-    <div className="flex h-full min-h-0 flex-col justify-end">
-      <p
-        className="mb-4 font-hand text-lg text-ink/45"
-        style={{ transform: 'rotate(-0.2deg)' }}
-      >
-        {focused.length === 1
-          ? 'one thing on the left — add more if you like.'
-          : `${focused.length} things on the left — add more if you like.`}
-      </p>
-      <BrowseLink onClick={onBrowseLists} />
-    </div>
+    <EmptyMonthPreview
+      items={items}
+      listEmojiById={listEmojiById}
+      listTitleById={listTitleById}
+      onBrowseLists={onBrowseLists}
+      onCommit={commitItem}
+      hasLeftPicks={focused.length > 0}
+    />
   )
 }
