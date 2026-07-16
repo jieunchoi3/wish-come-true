@@ -1,0 +1,422 @@
+{
+  "slug": "digital-detox",
+  "title": "Digital Detox",
+  "description": "Small, doable disconnection habits — from one evening to a weekend.",
+  "emoji": "📵",
+  "cover_style": "signal-off",
+  "default_tags": {
+    "time_needed": "30min",
+    "cost": "free",
+    "company": "solo",
+    "setting": "home",
+    "seasons": [
+      "any"
+    ],
+    "topic_tags": [
+      "digital-detox",
+      "rest"
+    ]
+  },
+  "items": [
+    {
+      "key": "leave-your-phone-in-another-room-for-an-evening",
+      "title": "Leave your phone in another room for an evening",
+      "subtitle": "harder than it sounds — dinner, book, actual quiet",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "few_hours"
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "delete-one-app-you-doom-scroll",
+      "title": "Delete one app you doom-scroll",
+      "subtitle": "one tap less temptation, noticeably calmer",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "30min"
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "turn-off-all-non-essential-notifications",
+      "title": "Turn off all non-essential notifications",
+      "subtitle": "your phone stops shouting; you pick it up on purpose",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "30min"
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "eat-one-meal-with-your-phone-somewhere-else",
+      "title": "Eat one meal with your phone somewhere else",
+      "subtitle": "taste what you are eating, not what you are scrolling",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "30min"
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "a-walk-with-no-phone-at-all",
+      "title": "A walk with no phone at all",
+      "subtitle": "no map, no podcast — just the street",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "30min"
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "read-on-paper-instead-of-a-screen-for-an-hour",
+      "title": "Read on paper instead of a screen for an hour",
+      "subtitle": "eyes unclench, mind slows down",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "few_hours"
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "turn-your-phone-to-greyscale-for-a-day",
+      "title": "Turn your phone to greyscale for a day",
+      "subtitle": "colour is the bait — without it, less pull",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "full_day"
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "no-phone-in-bed-charge-it-in-another-room-tonight",
+      "title": "No phone in bed — charge it in another room tonight",
+      "subtitle": "wake without reaching; sleep without one last scroll",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "few_hours"
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "a-full-offline-sunday",
+      "title": "A full offline Sunday",
+      "subtitle": "no errands on the feed — just the day in front of you",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "full_day"
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "no-social-media-for-24-hours",
+      "title": "No social media for 24 hours",
+      "subtitle": "one day off the comparison machine",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "full_day"
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "a-screen-free-morning-until-noon",
+      "title": "A screen-free morning until noon",
+      "subtitle": "slow start, no inbox before coffee",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "few_hours"
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "handwrite-something-instead-of-typing-it",
+      "title": "Handwrite something instead of typing it",
+      "subtitle": "journal, list, letter — pen slows the thought",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "30min"
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "a-weekend-with-your-phone-in-a-drawer-emergencies-only",
+      "title": "A weekend with your phone in a drawer, emergencies only",
+      "subtitle": "two days of not checking by reflex",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "weekend"
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "a-digital-sabbath-one-full-day-no-screens-at-all",
+      "title": "A digital sabbath — one full day, no screens at all",
+      "subtitle": "better than it sounds once the itch passes",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "full_day"
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "no-phone-for-the-first-hour-after-waking-up",
+      "title": "No phone for the first hour after waking up",
+      "subtitle": "let the day arrive before the feed does",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "30min"
+      },
+      "sort_order": 15
+    },
+    {
+      "key": "no-screens-after-9pm-tonight",
+      "title": "No screens after 9pm tonight",
+      "subtitle": "dim light, real wind-down, easier sleep",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "few_hours"
+      },
+      "sort_order": 16
+    },
+    {
+      "key": "set-a-real-bedtime-alarm-clock-so-your-phone-doesn-t-need-to-be-near-your-bed",
+      "title": "Set a real bedtime alarm clock so your phone doesn't need to be near your bed",
+      "subtitle": "a small purchase, a big boundary",
+      "meta": {},
+      "default_tags": {
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "30min"
+      },
+      "sort_order": 17
+    },
+    {
+      "key": "go-through-your-phone-and-delete-20-photos-you-don-t-need",
+      "title": "Go through your phone and delete 20 photos you don't need",
+      "subtitle": "less clutter, lighter camera roll",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "30min"
+      },
+      "sort_order": 18
+    },
+    {
+      "key": "unfollow-10-accounts-that-don-t-make-you-feel-good",
+      "title": "Unfollow 10 accounts that don't make you feel good",
+      "subtitle": "curate the feed like you mean it",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "30min"
+      },
+      "sort_order": 19
+    },
+    {
+      "key": "turn-off-autoplay-everywhere-you-can-find-it",
+      "title": "Turn off autoplay everywhere you can find it",
+      "subtitle": "stop the next video choosing for you",
+      "meta": {},
+      "default_tags": {
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "digital-detox",
+          "rest"
+        ],
+        "time_needed": "30min"
+      },
+      "sort_order": 20
+    }
+  ]
+}

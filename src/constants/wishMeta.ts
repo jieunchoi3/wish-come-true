@@ -60,21 +60,18 @@ export const SEASON_OPTIONS = [
   'any',
 ] as const
 
-export const AVAILABILITY_OPTIONS = [
-  { id: '30min', label: '30 min' },
-  { id: 'few_hours', label: 'a few hours' },
-  { id: 'full_day', label: 'all day' },
-  { id: 'weekend', label: 'the whole weekend' },
-] as const
-
-export const MOOD_OPTIONS = [
-  'cosy',
-  'adventurous',
-  'creative',
-  'social',
-  'lazy',
-  'nostalgic',
-] as const
+/** Category accent fills for typographic memory polaroids */
+export const CATEGORY_ACCENTS: Record<WishCategory, string> = {
+  taste: '#E8D4A8',
+  watch_read: '#D4C5E0',
+  go: '#A8C5D4',
+  london: '#C5D4E8',
+  make_learn: '#E8C4B8',
+  micro_joys: '#C8E0C5',
+  brave: '#E8B8B8',
+  people: '#D9E0C5',
+  someday: '#E0D4F0',
+}
 
 export function categoryEmoji(category: string): string {
   return CATEGORY_META.find((c) => c.id === category)?.emoji ?? '✨'

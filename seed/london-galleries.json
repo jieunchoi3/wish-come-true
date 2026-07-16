@@ -1,0 +1,902 @@
+{
+  "slug": "london-galleries",
+  "title": "London: Galleries & Exhibitions",
+  "description": "Real institutions and small rooms worth returning to.",
+  "emoji": "🖼️",
+  "cover_style": "gallery-stone",
+  "default_tags": {
+    "time_needed": "few_hours",
+    "cost": "moderate",
+    "company": "any",
+    "setting": "indoors_out",
+    "seasons": [
+      "any"
+    ],
+    "topic_tags": [
+      "art",
+      "london"
+    ]
+  },
+  "items": [
+    {
+      "key": "national-gallery",
+      "title": "National Gallery",
+      "subtitle": "Trafalgar Square · free",
+      "meta": {
+        "area": "Trafalgar Square"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "tate-modern",
+      "title": "Tate Modern",
+      "subtitle": "South Bank",
+      "meta": {
+        "area": "South Bank"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "tate-britain",
+      "title": "Tate Britain",
+      "subtitle": "Millbank",
+      "meta": {
+        "area": "Millbank"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "design-museum",
+      "title": "Design Museum",
+      "subtitle": "Kensington",
+      "meta": {
+        "area": "Kensington"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "barbican-art-gallery",
+      "title": "Barbican Art Gallery",
+      "subtitle": "City of London",
+      "meta": {
+        "area": "City of London"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "serpentine-galleries",
+      "title": "Serpentine Galleries",
+      "subtitle": "Hyde Park",
+      "meta": {
+        "area": "Hyde Park"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "sir-john-soane-s-museum",
+      "title": "Sir John Soane's Museum",
+      "subtitle": "Holborn · free",
+      "meta": {
+        "area": "Holborn"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "wallace-collection",
+      "title": "Wallace Collection",
+      "subtitle": "Marylebone · free",
+      "meta": {
+        "area": "Marylebone"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "somerset-house",
+      "title": "Somerset House",
+      "subtitle": "Strand",
+      "meta": {
+        "area": "Strand"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "photographers-gallery",
+      "title": "Photographers' Gallery",
+      "subtitle": "Soho",
+      "meta": {
+        "area": "Soho"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "dulwich-picture-gallery",
+      "title": "Dulwich Picture Gallery",
+      "subtitle": "Dulwich",
+      "meta": {
+        "area": "Dulwich"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "courtauld-gallery",
+      "title": "Courtauld Gallery",
+      "subtitle": "Somerset House",
+      "meta": {
+        "area": "Somerset House"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "hayward-gallery-see-whatever-s-on",
+      "title": "Hayward Gallery — see whatever's on",
+      "subtitle": "South Bank",
+      "meta": {
+        "area": "South Bank"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "whitechapel-gallery",
+      "title": "Whitechapel Gallery",
+      "subtitle": "Whitechapel · free",
+      "meta": {
+        "area": "Whitechapel"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "camden-arts-centre",
+      "title": "Camden Arts Centre",
+      "subtitle": "Hampstead",
+      "meta": {
+        "area": "Hampstead"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 15
+    },
+    {
+      "key": "institute-of-contemporary-arts",
+      "title": "Institute of Contemporary Arts",
+      "subtitle": "The Mall",
+      "meta": {
+        "area": "The Mall"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 16
+    },
+    {
+      "key": "saatchi-gallery",
+      "title": "Saatchi Gallery",
+      "subtitle": "Chelsea",
+      "meta": {
+        "area": "Chelsea"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 17
+    },
+    {
+      "key": "royal-academy-of-arts",
+      "title": "Royal Academy of Arts",
+      "subtitle": "Piccadilly",
+      "meta": {
+        "area": "Piccadilly"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 18
+    },
+    {
+      "key": "national-portrait-gallery",
+      "title": "National Portrait Gallery",
+      "subtitle": "St Martin's Place · free",
+      "meta": {
+        "area": "St Martin's Place"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 19
+    },
+    {
+      "key": "british-museum-highlights-rooms",
+      "title": "British Museum — highlights rooms",
+      "subtitle": "Bloomsbury · free",
+      "meta": {
+        "area": "Bloomsbury"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 20
+    },
+    {
+      "key": "victoria-and-albert-museum",
+      "title": "Victoria and Albert Museum",
+      "subtitle": "South Kensington · free",
+      "meta": {
+        "area": "South Kensington"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 21
+    },
+    {
+      "key": "museum-of-the-home",
+      "title": "Museum of the Home",
+      "subtitle": "Hoxton",
+      "meta": {
+        "area": "Hoxton"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 22
+    },
+    {
+      "key": "garden-museum",
+      "title": "Garden Museum",
+      "subtitle": "Lambeth",
+      "meta": {
+        "area": "Lambeth"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 23
+    },
+    {
+      "key": "fashion-and-textile-museum",
+      "title": "Fashion and Textile Museum",
+      "subtitle": "Bermondsey",
+      "meta": {
+        "area": "Bermondsey"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 24
+    },
+    {
+      "key": "house-of-illustration",
+      "title": "House of Illustration",
+      "subtitle": "King's Cross",
+      "meta": {
+        "area": "King's Cross"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 25
+    },
+    {
+      "key": "the-mosaic-rooms",
+      "title": "The Mosaic Rooms",
+      "subtitle": "Earl's Court · free",
+      "meta": {
+        "area": "Earl's Court"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 26
+    },
+    {
+      "key": "gasworks",
+      "title": "Gasworks",
+      "subtitle": "Vauxhall · free",
+      "meta": {
+        "area": "Vauxhall"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 27
+    },
+    {
+      "key": "studio-voltaire",
+      "title": "Studio Voltaire",
+      "subtitle": "Clapham",
+      "meta": {
+        "area": "Clapham"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 28
+    },
+    {
+      "key": "chisenhale-gallery",
+      "title": "Chisenhale Gallery",
+      "subtitle": "Bow · free",
+      "meta": {
+        "area": "Bow"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 29
+    },
+    {
+      "key": "auto-italia",
+      "title": "Auto Italia",
+      "subtitle": "Bethnal Green · free",
+      "meta": {
+        "area": "Bethnal Green"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 30
+    },
+    {
+      "key": "cell-project-space",
+      "title": "Cell Project Space",
+      "subtitle": "Bermondsey · free",
+      "meta": {
+        "area": "Bermondsey"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 31
+    },
+    {
+      "key": "south-london-gallery",
+      "title": "South London Gallery",
+      "subtitle": "Peckham · free",
+      "meta": {
+        "area": "Peckham"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 32
+    },
+    {
+      "key": "drawing-room",
+      "title": "Drawing Room",
+      "subtitle": "Bermondsey",
+      "meta": {
+        "area": "Bermondsey"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 33
+    },
+    {
+      "key": "pitzhanger-manor-gallery",
+      "title": "Pitzhanger Manor & Gallery",
+      "subtitle": "Ealing",
+      "meta": {
+        "area": "Ealing"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 34
+    },
+    {
+      "key": "william-morris-gallery",
+      "title": "William Morris Gallery",
+      "subtitle": "Walthamstow · free",
+      "meta": {
+        "area": "Walthamstow"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 35
+    },
+    {
+      "key": "ben-uri-gallery",
+      "title": "Ben Uri Gallery",
+      "subtitle": "St John's Wood",
+      "meta": {
+        "area": "St John's Wood"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 36
+    },
+    {
+      "key": "freud-museum",
+      "title": "Freud Museum",
+      "subtitle": "Hampstead",
+      "meta": {
+        "area": "Hampstead"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 37
+    },
+    {
+      "key": "keats-house",
+      "title": "Keats House",
+      "subtitle": "Hampstead",
+      "meta": {
+        "area": "Hampstead"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 38
+    },
+    {
+      "key": "museum-of-london-docklands",
+      "title": "Museum of London Docklands",
+      "subtitle": "Canary Wharf · free",
+      "meta": {
+        "area": "Canary Wharf"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 39
+    },
+    {
+      "key": "queen-s-house",
+      "title": "Queen's House",
+      "subtitle": "Greenwich · free",
+      "meta": {
+        "area": "Greenwich"
+      },
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "art",
+          "london"
+        ]
+      },
+      "sort_order": 40
+    }
+  ]
+}

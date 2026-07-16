@@ -1,0 +1,422 @@
+{
+  "slug": "weekend-skills",
+  "title": "Weekend Skills",
+  "description": "Things learnable in a day or a weekend — one video away.",
+  "emoji": "🛠️",
+  "cover_style": "workbench-warm",
+  "default_tags": {
+    "time_needed": "few_hours",
+    "cost": "cheap",
+    "company": "solo",
+    "setting": "home",
+    "seasons": [
+      "any"
+    ],
+    "topic_tags": [
+      "skill",
+      "learning"
+    ]
+  },
+  "items": [
+    {
+      "key": "basic-knots",
+      "title": "Basic knots",
+      "subtitle": "bowline, clove hitch — 30 minutes of rope",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "read-a-wine-label-properly",
+      "title": "Read a wine label properly",
+      "subtitle": "region, grape, vintage — one bottle decoded",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "identify-5-constellations",
+      "title": "Identify 5 constellations",
+      "subtitle": "Orion, Ursa Major — one clear night",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "whittle-a-spoon",
+      "title": "Whittle a spoon",
+      "subtitle": "soft wood, one blade, patient shavings",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "full_day",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "basic-bike-repair",
+      "title": "Basic bike repair",
+      "subtitle": "puncture patch, chain lube, brake check",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "hand-letter-the-alphabet",
+      "title": "Hand-letter the alphabet",
+      "subtitle": "one sheet, thick marker, even spacing",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "make-pasta-from-scratch",
+      "title": "Make pasta from scratch",
+      "subtitle": "flour, eggs, roll by hand — one dinner",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "tie-a-scarf-five-ways",
+      "title": "Tie a scarf five ways",
+      "subtitle": "French, loop, knot — mirror practice",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "basic-car-maintenance-checks",
+      "title": "Basic car maintenance checks",
+      "subtitle": "oil, tyres, fluids — owner manual open",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "darn-a-sock",
+      "title": "Darn a sock",
+      "subtitle": "needle, thread, invisible mend",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "make-a-proper-cocktail",
+      "title": "Make a proper cocktail",
+      "subtitle": "spirit, bitters, stir — one classic recipe",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "moderate",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "learn-10-chess-openings",
+      "title": "Learn 10 chess openings",
+      "subtitle": "names and first three moves each",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "film-photography-exposure-triangle",
+      "title": "Film photography exposure triangle",
+      "subtitle": "aperture, shutter, ISO — one roll test",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "full_day",
+        "cost": "moderate",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "fold-an-origami-crane",
+      "title": "Fold an origami crane",
+      "subtitle": "one square paper, crease by crease",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "whistle-with-your-fingers",
+      "title": "Whistle with your fingers",
+      "subtitle": "wet, tuck, blow — loud and useless fun",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 15
+    },
+    {
+      "key": "basic-first-aid",
+      "title": "Basic first aid",
+      "subtitle": "CPR steps, bandage, when to call — one course or video",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 16
+    },
+    {
+      "key": "sharpen-a-kitchen-knife-properly",
+      "title": "Sharpen a kitchen knife properly",
+      "subtitle": "stone or steel, safer cooking after",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 17
+    },
+    {
+      "key": "read-a-map-without-gps",
+      "title": "Read a map without GPS",
+      "subtitle": "paper map, compass optional — one park route",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 18
+    },
+    {
+      "key": "tie-a-bowline-knot",
+      "title": "Tie a bowline knot",
+      "subtitle": "the knot that holds when it matters",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 19
+    },
+    {
+      "key": "tune-a-guitar-by-ear",
+      "title": "Tune a guitar by ear",
+      "subtitle": "fifth fret method, one string at a time",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "skill",
+          "learning"
+        ]
+      },
+      "sort_order": 20
+    }
+  ]
+}

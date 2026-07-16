@@ -1,0 +1,51 @@
+const BASE = {
+  time_needed: 'full_day',
+  cost: 'cheap',
+  company: 'any',
+  setting: 'home',
+  seasons: ['any'],
+  topic_tags: ['baking'],
+}
+
+/** [title, subtitle, tags overrides] */
+const RAW = [
+  ['Macarons', 'almond meringue, patience', { time_needed: 'full_day', cost: 'moderate' }],
+  ['Sourdough loaf', 'starter feed, overnight rest', { time_needed: 'weekend' }],
+  ['Croissants', 'laminated dough, 3 days', { time_needed: 'weekend', cost: 'cheap' }],
+  ['Victoria sponge', 'classic sponge, jam and cream', { time_needed: 'few_hours' }],
+  ['Salt bread', 'Irish soda-style, no yeast wait', { time_needed: 'few_hours' }],
+  ['Chocolate babka', 'enriched dough, chocolate swirl', { time_needed: 'full_day' }],
+  ['Bagels', 'boil then bake, chewy crust', { time_needed: 'full_day' }],
+  ['Brioche', 'butter-rich, overnight chill', { time_needed: 'weekend', cost: 'moderate' }],
+  ['Focaccia', 'olive oil dimples, same-day bake', { time_needed: 'few_hours' }],
+  ['Ciabatta', 'wet dough, open crumb', { time_needed: 'full_day' }],
+  ['Pain au chocolat', 'croissant dough, chocolate batons', { time_needed: 'weekend' }],
+  ['Madeleines', 'shell-shaped, lemon zest', { time_needed: '30min', cost: 'cheap' }],
+  ['Financiers', 'brown butter, almond flour', { time_needed: 'few_hours' }],
+  ['Lemon drizzle cake', 'sharp glaze, tea-time classic', { time_needed: 'few_hours' }],
+  ['Banana bread', 'ripe bananas, one bowl', { time_needed: 'few_hours' }],
+  ['Carrot cake', 'cream cheese frosting', { time_needed: 'few_hours', cost: 'moderate' }],
+  ['Apple pie', 'butter crust, seasonal fruit', { time_needed: 'full_day' }],
+  ['Tarte tatin', 'caramelised upside-down apples', { time_needed: 'few_hours', cost: 'moderate' }],
+  ['Clafoutis', 'cherry batter pudding', { time_needed: 'few_hours' }],
+  ['Crème brûlée', 'custard, torched sugar top', { time_needed: 'few_hours', cost: 'moderate' }],
+  ['Pavlova', 'meringue nest, whipped cream', { time_needed: 'few_hours' }],
+  ['Shortbread', 'three ingredients, press into tin', { time_needed: '30min' }],
+  ['Scones', 'clotted cream ready', { time_needed: '30min' }],
+  ['Welsh cakes', 'griddle, currants', { time_needed: '30min' }],
+  ['Soda bread', 'buttermilk, no knead', { time_needed: '30min' }],
+  ['Pizza dough from scratch', 'stretch, stone-hot oven', { time_needed: 'few_hours' }],
+  ['Cinnamon rolls', 'soft enriched, cream cheese glaze', { time_needed: 'full_day' }],
+  ['Choux pastry éclairs', 'pipe, fill, glaze', { time_needed: 'full_day', cost: 'moderate' }],
+  ['Tiramisu', 'no bake, coffee soak', { time_needed: 'few_hours', cost: 'moderate' }],
+  ['Gingerbread', 'molasses, cut-out shapes', { time_needed: 'few_hours', seasons: ['winter'] }],
+]
+
+export const BAKING_CLASSICS = RAW.map(([title, subtitle, tags], i) => ({
+  key: title.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+  title,
+  subtitle,
+  meta: {},
+  default_tags: { ...BASE, ...tags },
+  sort_order: i + 1,
+}))

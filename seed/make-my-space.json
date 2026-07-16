@@ -1,0 +1,422 @@
+{
+  "slug": "make-my-space",
+  "title": "Make My Space",
+  "description": "Small home improvements that make a place feel like yours.",
+  "emoji": "🪴",
+  "cover_style": "sage-pot",
+  "default_tags": {
+    "time_needed": "30min",
+    "cost": "cheap",
+    "company": "solo",
+    "setting": "home",
+    "seasons": [
+      "any"
+    ],
+    "topic_tags": [
+      "home",
+      "cosy"
+    ]
+  },
+  "items": [
+    {
+      "key": "get-a-plant",
+      "title": "Get a plant",
+      "subtitle": "15 min, instant mood lift",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "30min",
+        "cost": "cheap"
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "hang-something-on-a-bare-wall",
+      "title": "Hang something on a bare wall",
+      "subtitle": "one nail, one frame, done",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "30min",
+        "cost": "cheap"
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "swap-a-lamp-for-warmer-light",
+      "title": "Swap a lamp for warmer light",
+      "subtitle": "2700K bulb, softer evenings",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "30min",
+        "cost": "cheap"
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "get-a-proper-doormat",
+      "title": "Get a proper doormat",
+      "subtitle": "first thing guests notice",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "30min",
+        "cost": "moderate"
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "frame-a-photo-you-love",
+      "title": "Frame a photo you love",
+      "subtitle": "print, mat, hang — 45 minutes",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "few_hours",
+        "cost": "cheap"
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "buy-fresh-flowers-for-no-reason",
+      "title": "Buy fresh flowers for no reason",
+      "subtitle": "market run, vase ready",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "30min",
+        "cost": "cheap"
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "rearrange-the-furniture",
+      "title": "Rearrange the furniture",
+      "subtitle": "new flow without spending",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "few_hours",
+        "cost": "free"
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "add-a-scent-candle-or-diffuser",
+      "title": "Add a scent — candle or diffuser",
+      "subtitle": "one note for the whole flat",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "30min",
+        "cost": "cheap"
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "fix-that-one-annoying-thing",
+      "title": "Fix that one annoying thing",
+      "subtitle": "squeaky hinge, loose handle, finally",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "30min",
+        "cost": "free"
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "get-good-bedsheets",
+      "title": "Get good bedsheets",
+      "subtitle": "cotton percale, sleep upgrade",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "30min",
+        "cost": "moderate"
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "put-up-fairy-lights",
+      "title": "Put up fairy lights",
+      "subtitle": "warm corners, instant cosiness",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "30min",
+        "cost": "cheap"
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "clear-one-cluttered-surface-properly",
+      "title": "Clear one cluttered surface properly",
+      "subtitle": "not shove — actually sort",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "few_hours",
+        "cost": "free"
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "wash-curtains-or-throw-blankets",
+      "title": "Wash curtains or throw blankets",
+      "subtitle": "fresh smell, brighter room",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "few_hours",
+        "cost": "cheap"
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "mount-a-small-shelf",
+      "title": "Mount a small shelf",
+      "subtitle": "drill, level, books off the floor",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "few_hours",
+        "cost": "cheap"
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "swap-tired-throw-pillows",
+      "title": "Swap tired throw pillows",
+      "subtitle": "two new covers, whole sofa shifts",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "30min",
+        "cost": "cheap"
+      },
+      "sort_order": 15
+    },
+    {
+      "key": "organise-under-the-sink",
+      "title": "Organise under the sink",
+      "subtitle": "bins, labels, one afternoon",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "few_hours",
+        "cost": "cheap"
+      },
+      "sort_order": 16
+    },
+    {
+      "key": "paint-or-stain-one-piece-of-furniture",
+      "title": "Paint or stain one piece of furniture",
+      "subtitle": "chalk paint, weekend project",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "weekend",
+        "cost": "moderate"
+      },
+      "sort_order": 17
+    },
+    {
+      "key": "hang-a-mirror-to-bounce-light",
+      "title": "Hang a mirror to bounce light",
+      "subtitle": "small hallway, bigger feel",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "few_hours",
+        "cost": "moderate"
+      },
+      "sort_order": 18
+    },
+    {
+      "key": "label-your-spice-jars",
+      "title": "Label your spice jars",
+      "subtitle": "uniform jars, readable tops",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "30min",
+        "cost": "cheap"
+      },
+      "sort_order": 19
+    },
+    {
+      "key": "upgrade-your-bath-towels",
+      "title": "Upgrade your bath towels",
+      "subtitle": "matching set, hotel-at-home",
+      "meta": {},
+      "default_tags": {
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "home",
+          "cosy"
+        ],
+        "time_needed": "30min",
+        "cost": "moderate"
+      },
+      "sort_order": 20
+    }
+  ]
+}

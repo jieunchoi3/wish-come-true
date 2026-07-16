@@ -65,6 +65,11 @@ export function scrapLayout(index: number, id: string): ScrapLayout {
 }
 
 export function formatImaginedAgo(date: Date, now = new Date()): string {
+  return formatRelativeAgo(date, now)
+}
+
+/** Relative span from a past date — e.g. "2 weeks ago", "3 months ago". */
+export function formatRelativeAgo(date: Date, now = new Date()): string {
   const months =
     (now.getFullYear() - date.getFullYear()) * 12 +
     (now.getMonth() - date.getMonth())
@@ -77,7 +82,42 @@ export function formatImaginedAgo(date: Date, now = new Date()): string {
     1,
     Math.floor((now.getTime() - date.getTime()) / 86_400_000),
   )
+  if (days >= 14) {
+    const weeks = Math.floor(days / 7)
+    return `${weeks} week${weeks === 1 ? '' : 's'} ago`
+  }
   return `${days} day${days === 1 ? '' : 's'} ago`
+}
+
+/** Span from item created_at → completed_at for memory detail copy */
+export function formatImaginedBeforeDone(
+  createdAt: string,
+  completedAt: string,
+): string {
+  const created = new Date(createdAt)
+  const completed = new Date(completedAt)
+  const months =
+    (completed.getFullYear() - created.getFullYear()) * 12 +
+    (completed.getMonth() - created.getMonth())
+  if (months >= 24) {
+    const years = Math.floor(months / 12)
+    return `${years} ${years === 1 ? 'year' : 'years'}`
+  }
+  if (months >= 1) return `${months} ${months === 1 ? 'month' : 'months'}`
+  const days = Math.max(
+    1,
+    Math.floor((completed.getTime() - created.getTime()) / 86_400_000),
+  )
+  return `${days} ${days === 1 ? 'day' : 'days'}`
+}
+
+/** Stamp date on polaroids — e.g. 14·07·26 */
+export function formatDoneStampDate(iso: string): string {
+  const d = new Date(iso)
+  const dd = String(d.getDate()).padStart(2, '0')
+  const mm = String(d.getMonth() + 1).padStart(2, '0')
+  const yy = String(d.getFullYear()).slice(-2)
+  return `${dd}·${mm}·${yy}`
 }
 
 /** Hand-drawn box border-radius */

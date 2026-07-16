@@ -1,0 +1,322 @@
+{
+  "slug": "one-month-experiments",
+  "title": "One Month Experiments",
+  "description": "Month-long personal challenges worth trying once.",
+  "emoji": "🗓️",
+  "cover_style": "calendar-grid",
+  "default_tags": {
+    "time_needed": "trip",
+    "cost": "free",
+    "company": "solo",
+    "setting": "home",
+    "seasons": [
+      "any"
+    ],
+    "topic_tags": [
+      "challenge",
+      "self-experiment"
+    ]
+  },
+  "items": [
+    {
+      "key": "no-spend-month",
+      "title": "No-spend month",
+      "subtitle": "needs only, no impulse buys — see what sticks",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "free",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "home"
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "no-social-media-for-30-days",
+      "title": "No social media for 30 days",
+      "subtitle": "delete apps, notice your attention return",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "free",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "home"
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "cold-showers-for-a-month",
+      "title": "Cold showers for a month",
+      "subtitle": "30 seconds cold finish — mood and grit",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "free",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "home"
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "a-book-a-week-for-a-month",
+      "title": "A book a week for a month",
+      "subtitle": "four finished books, one shelf cleared",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "cheap",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "home"
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "cook-every-meal-from-scratch-for-30-days",
+      "title": "Cook every meal from scratch for 30 days",
+      "subtitle": "no ready meals — skill and taste compound",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "moderate",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "home"
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "walk-10k-steps-daily-for-a-month",
+      "title": "Walk 10k steps daily for a month",
+      "subtitle": "same route or new — just move",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "free",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "outdoors"
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "no-alcohol-for-a-month",
+      "title": "No alcohol for a month",
+      "subtitle": "clearer mornings, honest evenings",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "free",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "home"
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "journal-every-night-for-30-days",
+      "title": "Journal every night for 30 days",
+      "subtitle": "three lines minimum, no performance",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "cheap",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "home"
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "learn-5-new-words-a-day-in-a-language",
+      "title": "Learn 5 new words a day in a language",
+      "subtitle": "150 words in a month — start speaking",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "free",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "home"
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "digital-sunset-no-screens-after-9pm",
+      "title": "Digital sunset — no screens after 9pm",
+      "subtitle": "book, bath, early sleep for a month",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "free",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "home"
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "meat-free-month",
+      "title": "Meat-free month",
+      "subtitle": "vegetarian by default — new recipes weekly",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "moderate",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "home"
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "write-one-thank-you-note-a-day",
+      "title": "Write one thank-you note a day",
+      "subtitle": "30 people who matter, on paper",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "cheap",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "home"
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "meditate-10-minutes-daily-for-30-days",
+      "title": "Meditate 10 minutes daily for 30 days",
+      "subtitle": "same time, same chair, no streak pressure",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "free",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "home"
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "no-takeaway-for-a-month",
+      "title": "No takeaway for a month",
+      "subtitle": "cook or assemble — wallet and kitchen win",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "cheap",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "home"
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "photograph-one-small-joy-every-day",
+      "title": "Photograph one small joy every day",
+      "subtitle": "30 images of ordinary good things",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "free",
+        "company": "solo",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "challenge",
+          "self-experiment"
+        ],
+        "setting": "outdoors"
+      },
+      "sort_order": 15
+    }
+  ]
+}

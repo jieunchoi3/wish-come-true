@@ -1,0 +1,401 @@
+{
+  "slug": "winter-joys",
+  "title": "Winter Things",
+  "description": "Dark evenings, warm drinks, small festivities.",
+  "emoji": "❄️",
+  "cover_style": "frost-quiet",
+  "default_tags": {
+    "time_needed": "30min",
+    "cost": "cheap",
+    "company": "any",
+    "setting": "outdoors",
+    "seasons": [
+      "winter"
+    ],
+    "topic_tags": [
+      "winter"
+    ]
+  },
+  "items": [
+    {
+      "key": "winter-1",
+      "title": "Christmas market visit",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "winter-2",
+      "title": "Ice skating — outdoor rink",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "winter-3",
+      "title": "First snow walk (or first frost)",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "winter-4",
+      "title": "Mulled wine somewhere warm after",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "winter-5",
+      "title": "New Year's ritual — write one line for the year",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "winter-6",
+      "title": "Fairy lights evening walk",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "winter-7",
+      "title": "Proper cosy soup Sunday",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "winter-8",
+      "title": "Secret Santa for friends",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "winter-9",
+      "title": "Bake mince pies from scratch",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "winter-10",
+      "title": "Watch a Christmas film you've never seen",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "winter-11",
+      "title": "Wrap presents slowly with good paper",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "winter-12",
+      "title": "Winter sunrise with a thermos",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "winter-13",
+      "title": "Go to a pantomime or festive show",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "winter-14",
+      "title": "Make a wreath or garland",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "winter-15",
+      "title": "First fire or candlelit evening in",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 15
+    },
+    {
+      "key": "winter-16",
+      "title": "Eat roasted chestnuts from a bag",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 16
+    },
+    {
+      "key": "winter-17",
+      "title": "Visit a light trail or illuminations",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 17
+    },
+    {
+      "key": "winter-18",
+      "title": "Write cards by hand",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 18
+    },
+    {
+      "key": "winter-19",
+      "title": "Hot bath on the coldest night",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 19
+    },
+    {
+      "key": "winter-20",
+      "title": "Boxing Day walk — quiet streets",
+      "subtitle": "winter",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "winter"
+        ]
+      },
+      "sort_order": 20
+    }
+  ]
+}

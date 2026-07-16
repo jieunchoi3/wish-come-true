@@ -1,42 +1,211 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
+import { RubberStamp } from '../components/ScrapbookElements'
+import { MemoryDetailSheet } from '../components/lists/MemoryDetailSheet'
 import { PolaroidFrame } from '../components/PolaroidFrame'
+import { ScrapCollage } from '../components/ScrapCollage'
 import { Scrap } from '../components/primitives'
+import {
+  CATEGORY_ACCENTS,
+  categoryEmoji,
+} from '../constants/wishMeta'
 import { useLists } from '../hooks/useLists'
+import {
+  formatDoneStampDate,
+  hashString,
+} from '../lib/utils'
 import type { ListItemView } from '../types/database'
+import {
+  adjacentChapterId,
+  buildContents,
+  chapterItems,
+  defaultChapterId,
+} from './memoriesData'
+import { useMemoriesTab } from './memoriesTabState'
+
+function listEmoji(list: { emoji: string | null; title: string }): string {
+  return list.emoji?.trim() || '📋'
+}
+
+function formatCaptionDate(iso: string): string {
+  return new Date(iso).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  })
+}
+
+function denseOffset(index: number, id: string): { marginTop: number; marginLeft: number } {
+  const h = Math.abs(hashString(`${id}:dense`))
+  return {
+    marginTop: index === 0 ? 0 : -6 - (h % 6),
+    marginLeft: (h % 11) - 5,
+  }
+}
+
+function PageCurl({
+  direction,
+  onClick,
+  label,
+}: {
+  direction: 'prev' | 'next'
+  onClick: () => void
+  label: string
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={`memory-page-curl memory-page-curl--${direction}`}
+      aria-label={label}
+    />
+  )
+}
 
 export function MemoriesLeftPage() {
+  const { lists, items, loading } = useLists()
+  const { activeChapterId, setInitialChapter } = useMemoriesTab()
+  const contents = useMemo(() => buildContents(lists, items), [lists, items])
+
+  useEffect(() => {
+    if (activeChapterId !== null) return
+    const id = defaultChapterId(contents)
+    if (id) setInitialChapter(id)
+  }, [activeChapterId, contents, setInitialChapter])
+
+  if (loading) {
+    return (
+      <div className="flex h-full items-center justify-center">
+        <p className="font-hand text-lg text-ink/30">loading contents…</p>
+      </div>
+    )
+  }
+
   return (
-    <div className="flex h-full flex-col justify-center">
+    <div className="flex h-full min-h-0 flex-col">
       <h1
-        className="font-hand text-3xl text-ink/75"
-        style={{ transform: 'rotate(-0.5deg)' }}
+        className="mb-4 shrink-0 font-hand text-2xl text-ink/70 lg:text-3xl"
+        style={{ transform: 'rotate(-0.6deg)' }}
       >
-        memories
+        contents
       </h1>
-      <p className="mt-3 font-hand text-xl text-ink/50">
-        things you&apos;ve done. yours loom large; catalogue ticks stay small.
-      </p>
+
+      {contents.length === 0 ? (
+        <p
+          className="font-hand text-lg text-ink/45"
+          style={{ transform: 'rotate(-0.3deg)' }}
+        >
+          nothing in the contents yet. go do something.
+        </p>
+      ) : (
+        <nav
+          className="wishes-scroll min-h-0 flex-1"
+          aria-label="Memory chapters"
+        >
+          <ul className="space-y-1 pb-4">
+            {contents.map(({ list, count }, index) => {
+              const active = list.id === activeChapterId
+              return (
+                <li key={list.id}>
+                  <ContentsEntry
+                    list={list}
+                    count={count}
+                    active={active}
+                    index={index}
+                  />
+                </li>
+              )
+            })}
+          </ul>
+        </nav>
+      )}
     </div>
   )
 }
 
+function ContentsEntry({
+  list,
+  count,
+  active,
+  index,
+}: {
+  list: { id: string; title: string; emoji: string | null }
+  count: number
+  active: boolean
+  index: number
+}) {
+  const { selectChapter } = useMemoriesTab()
+
+  return (
+    <button
+      type="button"
+      onClick={() => selectChapter(list.id)}
+      className={`memory-contents-entry w-full px-1 py-2 text-left transition-colors ${
+        active
+          ? 'font-medium text-ink'
+          : 'text-ink/65 hover:text-ink/80'
+      }`}
+      style={{
+        transform: `rotate(${(index % 3) * 0.25 - 0.25}deg)`,
+      }}
+    >
+      <span className="flex items-baseline gap-1">
+        <span className="shrink-0 text-base" aria-hidden>
+          {listEmoji(list)}
+        </span>
+        <span className="min-w-0 truncate font-hand text-base leading-snug">
+          {list.title}
+        </span>
+        <span
+          className="mx-1 min-w-[1.5rem] flex-1 translate-y-[-2px] border-b border-dotted border-ink/20"
+          aria-hidden
+        />
+        <span className="shrink-0 font-hand text-sm tabular-nums text-ink/50">
+          {count}
+        </span>
+      </span>
+    </button>
+  )
+}
+
 export function MemoriesRightPage() {
-  const { items, loading } = useLists()
+  const { lists, items, loading } = useLists()
+  const {
+    activeChapterId,
+    chapterVisible,
+    openMemory,
+    selectedItem,
+    closeMemory,
+    goToChapter,
+    setInitialChapter,
+  } = useMemoriesTab()
+
+  const contents = useMemo(() => buildContents(lists, items), [lists, items])
+  const activeList = contents.find((c) => c.list.id === activeChapterId)?.list
 
   const done = useMemo(
-    () =>
-      items
-        .filter((i) => i.status === 'done' && i.completed_at)
-        .sort(
-          (a, b) =>
-            new Date(b.completed_at!).getTime() -
-            new Date(a.completed_at!).getTime(),
-        ),
-    [items],
+    () => (activeChapterId ? chapterItems(items, activeChapterId) : []),
+    [items, activeChapterId],
   )
 
-  const userDone = done.filter((i) => !i.is_seeded)
-  const seededDone = done.filter((i) => i.is_seeded)
+  useEffect(() => {
+    if (activeChapterId !== null) return
+    const id = defaultChapterId(contents)
+    if (id) setInitialChapter(id)
+  }, [activeChapterId, contents, setInitialChapter])
+
+  useEffect(() => {
+    if (!activeChapterId || contents.some((c) => c.list.id === activeChapterId)) {
+      return
+    }
+    const fallback = defaultChapterId(contents)
+    if (fallback) setInitialChapter(fallback)
+  }, [activeChapterId, contents, setInitialChapter])
+
+  const chapterStyle = {
+    opacity: chapterVisible ? 1 : 0,
+    transform: chapterVisible ? 'translateX(0)' : 'translateX(24px)',
+    transition: 'opacity 280ms ease-out, transform 280ms ease-out',
+  }
 
   if (loading) {
     return (
@@ -46,79 +215,149 @@ export function MemoriesRightPage() {
     )
   }
 
-  if (done.length === 0) {
+  if (contents.length === 0) {
     return (
-      <p className="font-hand text-lg text-ink/45">
-        nothing stamped yet. tick something off when you&apos;re ready.
-      </p>
+      <div className="flex h-full flex-col items-center justify-center px-4 text-center">
+        <div className="memory-empty-polaroid bg-white p-2 pb-10 shadow-[1px_2px_6px_rgba(44,42,38,0.1)]">
+          <div className="aspect-[4/5] w-40 border border-dashed border-ink/15 bg-paper-shadow/20" />
+        </div>
+        <p className="mt-6 font-hand text-lg text-ink/45">
+          nothing here yet. go and do something.
+        </p>
+      </div>
     )
   }
 
+  const showNav = contents.length > 1
+
   return (
-    <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto pb-6">
-      {userDone.length > 0 && (
-        <section className="grid grid-cols-2 gap-3">
-          {userDone.map((item, i) => (
-            <UserMemoryPolaroid key={item.id} item={item} index={i} />
-          ))}
-        </section>
+    <div className="relative flex h-full min-h-0 flex-col">
+      {activeList && (
+        <h2
+          className="mb-3 shrink-0 font-serif text-2xl font-medium text-ink lg:text-3xl"
+          style={{ transform: 'rotate(-0.3deg)' }}
+        >
+          <span className="mr-2" aria-hidden>
+            {listEmoji(activeList)}
+          </span>
+          {activeList.title}
+        </h2>
       )}
-      {seededDone.length > 0 && (
-        <section className="flex flex-wrap gap-2 pt-2">
-          {seededDone.map((item) => (
-            <SeededMemoryStamp key={item.id} item={item} />
-          ))}
-        </section>
-      )}
+
+      <div className="relative min-h-0 flex-1 overflow-hidden">
+        <div className="wishes-scroll h-full pb-14" style={chapterStyle}>
+          {done.length === 0 ? (
+            <p className="font-hand text-base text-ink/45">
+              no memories in this chapter yet.
+            </p>
+          ) : (
+            <ScrapCollage className="flex flex-wrap items-start">
+              {done.map((item, index) => (
+                <MemoryPolaroid
+                  key={item.id}
+                  item={item}
+                  index={index}
+                  onOpen={() => openMemory(item)}
+                />
+              ))}
+            </ScrapCollage>
+          )}
+        </div>
+
+        {showNav && activeChapterId && (
+          <>
+            <PageCurl
+              direction="prev"
+              label="Previous chapter"
+              onClick={() => {
+                const id = adjacentChapterId(contents, activeChapterId, 'prev')
+                if (id) goToChapter(id)
+              }}
+            />
+            <PageCurl
+              direction="next"
+              label="Next chapter"
+              onClick={() => {
+                const id = adjacentChapterId(contents, activeChapterId, 'next')
+                if (id) goToChapter(id)
+              }}
+            />
+          </>
+        )}
+
+        {selectedItem && (
+          <MemoryDetailSheet item={selectedItem} onClose={closeMemory} />
+        )}
+      </div>
     </div>
   )
 }
 
-function UserMemoryPolaroid({ item, index }: { item: ListItemView; index: number }) {
-  const date = item.completed_at
-    ? new Date(item.completed_at).toLocaleDateString('en-GB', {
-        day: 'numeric',
-        month: 'short',
-        year: 'numeric',
-      })
-    : ''
+function MemoryPolaroid({
+  item,
+  index,
+  onOpen,
+}: {
+  item: ListItemView
+  index: number
+  onOpen: () => void
+}) {
+  const offset = denseOffset(index, item.id)
+  const hasPhoto = Boolean(item.completion_photo_url)
+  const accent = CATEGORY_ACCENTS[item.category]
+  const stampDate = formatDoneStampDate(item.completed_at!)
+  const captionDate = formatCaptionDate(item.completed_at!)
+  const tapeSide = index % 3 === 0 ? 'top-left' : index % 3 === 1 ? 'top-right' : 'top-center'
 
   return (
-    <Scrap
-      id={`memory-${item.id}`}
-      index={index}
-      tapePosition={index % 2 === 0 ? 'top-left' : 'top-right'}
-      layout={false}
+    <div
+      className="w-[46%] shrink-0 sm:w-[44%]"
+      style={{
+        marginTop: offset.marginTop,
+        marginLeft: offset.marginLeft,
+        zIndex: 10 + index,
+      }}
     >
-      <div className="p-3">
-        <PolaroidFrame className="w-full" placeholder={!item.completion_photo_url}>
-          {item.completion_photo_url ? (
-            <img
-              src={item.completion_photo_url}
-              alt=""
-              className="h-full w-full object-cover"
-            />
-          ) : item.image_url ? (
-            <img src={item.image_url} alt="" className="h-full w-full object-cover" />
-          ) : null}
-        </PolaroidFrame>
-        <p className="mt-2 font-serif text-sm font-medium text-ink">{item.title}</p>
-        {item.completion_note && (
-          <p className="font-hand text-xs text-ink/55">{item.completion_note}</p>
-        )}
-        <p className="mt-1 font-hand text-xs text-ink/40">{date}</p>
-      </div>
-    </Scrap>
-  )
-}
-
-function SeededMemoryStamp({ item }: { item: ListItemView }) {
-  return (
-    <span
-      className="inline-block border border-stamp/30 px-2 py-0.5 font-hand text-sm text-stamp/80"
-      style={{ transform: 'rotate(-2deg)' }}
-    >
-      {item.title}
-    </span>
+      <button type="button" onClick={onOpen} className="w-full text-left">
+        <Scrap
+          id={`memory-${item.id}`}
+          index={index}
+          tapePosition={tapeSide}
+          layout={false}
+          className="w-full"
+        >
+          <div className="p-2 pb-1">
+            <div className="relative">
+              <PolaroidFrame className="w-full">
+                {hasPhoto ? (
+                  <img
+                    src={item.completion_photo_url!}
+                    alt=""
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <div
+                    className="flex h-full min-h-[100px] w-full flex-col items-center justify-center gap-2 p-3"
+                    style={{ backgroundColor: accent }}
+                  >
+                    <span className="text-2xl" aria-hidden>
+                      {categoryEmoji(item.category)}
+                    </span>
+                    <p className="line-clamp-3 text-center font-serif text-xs font-medium leading-snug text-ink/80">
+                      {item.title}
+                    </p>
+                  </div>
+                )}
+              </PolaroidFrame>
+              <RubberStamp date={stampDate} />
+            </div>
+            <p className="mt-1.5 font-hand text-sm leading-snug text-ink/75">
+              {item.title}
+            </p>
+            <p className="font-hand text-xs text-ink/40">{captionDate}</p>
+          </div>
+        </Scrap>
+      </button>
+    </div>
   )
 }

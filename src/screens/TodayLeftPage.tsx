@@ -1,51 +1,28 @@
-import { useEffect, useState } from 'react'
-import {
-  Chip,
-  CollapsedChips,
-  DateStamp,
-  HandDrawnLabel,
-  WeatherSticker,
-} from '../components/ScrapbookElements'
-import { NostalgiaCard } from '../components/NostalgiaCard'
+import { useMemo, useState } from 'react'
+import { DateStamp, WeatherSticker } from '../components/ScrapbookElements'
+import { PhotoboothPolaroid } from '../components/PhotoboothPolaroid'
+import { MemoryDetailSheet } from '../components/lists/MemoryDetailSheet'
 import { Scrap } from '../components/primitives'
 import { Tape } from '../components/primitives/Tape'
-import { AVAILABILITY_OPTIONS, MOOD_OPTIONS } from '../constants/wishMeta'
 import { useLists } from '../hooks/useLists'
-import { addMonthsISO, getNostalgiaItem } from '../lib/listQueries'
-import { loadTodayPrefs, saveTodayPrefs } from '../lib/todayPrefs'
+import { useWeather } from '../hooks/useWeather'
+import { pickPhotoboothItem } from '../lib/photobooth'
+import { londonDateISO } from '../lib/season'
 import { tapeColorForId, tapeRotation } from '../lib/utils'
+import type { ListItemView } from '../types/database'
 
 export function TodayLeftPage() {
-  const { items, updateItem } = useLists()
-  const prefs = loadTodayPrefs()
-  const [availability, setAvailability] = useState<string | null>(
-    prefs.availability,
-  )
-  const [mood, setMood] = useState<string | null>(prefs.mood)
-  const [chipsExpanded, setChipsExpanded] = useState(false)
-
+  const { items } = useLists()
+  const { weather, loading: weatherLoading } = useWeather()
   const date = new Date()
-  const weekday = date.toLocaleDateString('en-GB', { weekday: 'long' })
-  const nostalgiaItem = getNostalgiaItem(items)
+  const todayISO = londonDateISO(date)
 
-  const timeLabel =
-    AVAILABILITY_OPTIONS.find((o) => o.id === availability)?.label ?? ''
-  const moodLabel = mood ?? null
-  const showCollapsed = availability !== null && !chipsExpanded
+  const photoboothItem = useMemo(
+    () => pickPhotoboothItem(items, todayISO, date),
+    [items, todayISO],
+  )
 
-  useEffect(() => {
-    saveTodayPrefs(availability, mood)
-  }, [availability, mood])
-
-  function handleTimeSelect(id: string) {
-    setAvailability(id)
-    setChipsExpanded(false)
-  }
-
-  function handleMoodSelect(id: string) {
-    setMood(mood === id ? null : id)
-    if (availability) setChipsExpanded(false)
-  }
+  const [detailItem, setDetailItem] = useState<ListItemView | null>(null)
 
   return (
     <div className="relative flex h-full min-h-0 flex-col">
@@ -61,91 +38,49 @@ export function TodayLeftPage() {
       <div className="mb-4 w-fit">
         <Scrap id="weather-scrap" index={0} layout={false} tapePosition="top-right">
           <div className="px-4 py-3">
-            <WeatherSticker temp={11} condition="rain" sunset="20:53" />
+            {weather ? (
+              <WeatherSticker
+                temp={weather.temp}
+                condition={weather.condition}
+                sunset={weather.sunset}
+              />
+            ) : (
+              <p className="font-hand text-base text-ink/35">
+                {weatherLoading ? 'checking the sky…' : 'weather offline'}
+              </p>
+            )}
           </div>
         </Scrap>
       </div>
 
-      <section className="relative z-10 shrink-0 overflow-hidden">
-        <div
-          className="grid transition-[grid-template-rows] duration-300 ease-out"
-          style={{ gridTemplateRows: showCollapsed ? '0fr' : '1fr' }}
-        >
-          <div className="min-h-0 overflow-hidden">
-            <HandDrawnLabel>how much time do you have?</HandDrawnLabel>
-            <div className="mb-2 flex flex-wrap gap-2">
-              {AVAILABILITY_OPTIONS.map((opt, i) => (
-                <Chip
-                  key={opt.id}
-                  index={i}
-                  label={opt.label}
-                  selected={availability === opt.id}
-                  onClick={() => handleTimeSelect(opt.id)}
-                />
-              ))}
-            </div>
-            <HandDrawnLabel>and how are you feeling? (optional)</HandDrawnLabel>
-            <div className="flex flex-wrap gap-2 pb-1">
-              {MOOD_OPTIONS.map((opt, i) => (
-                <Chip
-                  key={opt}
-                  index={i + 10}
-                  label={opt}
-                  selected={mood === opt}
-                  onClick={() => handleMoodSelect(opt)}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+      {photoboothItem && (
+        <PhotoboothPolaroid
+          item={photoboothItem}
+          onOpen={() => setDetailItem(photoboothItem)}
+        />
+      )}
 
-        <div
-          className="grid transition-[grid-template-rows] duration-300 ease-out"
-          style={{ gridTemplateRows: showCollapsed ? '1fr' : '0fr' }}
-        >
-          <div className="min-h-0 overflow-hidden">
-            <CollapsedChips
-              timeLabel={timeLabel}
-              moodLabel={moodLabel}
-              onEdit={() => setChipsExpanded(true)}
-            />
-          </div>
-        </div>
-      </section>
-
-      {nostalgiaItem && (
-        <NostalgiaCard
-          item={nostalgiaItem}
-          onYes={() =>
-            updateItem(
-              nostalgiaItem.id,
-              { snoozed_until: null, last_surfaced_at: null },
-              false,
-            )
-          }
-          onNotNow={() =>
-            updateItem(
-              nostalgiaItem.id,
-              { snoozed_until: addMonthsISO(1) },
-              false,
-            )
-          }
-          onNeverMind={() =>
-            updateItem(
-              nostalgiaItem.id,
-              { snoozed_until: addMonthsISO(12) },
-              false,
-            )
-          }
+      {detailItem && (
+        <MemoryDetailSheet
+          item={detailItem}
+          onClose={() => setDetailItem(null)}
+          backLabel="back to today"
         />
       )}
 
       <div
-        className="pointer-events-none absolute bottom-6 left-2 select-none font-hand text-[clamp(4rem,12vw,7rem)] leading-none text-ink/[0.045]"
-        style={{ transform: 'rotate(-4deg)' }}
+        className="pointer-events-none absolute bottom-10 right-6 select-none opacity-[0.08]"
+        style={{ transform: 'rotate(12deg)' }}
         aria-hidden
       >
-        {weekday}
+        <div
+          className="h-16 w-16 rounded-full border-2 border-ink"
+          style={{
+            borderRadius: '48% 52% 50% 50% / 52% 48% 52% 48%',
+          }}
+        />
+        <div className="absolute left-1/2 top-1/2 h-8 w-px -translate-x-1/2 -translate-y-1/2 bg-ink" />
+        <div className="absolute left-1/2 top-1/2 h-px w-8 -translate-x-1/2 -translate-y-1/2 bg-ink" />
       </div>
     </div>
   )

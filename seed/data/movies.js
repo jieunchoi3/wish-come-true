@@ -1,0 +1,2215 @@
+const BASE = {
+  "time_needed": "few_hours",
+  "cost": "free",
+  "company": "any",
+  "setting": "home",
+  "seasons": [
+    "any"
+  ],
+  "topic_tags": [
+    "film"
+  ]
+}
+
+export const MOVIES = [
+  {
+    "key": "citizen-kane-1941",
+    "title": "Citizen Kane",
+    "subtitle": "1941 · Orson Welles",
+    "meta": {
+      "year": 1941,
+      "director": "Orson Welles"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 1
+  },
+  {
+    "key": "casablanca-1942",
+    "title": "Casablanca",
+    "subtitle": "1942 · Michael Curtiz",
+    "meta": {
+      "year": 1942,
+      "director": "Michael Curtiz"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 2
+  },
+  {
+    "key": "the-godfather-1972",
+    "title": "The Godfather",
+    "subtitle": "1972 · Francis Ford Coppola",
+    "meta": {
+      "year": 1972,
+      "director": "Francis Ford Coppola"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 3
+  },
+  {
+    "key": "the-godfather-part-ii-1974",
+    "title": "The Godfather Part II",
+    "subtitle": "1974 · Francis Ford Coppola",
+    "meta": {
+      "year": 1974,
+      "director": "Francis Ford Coppola"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 4
+  },
+  {
+    "key": "singin-in-the-rain-1952",
+    "title": "Singin' in the Rain",
+    "subtitle": "1952 · Gene Kelly",
+    "meta": {
+      "year": 1952,
+      "director": "Gene Kelly"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 5
+  },
+  {
+    "key": "schindler-s-list-1993",
+    "title": "Schindler's List",
+    "subtitle": "1993 · Steven Spielberg",
+    "meta": {
+      "year": 1993,
+      "director": "Steven Spielberg"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 6
+  },
+  {
+    "key": "vertigo-1958",
+    "title": "Vertigo",
+    "subtitle": "1958 · Alfred Hitchcock",
+    "meta": {
+      "year": 1958,
+      "director": "Alfred Hitchcock"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 7
+  },
+  {
+    "key": "psycho-1960",
+    "title": "Psycho",
+    "subtitle": "1960 · Alfred Hitchcock",
+    "meta": {
+      "year": 1960,
+      "director": "Alfred Hitchcock"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 8
+  },
+  {
+    "key": "sunset-boulevard-1950",
+    "title": "Sunset Boulevard",
+    "subtitle": "1950 · Billy Wilder",
+    "meta": {
+      "year": 1950,
+      "director": "Billy Wilder"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 9
+  },
+  {
+    "key": "lawrence-of-arabia-1962",
+    "title": "Lawrence of Arabia",
+    "subtitle": "1962 · David Lean",
+    "meta": {
+      "year": 1962,
+      "director": "David Lean"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 10
+  },
+  {
+    "key": "the-wizard-of-oz-1939",
+    "title": "The Wizard of Oz",
+    "subtitle": "1939 · Victor Fleming",
+    "meta": {
+      "year": 1939,
+      "director": "Victor Fleming"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 11
+  },
+  {
+    "key": "the-searchers-1956",
+    "title": "The Searchers",
+    "subtitle": "1956 · John Ford",
+    "meta": {
+      "year": 1956,
+      "director": "John Ford"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 12
+  },
+  {
+    "key": "2001-a-space-odyssey-1968",
+    "title": "2001: A Space Odyssey",
+    "subtitle": "1968 · Stanley Kubrick",
+    "meta": {
+      "year": 1968,
+      "director": "Stanley Kubrick"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 13
+  },
+  {
+    "key": "apocalypse-now-1979",
+    "title": "Apocalypse Now",
+    "subtitle": "1979 · Francis Ford Coppola",
+    "meta": {
+      "year": 1979,
+      "director": "Francis Ford Coppola"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 14
+  },
+  {
+    "key": "raging-bull-1980",
+    "title": "Raging Bull",
+    "subtitle": "1980 · Martin Scorsese",
+    "meta": {
+      "year": 1980,
+      "director": "Martin Scorsese"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 15
+  },
+  {
+    "key": "tokyo-story-1953",
+    "title": "Tokyo Story",
+    "subtitle": "1953 · Yasujiro Ozu",
+    "meta": {
+      "year": 1953,
+      "director": "Yasujiro Ozu"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 16
+  },
+  {
+    "key": "city-lights-1931",
+    "title": "City Lights",
+    "subtitle": "1931 · Charlie Chaplin",
+    "meta": {
+      "year": 1931,
+      "director": "Charlie Chaplin"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 17
+  },
+  {
+    "key": "the-general-1926",
+    "title": "The General",
+    "subtitle": "1926 · Buster Keaton",
+    "meta": {
+      "year": 1926,
+      "director": "Buster Keaton"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 18
+  },
+  {
+    "key": "some-like-it-hot-1959",
+    "title": "Some Like It Hot",
+    "subtitle": "1959 · Billy Wilder",
+    "meta": {
+      "year": 1959,
+      "director": "Billy Wilder"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 19
+  },
+  {
+    "key": "the-shawshank-redemption-1994",
+    "title": "The Shawshank Redemption",
+    "subtitle": "1994 · Frank Darabont",
+    "meta": {
+      "year": 1994,
+      "director": "Frank Darabont"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 20
+  },
+  {
+    "key": "pulp-fiction-1994",
+    "title": "Pulp Fiction",
+    "subtitle": "1994 · Quentin Tarantino",
+    "meta": {
+      "year": 1994,
+      "director": "Quentin Tarantino"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 21
+  },
+  {
+    "key": "goodfellas-1990",
+    "title": "Goodfellas",
+    "subtitle": "1990 · Martin Scorsese",
+    "meta": {
+      "year": 1990,
+      "director": "Martin Scorsese"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 22
+  },
+  {
+    "key": "the-dark-knight-2008",
+    "title": "The Dark Knight",
+    "subtitle": "2008 · Christopher Nolan",
+    "meta": {
+      "year": 2008,
+      "director": "Christopher Nolan"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 23
+  },
+  {
+    "key": "inception-2010",
+    "title": "Inception",
+    "subtitle": "2010 · Christopher Nolan",
+    "meta": {
+      "year": 2010,
+      "director": "Christopher Nolan"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 24
+  },
+  {
+    "key": "parasite-2019",
+    "title": "Parasite",
+    "subtitle": "2019 · Bong Joon-ho",
+    "meta": {
+      "year": 2019,
+      "director": "Bong Joon-ho"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 25
+  },
+  {
+    "key": "spirited-away-2001",
+    "title": "Spirited Away",
+    "subtitle": "2001 · Hayao Miyazaki",
+    "meta": {
+      "year": 2001,
+      "director": "Hayao Miyazaki"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 26
+  },
+  {
+    "key": "seven-samurai-1954",
+    "title": "Seven Samurai",
+    "subtitle": "1954 · Akira Kurosawa",
+    "meta": {
+      "year": 1954,
+      "director": "Akira Kurosawa"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 27
+  },
+  {
+    "key": "rashomon-1950",
+    "title": "Rashomon",
+    "subtitle": "1950 · Akira Kurosawa",
+    "meta": {
+      "year": 1950,
+      "director": "Akira Kurosawa"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 28
+  },
+  {
+    "key": "yojimbo-1961",
+    "title": "Yojimbo",
+    "subtitle": "1961 · Akira Kurosawa",
+    "meta": {
+      "year": 1961,
+      "director": "Akira Kurosawa"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 29
+  },
+  {
+    "key": "ikiru-1952",
+    "title": "Ikiru",
+    "subtitle": "1952 · Akira Kurosawa",
+    "meta": {
+      "year": 1952,
+      "director": "Akira Kurosawa"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 30
+  },
+  {
+    "key": "la-dolce-vita-1960",
+    "title": "La Dolce Vita",
+    "subtitle": "1960 · Federico Fellini",
+    "meta": {
+      "year": 1960,
+      "director": "Federico Fellini"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 31
+  },
+  {
+    "key": "8-1963",
+    "title": "8½",
+    "subtitle": "1963 · Federico Fellini",
+    "meta": {
+      "year": 1963,
+      "director": "Federico Fellini"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 32
+  },
+  {
+    "key": "bicycle-thieves-1948",
+    "title": "Bicycle Thieves",
+    "subtitle": "1948 · Vittorio De Sica",
+    "meta": {
+      "year": 1948,
+      "director": "Vittorio De Sica"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 33
+  },
+  {
+    "key": "the-400-blows-1959",
+    "title": "The 400 Blows",
+    "subtitle": "1959 · François Truffaut",
+    "meta": {
+      "year": 1959,
+      "director": "François Truffaut"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 34
+  },
+  {
+    "key": "breathless-1960",
+    "title": "Breathless",
+    "subtitle": "1960 · Jean-Luc Godard",
+    "meta": {
+      "year": 1960,
+      "director": "Jean-Luc Godard"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 35
+  },
+  {
+    "key": "am-lie-2001",
+    "title": "Amélie",
+    "subtitle": "2001 · Jean-Pierre Jeunet",
+    "meta": {
+      "year": 2001,
+      "director": "Jean-Pierre Jeunet"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 36
+  },
+  {
+    "key": "the-rules-of-the-game-1939",
+    "title": "The Rules of the Game",
+    "subtitle": "1939 · Jean Renoir",
+    "meta": {
+      "year": 1939,
+      "director": "Jean Renoir"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 37
+  },
+  {
+    "key": "children-of-paradise-1945",
+    "title": "Children of Paradise",
+    "subtitle": "1945 · Marcel Carné",
+    "meta": {
+      "year": 1945,
+      "director": "Marcel Carné"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 38
+  },
+  {
+    "key": "metropolis-1927",
+    "title": "Metropolis",
+    "subtitle": "1927 · Fritz Lang",
+    "meta": {
+      "year": 1927,
+      "director": "Fritz Lang"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 39
+  },
+  {
+    "key": "m-1931",
+    "title": "M",
+    "subtitle": "1931 · Fritz Lang",
+    "meta": {
+      "year": 1931,
+      "director": "Fritz Lang"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 40
+  },
+  {
+    "key": "das-boot-1981",
+    "title": "Das Boot",
+    "subtitle": "1981 · Wolfgang Petersen",
+    "meta": {
+      "year": 1981,
+      "director": "Wolfgang Petersen"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 41
+  },
+  {
+    "key": "run-lola-run-1998",
+    "title": "Run Lola Run",
+    "subtitle": "1998 · Tom Tykwer",
+    "meta": {
+      "year": 1998,
+      "director": "Tom Tykwer"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 42
+  },
+  {
+    "key": "pan-s-labyrinth-2006",
+    "title": "Pan's Labyrinth",
+    "subtitle": "2006 · Guillermo del Toro",
+    "meta": {
+      "year": 2006,
+      "director": "Guillermo del Toro"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 43
+  },
+  {
+    "key": "all-about-my-mother-1999",
+    "title": "All About My Mother",
+    "subtitle": "1999 · Pedro Almodóvar",
+    "meta": {
+      "year": 1999,
+      "director": "Pedro Almodóvar"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 44
+  },
+  {
+    "key": "talk-to-her-2002",
+    "title": "Talk to Her",
+    "subtitle": "2002 · Pedro Almodóvar",
+    "meta": {
+      "year": 2002,
+      "director": "Pedro Almodóvar"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 45
+  },
+  {
+    "key": "amores-perros-2000",
+    "title": "Amores Perros",
+    "subtitle": "2000 · Alejandro González Iñárritu",
+    "meta": {
+      "year": 2000,
+      "director": "Alejandro González Iñárritu"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 46
+  },
+  {
+    "key": "city-of-god-2002",
+    "title": "City of God",
+    "subtitle": "2002 · Fernando Meirelles",
+    "meta": {
+      "year": 2002,
+      "director": "Fernando Meirelles"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 47
+  },
+  {
+    "key": "central-station-1998",
+    "title": "Central Station",
+    "subtitle": "1998 · Walter Salles",
+    "meta": {
+      "year": 1998,
+      "director": "Walter Salles"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 48
+  },
+  {
+    "key": "oldboy-2003",
+    "title": "Oldboy",
+    "subtitle": "2003 · Park Chan-wook",
+    "meta": {
+      "year": 2003,
+      "director": "Park Chan-wook"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 49
+  },
+  {
+    "key": "in-the-mood-for-love-2000",
+    "title": "In the Mood for Love",
+    "subtitle": "2000 · Wong Kar-wai",
+    "meta": {
+      "year": 2000,
+      "director": "Wong Kar-wai"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 50
+  },
+  {
+    "key": "chungking-express-1994",
+    "title": "Chungking Express",
+    "subtitle": "1994 · Wong Kar-wai",
+    "meta": {
+      "year": 1994,
+      "director": "Wong Kar-wai"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 51
+  },
+  {
+    "key": "crouching-tiger-hidden-dragon-2000",
+    "title": "Crouching Tiger, Hidden Dragon",
+    "subtitle": "2000 · Ang Lee",
+    "meta": {
+      "year": 2000,
+      "director": "Ang Lee"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 52
+  },
+  {
+    "key": "farewell-my-concubine-1993",
+    "title": "Farewell My Concubine",
+    "subtitle": "1993 · Chen Kaige",
+    "meta": {
+      "year": 1993,
+      "director": "Chen Kaige"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 53
+  },
+  {
+    "key": "raise-the-red-lantern-1991",
+    "title": "Raise the Red Lantern",
+    "subtitle": "1991 · Zhang Yimou",
+    "meta": {
+      "year": 1991,
+      "director": "Zhang Yimou"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 54
+  },
+  {
+    "key": "the-battle-of-algiers-1966",
+    "title": "The Battle of Algiers",
+    "subtitle": "1966 · Gillo Pontecorvo",
+    "meta": {
+      "year": 1966,
+      "director": "Gillo Pontecorvo"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 55
+  },
+  {
+    "key": "a-separation-2011",
+    "title": "A Separation",
+    "subtitle": "2011 · Asghar Farhadi",
+    "meta": {
+      "year": 2011,
+      "director": "Asghar Farhadi"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 56
+  },
+  {
+    "key": "close-up-1990",
+    "title": "Close-Up",
+    "subtitle": "1990 · Abbas Kiarostami",
+    "meta": {
+      "year": 1990,
+      "director": "Abbas Kiarostami"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 57
+  },
+  {
+    "key": "the-lives-of-others-2006",
+    "title": "The Lives of Others",
+    "subtitle": "2006 · Florian Henckel von Donnersmarck",
+    "meta": {
+      "year": 2006,
+      "director": "Florian Henckel von Donnersmarck"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 58
+  },
+  {
+    "key": "the-piano-1993",
+    "title": "The Piano",
+    "subtitle": "1993 · Jane Campion",
+    "meta": {
+      "year": 1993,
+      "director": "Jane Campion"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 59
+  },
+  {
+    "key": "once-were-warriors-1994",
+    "title": "Once Were Warriors",
+    "subtitle": "1994 · Lee Tamahori",
+    "meta": {
+      "year": 1994,
+      "director": "Lee Tamahori"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 60
+  },
+  {
+    "key": "whale-rider-2002",
+    "title": "Whale Rider",
+    "subtitle": "2002 · Niki Caro",
+    "meta": {
+      "year": 2002,
+      "director": "Niki Caro"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 61
+  },
+  {
+    "key": "the-piano-teacher-2001",
+    "title": "The Piano Teacher",
+    "subtitle": "2001 · Michael Haneke",
+    "meta": {
+      "year": 2001,
+      "director": "Michael Haneke"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 62
+  },
+  {
+    "key": "amour-2012",
+    "title": "Amour",
+    "subtitle": "2012 · Michael Haneke",
+    "meta": {
+      "year": 2012,
+      "director": "Michael Haneke"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 63
+  },
+  {
+    "key": "the-seventh-seal-1957",
+    "title": "The Seventh Seal",
+    "subtitle": "1957 · Ingmar Bergman",
+    "meta": {
+      "year": 1957,
+      "director": "Ingmar Bergman"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 64
+  },
+  {
+    "key": "persona-1966",
+    "title": "Persona",
+    "subtitle": "1966 · Ingmar Bergman",
+    "meta": {
+      "year": 1966,
+      "director": "Ingmar Bergman"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 65
+  },
+  {
+    "key": "wild-strawberries-1957",
+    "title": "Wild Strawberries",
+    "subtitle": "1957 · Ingmar Bergman",
+    "meta": {
+      "year": 1957,
+      "director": "Ingmar Bergman"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 66
+  },
+  {
+    "key": "fanny-and-alexander-1982",
+    "title": "Fanny and Alexander",
+    "subtitle": "1982 · Ingmar Bergman",
+    "meta": {
+      "year": 1982,
+      "director": "Ingmar Bergman"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 67
+  },
+  {
+    "key": "the-sacrifice-1986",
+    "title": "The Sacrifice",
+    "subtitle": "1986 · Andrei Tarkovsky",
+    "meta": {
+      "year": 1986,
+      "director": "Andrei Tarkovsky"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 68
+  },
+  {
+    "key": "stalker-1979",
+    "title": "Stalker",
+    "subtitle": "1979 · Andrei Tarkovsky",
+    "meta": {
+      "year": 1979,
+      "director": "Andrei Tarkovsky"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 69
+  },
+  {
+    "key": "solaris-1972",
+    "title": "Solaris",
+    "subtitle": "1972 · Andrei Tarkovsky",
+    "meta": {
+      "year": 1972,
+      "director": "Andrei Tarkovsky"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 70
+  },
+  {
+    "key": "mirror-1975",
+    "title": "Mirror",
+    "subtitle": "1975 · Andrei Tarkovsky",
+    "meta": {
+      "year": 1975,
+      "director": "Andrei Tarkovsky"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 71
+  },
+  {
+    "key": "come-and-see-1985",
+    "title": "Come and See",
+    "subtitle": "1985 · Elem Klimov",
+    "meta": {
+      "year": 1985,
+      "director": "Elem Klimov"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 72
+  },
+  {
+    "key": "grave-of-the-fireflies-1988",
+    "title": "Grave of the Fireflies",
+    "subtitle": "1988 · Isao Takahata",
+    "meta": {
+      "year": 1988,
+      "director": "Isao Takahata"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 73
+  },
+  {
+    "key": "my-neighbor-totoro-1988",
+    "title": "My Neighbor Totoro",
+    "subtitle": "1988 · Hayao Miyazaki",
+    "meta": {
+      "year": 1988,
+      "director": "Hayao Miyazaki"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 74
+  },
+  {
+    "key": "princess-mononoke-1997",
+    "title": "Princess Mononoke",
+    "subtitle": "1997 · Hayao Miyazaki",
+    "meta": {
+      "year": 1997,
+      "director": "Hayao Miyazaki"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 75
+  },
+  {
+    "key": "howl-s-moving-castle-2004",
+    "title": "Howl's Moving Castle",
+    "subtitle": "2004 · Hayao Miyazaki",
+    "meta": {
+      "year": 2004,
+      "director": "Hayao Miyazaki"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 76
+  },
+  {
+    "key": "perfect-blue-1997",
+    "title": "Perfect Blue",
+    "subtitle": "1997 · Satoshi Kon",
+    "meta": {
+      "year": 1997,
+      "director": "Satoshi Kon"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 77
+  },
+  {
+    "key": "akira-1988",
+    "title": "Akira",
+    "subtitle": "1988 · Katsuhiro Otomo",
+    "meta": {
+      "year": 1988,
+      "director": "Katsuhiro Otomo"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 78
+  },
+  {
+    "key": "ghost-in-the-shell-1995",
+    "title": "Ghost in the Shell",
+    "subtitle": "1995 · Mamoru Oshii",
+    "meta": {
+      "year": 1995,
+      "director": "Mamoru Oshii"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 79
+  },
+  {
+    "key": "your-name-2016",
+    "title": "Your Name",
+    "subtitle": "2016 · Makoto Shinkai",
+    "meta": {
+      "year": 2016,
+      "director": "Makoto Shinkai"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 80
+  },
+  {
+    "key": "the-matrix-1999",
+    "title": "The Matrix",
+    "subtitle": "1999 · The Wachowskis",
+    "meta": {
+      "year": 1999,
+      "director": "The Wachowskis"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 81
+  },
+  {
+    "key": "blade-runner-1982",
+    "title": "Blade Runner",
+    "subtitle": "1982 · Ridley Scott",
+    "meta": {
+      "year": 1982,
+      "director": "Ridley Scott"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 82
+  },
+  {
+    "key": "alien-1979",
+    "title": "Alien",
+    "subtitle": "1979 · Ridley Scott",
+    "meta": {
+      "year": 1979,
+      "director": "Ridley Scott"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 83
+  },
+  {
+    "key": "mad-max-fury-road-2015",
+    "title": "Mad Max: Fury Road",
+    "subtitle": "2015 · George Miller",
+    "meta": {
+      "year": 2015,
+      "director": "George Miller"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 84
+  },
+  {
+    "key": "terminator-2-1991",
+    "title": "Terminator 2",
+    "subtitle": "1991 · James Cameron",
+    "meta": {
+      "year": 1991,
+      "director": "James Cameron"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 85
+  },
+  {
+    "key": "titanic-1997",
+    "title": "Titanic",
+    "subtitle": "1997 · James Cameron",
+    "meta": {
+      "year": 1997,
+      "director": "James Cameron"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 86
+  },
+  {
+    "key": "e-t-1982",
+    "title": "E.T.",
+    "subtitle": "1982 · Steven Spielberg",
+    "meta": {
+      "year": 1982,
+      "director": "Steven Spielberg"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 87
+  },
+  {
+    "key": "jaws-1975",
+    "title": "Jaws",
+    "subtitle": "1975 · Steven Spielberg",
+    "meta": {
+      "year": 1975,
+      "director": "Steven Spielberg"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 88
+  },
+  {
+    "key": "close-encounters-1977",
+    "title": "Close Encounters",
+    "subtitle": "1977 · Steven Spielberg",
+    "meta": {
+      "year": 1977,
+      "director": "Steven Spielberg"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 89
+  },
+  {
+    "key": "raiders-of-the-lost-ark-1981",
+    "title": "Raiders of the Lost Ark",
+    "subtitle": "1981 · Steven Spielberg",
+    "meta": {
+      "year": 1981,
+      "director": "Steven Spielberg"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 90
+  },
+  {
+    "key": "jurassic-park-1993",
+    "title": "Jurassic Park",
+    "subtitle": "1993 · Steven Spielberg",
+    "meta": {
+      "year": 1993,
+      "director": "Steven Spielberg"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 91
+  },
+  {
+    "key": "saving-private-ryan-1998",
+    "title": "Saving Private Ryan",
+    "subtitle": "1998 · Steven Spielberg",
+    "meta": {
+      "year": 1998,
+      "director": "Steven Spielberg"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 92
+  },
+  {
+    "key": "the-shining-1980",
+    "title": "The Shining",
+    "subtitle": "1980 · Stanley Kubrick",
+    "meta": {
+      "year": 1980,
+      "director": "Stanley Kubrick"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 93
+  },
+  {
+    "key": "a-clockwork-orange-1971",
+    "title": "A Clockwork Orange",
+    "subtitle": "1971 · Stanley Kubrick",
+    "meta": {
+      "year": 1971,
+      "director": "Stanley Kubrick"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 94
+  },
+  {
+    "key": "dr-strangelove-1964",
+    "title": "Dr. Strangelove",
+    "subtitle": "1964 · Stanley Kubrick",
+    "meta": {
+      "year": 1964,
+      "director": "Stanley Kubrick"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 95
+  },
+  {
+    "key": "full-metal-jacket-1987",
+    "title": "Full Metal Jacket",
+    "subtitle": "1987 · Stanley Kubrick",
+    "meta": {
+      "year": 1987,
+      "director": "Stanley Kubrick"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 96
+  },
+  {
+    "key": "barry-lyndon-1975",
+    "title": "Barry Lyndon",
+    "subtitle": "1975 · Stanley Kubrick",
+    "meta": {
+      "year": 1975,
+      "director": "Stanley Kubrick"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 97
+  },
+  {
+    "key": "paths-of-glory-1957",
+    "title": "Paths of Glory",
+    "subtitle": "1957 · Stanley Kubrick",
+    "meta": {
+      "year": 1957,
+      "director": "Stanley Kubrick"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 98
+  },
+  {
+    "key": "taxi-driver-1976",
+    "title": "Taxi Driver",
+    "subtitle": "1976 · Martin Scorsese",
+    "meta": {
+      "year": 1976,
+      "director": "Martin Scorsese"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 99
+  },
+  {
+    "key": "the-departed-2006",
+    "title": "The Departed",
+    "subtitle": "2006 · Martin Scorsese",
+    "meta": {
+      "year": 2006,
+      "director": "Martin Scorsese"
+    },
+    "default_tags": {
+      "time_needed": "few_hours",
+      "cost": "free",
+      "company": "any",
+      "setting": "home",
+      "seasons": [
+        "any"
+      ],
+      "topic_tags": [
+        "film"
+      ]
+    },
+    "sort_order": 100
+  }
+]

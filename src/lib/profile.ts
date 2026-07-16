@@ -5,6 +5,7 @@ interface ProfileMemory {
   lockCode: string | null
   displayName: string | null
   onboardingDone: boolean
+  createdAt: string | null
 }
 
 let memory: ProfileMemory | null = null
@@ -20,6 +21,10 @@ export function getCachedDisplayName(): string | null {
 
 export function isOnboardingDone(): boolean {
   return memory?.onboardingDone ?? false
+}
+
+export function getCachedProfileCreatedAt(): string | null {
+  return memory?.createdAt ?? null
 }
 
 export function hasCachedProfile(): boolean {
@@ -40,7 +45,7 @@ export async function loadProfileFromSupabase(userId: string): Promise<void> {
 
   const { data } = await supabase
     .from(TABLES.profiles)
-    .select('lock_code, display_name, onboarding_done')
+    .select('lock_code, display_name, onboarding_done, created_at')
     .eq('id', userId)
     .maybeSingle()
 
@@ -48,6 +53,7 @@ export async function loadProfileFromSupabase(userId: string): Promise<void> {
     lockCode: data?.lock_code ?? null,
     displayName: data?.display_name ?? null,
     onboardingDone: data?.onboarding_done ?? false,
+    createdAt: data?.created_at ?? null,
   }
 }
 
@@ -71,5 +77,6 @@ export function cacheProfileMeta(opts: {
     lockCode: opts.lockCode,
     displayName: opts.displayName ?? memory?.displayName ?? null,
     onboardingDone: memory?.onboardingDone ?? false,
+    createdAt: memory?.createdAt ?? null,
   }
 }

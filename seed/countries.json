@@ -1,0 +1,4311 @@
+{
+  "slug": "countries",
+  "title": "195 Countries",
+  "description": "Every nation on earth — a lifetime of horizons.",
+  "emoji": "✈️",
+  "cover_style": "sage-mist",
+  "default_tags": {
+    "time_needed": "trip",
+    "cost": "splurge",
+    "company": "any",
+    "setting": "travel",
+    "seasons": [
+      "any"
+    ],
+    "topic_tags": [
+      "travel"
+    ]
+  },
+  "items": [
+    {
+      "key": "algeria",
+      "title": "Algeria",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "angola",
+      "title": "Angola",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "benin",
+      "title": "Benin",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "botswana",
+      "title": "Botswana",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "burkina-faso",
+      "title": "Burkina Faso",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "burundi",
+      "title": "Burundi",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "cabo-verde",
+      "title": "Cabo Verde",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "cameroon",
+      "title": "Cameroon",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "central-african-republic",
+      "title": "Central African Republic",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "chad",
+      "title": "Chad",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "comoros",
+      "title": "Comoros",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "congo",
+      "title": "Congo",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "democratic-republic-of-the-congo",
+      "title": "Democratic Republic of the Congo",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "djibouti",
+      "title": "Djibouti",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "egypt",
+      "title": "Egypt",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 15
+    },
+    {
+      "key": "equatorial-guinea",
+      "title": "Equatorial Guinea",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 16
+    },
+    {
+      "key": "eritrea",
+      "title": "Eritrea",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 17
+    },
+    {
+      "key": "eswatini",
+      "title": "Eswatini",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 18
+    },
+    {
+      "key": "ethiopia",
+      "title": "Ethiopia",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 19
+    },
+    {
+      "key": "gabon",
+      "title": "Gabon",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 20
+    },
+    {
+      "key": "gambia",
+      "title": "Gambia",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 21
+    },
+    {
+      "key": "ghana",
+      "title": "Ghana",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 22
+    },
+    {
+      "key": "guinea",
+      "title": "Guinea",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 23
+    },
+    {
+      "key": "guinea-bissau",
+      "title": "Guinea-Bissau",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 24
+    },
+    {
+      "key": "ivory-coast",
+      "title": "Ivory Coast",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 25
+    },
+    {
+      "key": "kenya",
+      "title": "Kenya",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 26
+    },
+    {
+      "key": "lesotho",
+      "title": "Lesotho",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 27
+    },
+    {
+      "key": "liberia",
+      "title": "Liberia",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 28
+    },
+    {
+      "key": "libya",
+      "title": "Libya",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 29
+    },
+    {
+      "key": "madagascar",
+      "title": "Madagascar",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 30
+    },
+    {
+      "key": "malawi",
+      "title": "Malawi",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 31
+    },
+    {
+      "key": "mali",
+      "title": "Mali",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 32
+    },
+    {
+      "key": "mauritania",
+      "title": "Mauritania",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 33
+    },
+    {
+      "key": "mauritius",
+      "title": "Mauritius",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 34
+    },
+    {
+      "key": "morocco",
+      "title": "Morocco",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 35
+    },
+    {
+      "key": "mozambique",
+      "title": "Mozambique",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 36
+    },
+    {
+      "key": "namibia",
+      "title": "Namibia",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 37
+    },
+    {
+      "key": "niger",
+      "title": "Niger",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 38
+    },
+    {
+      "key": "nigeria",
+      "title": "Nigeria",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 39
+    },
+    {
+      "key": "rwanda",
+      "title": "Rwanda",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 40
+    },
+    {
+      "key": "sao-tome-and-principe",
+      "title": "Sao Tome and Principe",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 41
+    },
+    {
+      "key": "senegal",
+      "title": "Senegal",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 42
+    },
+    {
+      "key": "seychelles",
+      "title": "Seychelles",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 43
+    },
+    {
+      "key": "sierra-leone",
+      "title": "Sierra Leone",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 44
+    },
+    {
+      "key": "somalia",
+      "title": "Somalia",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 45
+    },
+    {
+      "key": "south-africa",
+      "title": "South Africa",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 46
+    },
+    {
+      "key": "south-sudan",
+      "title": "South Sudan",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 47
+    },
+    {
+      "key": "sudan",
+      "title": "Sudan",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 48
+    },
+    {
+      "key": "tanzania",
+      "title": "Tanzania",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 49
+    },
+    {
+      "key": "togo",
+      "title": "Togo",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 50
+    },
+    {
+      "key": "tunisia",
+      "title": "Tunisia",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 51
+    },
+    {
+      "key": "uganda",
+      "title": "Uganda",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 52
+    },
+    {
+      "key": "zambia",
+      "title": "Zambia",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 53
+    },
+    {
+      "key": "zimbabwe",
+      "title": "Zimbabwe",
+      "subtitle": "Africa",
+      "meta": {
+        "continent": "Africa",
+        "region": "Africa"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 54
+    },
+    {
+      "key": "afghanistan",
+      "title": "Afghanistan",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 55
+    },
+    {
+      "key": "armenia",
+      "title": "Armenia",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 56
+    },
+    {
+      "key": "azerbaijan",
+      "title": "Azerbaijan",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 57
+    },
+    {
+      "key": "bahrain",
+      "title": "Bahrain",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 58
+    },
+    {
+      "key": "bangladesh",
+      "title": "Bangladesh",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 59
+    },
+    {
+      "key": "bhutan",
+      "title": "Bhutan",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 60
+    },
+    {
+      "key": "brunei",
+      "title": "Brunei",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 61
+    },
+    {
+      "key": "cambodia",
+      "title": "Cambodia",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 62
+    },
+    {
+      "key": "china",
+      "title": "China",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 63
+    },
+    {
+      "key": "cyprus",
+      "title": "Cyprus",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 64
+    },
+    {
+      "key": "georgia",
+      "title": "Georgia",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 65
+    },
+    {
+      "key": "india",
+      "title": "India",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 66
+    },
+    {
+      "key": "indonesia",
+      "title": "Indonesia",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 67
+    },
+    {
+      "key": "iran",
+      "title": "Iran",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 68
+    },
+    {
+      "key": "iraq",
+      "title": "Iraq",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 69
+    },
+    {
+      "key": "israel",
+      "title": "Israel",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 70
+    },
+    {
+      "key": "japan",
+      "title": "Japan",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 71
+    },
+    {
+      "key": "jordan",
+      "title": "Jordan",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 72
+    },
+    {
+      "key": "kazakhstan",
+      "title": "Kazakhstan",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 73
+    },
+    {
+      "key": "kuwait",
+      "title": "Kuwait",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 74
+    },
+    {
+      "key": "kyrgyzstan",
+      "title": "Kyrgyzstan",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 75
+    },
+    {
+      "key": "laos",
+      "title": "Laos",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 76
+    },
+    {
+      "key": "lebanon",
+      "title": "Lebanon",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 77
+    },
+    {
+      "key": "malaysia",
+      "title": "Malaysia",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 78
+    },
+    {
+      "key": "maldives",
+      "title": "Maldives",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 79
+    },
+    {
+      "key": "mongolia",
+      "title": "Mongolia",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 80
+    },
+    {
+      "key": "myanmar",
+      "title": "Myanmar",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 81
+    },
+    {
+      "key": "nepal",
+      "title": "Nepal",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 82
+    },
+    {
+      "key": "north-korea",
+      "title": "North Korea",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 83
+    },
+    {
+      "key": "oman",
+      "title": "Oman",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 84
+    },
+    {
+      "key": "pakistan",
+      "title": "Pakistan",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 85
+    },
+    {
+      "key": "palestine",
+      "title": "Palestine",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 86
+    },
+    {
+      "key": "philippines",
+      "title": "Philippines",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 87
+    },
+    {
+      "key": "qatar",
+      "title": "Qatar",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 88
+    },
+    {
+      "key": "saudi-arabia",
+      "title": "Saudi Arabia",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 89
+    },
+    {
+      "key": "singapore",
+      "title": "Singapore",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 90
+    },
+    {
+      "key": "south-korea",
+      "title": "South Korea",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 91
+    },
+    {
+      "key": "sri-lanka",
+      "title": "Sri Lanka",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 92
+    },
+    {
+      "key": "syria",
+      "title": "Syria",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 93
+    },
+    {
+      "key": "tajikistan",
+      "title": "Tajikistan",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 94
+    },
+    {
+      "key": "thailand",
+      "title": "Thailand",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 95
+    },
+    {
+      "key": "timor-leste",
+      "title": "Timor-Leste",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 96
+    },
+    {
+      "key": "turkey",
+      "title": "Turkey",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 97
+    },
+    {
+      "key": "turkmenistan",
+      "title": "Turkmenistan",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 98
+    },
+    {
+      "key": "united-arab-emirates",
+      "title": "United Arab Emirates",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 99
+    },
+    {
+      "key": "uzbekistan",
+      "title": "Uzbekistan",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 100
+    },
+    {
+      "key": "vietnam",
+      "title": "Vietnam",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 101
+    },
+    {
+      "key": "yemen",
+      "title": "Yemen",
+      "subtitle": "Asia",
+      "meta": {
+        "continent": "Asia",
+        "region": "Asia"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 102
+    },
+    {
+      "key": "albania",
+      "title": "Albania",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 103
+    },
+    {
+      "key": "andorra",
+      "title": "Andorra",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 104
+    },
+    {
+      "key": "austria",
+      "title": "Austria",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 105
+    },
+    {
+      "key": "belarus",
+      "title": "Belarus",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 106
+    },
+    {
+      "key": "belgium",
+      "title": "Belgium",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 107
+    },
+    {
+      "key": "bosnia-and-herzegovina",
+      "title": "Bosnia and Herzegovina",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 108
+    },
+    {
+      "key": "bulgaria",
+      "title": "Bulgaria",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 109
+    },
+    {
+      "key": "croatia",
+      "title": "Croatia",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 110
+    },
+    {
+      "key": "czechia",
+      "title": "Czechia",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 111
+    },
+    {
+      "key": "denmark",
+      "title": "Denmark",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 112
+    },
+    {
+      "key": "estonia",
+      "title": "Estonia",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 113
+    },
+    {
+      "key": "finland",
+      "title": "Finland",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 114
+    },
+    {
+      "key": "france",
+      "title": "France",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 115
+    },
+    {
+      "key": "germany",
+      "title": "Germany",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 116
+    },
+    {
+      "key": "greece",
+      "title": "Greece",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 117
+    },
+    {
+      "key": "hungary",
+      "title": "Hungary",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 118
+    },
+    {
+      "key": "iceland",
+      "title": "Iceland",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 119
+    },
+    {
+      "key": "ireland",
+      "title": "Ireland",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 120
+    },
+    {
+      "key": "italy",
+      "title": "Italy",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 121
+    },
+    {
+      "key": "latvia",
+      "title": "Latvia",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 122
+    },
+    {
+      "key": "liechtenstein",
+      "title": "Liechtenstein",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 123
+    },
+    {
+      "key": "lithuania",
+      "title": "Lithuania",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 124
+    },
+    {
+      "key": "luxembourg",
+      "title": "Luxembourg",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 125
+    },
+    {
+      "key": "malta",
+      "title": "Malta",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 126
+    },
+    {
+      "key": "moldova",
+      "title": "Moldova",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 127
+    },
+    {
+      "key": "monaco",
+      "title": "Monaco",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 128
+    },
+    {
+      "key": "montenegro",
+      "title": "Montenegro",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 129
+    },
+    {
+      "key": "netherlands",
+      "title": "Netherlands",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 130
+    },
+    {
+      "key": "north-macedonia",
+      "title": "North Macedonia",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 131
+    },
+    {
+      "key": "norway",
+      "title": "Norway",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 132
+    },
+    {
+      "key": "poland",
+      "title": "Poland",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 133
+    },
+    {
+      "key": "portugal",
+      "title": "Portugal",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 134
+    },
+    {
+      "key": "romania",
+      "title": "Romania",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 135
+    },
+    {
+      "key": "russia",
+      "title": "Russia",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 136
+    },
+    {
+      "key": "san-marino",
+      "title": "San Marino",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 137
+    },
+    {
+      "key": "serbia",
+      "title": "Serbia",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 138
+    },
+    {
+      "key": "slovakia",
+      "title": "Slovakia",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 139
+    },
+    {
+      "key": "slovenia",
+      "title": "Slovenia",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 140
+    },
+    {
+      "key": "spain",
+      "title": "Spain",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 141
+    },
+    {
+      "key": "sweden",
+      "title": "Sweden",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 142
+    },
+    {
+      "key": "switzerland",
+      "title": "Switzerland",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 143
+    },
+    {
+      "key": "ukraine",
+      "title": "Ukraine",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 144
+    },
+    {
+      "key": "united-kingdom",
+      "title": "United Kingdom",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 145
+    },
+    {
+      "key": "vatican-city",
+      "title": "Vatican City",
+      "subtitle": "Europe",
+      "meta": {
+        "continent": "Europe",
+        "region": "Europe"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 146
+    },
+    {
+      "key": "antigua-and-barbuda",
+      "title": "Antigua and Barbuda",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 147
+    },
+    {
+      "key": "bahamas",
+      "title": "Bahamas",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 148
+    },
+    {
+      "key": "barbados",
+      "title": "Barbados",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 149
+    },
+    {
+      "key": "belize",
+      "title": "Belize",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 150
+    },
+    {
+      "key": "canada",
+      "title": "Canada",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 151
+    },
+    {
+      "key": "costa-rica",
+      "title": "Costa Rica",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 152
+    },
+    {
+      "key": "cuba",
+      "title": "Cuba",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 153
+    },
+    {
+      "key": "dominica",
+      "title": "Dominica",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 154
+    },
+    {
+      "key": "dominican-republic",
+      "title": "Dominican Republic",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 155
+    },
+    {
+      "key": "el-salvador",
+      "title": "El Salvador",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 156
+    },
+    {
+      "key": "grenada",
+      "title": "Grenada",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 157
+    },
+    {
+      "key": "guatemala",
+      "title": "Guatemala",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 158
+    },
+    {
+      "key": "haiti",
+      "title": "Haiti",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 159
+    },
+    {
+      "key": "honduras",
+      "title": "Honduras",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 160
+    },
+    {
+      "key": "jamaica",
+      "title": "Jamaica",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 161
+    },
+    {
+      "key": "mexico",
+      "title": "Mexico",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 162
+    },
+    {
+      "key": "nicaragua",
+      "title": "Nicaragua",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 163
+    },
+    {
+      "key": "panama",
+      "title": "Panama",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 164
+    },
+    {
+      "key": "saint-kitts-and-nevis",
+      "title": "Saint Kitts and Nevis",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 165
+    },
+    {
+      "key": "saint-lucia",
+      "title": "Saint Lucia",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 166
+    },
+    {
+      "key": "saint-vincent-and-the-grenadines",
+      "title": "Saint Vincent and the Grenadines",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 167
+    },
+    {
+      "key": "trinidad-and-tobago",
+      "title": "Trinidad and Tobago",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 168
+    },
+    {
+      "key": "united-states",
+      "title": "United States",
+      "subtitle": "North America",
+      "meta": {
+        "continent": "North America",
+        "region": "North America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 169
+    },
+    {
+      "key": "argentina",
+      "title": "Argentina",
+      "subtitle": "South America",
+      "meta": {
+        "continent": "South America",
+        "region": "South America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 170
+    },
+    {
+      "key": "bolivia",
+      "title": "Bolivia",
+      "subtitle": "South America",
+      "meta": {
+        "continent": "South America",
+        "region": "South America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 171
+    },
+    {
+      "key": "brazil",
+      "title": "Brazil",
+      "subtitle": "South America",
+      "meta": {
+        "continent": "South America",
+        "region": "South America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 172
+    },
+    {
+      "key": "chile",
+      "title": "Chile",
+      "subtitle": "South America",
+      "meta": {
+        "continent": "South America",
+        "region": "South America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 173
+    },
+    {
+      "key": "colombia",
+      "title": "Colombia",
+      "subtitle": "South America",
+      "meta": {
+        "continent": "South America",
+        "region": "South America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 174
+    },
+    {
+      "key": "ecuador",
+      "title": "Ecuador",
+      "subtitle": "South America",
+      "meta": {
+        "continent": "South America",
+        "region": "South America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 175
+    },
+    {
+      "key": "guyana",
+      "title": "Guyana",
+      "subtitle": "South America",
+      "meta": {
+        "continent": "South America",
+        "region": "South America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 176
+    },
+    {
+      "key": "paraguay",
+      "title": "Paraguay",
+      "subtitle": "South America",
+      "meta": {
+        "continent": "South America",
+        "region": "South America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 177
+    },
+    {
+      "key": "peru",
+      "title": "Peru",
+      "subtitle": "South America",
+      "meta": {
+        "continent": "South America",
+        "region": "South America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 178
+    },
+    {
+      "key": "suriname",
+      "title": "Suriname",
+      "subtitle": "South America",
+      "meta": {
+        "continent": "South America",
+        "region": "South America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 179
+    },
+    {
+      "key": "uruguay",
+      "title": "Uruguay",
+      "subtitle": "South America",
+      "meta": {
+        "continent": "South America",
+        "region": "South America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 180
+    },
+    {
+      "key": "venezuela",
+      "title": "Venezuela",
+      "subtitle": "South America",
+      "meta": {
+        "continent": "South America",
+        "region": "South America"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 181
+    },
+    {
+      "key": "australia",
+      "title": "Australia",
+      "subtitle": "Oceania",
+      "meta": {
+        "continent": "Oceania",
+        "region": "Oceania"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 182
+    },
+    {
+      "key": "fiji",
+      "title": "Fiji",
+      "subtitle": "Oceania",
+      "meta": {
+        "continent": "Oceania",
+        "region": "Oceania"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 183
+    },
+    {
+      "key": "kiribati",
+      "title": "Kiribati",
+      "subtitle": "Oceania",
+      "meta": {
+        "continent": "Oceania",
+        "region": "Oceania"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 184
+    },
+    {
+      "key": "marshall-islands",
+      "title": "Marshall Islands",
+      "subtitle": "Oceania",
+      "meta": {
+        "continent": "Oceania",
+        "region": "Oceania"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 185
+    },
+    {
+      "key": "micronesia",
+      "title": "Micronesia",
+      "subtitle": "Oceania",
+      "meta": {
+        "continent": "Oceania",
+        "region": "Oceania"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 186
+    },
+    {
+      "key": "nauru",
+      "title": "Nauru",
+      "subtitle": "Oceania",
+      "meta": {
+        "continent": "Oceania",
+        "region": "Oceania"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 187
+    },
+    {
+      "key": "new-zealand",
+      "title": "New Zealand",
+      "subtitle": "Oceania",
+      "meta": {
+        "continent": "Oceania",
+        "region": "Oceania"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 188
+    },
+    {
+      "key": "palau",
+      "title": "Palau",
+      "subtitle": "Oceania",
+      "meta": {
+        "continent": "Oceania",
+        "region": "Oceania"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 189
+    },
+    {
+      "key": "papua-new-guinea",
+      "title": "Papua New Guinea",
+      "subtitle": "Oceania",
+      "meta": {
+        "continent": "Oceania",
+        "region": "Oceania"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 190
+    },
+    {
+      "key": "samoa",
+      "title": "Samoa",
+      "subtitle": "Oceania",
+      "meta": {
+        "continent": "Oceania",
+        "region": "Oceania"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 191
+    },
+    {
+      "key": "solomon-islands",
+      "title": "Solomon Islands",
+      "subtitle": "Oceania",
+      "meta": {
+        "continent": "Oceania",
+        "region": "Oceania"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 192
+    },
+    {
+      "key": "tonga",
+      "title": "Tonga",
+      "subtitle": "Oceania",
+      "meta": {
+        "continent": "Oceania",
+        "region": "Oceania"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 193
+    },
+    {
+      "key": "tuvalu",
+      "title": "Tuvalu",
+      "subtitle": "Oceania",
+      "meta": {
+        "continent": "Oceania",
+        "region": "Oceania"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 194
+    },
+    {
+      "key": "vanuatu",
+      "title": "Vanuatu",
+      "subtitle": "Oceania",
+      "meta": {
+        "continent": "Oceania",
+        "region": "Oceania"
+      },
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "any",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "travel"
+        ]
+      },
+      "sort_order": 195
+    }
+  ]
+}

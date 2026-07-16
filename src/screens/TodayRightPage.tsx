@@ -1,31 +1,31 @@
-import { useEffect, useMemo } from 'react'
 import { LifePackSpread } from '../components/LifePackSpread'
+import { ItemCompleteSheet } from '../components/lists/ItemCompleteSheet'
+import { ListItemDetailSheet } from '../components/lists/ListItemDetailSheet'
 import { useLists } from '../hooks/useLists'
-import { getLifePackItems } from '../lib/listQueries'
-import { loadTodayPrefs } from '../lib/todayPrefs'
+import { useTodayPack } from '../hooks/useTodayPack'
+import { useWeather } from '../hooks/useWeather'
 import { formatImaginedAgo } from '../lib/utils'
 
 export function TodayRightPage() {
-  const { items, lists, engagedListIds, loading, markSurfaced } = useLists()
-  const { availability } = loadTodayPrefs()
+  const { items, lists, loading, commitItem, uncommitItem } = useLists()
+  const { weather } = useWeather()
 
-  const listTitles = useMemo(
-    () => new Map(lists.map((l) => [l.id, l.title])),
-    [lists],
-  )
+  const listTitles = new Map(lists.map((l) => [l.id, l.title]))
 
-  const packEntries = getLifePackItems(
-    items,
-    engagedListIds,
-    listTitles,
-    availability,
-    3,
-  )
-
-  useEffect(() => {
-    if (packEntries.length === 0) return
-    packEntries.forEach(({ item }) => void markSurfaced(item))
-  }, [availability, packEntries, markSurfaced])
+  const {
+    packReady,
+    packEntries,
+    moodLine,
+    animMap,
+    detailItem,
+    setDetailItem,
+    completingItem,
+    handleCompleteClose,
+    handleDoneIt,
+    handleNotToday,
+    handleReroll,
+    rerollsRemaining,
+  } = useTodayPack(items, listTitles, weather)
 
   const spreadItems = packEntries.map(({ item, whyThis, imaginedAgo }) => ({
     id: item.id,
@@ -37,32 +37,88 @@ export function TodayRightPage() {
       : undefined,
     hasPolaroid: Boolean(item.image_url),
     imageUrl: item.image_url ?? undefined,
+    isSeeded: item.is_seeded,
+    onDoneIt: () => handleDoneIt(item),
+    onNotToday: () => handleNotToday(item),
+    onTellMore: () => setDetailItem(item),
+    committed: item.status === 'committed',
+    onToggleCommit: () =>
+      void (item.status === 'committed' ? uncommitItem(item) : commitItem(item)),
   }))
+
+  const detailWhy = detailItem
+    ? packEntries.find((e) => e.item.id === detailItem.id)?.whyThis
+    : undefined
+
+  const showEmpty = spreadItems.length === 0 && !loading && packReady
 
   return (
     <div
-      className={`flex h-full min-h-0 flex-col transition-opacity duration-500 ${
+      className={`relative flex h-full min-h-0 flex-col transition-opacity duration-500 ${
         loading ? 'opacity-40' : 'opacity-100'
       }`}
     >
       <p
-        className="mb-2 shrink-0 font-serif text-xl font-medium tracking-tight text-ink/75 lg:text-2xl"
+        className="mb-2 shrink-0 font-sans text-xl font-medium tracking-tight text-ink/70 lg:text-2xl"
         style={{ transform: 'rotate(-0.5deg)' }}
       >
         today&apos;s edition
       </p>
 
-      {spreadItems.length === 0 && !loading ? (
+      {packReady && spreadItems.length > 0 && (
+        <div className="mb-3 shrink-0">
+          {rerollsRemaining > 0 ? (
+            <button
+              type="button"
+              onClick={handleReroll}
+              className="font-hand text-sm text-ink/40 underline decoration-dotted decoration-ink/15 transition-colors hover:text-ink/60"
+              style={{ transform: 'rotate(-0.3deg)' }}
+            >
+              shuffle again{' '}
+              <span className="text-ink/35">
+                ({rerollsRemaining} left today)
+              </span>
+            </button>
+          ) : (
+            <p
+              className="font-hand text-sm text-ink/35"
+              style={{ transform: 'rotate(-0.2deg)' }}
+            >
+              that&apos;s all for today.
+            </p>
+          )}
+        </div>
+      )}
+
+      {showEmpty ? (
         <p className="font-sans text-base leading-relaxed text-ink/45">
           your lists are here to browse. add your own things as they come to you.
         </p>
       ) : (
-        <LifePackSpread
-          title="today's edition"
-          moodLine="three things you've been meaning to do."
-          items={spreadItems}
-          compact
-        />
+        <div className="relative min-h-0 flex-1 overflow-hidden">
+          <LifePackSpread
+            title=""
+            moodLine={moodLine}
+            items={spreadItems}
+            compact
+            animMap={animMap}
+          />
+
+          {detailItem && (
+            <ListItemDetailSheet
+              item={detailItem}
+              whyThis={detailWhy}
+              onClose={() => setDetailItem(null)}
+            />
+          )}
+
+          {completingItem && (
+            <ItemCompleteSheet
+              item={completingItem}
+              onClose={() => handleCompleteClose(completingItem)}
+            />
+          )}
+        </div>
       )}
     </div>
   )

@@ -1,0 +1,591 @@
+{
+  "slug": "baking-classics",
+  "title": "Baking Classics",
+  "description": "Things to bake at least once, start to finish.",
+  "emoji": "🍰",
+  "cover_style": "flour-dust",
+  "default_tags": {
+    "time_needed": "full_day",
+    "cost": "cheap",
+    "company": "any",
+    "setting": "home",
+    "seasons": [
+      "any"
+    ],
+    "topic_tags": [
+      "baking"
+    ]
+  },
+  "items": [
+    {
+      "key": "macarons",
+      "title": "Macarons",
+      "subtitle": "almond meringue, patience",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "full_day",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "sourdough-loaf",
+      "title": "Sourdough loaf",
+      "subtitle": "starter feed, overnight rest",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "weekend",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "croissants",
+      "title": "Croissants",
+      "subtitle": "laminated dough, 3 days",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "weekend",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "victoria-sponge",
+      "title": "Victoria sponge",
+      "subtitle": "classic sponge, jam and cream",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "salt-bread",
+      "title": "Salt bread",
+      "subtitle": "Irish soda-style, no yeast wait",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "chocolate-babka",
+      "title": "Chocolate babka",
+      "subtitle": "enriched dough, chocolate swirl",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "full_day",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "bagels",
+      "title": "Bagels",
+      "subtitle": "boil then bake, chewy crust",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "full_day",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "brioche",
+      "title": "Brioche",
+      "subtitle": "butter-rich, overnight chill",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "weekend",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "focaccia",
+      "title": "Focaccia",
+      "subtitle": "olive oil dimples, same-day bake",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "ciabatta",
+      "title": "Ciabatta",
+      "subtitle": "wet dough, open crumb",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "full_day",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "pain-au-chocolat",
+      "title": "Pain au chocolat",
+      "subtitle": "croissant dough, chocolate batons",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "weekend",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "madeleines",
+      "title": "Madeleines",
+      "subtitle": "shell-shaped, lemon zest",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "financiers",
+      "title": "Financiers",
+      "subtitle": "brown butter, almond flour",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "lemon-drizzle-cake",
+      "title": "Lemon drizzle cake",
+      "subtitle": "sharp glaze, tea-time classic",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "banana-bread",
+      "title": "Banana bread",
+      "subtitle": "ripe bananas, one bowl",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 15
+    },
+    {
+      "key": "carrot-cake",
+      "title": "Carrot cake",
+      "subtitle": "cream cheese frosting",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 16
+    },
+    {
+      "key": "apple-pie",
+      "title": "Apple pie",
+      "subtitle": "butter crust, seasonal fruit",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "full_day",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 17
+    },
+    {
+      "key": "tarte-tatin",
+      "title": "Tarte tatin",
+      "subtitle": "caramelised upside-down apples",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 18
+    },
+    {
+      "key": "clafoutis",
+      "title": "Clafoutis",
+      "subtitle": "cherry batter pudding",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 19
+    },
+    {
+      "key": "cr-me-br-l-e",
+      "title": "Crème brûlée",
+      "subtitle": "custard, torched sugar top",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 20
+    },
+    {
+      "key": "pavlova",
+      "title": "Pavlova",
+      "subtitle": "meringue nest, whipped cream",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 21
+    },
+    {
+      "key": "shortbread",
+      "title": "Shortbread",
+      "subtitle": "three ingredients, press into tin",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 22
+    },
+    {
+      "key": "scones",
+      "title": "Scones",
+      "subtitle": "clotted cream ready",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 23
+    },
+    {
+      "key": "welsh-cakes",
+      "title": "Welsh cakes",
+      "subtitle": "griddle, currants",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 24
+    },
+    {
+      "key": "soda-bread",
+      "title": "Soda bread",
+      "subtitle": "buttermilk, no knead",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 25
+    },
+    {
+      "key": "pizza-dough-from-scratch",
+      "title": "Pizza dough from scratch",
+      "subtitle": "stretch, stone-hot oven",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 26
+    },
+    {
+      "key": "cinnamon-rolls",
+      "title": "Cinnamon rolls",
+      "subtitle": "soft enriched, cream cheese glaze",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "full_day",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 27
+    },
+    {
+      "key": "choux-pastry-clairs",
+      "title": "Choux pastry éclairs",
+      "subtitle": "pipe, fill, glaze",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "full_day",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 28
+    },
+    {
+      "key": "tiramisu",
+      "title": "Tiramisu",
+      "subtitle": "no bake, coffee soak",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 29
+    },
+    {
+      "key": "gingerbread",
+      "title": "Gingerbread",
+      "subtitle": "molasses, cut-out shapes",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "winter"
+        ],
+        "topic_tags": [
+          "baking"
+        ]
+      },
+      "sort_order": 30
+    }
+  ]
+}

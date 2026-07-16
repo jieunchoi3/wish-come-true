@@ -108,9 +108,15 @@ export function Binder({ activeTab, onTabChange, renderSpread }: BinderProps) {
           />
           <div className="min-h-0 flex-1 overflow-y-auto" style={spreadStyle}>
             <BinderPage side="single">
-              {left}
-              <div className="my-6 h-px bg-ink/10" aria-hidden />
-              {right}
+              {displayedTab === 'lists' ? (
+                right
+              ) : (
+                <>
+                  {left}
+                  <div className="my-6 h-px bg-ink/10" aria-hidden />
+                  {right}
+                </>
+              )}
             </BinderPage>
           </div>
         </div>

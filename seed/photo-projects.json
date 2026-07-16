@@ -1,0 +1,428 @@
+{
+  "slug": "photo-projects",
+  "title": "Photo Projects",
+  "description": "Themed and colour-led series to shoot on foot or at home.",
+  "emoji": "📷",
+  "cover_style": "shutter-grey",
+  "default_tags": {
+    "time_needed": "30min",
+    "cost": "free",
+    "company": "solo",
+    "setting": "outdoors",
+    "seasons": [
+      "any"
+    ],
+    "topic_tags": [
+      "photography",
+      "creative"
+    ]
+  },
+  "items": [
+    {
+      "key": "find-and-shoot-5-red-doors",
+      "title": "Find and shoot 5 red doors",
+      "subtitle": "colour hunt, one neighbourhood",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "a-week-of-golden-hour",
+      "title": "A week of golden hour",
+      "subtitle": "same walk, seven sunsets",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "everything-blue-you-see-in-one-day",
+      "title": "Everything blue you see in one day",
+      "subtitle": "sky, signs, bags — collect the hue",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "same-spot-across-four-seasons",
+      "title": "Same spot across four seasons",
+      "subtitle": "one frame, four returns",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "spring",
+          "summer",
+          "autumn",
+          "winter"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "strangers-hands",
+      "title": "Strangers' hands",
+      "subtitle": "markets, cafés — ask or shoot from afar",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "shadows-at-noon",
+      "title": "Shadows at noon",
+      "subtitle": "harsh light, graphic shapes",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "one-roll-of-film-one-day",
+      "title": "One roll of film, one day",
+      "subtitle": "36 frames, no chimping",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "full_day",
+        "cost": "moderate",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "your-daily-coffee-for-a-week",
+      "title": "Your daily coffee for a week",
+      "subtitle": "seven cups, seven moods",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "textures-on-a-walk",
+      "title": "Textures on a walk",
+      "subtitle": "brick, bark, rust, fabric — fill a grid",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "reflections",
+      "title": "Reflections",
+      "subtitle": "puddles, glass, polished stone",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "a-colour-a-day-for-a-week",
+      "title": "A colour a day for a week",
+      "subtitle": "Monday red, Tuesday yellow — assign your own",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "five-yellow-things-before-noon",
+      "title": "Five yellow things before noon",
+      "subtitle": "morning scavenger hunt",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "rainy-window-portraits",
+      "title": "Rainy window portraits",
+      "subtitle": "condensation, street blur behind",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "autumn",
+          "winter"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "your-shoes-from-above-for-seven-days",
+      "title": "Your shoes from above for seven days",
+      "subtitle": "flat-lay diary, same floor tile",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "grocery-aisle-symmetry",
+      "title": "Grocery aisle symmetry",
+      "subtitle": "cans, colours, repeating lines",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 15
+    },
+    {
+      "key": "staircases-in-shadow",
+      "title": "Staircases in shadow",
+      "subtitle": "geometry and contrast on the way up",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 16
+    },
+    {
+      "key": "a-week-of-front-doors",
+      "title": "A week of front doors",
+      "subtitle": "paint, knockers, plants — street portrait",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 17
+    },
+    {
+      "key": "puddle-reflections-after-rain",
+      "title": "Puddle reflections after rain",
+      "subtitle": "flip the city upside down",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn",
+          "winter"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 18
+    },
+    {
+      "key": "hands-holding-warm-drinks",
+      "title": "Hands holding warm drinks",
+      "subtitle": "mugs, gloves, steam in cold air",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "autumn",
+          "winter"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 19
+    },
+    {
+      "key": "night-lights-bokeh-on-one-street",
+      "title": "Night lights bokeh on one street",
+      "subtitle": "one lens, one block after dark",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "photography",
+          "creative"
+        ]
+      },
+      "sort_order": 20
+    }
+  ]
+}

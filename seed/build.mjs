@@ -12,6 +12,18 @@ import { COUNTRIES } from './data/countries.js'
 import { BOOKS } from './data/books.js'
 import { LONDON } from './data/london.js'
 import { SUMMER_JOYS } from './data/summer-joys.js'
+import { BAKING_CLASSICS } from './data/baking-classics.js'
+import { SOLO_FIRSTS } from './data/solo-firsts.js'
+import { LONDON_GALLERIES } from './data/london-galleries.js'
+import { SPRING_JOYS } from './data/spring-joys.js'
+import { AUTUMN_JOYS } from './data/autumn-joys.js'
+import { WINTER_JOYS } from './data/winter-joys.js'
+import { MAKE_MY_SPACE } from './data/make-my-space.js'
+import { ONE_MONTH_EXPERIMENTS } from './data/one-month-experiments.js'
+import { PHOTO_PROJECTS } from './data/photo-projects.js'
+import { WEEKEND_SKILLS } from './data/weekend-skills.js'
+import { DRAWING_DAY } from './data/drawing-day.js'
+import { DIGITAL_DETOX } from './data/digital-detox.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = join(__dirname, '..')
@@ -113,6 +125,198 @@ const COLLECTIONS = [
     },
     items: SUMMER_JOYS,
   },
+  {
+    slug: 'baking-classics',
+    title: 'Baking Classics',
+    description: 'Things to bake at least once, start to finish.',
+    emoji: '🍰',
+    cover_style: 'flour-dust',
+    default_tags: {
+      time_needed: 'full_day',
+      cost: 'cheap',
+      company: 'any',
+      setting: 'home',
+      seasons: ['any'],
+      topic_tags: ['baking'],
+    },
+    items: BAKING_CLASSICS,
+  },
+  {
+    slug: 'solo-firsts',
+    title: 'Solo Firsts',
+    description: 'Things worth doing alone at least once.',
+    emoji: '🚶',
+    cover_style: 'ink-walk',
+    default_tags: {
+      time_needed: 'few_hours',
+      cost: 'moderate',
+      company: 'solo',
+      setting: 'indoors_out',
+      seasons: ['any'],
+      topic_tags: ['solo', 'brave'],
+    },
+    items: SOLO_FIRSTS,
+  },
+  {
+    slug: 'london-galleries',
+    title: 'London: Galleries & Exhibitions',
+    description: 'Real institutions and small rooms worth returning to.',
+    emoji: '🖼️',
+    cover_style: 'gallery-stone',
+    default_tags: {
+      time_needed: 'few_hours',
+      cost: 'moderate',
+      company: 'any',
+      setting: 'indoors_out',
+      seasons: ['any'],
+      topic_tags: ['art', 'london'],
+    },
+    items: LONDON_GALLERIES,
+  },
+  {
+    slug: 'spring-joys',
+    title: 'Spring Things',
+    description: 'Small pleasures that feel like the year waking up.',
+    emoji: '🌸',
+    cover_style: 'petal-pale',
+    default_tags: {
+      time_needed: '30min',
+      cost: 'free',
+      company: 'any',
+      setting: 'outdoors',
+      seasons: ['spring'],
+      topic_tags: ['spring'],
+    },
+    items: SPRING_JOYS,
+  },
+  {
+    slug: 'autumn-joys',
+    title: 'Autumn Things',
+    description: 'Cosy rituals and golden-hour habits.',
+    emoji: '🍂',
+    cover_style: 'amber-leaf',
+    default_tags: {
+      time_needed: '30min',
+      cost: 'free',
+      company: 'any',
+      setting: 'outdoors',
+      seasons: ['autumn'],
+      topic_tags: ['autumn'],
+    },
+    items: AUTUMN_JOYS,
+  },
+  {
+    slug: 'winter-joys',
+    title: 'Winter Things',
+    description: 'Dark evenings, warm drinks, small festivities.',
+    emoji: '❄️',
+    cover_style: 'frost-quiet',
+    default_tags: {
+      time_needed: '30min',
+      cost: 'cheap',
+      company: 'any',
+      setting: 'outdoors',
+      seasons: ['winter'],
+      topic_tags: ['winter'],
+    },
+    items: WINTER_JOYS,
+  },
+  {
+    slug: 'make-my-space',
+    title: 'Make My Space',
+    description: 'Small home improvements that make a place feel like yours.',
+    emoji: '🪴',
+    cover_style: 'sage-pot',
+    default_tags: {
+      time_needed: '30min',
+      cost: 'cheap',
+      company: 'solo',
+      setting: 'home',
+      seasons: ['any'],
+      topic_tags: ['home', 'cosy'],
+    },
+    items: MAKE_MY_SPACE,
+  },
+  {
+    slug: 'one-month-experiments',
+    title: 'One Month Experiments',
+    description: 'Month-long personal challenges worth trying once.',
+    emoji: '🗓️',
+    cover_style: 'calendar-grid',
+    default_tags: {
+      time_needed: 'trip',
+      cost: 'free',
+      company: 'solo',
+      setting: 'home',
+      seasons: ['any'],
+      topic_tags: ['challenge', 'self-experiment'],
+    },
+    items: ONE_MONTH_EXPERIMENTS,
+  },
+  {
+    slug: 'photo-projects',
+    title: 'Photo Projects',
+    description: 'Themed and colour-led series to shoot on foot or at home.',
+    emoji: '📷',
+    cover_style: 'shutter-grey',
+    default_tags: {
+      time_needed: '30min',
+      cost: 'free',
+      company: 'solo',
+      setting: 'outdoors',
+      seasons: ['any'],
+      topic_tags: ['photography', 'creative'],
+    },
+    items: PHOTO_PROJECTS,
+  },
+  {
+    slug: 'weekend-skills',
+    title: 'Weekend Skills',
+    description: 'Things learnable in a day or a weekend — one video away.',
+    emoji: '🛠️',
+    cover_style: 'workbench-warm',
+    default_tags: {
+      time_needed: 'few_hours',
+      cost: 'cheap',
+      company: 'solo',
+      setting: 'home',
+      seasons: ['any'],
+      topic_tags: ['skill', 'learning'],
+    },
+    items: WEEKEND_SKILLS,
+  },
+  {
+    slug: 'drawing-day',
+    title: 'Drawing Day',
+    description: 'Low-pressure prompts — pick one, draw fast, move on.',
+    emoji: '🖍️',
+    cover_style: 'sketch-paper',
+    default_tags: {
+      time_needed: '30min',
+      cost: 'free',
+      company: 'solo',
+      setting: 'home',
+      seasons: ['any'],
+      topic_tags: ['drawing', 'creative'],
+    },
+    items: DRAWING_DAY,
+  },
+  {
+    slug: 'digital-detox',
+    title: 'Digital Detox',
+    description: 'Small, doable disconnection habits — from one evening to a weekend.',
+    emoji: '📵',
+    cover_style: 'signal-off',
+    default_tags: {
+      time_needed: '30min',
+      cost: 'free',
+      company: 'solo',
+      setting: 'home',
+      seasons: ['any'],
+      topic_tags: ['digital-detox', 'rest'],
+    },
+    items: DIGITAL_DETOX,
+  },
 ]
 
 function sqlEscape(s) {
@@ -135,6 +339,25 @@ function categoryForSlug(slug) {
     case 'london-100':
       return 'london'
     case 'summer-joys':
+    case 'spring-joys':
+    case 'autumn-joys':
+    case 'winter-joys':
+      return 'micro_joys'
+    case 'baking-classics':
+      return 'make_learn'
+    case 'solo-firsts':
+      return 'brave'
+    case 'london-galleries':
+      return 'london'
+    case 'make-my-space':
+      return 'micro_joys'
+    case 'one-month-experiments':
+      return 'brave'
+    case 'photo-projects':
+    case 'weekend-skills':
+    case 'drawing-day':
+      return 'make_learn'
+    case 'digital-detox':
       return 'micro_joys'
     default:
       return 'someday'
@@ -259,4 +482,7 @@ for (const s of summary) {
   console.log(`  ${s.slug}: ${s.count} items`)
 }
 console.log(`  Total items: ${summary.reduce((a, b) => a + b.count, 0)}`)
+const newSlugs = new Set(['digital-detox'])
+const newTotal = summary.filter((s) => newSlugs.has(s.slug)).reduce((a, b) => a + b.count, 0)
+console.log(`  New lists (${newSlugs.size}): ${newTotal} items`)
 console.log('SQL: supabase/seed_wishlist.sql')

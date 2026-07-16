@@ -1,4 +1,4 @@
-export type BinderTabId = 'today' | 'lists' | 'memories'
+export type BinderTabId = 'month' | 'today' | 'lists' | 'memories'
 
 interface BinderTab {
   id: BinderTabId
@@ -7,6 +7,7 @@ interface BinderTab {
 }
 
 export const BINDER_TABS: BinderTab[] = [
+  { id: 'month', label: 'this month', color: '#D4C4B8' },
   { id: 'today', label: 'today', color: '#A8B5A2' },
   { id: 'lists', label: 'lists', color: '#D9A85F' },
   { id: 'memories', label: 'memories', color: '#B5C4C0' },

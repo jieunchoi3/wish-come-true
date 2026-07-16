@@ -9,17 +9,25 @@ import { supabase, supabaseConfigured } from './lib/supabase'
 import type { ConnectionFailure } from './lib/supabaseHealth'
 import { ListsLeftPage, ListsRightPage } from './screens/ListsSpread'
 import { MemoriesLeftPage, MemoriesRightPage } from './screens/MemoriesSpread'
+import { MemoriesTabProvider } from './screens/memoriesTabState'
+import { ThisMonthLeftPage, ThisMonthRightPage } from './screens/ThisMonthSpread'
 import { TodayLeftPage } from './screens/TodayLeftPage'
 import { TodayRightPage } from './screens/TodayRightPage'
 
 function BinderApp() {
-  const [activeTab, setActiveTab] = useState<BinderTabId>('today')
+  const [activeTab, setActiveTab] = useState<BinderTabId>('month')
 
   return (
     <Binder
       activeTab={activeTab}
       onTabChange={setActiveTab}
       renderSpread={(tab) => {
+        if (tab === 'month') {
+          return {
+            left: <ThisMonthLeftPage />,
+            right: <ThisMonthRightPage onBrowseLists={() => setActiveTab('lists')} />,
+          }
+        }
         if (tab === 'today') {
           return { left: <TodayLeftPage />, right: <TodayRightPage /> }
         }
@@ -33,15 +41,16 @@ function BinderApp() {
 }
 
 function DataErrorGate({ children }: { children: React.ReactNode }) {
-  const { error, loading } = useLists()
-  if (loading) {
+  const { error, loading, lists } = useLists()
+  // Only block on the first load — background sync must not blank the binder
+  if (loading && lists.length === 0) {
     return (
       <div className="binder-desk flex h-screen items-center justify-center">
         <p className="font-hand text-2xl text-ink/40">opening your lists…</p>
       </div>
     )
   }
-  if (error) {
+  if (error && lists.length === 0) {
     const failure: ConnectionFailure = error.includes('not configured')
       ? { kind: 'missing_env' }
       : error.includes('no lists found')
@@ -58,9 +67,11 @@ function ReadyApp({ session }: { session: Session }) {
   }, [session.user.id])
 
   return (
-    <ListsProvider>
+    <ListsProvider userId={session.user.id}>
       <DataErrorGate>
-        <BinderApp />
+        <MemoriesTabProvider>
+          <BinderApp />
+        </MemoriesTabProvider>
       </DataErrorGate>
     </ListsProvider>
   )
@@ -77,12 +88,13 @@ export default function App() {
       return
     }
 
+    const client = supabase
     let cancelled = false
 
     // NEVER await supabase.auth.* inside onAuthStateChange — it deadlocks the client lock.
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, nextSession) => {
+    } = client.auth.onAuthStateChange((event, nextSession) => {
       if (cancelled) return
       if (nextSession) {
         setSession(nextSession)
@@ -95,7 +107,7 @@ export default function App() {
     })
 
     async function boot() {
-      const { data } = await supabase.auth.getSession()
+      const { data } = await client.auth.getSession()
       if (cancelled) return
 
       if (data.session) {
@@ -110,7 +122,7 @@ export default function App() {
         return
       }
 
-      const { data: signed, error } = await supabase.auth.signInWithPassword({
+      const { data: signed, error } = await client.auth.signInWithPassword({
         email: soloEmail,
         password: soloPassword,
       })

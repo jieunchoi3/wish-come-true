@@ -52,7 +52,7 @@ export function ItemFormSheet({ listId, onClose, onSaved }: ItemFormSheetProps) 
   }
 
   return (
-    <PaperSheet id={`add-item-${listId}`}>
+    <PaperSheet id={`add-item-${listId}`} onClose={onClose}>
       <input
         ref={titleRef}
         value={title}

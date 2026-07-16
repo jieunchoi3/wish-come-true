@@ -166,11 +166,11 @@ interface RubberStampProps {
 export function RubberStamp({ date, className = '' }: RubberStampProps) {
   return (
     <div
-      className={`pointer-events-none select-none font-hand text-2xl font-semibold tracking-wider text-stamp/35 ${className}`}
-      style={{ transform: 'rotate(-12deg)' }}
+      className={`memory-done-stamp pointer-events-none absolute left-1/2 top-[38%] z-10 -translate-x-1/2 select-none font-hand text-lg font-semibold tracking-wider text-stamp/40 ${className}`}
+      style={{ transform: 'translateX(-50%) rotate(-14deg)' }}
       aria-hidden
     >
-      DONE {date}
+      DONE · {date}
     </div>
   )
 }

@@ -1,0 +1,1462 @@
+{
+  "slug": "cheese-atlas",
+  "title": "The World Cheese Atlas",
+  "description": "Sixty cheeses worth knowing, tasting, and remembering.",
+  "emoji": "🧀",
+  "cover_style": "ochre-warm",
+  "default_tags": {
+    "time_needed": "30min",
+    "cost": "cheap",
+    "company": "any",
+    "setting": "home",
+    "seasons": [
+      "any"
+    ],
+    "topic_tags": [
+      "cheese",
+      "food"
+    ]
+  },
+  "items": [
+    {
+      "key": "brie-de-meaux",
+      "title": "Brie de Meaux",
+      "subtitle": "France · cow",
+      "meta": {
+        "country": "France",
+        "milk_type": "cow",
+        "style": "soft"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "camembert",
+      "title": "Camembert",
+      "subtitle": "France · cow",
+      "meta": {
+        "country": "France",
+        "milk_type": "cow",
+        "style": "soft"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "roquefort",
+      "title": "Roquefort",
+      "subtitle": "France · sheep",
+      "meta": {
+        "country": "France",
+        "milk_type": "sheep",
+        "style": "blue"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "comt-",
+      "title": "Comté",
+      "subtitle": "France · cow",
+      "meta": {
+        "country": "France",
+        "milk_type": "cow",
+        "style": "hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "munster",
+      "title": "Munster",
+      "subtitle": "France · cow",
+      "meta": {
+        "country": "France",
+        "milk_type": "cow",
+        "style": "washed-rind"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "reblochon",
+      "title": "Reblochon",
+      "subtitle": "France · cow",
+      "meta": {
+        "country": "France",
+        "milk_type": "cow",
+        "style": "soft"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "ch-vre",
+      "title": "Chèvre",
+      "subtitle": "France · goat",
+      "meta": {
+        "country": "France",
+        "milk_type": "goat",
+        "style": "fresh"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "mimolette",
+      "title": "Mimolette",
+      "subtitle": "France · cow",
+      "meta": {
+        "country": "France",
+        "milk_type": "cow",
+        "style": "hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "parmigiano-reggiano",
+      "title": "Parmigiano Reggiano",
+      "subtitle": "Italy · cow",
+      "meta": {
+        "country": "Italy",
+        "milk_type": "cow",
+        "style": "hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "mozzarella-di-bufala",
+      "title": "Mozzarella di Bufala",
+      "subtitle": "Italy · buffalo",
+      "meta": {
+        "country": "Italy",
+        "milk_type": "buffalo",
+        "style": "fresh"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "gorgonzola",
+      "title": "Gorgonzola",
+      "subtitle": "Italy · cow",
+      "meta": {
+        "country": "Italy",
+        "milk_type": "cow",
+        "style": "blue"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "pecorino-romano",
+      "title": "Pecorino Romano",
+      "subtitle": "Italy · sheep",
+      "meta": {
+        "country": "Italy",
+        "milk_type": "sheep",
+        "style": "hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "provolone",
+      "title": "Provolone",
+      "subtitle": "Italy · cow",
+      "meta": {
+        "country": "Italy",
+        "milk_type": "cow",
+        "style": "semi-hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "taleggio",
+      "title": "Taleggio",
+      "subtitle": "Italy · cow",
+      "meta": {
+        "country": "Italy",
+        "milk_type": "cow",
+        "style": "washed-rind"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "ricotta-salata",
+      "title": "Ricotta Salata",
+      "subtitle": "Italy · sheep",
+      "meta": {
+        "country": "Italy",
+        "milk_type": "sheep",
+        "style": "fresh"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 15
+    },
+    {
+      "key": "manchego",
+      "title": "Manchego",
+      "subtitle": "Spain · sheep",
+      "meta": {
+        "country": "Spain",
+        "milk_type": "sheep",
+        "style": "semi-hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 16
+    },
+    {
+      "key": "idiaz-bal",
+      "title": "Idiazábal",
+      "subtitle": "Spain · sheep",
+      "meta": {
+        "country": "Spain",
+        "milk_type": "sheep",
+        "style": "smoked"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 17
+    },
+    {
+      "key": "mah-n",
+      "title": "Mahón",
+      "subtitle": "Spain · cow",
+      "meta": {
+        "country": "Spain",
+        "milk_type": "cow",
+        "style": "semi-hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 18
+    },
+    {
+      "key": "cabrales",
+      "title": "Cabrales",
+      "subtitle": "Spain · cow",
+      "meta": {
+        "country": "Spain",
+        "milk_type": "cow",
+        "style": "blue"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 19
+    },
+    {
+      "key": "tetilla",
+      "title": "Tetilla",
+      "subtitle": "Spain · cow",
+      "meta": {
+        "country": "Spain",
+        "milk_type": "cow",
+        "style": "soft"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 20
+    },
+    {
+      "key": "gouda",
+      "title": "Gouda",
+      "subtitle": "Netherlands · cow",
+      "meta": {
+        "country": "Netherlands",
+        "milk_type": "cow",
+        "style": "semi-hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 21
+    },
+    {
+      "key": "edam",
+      "title": "Edam",
+      "subtitle": "Netherlands · cow",
+      "meta": {
+        "country": "Netherlands",
+        "milk_type": "cow",
+        "style": "semi-hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 22
+    },
+    {
+      "key": "leyden",
+      "title": "Leyden",
+      "subtitle": "Netherlands · cow",
+      "meta": {
+        "country": "Netherlands",
+        "milk_type": "cow",
+        "style": "cumin"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 23
+    },
+    {
+      "key": "emmental",
+      "title": "Emmental",
+      "subtitle": "Switzerland · cow",
+      "meta": {
+        "country": "Switzerland",
+        "milk_type": "cow",
+        "style": "hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 24
+    },
+    {
+      "key": "gruy-re",
+      "title": "Gruyère",
+      "subtitle": "Switzerland · cow",
+      "meta": {
+        "country": "Switzerland",
+        "milk_type": "cow",
+        "style": "hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 25
+    },
+    {
+      "key": "appenzeller",
+      "title": "Appenzeller",
+      "subtitle": "Switzerland · cow",
+      "meta": {
+        "country": "Switzerland",
+        "milk_type": "cow",
+        "style": "washed-rind"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 26
+    },
+    {
+      "key": "raclette",
+      "title": "Raclette",
+      "subtitle": "Switzerland · cow",
+      "meta": {
+        "country": "Switzerland",
+        "milk_type": "cow",
+        "style": "melting"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 27
+    },
+    {
+      "key": "tilsit",
+      "title": "Tilsit",
+      "subtitle": "Germany · cow",
+      "meta": {
+        "country": "Germany",
+        "milk_type": "cow",
+        "style": "semi-hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 28
+    },
+    {
+      "key": "allg-uer-bergk-se",
+      "title": "Allgäuer Bergkäse",
+      "subtitle": "Germany · cow",
+      "meta": {
+        "country": "Germany",
+        "milk_type": "cow",
+        "style": "hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 29
+    },
+    {
+      "key": "limburger",
+      "title": "Limburger",
+      "subtitle": "Belgium · cow",
+      "meta": {
+        "country": "Belgium",
+        "milk_type": "cow",
+        "style": "washed-rind"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 30
+    },
+    {
+      "key": "stilton",
+      "title": "Stilton",
+      "subtitle": "England · cow",
+      "meta": {
+        "country": "England",
+        "milk_type": "cow",
+        "style": "blue"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 31
+    },
+    {
+      "key": "cheddar",
+      "title": "Cheddar",
+      "subtitle": "England · cow",
+      "meta": {
+        "country": "England",
+        "milk_type": "cow",
+        "style": "hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 32
+    },
+    {
+      "key": "wensleydale",
+      "title": "Wensleydale",
+      "subtitle": "England · cow",
+      "meta": {
+        "country": "England",
+        "milk_type": "cow",
+        "style": "crumbly"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 33
+    },
+    {
+      "key": "red-leicester",
+      "title": "Red Leicester",
+      "subtitle": "England · cow",
+      "meta": {
+        "country": "England",
+        "milk_type": "cow",
+        "style": "hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 34
+    },
+    {
+      "key": "caerphilly",
+      "title": "Caerphilly",
+      "subtitle": "Wales · cow",
+      "meta": {
+        "country": "Wales",
+        "milk_type": "cow",
+        "style": "crumbly"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 35
+    },
+    {
+      "key": "gubbeen",
+      "title": "Gubbeen",
+      "subtitle": "Ireland · cow",
+      "meta": {
+        "country": "Ireland",
+        "milk_type": "cow",
+        "style": "washed-rind"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 36
+    },
+    {
+      "key": "cashel-blue",
+      "title": "Cashel Blue",
+      "subtitle": "Ireland · cow",
+      "meta": {
+        "country": "Ireland",
+        "milk_type": "cow",
+        "style": "blue"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 37
+    },
+    {
+      "key": "dubliner",
+      "title": "Dubliner",
+      "subtitle": "Ireland · cow",
+      "meta": {
+        "country": "Ireland",
+        "milk_type": "cow",
+        "style": "hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 38
+    },
+    {
+      "key": "feta",
+      "title": "Feta",
+      "subtitle": "Greece · sheep",
+      "meta": {
+        "country": "Greece",
+        "milk_type": "sheep",
+        "style": "brined"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 39
+    },
+    {
+      "key": "kefalotyri",
+      "title": "Kefalotyri",
+      "subtitle": "Greece · sheep",
+      "meta": {
+        "country": "Greece",
+        "milk_type": "sheep",
+        "style": "hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 40
+    },
+    {
+      "key": "halloumi",
+      "title": "Halloumi",
+      "subtitle": "Cyprus · sheep",
+      "meta": {
+        "country": "Cyprus",
+        "milk_type": "sheep",
+        "style": "grilling"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 41
+    },
+    {
+      "key": "manchego-style-manchego",
+      "title": "Manchego-style Manchego",
+      "subtitle": "Spain · sheep",
+      "meta": {
+        "country": "Spain",
+        "milk_type": "sheep",
+        "style": "semi-hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 42
+    },
+    {
+      "key": "paneer",
+      "title": "Paneer",
+      "subtitle": "India · cow",
+      "meta": {
+        "country": "India",
+        "milk_type": "cow",
+        "style": "fresh"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 43
+    },
+    {
+      "key": "paneer-tikka-style",
+      "title": "Paneer Tikka style",
+      "subtitle": "India · cow",
+      "meta": {
+        "country": "India",
+        "milk_type": "cow",
+        "style": "fresh"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 44
+    },
+    {
+      "key": "paneer",
+      "title": "Paneer",
+      "subtitle": "Pakistan · buffalo",
+      "meta": {
+        "country": "Pakistan",
+        "milk_type": "buffalo",
+        "style": "fresh"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 45
+    },
+    {
+      "key": "labneh",
+      "title": "Labneh",
+      "subtitle": "Lebanon · goat",
+      "meta": {
+        "country": "Lebanon",
+        "milk_type": "goat",
+        "style": "strained"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 46
+    },
+    {
+      "key": "ackawi",
+      "title": "Ackawi",
+      "subtitle": "Lebanon · cow",
+      "meta": {
+        "country": "Lebanon",
+        "milk_type": "cow",
+        "style": "brined"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 47
+    },
+    {
+      "key": "kashkaval",
+      "title": "Kashkaval",
+      "subtitle": "Bulgaria · sheep",
+      "meta": {
+        "country": "Bulgaria",
+        "milk_type": "sheep",
+        "style": "semi-hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 48
+    },
+    {
+      "key": "sirene",
+      "title": "Sirene",
+      "subtitle": "Bulgaria · sheep",
+      "meta": {
+        "country": "Bulgaria",
+        "milk_type": "sheep",
+        "style": "brined"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 49
+    },
+    {
+      "key": "oscypek",
+      "title": "Oscypek",
+      "subtitle": "Poland · sheep",
+      "meta": {
+        "country": "Poland",
+        "milk_type": "sheep",
+        "style": "smoked"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 50
+    },
+    {
+      "key": "tvaroh",
+      "title": "Tvaroh",
+      "subtitle": "Czechia · cow",
+      "meta": {
+        "country": "Czechia",
+        "milk_type": "cow",
+        "style": "fresh"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 51
+    },
+    {
+      "key": "bryndza",
+      "title": "Bryndza",
+      "subtitle": "Slovakia · sheep",
+      "meta": {
+        "country": "Slovakia",
+        "milk_type": "sheep",
+        "style": "spreadable"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 52
+    },
+    {
+      "key": "br-nza-de-burduf",
+      "title": "Brânza de Burduf",
+      "subtitle": "Romania · sheep",
+      "meta": {
+        "country": "Romania",
+        "milk_type": "sheep",
+        "style": "aged"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 53
+    },
+    {
+      "key": "telemea",
+      "title": "Telemea",
+      "subtitle": "Romania · sheep",
+      "meta": {
+        "country": "Romania",
+        "milk_type": "sheep",
+        "style": "brined"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 54
+    },
+    {
+      "key": "havarti",
+      "title": "Havarti",
+      "subtitle": "Denmark · cow",
+      "meta": {
+        "country": "Denmark",
+        "milk_type": "cow",
+        "style": "semi-soft"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 55
+    },
+    {
+      "key": "danbo",
+      "title": "Danbo",
+      "subtitle": "Denmark · cow",
+      "meta": {
+        "country": "Denmark",
+        "milk_type": "cow",
+        "style": "semi-hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 56
+    },
+    {
+      "key": "jarlsberg",
+      "title": "Jarlsberg",
+      "subtitle": "Norway · cow",
+      "meta": {
+        "country": "Norway",
+        "milk_type": "cow",
+        "style": "holey"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 57
+    },
+    {
+      "key": "gjetost",
+      "title": "Gjetost",
+      "subtitle": "Norway · goat",
+      "meta": {
+        "country": "Norway",
+        "milk_type": "goat",
+        "style": "caramel"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 58
+    },
+    {
+      "key": "v-sterbotten",
+      "title": "Västerbotten",
+      "subtitle": "Sweden · cow",
+      "meta": {
+        "country": "Sweden",
+        "milk_type": "cow",
+        "style": "hard"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 59
+    },
+    {
+      "key": "geitost",
+      "title": "Geitost",
+      "subtitle": "Norway · goat",
+      "meta": {
+        "country": "Norway",
+        "milk_type": "goat",
+        "style": "sweet"
+      },
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "any",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "cheese",
+          "food"
+        ]
+      },
+      "sort_order": 60
+    }
+  ]
+}

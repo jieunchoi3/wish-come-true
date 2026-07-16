@@ -4,10 +4,20 @@ import {
   useContext,
   useEffect,
   useMemo,
+  useRef,
   useState,
   type ReactNode,
 } from 'react'
 import { computeEngagedListIds } from '../lib/listQueries'
+import {
+  clearCommittedMonth,
+  recordCommittedMonth,
+} from '../lib/committedMonth'
+import { DISMISSED_SNOOZE_UNTIL, isItemDismissed } from '../lib/dismissed'
+import {
+  dismissListId,
+  loadDismissedListIds,
+} from '../lib/dismissedLists'
 import { TABLES } from '../lib/tables'
 import { supabase } from '../lib/supabase'
 import type { ListItemView, ListWithCounts } from '../types/database'
@@ -43,12 +53,17 @@ interface ListsContextValue {
   refresh: () => Promise<void>
   itemsForList: (listId: string) => ListItemView[]
   createList: (title: string, emoji?: string) => Promise<List | null>
+  updateList: (id: string, patch: { title?: string; emoji?: string | null }) => Promise<boolean>
+  deleteList: (id: string) => Promise<boolean>
   createItem: (input: CreateListItemInput) => Promise<ListItemView | null>
   updateItem: (id: string, patch: ListItemUpdate, isSeeded: boolean) => Promise<void>
   markDone: (item: ListItemView) => Promise<void>
   markDoneQuick: (item: ListItemView) => Promise<void>
+  undoDone: (item: ListItemView) => Promise<void>
   deleteItem: (id: string) => Promise<boolean>
   markSurfaced: (item: ListItemView) => Promise<void>
+  commitItem: (item: ListItemView) => Promise<void>
+  uncommitItem: (item: ListItemView) => Promise<void>
 }
 
 const ListsContext = createContext<ListsContextValue | null>(null)
@@ -73,23 +88,50 @@ function mergeItem(
   return { ...row }
 }
 
-export function ListsProvider({ children }: { children: ReactNode }) {
+/** Keep optimistic user rows when a stale fetch completes after local writes. */
+function mergePendingLists(prev: List[], fetched: List[]): List[] {
+  const fetchedIds = new Set(fetched.map((l) => l.id))
+  const pending = prev.filter((l) => !l.is_seeded && !fetchedIds.has(l.id))
+  return [...pending, ...fetched].sort(
+    (a, b) => a.sort_order - b.sort_order || a.title.localeCompare(b.title),
+  )
+}
+
+function mergePendingItems(prev: ListItem[], fetched: ListItem[]): ListItem[] {
+  const fetchedIds = new Set(fetched.map((i) => i.id))
+  const pending = prev.filter((i) => !i.is_seeded && !fetchedIds.has(i.id))
+  return [...pending, ...fetched]
+}
+
+export function ListsProvider({
+  children,
+  userId,
+}: {
+  children: ReactNode
+  userId: string
+}) {
   const [lists, setLists] = useState<List[]>([])
   const [rawItems, setRawItems] = useState<ListItem[]>([])
   const [progressMap, setProgressMap] = useState<Map<string, ListItemProgress>>(
     new Map(),
   )
+  const [dismissedListIds, setDismissedListIds] = useState<Set<string>>(
+    () => loadDismissedListIds(),
+  )
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const fetchGenerationRef = useRef(0)
 
-  const fetchAll = useCallback(async () => {
+  const fetchAll = useCallback(async (opts?: { silent?: boolean }) => {
     if (!supabase) {
       setError('supabase is not configured')
       setLoading(false)
       return
     }
 
-    setLoading(true)
+    const generation = ++fetchGenerationRef.current
+
+    if (!opts?.silent) setLoading(true)
     try {
       const listsRes = await supabase
         .from(TABLES.lists)
@@ -106,9 +148,11 @@ export function ListsProvider({ children }: { children: ReactNode }) {
         return
       }
 
+      if (generation !== fetchGenerationRef.current) return
+
       setError(null)
-      setLists(listsRes.data ?? [])
-      setLoading(false)
+      setLists((prev) => mergePendingLists(prev, listsRes.data ?? []))
+      if (!opts?.silent) setLoading(false)
 
       // Items + progress load after the shell is visible (catalogue is large)
       const [itemsRes, progressRes] = await Promise.all([
@@ -125,7 +169,9 @@ export function ListsProvider({ children }: { children: ReactNode }) {
         return
       }
 
-      setRawItems(itemsRes.data ?? [])
+      if (generation !== fetchGenerationRef.current) return
+
+      setRawItems((prev) => mergePendingItems(prev, itemsRes.data ?? []))
       const pmap = new Map<string, ListItemProgress>()
       for (const p of progressRes.data ?? []) {
         pmap.set(p.list_item_id, p)
@@ -144,22 +190,24 @@ export function ListsProvider({ children }: { children: ReactNode }) {
 
   const items = useMemo(
     () =>
-      rawItems.map((row) =>
-        mergeItem(row, row.is_seeded ? progressMap.get(row.id) : undefined),
-      ),
+      rawItems
+        .map((row) =>
+          mergeItem(row, row.is_seeded ? progressMap.get(row.id) : undefined),
+        )
+        .filter((row) => !isItemDismissed(row)),
     [rawItems, progressMap],
   )
 
   const listsWithCounts = useMemo((): ListWithCounts[] => {
-    return lists.map((list) => {
-      const listItems = items.filter((i) => i.list_id === list.id)
-      const total = list.is_seeded
-        ? listItems.filter((i) => i.is_seeded).length
-        : listItems.length
-      const done = listItems.filter((i) => i.status === 'done').length
-      return { ...list, doneCount: done, totalCount: total }
-    })
-  }, [lists, items])
+    return lists
+      .filter((list) => !dismissedListIds.has(list.id))
+      .map((list) => {
+        const listItems = items.filter((i) => i.list_id === list.id)
+        const total = listItems.length
+        const done = listItems.filter((i) => i.status === 'done').length
+        return { ...list, doneCount: done, totalCount: total }
+      })
+  }, [lists, items, dismissedListIds])
 
   const engagedListIds = useMemo(() => {
     const doneSeeded = new Set(
@@ -181,16 +229,12 @@ export function ListsProvider({ children }: { children: ReactNode }) {
   )
 
   const createList = useCallback(async (title: string, emoji = '📝') => {
-    if (!supabase) return null
-    const {
-      data: { user },
-    } = await supabase.auth.getUser()
-    if (!user) return null
+    if (!supabase || !userId) return null
 
     const { data, error: insertError } = await supabase
       .from(TABLES.lists)
       .insert({
-        user_id: user.id,
+        user_id: userId,
         title,
         emoji,
         is_seeded: false,
@@ -203,22 +247,83 @@ export function ListsProvider({ children }: { children: ReactNode }) {
       setError(insertError?.message ?? 'could not create list')
       return null
     }
-    setLists((prev) => [data, ...prev])
+    setLists((prev) => [data, ...prev.filter((l) => l.id !== data.id)])
+    setError(null)
     return data
-  }, [])
+  }, [userId])
+
+  const updateList = useCallback(
+    async (
+      id: string,
+      patch: { title?: string; emoji?: string | null },
+    ): Promise<boolean> => {
+      if (!supabase) return false
+      const list = lists.find((l) => l.id === id)
+      if (!list) return false
+      if (list.is_seeded) {
+        // Catalogue lists are shared — rename only personal lists
+        return false
+      }
+
+      setLists((prev) =>
+        prev.map((l) => (l.id === id ? { ...l, ...patch } : l)),
+      )
+
+      const { error: updateError } = await supabase
+        .from(TABLES.lists)
+        .update(patch)
+        .eq('id', id)
+        .eq('is_seeded', false)
+
+      if (updateError) {
+        await fetchAll({ silent: true })
+        return false
+      }
+      return true
+    },
+    [fetchAll, lists],
+  )
+
+  const deleteList = useCallback(
+    async (id: string): Promise<boolean> => {
+      if (!supabase) return false
+      const list = lists.find((l) => l.id === id)
+      if (!list) return false
+
+      // Imported catalogues: hide for you (can't hard-delete shared seed)
+      if (list.is_seeded) {
+        setDismissedListIds(dismissListId(id))
+        return true
+      }
+
+      setLists((prev) => prev.filter((l) => l.id !== id))
+      setRawItems((prev) => prev.filter((i) => i.list_id !== id))
+
+      const { error: deleteError } = await supabase
+        .from(TABLES.lists)
+        .delete()
+        .eq('id', id)
+        .eq('is_seeded', false)
+
+      if (deleteError) {
+        await fetchAll({ silent: true })
+        return false
+      }
+      return true
+    },
+    [fetchAll, lists],
+  )
 
   const createItem = useCallback(
     async (input: CreateListItemInput): Promise<ListItemView | null> => {
-      if (!supabase) return null
-      const {
-        data: { user },
-      } = await supabase.auth.getUser()
-      if (!user) return null
+      if (!supabase || !userId) {
+        setError('not signed in — could not add item')
+        return null
+      }
 
-      const now = new Date().toISOString()
       const row: ListItemInsert = {
         list_id: input.list_id,
-        user_id: user.id,
+        user_id: userId,
         title: input.title,
         note: input.note ?? null,
         category: input.category ?? 'micro_joys',
@@ -231,7 +336,6 @@ export function ListsProvider({ children }: { children: ReactNode }) {
         seasons: input.seasons ?? [],
         topic_tags: input.topic_tags ?? [],
         status: 'open',
-        created_at: now,
       }
 
       const { data, error: insertError } = await supabase
@@ -244,10 +348,11 @@ export function ListsProvider({ children }: { children: ReactNode }) {
         setError(insertError?.message ?? 'could not add item')
         return null
       }
-      setRawItems((prev) => [data, ...prev])
+      setRawItems((prev) => [data, ...prev.filter((i) => i.id !== data.id)])
+      setError(null)
       return mergeItem(data, undefined)
     },
-    [],
+    [userId],
   )
 
   const updateItem = useCallback(
@@ -255,10 +360,54 @@ export function ListsProvider({ children }: { children: ReactNode }) {
       if (!supabase) return
 
       if (isSeeded) {
+        // Optimistic: flip UI immediately, sync in the background
+        setProgressMap((prev) => {
+          const existing = prev.get(id)
+          const optimistic: ListItemProgress = {
+            user_id: existing?.user_id ?? '',
+            list_item_id: id,
+            status: patch.status ?? existing?.status ?? 'open',
+            completed_at:
+              patch.completed_at !== undefined
+                ? patch.completed_at
+                : (existing?.completed_at ?? null),
+            completion_photo_url:
+              patch.completion_photo_url !== undefined
+                ? patch.completion_photo_url
+                : (existing?.completion_photo_url ?? null),
+            completion_note:
+              patch.completion_note !== undefined
+                ? patch.completion_note
+                : (existing?.completion_note ?? null),
+            snoozed_until:
+              patch.snoozed_until !== undefined
+                ? patch.snoozed_until
+                : (existing?.snoozed_until ?? null),
+            last_surfaced_at:
+              patch.last_surfaced_at !== undefined
+                ? patch.last_surfaced_at
+                : (existing?.last_surfaced_at ?? null),
+            surfaced_count:
+              patch.surfaced_count !== undefined
+                ? patch.surfaced_count
+                : (existing?.surfaced_count ?? 0),
+            last_notified_at:
+              patch.last_notified_at !== undefined
+                ? patch.last_notified_at
+                : (existing?.last_notified_at ?? null),
+            updated_at: new Date().toISOString(),
+          }
+          return new Map(prev).set(id, optimistic)
+        })
+
         const {
           data: { user },
         } = await supabase.auth.getUser()
-        if (!user) return
+        if (!user) {
+          // Background sync failed — don't flash the full-page loader
+          await fetchAll({ silent: true })
+          return
+        }
 
         const progPatch = {
           status: patch.status,
@@ -282,6 +431,7 @@ export function ListsProvider({ children }: { children: ReactNode }) {
 
         if (upsertError) {
           setError(upsertError.message)
+          await fetchAll({ silent: true })
           return
         }
         if (data) {
@@ -331,22 +481,113 @@ export function ListsProvider({ children }: { children: ReactNode }) {
     [markDoneQuick],
   )
 
+  const undoDone = useCallback(
+    async (item: ListItemView) => {
+      await updateItem(
+        item.id,
+        {
+          status: 'open',
+          completed_at: null,
+          completion_photo_url: null,
+          completion_note: null,
+        },
+        item.is_seeded,
+      )
+    },
+    [updateItem],
+  )
+
+  const commitItem = useCallback(
+    async (item: ListItemView) => {
+      await updateItem(item.id, { status: 'committed' }, item.is_seeded)
+      recordCommittedMonth(item.id)
+    },
+    [updateItem],
+  )
+
+  const uncommitItem = useCallback(
+    async (item: ListItemView) => {
+      await updateItem(item.id, { status: 'open' }, item.is_seeded)
+      clearCommittedMonth(item.id)
+    },
+    [updateItem],
+  )
+
   const deleteItem = useCallback(
     async (id: string): Promise<boolean> => {
       if (!supabase) return false
+      const item = rawItems.find((i) => i.id === id)
+      if (!item) return false
+
+      // Imported catalogue rows stay in the shared seed — dismiss them for you only.
+      if (item.is_seeded) {
+        const existing = progressMap.get(id)
+        const optimistic: ListItemProgress = {
+          user_id: existing?.user_id ?? '',
+          list_item_id: id,
+          status: existing?.status ?? 'open',
+          completed_at: existing?.completed_at ?? null,
+          completion_photo_url: existing?.completion_photo_url ?? null,
+          completion_note: existing?.completion_note ?? null,
+          snoozed_until: DISMISSED_SNOOZE_UNTIL,
+          last_surfaced_at: existing?.last_surfaced_at ?? null,
+          surfaced_count: existing?.surfaced_count ?? 0,
+          last_notified_at: existing?.last_notified_at ?? null,
+          updated_at: new Date().toISOString(),
+        }
+        setProgressMap((prev) => new Map(prev).set(id, optimistic))
+
+        const {
+          data: { user },
+        } = await supabase.auth.getUser()
+        if (!user) {
+          await fetchAll({ silent: true })
+          return false
+        }
+
+        const { data, error: upsertError } = await supabase
+          .from(TABLES.itemProgress)
+          .upsert(
+            {
+              user_id: user.id,
+              list_item_id: id,
+              status: optimistic.status,
+              completed_at: optimistic.completed_at,
+              completion_photo_url: optimistic.completion_photo_url,
+              completion_note: optimistic.completion_note,
+              snoozed_until: DISMISSED_SNOOZE_UNTIL,
+              last_surfaced_at: optimistic.last_surfaced_at,
+              surfaced_count: optimistic.surfaced_count,
+              last_notified_at: optimistic.last_notified_at,
+            },
+            { onConflict: 'user_id,list_item_id' },
+          )
+          .select()
+          .single()
+
+        if (upsertError) {
+          await fetchAll({ silent: true })
+          return false
+        }
+        if (data) {
+          setProgressMap((prev) => new Map(prev).set(id, data))
+        }
+        return true
+      }
+
       setRawItems((prev) => prev.filter((i) => i.id !== id))
       const { error: deleteError } = await supabase
         .from(TABLES.items)
         .delete()
         .eq('id', id)
+        .eq('is_seeded', false)
       if (deleteError) {
-        setError(deleteError.message)
-        await fetchAll()
+        await fetchAll({ silent: true })
         return false
       }
       return true
     },
-    [fetchAll],
+    [fetchAll, progressMap, rawItems],
   )
 
   const markSurfaced = useCallback(
@@ -375,12 +616,17 @@ export function ListsProvider({ children }: { children: ReactNode }) {
       refresh: fetchAll,
       itemsForList,
       createList,
+      updateList,
+      deleteList,
       createItem,
       updateItem,
       markDone,
       markDoneQuick,
+      undoDone,
       deleteItem,
       markSurfaced,
+      commitItem,
+      uncommitItem,
     }),
     [
       listsWithCounts,
@@ -392,12 +638,17 @@ export function ListsProvider({ children }: { children: ReactNode }) {
       fetchAll,
       itemsForList,
       createList,
+      updateList,
+      deleteList,
       createItem,
       updateItem,
       markDone,
       markDoneQuick,
+      undoDone,
       deleteItem,
       markSurfaced,
+      commitItem,
+      uncommitItem,
     ],
   )
 

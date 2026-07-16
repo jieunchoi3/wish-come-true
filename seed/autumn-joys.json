@@ -1,0 +1,401 @@
+{
+  "slug": "autumn-joys",
+  "title": "Autumn Things",
+  "description": "Cosy rituals and golden-hour habits.",
+  "emoji": "🍂",
+  "cover_style": "amber-leaf",
+  "default_tags": {
+    "time_needed": "30min",
+    "cost": "free",
+    "company": "any",
+    "setting": "outdoors",
+    "seasons": [
+      "autumn"
+    ],
+    "topic_tags": [
+      "autumn"
+    ]
+  },
+  "items": [
+    {
+      "key": "autumn-1",
+      "title": "Leaf-peeping walk",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "autumn-2",
+      "title": "First jumper day",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "autumn-3",
+      "title": "Pumpkin picking",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "autumn-4",
+      "title": "A proper Sunday roast",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "autumn-5",
+      "title": "Light a candle ritual at dusk",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "autumn-6",
+      "title": "First hot chocolate of the season",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "autumn-7",
+      "title": "Cosy film under a blanket",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "autumn-8",
+      "title": "Collect conkers like a child",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "autumn-9",
+      "title": "Make soup from whatever's in the fridge",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "autumn-10",
+      "title": "Wear boots for the first time",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "autumn-11",
+      "title": "Bake something with cinnamon",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "autumn-12",
+      "title": "Watch the sun set before five",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "autumn-13",
+      "title": "Go apple picking",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "autumn-14",
+      "title": "Read a book by lamplight",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "autumn-15",
+      "title": "Wear a scarf for the first time",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 15
+    },
+    {
+      "key": "autumn-16",
+      "title": "Kick through a pile of leaves",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 16
+    },
+    {
+      "key": "autumn-17",
+      "title": "Make mulled apple juice at home",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 17
+    },
+    {
+      "key": "autumn-18",
+      "title": "Visit a farmers' market in a coat",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 18
+    },
+    {
+      "key": "autumn-19",
+      "title": "Put the big duvet on the bed",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 19
+    },
+    {
+      "key": "autumn-20",
+      "title": "Write a gratitude list for the year so far",
+      "subtitle": "autumn",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "autumn"
+        ],
+        "topic_tags": [
+          "autumn"
+        ]
+      },
+      "sort_order": 20
+    }
+  ]
+}

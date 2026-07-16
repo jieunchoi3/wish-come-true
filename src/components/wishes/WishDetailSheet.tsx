@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { categoryEmoji } from '../../constants/wishMeta'
+import { COMPLETION_ACTION_LABEL } from '../../constants/completion'
 import {
   addMonthsISO,
   addSeasonISO,
@@ -92,7 +92,7 @@ export function WishDetailSheet({
             rotation={-1}
             onClick={() => setShowCalendar(!showCalendar)}
           />
-          <RubberStampButton label="done" rotation={1} onClick={handleDone} />
+          <RubberStampButton label={COMPLETION_ACTION_LABEL} rotation={1} onClick={handleDone} />
         </div>
 
         {showCalendar && (

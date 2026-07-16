@@ -1,0 +1,971 @@
+{
+  "slug": "summer-joys",
+  "title": "Silly Summer Things",
+  "description": "Fifty small pleasures that taste like sunshine.",
+  "emoji": "☀️",
+  "cover_style": "honey-glow",
+  "default_tags": {
+    "time_needed": "30min",
+    "cost": "free",
+    "company": "any",
+    "setting": "outdoors",
+    "seasons": [
+      "summer"
+    ],
+    "topic_tags": [
+      "summer"
+    ]
+  },
+  "items": [
+    {
+      "key": "joy-1",
+      "title": "Eat a 99 Flake before it melts",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "joy-2",
+      "title": "Swim outdoors in a lido or lake",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "joy-3",
+      "title": "Watch a film in a park",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "joy-4",
+      "title": "Pick strawberries at a farm",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "joy-5",
+      "title": "Stay up for sunrise",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "joy-6",
+      "title": "Have a picnic in the long grass",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "joy-7",
+      "title": "Read a whole book in one afternoon",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "joy-8",
+      "title": "Go barefoot on hot pavement",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "joy-9",
+      "title": "Make lemonade from scratch",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "joy-10",
+      "title": "Lie in a hammock",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "joy-11",
+      "title": "Catch fireflies at dusk",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "joy-12",
+      "title": "Eat watermelon with your hands",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "joy-13",
+      "title": "Take a nap in the shade",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "joy-14",
+      "title": "Ride a bike with no destination",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "joy-15",
+      "title": "Jump into a river",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 15
+    },
+    {
+      "key": "joy-16",
+      "title": "Have breakfast outside",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 16
+    },
+    {
+      "key": "joy-17",
+      "title": "Watch clouds until you name a shape",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 17
+    },
+    {
+      "key": "joy-18",
+      "title": "Press flowers in a book",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 18
+    },
+    {
+      "key": "joy-19",
+      "title": "Make iced coffee at home",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 19
+    },
+    {
+      "key": "joy-20",
+      "title": "Walk barefoot on a beach",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 20
+    },
+    {
+      "key": "joy-21",
+      "title": "Eat ice cream for dinner",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 21
+    },
+    {
+      "key": "joy-22",
+      "title": "Stargaze until midnight",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 22
+    },
+    {
+      "key": "joy-23",
+      "title": "Run through a sprinkler",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 23
+    },
+    {
+      "key": "joy-24",
+      "title": "Collect seashells",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 24
+    },
+    {
+      "key": "joy-25",
+      "title": "Write a postcard and send it",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 25
+    },
+    {
+      "key": "joy-26",
+      "title": "Have a barbecue with friends",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 26
+    },
+    {
+      "key": "joy-27",
+      "title": "Dance in the kitchen",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 27
+    },
+    {
+      "key": "joy-28",
+      "title": "Pick wildflowers",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 28
+    },
+    {
+      "key": "joy-29",
+      "title": "Watch a thunderstorm from the porch",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 29
+    },
+    {
+      "key": "joy-30",
+      "title": "Make a daisy chain",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 30
+    },
+    {
+      "key": "joy-31",
+      "title": "Eat fish and chips by the sea",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 31
+    },
+    {
+      "key": "joy-32",
+      "title": "Go to an outdoor market",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 32
+    },
+    {
+      "key": "joy-33",
+      "title": "Sit on a roof at golden hour",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 33
+    },
+    {
+      "key": "joy-34",
+      "title": "Make a playlist for driving with windows down",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 34
+    },
+    {
+      "key": "joy-35",
+      "title": "Find a shady tree and stay there",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 35
+    },
+    {
+      "key": "joy-36",
+      "title": "Eat cherries and stain your fingers",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 36
+    },
+    {
+      "key": "joy-37",
+      "title": "Go to a county fair",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 37
+    },
+    {
+      "key": "joy-38",
+      "title": "Watch the sunset twice in one day",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 38
+    },
+    {
+      "key": "joy-39",
+      "title": "Make s'mores over a fire",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 39
+    },
+    {
+      "key": "joy-40",
+      "title": "Swim in the rain",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 40
+    },
+    {
+      "key": "joy-41",
+      "title": "Wear linen and nothing else",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 41
+    },
+    {
+      "key": "joy-42",
+      "title": "Have a cold beer in the garden",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 42
+    },
+    {
+      "key": "joy-43",
+      "title": "Find a outdoor jazz concert",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 43
+    },
+    {
+      "key": "joy-44",
+      "title": "Take a ferry somewhere small",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 44
+    },
+    {
+      "key": "joy-45",
+      "title": "Eat a tomato still warm from the vine",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 45
+    },
+    {
+      "key": "joy-46",
+      "title": "Sleep with the window open",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 46
+    },
+    {
+      "key": "joy-47",
+      "title": "Go berry picking at dawn",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 47
+    },
+    {
+      "key": "joy-48",
+      "title": "Watch bats come out",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 48
+    },
+    {
+      "key": "joy-49",
+      "title": "Make a flower crown",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 49
+    },
+    {
+      "key": "joy-50",
+      "title": "Say yes to something spontaneous",
+      "subtitle": "summer",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "summer"
+        ]
+      },
+      "sort_order": 50
+    }
+  ]
+}

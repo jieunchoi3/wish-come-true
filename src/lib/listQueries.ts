@@ -1,13 +1,35 @@
 import type { ListItemView } from '../types/database'
+import { londonTodayISO, seasonForDateISO, isSeasonEligible } from './season'
 
-function todayISO(): string {
-  return new Date().toISOString().slice(0, 10)
+export function todayISO(): string {
+  return londonTodayISO()
+}
+
+export function addDaysISO(days: number): string {
+  const d = new Date()
+  d.setDate(d.getDate() + days)
+  return d.toISOString().slice(0, 10)
+}
+
+export function daysAgoISO(days: number): string {
+  const d = new Date()
+  d.setDate(d.getDate() - days)
+  return d.toISOString().slice(0, 10)
+}
+
+export function tomorrowISO(): string {
+  return addDaysISO(1)
 }
 
 function monthsAgoISO(months: number): string {
   const d = new Date()
   d.setMonth(d.getMonth() - months)
   return d.toISOString()
+}
+
+function daysSince(iso: string | null): number {
+  if (!iso) return Infinity
+  return (Date.now() - new Date(iso).getTime()) / (1000 * 60 * 60 * 24)
 }
 
 export function isSnoozeExpired(item: ListItemView): boolean {
@@ -19,79 +41,93 @@ export function isUserItem(item: ListItemView): boolean {
   return !item.is_seeded
 }
 
-/** Life pack: primary pool = user items; at most 1 seeded item from engaged lists */
+/** Open, not snoozed, not surfaced in the last 14 days, in-season for forDate */
+export function isEligibleForPack(
+  item: ListItemView,
+  forDate: string = londonTodayISO(),
+): boolean {
+  if (item.status !== 'open') return false
+  if (!isSnoozeExpired(item)) return false
+  if (item.last_surfaced_at) {
+    const cutoff = daysAgoISO(14)
+    if (item.last_surfaced_at.slice(0, 10) >= cutoff) return false
+  }
+  const season = seasonForDateISO(forDate)
+  if (!isSeasonEligible(item.seasons, season)) return false
+  return true
+}
+
+function tagDormancyScore(item: ListItemView, items: ListItemView[]): number {
+  if (item.topic_tags.length === 0) return 0
+  let total = 0
+  for (const tag of item.topic_tags) {
+    let latest: string | null = null
+    for (const other of items) {
+      if (!other.topic_tags.includes(tag)) continue
+      if (other.last_surfaced_at && (!latest || other.last_surfaced_at > latest)) {
+        latest = other.last_surfaced_at
+      }
+    }
+    total += daysSince(latest)
+  }
+  return total / item.topic_tags.length
+}
+
+function packWeight(item: ListItemView, items: ListItemView[]): number {
+  return (
+    daysSince(item.last_surfaced_at) * 2 +
+    daysSince(item.created_at) * 0.5 +
+    tagDormancyScore(item, items)
+  )
+}
+
+function comparePackItems(a: ListItemView, b: ListItemView, items: ListItemView[]): number {
+  const diff = packWeight(b, items) - packWeight(a, items)
+  if (diff !== 0) return diff
+  return new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+}
+
+/** Life pack: up to `limit` open items from every list, mixed categories */
 export function getLifePackItems(
   items: ListItemView[],
-  engagedListIds: Set<string>,
   listTitles: Map<string, string>,
-  availability: string | null,
   limit = 3,
+  excludeIds: Set<string> = new Set(),
+  forDate: string = londonTodayISO(),
 ): { item: ListItemView; whyThis: string; imaginedAgo?: string }[] {
-  const userPool = items
-    .filter((i) => isUserItem(i) && i.status === 'open' && isSnoozeExpired(i))
-    .filter((i) => matchesAvailability(i, availability))
-    .sort((a, b) => {
-      if (!a.last_surfaced_at && b.last_surfaced_at) return -1
-      if (a.last_surfaced_at && !b.last_surfaced_at) return 1
-      return new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
-    })
-
-  const seededPool = items
-    .filter(
-      (i) =>
-        i.is_seeded &&
-        i.status === 'open' &&
-        engagedListIds.has(i.list_id) &&
-        isSnoozeExpired(i),
-    )
-    .filter((i) => matchesAvailability(i, availability))
+  const pool = items
+    .filter((i) => isEligibleForPack(i, forDate) && !excludeIds.has(i.id))
+    .sort((a, b) => comparePackItems(a, b, items))
 
   const result: { item: ListItemView; whyThis: string; imaginedAgo?: string }[] =
     []
 
-  for (const item of userPool) {
+  for (const item of pool) {
     if (result.length >= limit) break
-    result.push({
-      item,
-      whyThis: item.note?.trim() || 'still on your list',
-      imaginedAgo: item.created_at,
-    })
+    if (item.is_seeded) {
+      const listTitle = listTitles.get(item.list_id) ?? 'lists'
+      result.push({
+        item,
+        whyThis: `from your ${listTitle.toLowerCase()} list — fancy it today?`,
+      })
+    } else {
+      result.push({
+        item,
+        whyThis: item.note?.trim() || 'still on your list',
+        imaginedAgo: item.created_at,
+      })
+    }
   }
 
-  if (result.length < limit && seededPool.length > 0) {
-    const seeded = seededPool[Math.floor(seededPool.length * 0.5)] ?? seededPool[0]
-    const listTitle = listTitles.get(seeded.list_id) ?? 'lists'
-    result.push({
-      item: seeded,
-      whyThis: `from your ${listTitle.toLowerCase()} list — fancy it today?`,
-    })
-  }
-
-  return result.slice(0, limit)
+  return result
 }
 
-export function matchesAvailability(
-  item: ListItemView,
-  availability: string | null,
-): boolean {
-  if (!availability) return true
-  const t = item.time_needed
-  switch (availability) {
-    case '30min':
-      return t === '30min'
-    case 'few_hours':
-      return t === '30min' || t === 'few_hours'
-    case 'full_day':
-      return t === '30min' || t === 'few_hours' || t === 'full_day'
-    case 'weekend':
-      return t !== 'trip'
-    default:
-      return true
-  }
-}
-
-/** Nostalgia: ONLY user items, created_at > 6 months ago */
-export function getNostalgiaItem(items: ListItemView[]): ListItemView | null {
+/** Nostalgia: ONLY user items, created_at > 6 months ago, in-season for forDate */
+export function getNostalgiaItem(
+  items: ListItemView[],
+  forDate: string = londonTodayISO(),
+): ListItemView | null {
+  const season = seasonForDateISO(forDate)
   const cutoff = monthsAgoISO(6)
   const candidates = items
     .filter(
@@ -99,7 +135,8 @@ export function getNostalgiaItem(items: ListItemView[]): ListItemView | null {
         isUserItem(i) &&
         i.status === 'open' &&
         i.created_at < cutoff &&
-        isSnoozeExpired(i),
+        isSnoozeExpired(i) &&
+        isSeasonEligible(i.seasons, season),
     )
     .sort(
       (a, b) =>

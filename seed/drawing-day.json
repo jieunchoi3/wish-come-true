@@ -1,0 +1,831 @@
+{
+  "slug": "drawing-day",
+  "title": "Drawing Day",
+  "description": "Low-pressure prompts — pick one, draw fast, move on.",
+  "emoji": "🖍️",
+  "cover_style": "sketch-paper",
+  "default_tags": {
+    "time_needed": "30min",
+    "cost": "free",
+    "company": "solo",
+    "setting": "home",
+    "seasons": [
+      "any"
+    ],
+    "topic_tags": [
+      "drawing",
+      "creative"
+    ]
+  },
+  "items": [
+    {
+      "key": "your-hand",
+      "title": "Your hand",
+      "subtitle": "5 minutes, don't overthink it",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "your-shoes",
+      "title": "Your shoes",
+      "subtitle": "whatever you're wearing right now",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "what-s-on-your-desk-right-now",
+      "title": "What's on your desk right now",
+      "subtitle": "mess is allowed",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "the-inside-of-your-fridge",
+      "title": "The inside of your fridge",
+      "subtitle": "shelves, jars, odd angles",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "your-morning-coffee-cup",
+      "title": "Your morning coffee cup",
+      "subtitle": "5 minutes, steam optional",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "your-keys-on-the-table",
+      "title": "Your keys on the table",
+      "subtitle": "quick contour, no detail pressure",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "the-last-thing-you-ate",
+      "title": "The last thing you ate",
+      "subtitle": "plate, crumbs, memory — loose is fine",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "draw-how-today-feels",
+      "title": "Draw how today feels",
+      "subtitle": "colour, shape, no words needed",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative",
+          "abstract"
+        ]
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "draw-a-sound",
+      "title": "Draw a sound",
+      "subtitle": "traffic, rain, a voice — make it visible",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative",
+          "abstract"
+        ]
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "draw-boredom",
+      "title": "Draw boredom",
+      "subtitle": "flat lines, empty space — lean in",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative",
+          "abstract"
+        ]
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "a-memory-without-any-people",
+      "title": "A memory without any people",
+      "subtitle": "place, object, weather only",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "draw-waiting",
+      "title": "Draw waiting",
+      "subtitle": "queue, platform, kettle boiling — the pause",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative",
+          "abstract"
+        ]
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "the-view-from-your-window",
+      "title": "The view from your window",
+      "subtitle": "frame it with the sill",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "a-room-you-ve-never-drawn-before",
+      "title": "A room you've never drawn before",
+      "subtitle": "bathroom, hallway, cupboard — pick one",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "somewhere-you-want-to-go",
+      "title": "Somewhere you want to go",
+      "subtitle": "beach, city, cabin — from imagination",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 15
+    },
+    {
+      "key": "your-childhood-bedroom-from-memory",
+      "title": "Your childhood bedroom from memory",
+      "subtitle": "wrong details are fine",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 16
+    },
+    {
+      "key": "something-in-under-60-seconds",
+      "title": "Something in under 60 seconds",
+      "subtitle": "timer on, pen down when it rings",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 17
+    },
+    {
+      "key": "the-same-object-5-times-in-5-minutes",
+      "title": "The same object 5 times in 5 minutes",
+      "subtitle": "one minute each, same mug or spoon",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 18
+    },
+    {
+      "key": "eyes-closed-for-30-seconds-then-normal",
+      "title": "Eyes closed for 30 seconds, then normal",
+      "subtitle": "blind start, open eyes to finish",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 19
+    },
+    {
+      "key": "one-minute-blind-contour",
+      "title": "One-minute blind contour",
+      "subtitle": "look at the thing, not the paper",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 20
+    },
+    {
+      "key": "something-shiny",
+      "title": "Something shiny",
+      "subtitle": "spoon, phone screen, wet stone — catch the glare",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 21
+    },
+    {
+      "key": "something-soft",
+      "title": "Something soft",
+      "subtitle": "pillow, jumper, bread — no hard edges required",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 22
+    },
+    {
+      "key": "something-you-d-never-touch",
+      "title": "Something you'd never touch",
+      "subtitle": "cactus, hot stove, slug — from a safe distance",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 23
+    },
+    {
+      "key": "tree-bark",
+      "title": "Tree bark",
+      "subtitle": "go outside or use a photo — ridges and cracks",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 24
+    },
+    {
+      "key": "water",
+      "title": "Water",
+      "subtitle": "glass, tap running, puddle — hardest simple subject",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 25
+    },
+    {
+      "key": "a-shadow-on-the-wall",
+      "title": "A shadow on the wall",
+      "subtitle": "late afternoon, one shape",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 26
+    },
+    {
+      "key": "an-animal-that-doesn-t-exist",
+      "title": "An animal that doesn't exist",
+      "subtitle": "mix two real ones or invent from scratch",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative",
+          "silly"
+        ]
+      },
+      "sort_order": 27
+    },
+    {
+      "key": "your-dream-house",
+      "title": "Your dream house",
+      "subtitle": "floor plan or facade — no architect needed",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 28
+    },
+    {
+      "key": "what-your-favourite-song-looks-like",
+      "title": "What your favourite song looks like",
+      "subtitle": "colour, rhythm, mood — not lyrics",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative",
+          "abstract"
+        ]
+      },
+      "sort_order": 29
+    },
+    {
+      "key": "a-monster-that-s-actually-friendly",
+      "title": "A monster that's actually friendly",
+      "subtitle": "big teeth, small wave",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative",
+          "silly"
+        ]
+      },
+      "sort_order": 30
+    },
+    {
+      "key": "you-but-as-a-piece-of-furniture",
+      "title": "You, but as a piece of furniture",
+      "subtitle": "lamp-you, chair-you, bookshelf-you",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative",
+          "silly"
+        ]
+      },
+      "sort_order": 31
+    },
+    {
+      "key": "using-only-straight-lines",
+      "title": "Using only straight lines",
+      "subtitle": "no curves at all — ruler optional",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 32
+    },
+    {
+      "key": "one-continuous-line-pen-never-lifts",
+      "title": "One continuous line, pen never lifts",
+      "subtitle": "one unbroken path around the subject",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 33
+    },
+    {
+      "key": "upside-down-from-a-rotated-photo",
+      "title": "Upside down from a rotated photo",
+      "subtitle": "turn reference 180°, draw what you see",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 34
+    },
+    {
+      "key": "with-your-non-dominant-hand",
+      "title": "With your non-dominant hand",
+      "subtitle": "wobbly is the point",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 35
+    },
+    {
+      "key": "in-under-10-lines-total",
+      "title": "In under 10 lines total",
+      "subtitle": "count them — simplicity wins",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 36
+    },
+    {
+      "key": "someone-s-hands-while-they-talk",
+      "title": "Someone's hands while they talk",
+      "subtitle": "gesture, not portrait — ask or sketch from memory",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 37
+    },
+    {
+      "key": "a-stranger-from-the-back",
+      "title": "A stranger from the back",
+      "subtitle": "bus, café queue — no face required",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 38
+    },
+    {
+      "key": "yourself-but-happy",
+      "title": "Yourself, but happy",
+      "subtitle": "gentle caricature, not a likeness test",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative"
+        ]
+      },
+      "sort_order": 39
+    },
+    {
+      "key": "a-face-made-of-fruit",
+      "title": "A face made of fruit",
+      "subtitle": "eyes as grapes, nose as pear — silly counts",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "home",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "drawing",
+          "creative",
+          "silly"
+        ]
+      },
+      "sort_order": 40
+    }
+  ]
+}

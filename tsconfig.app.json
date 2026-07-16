@@ -19,5 +19,23 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": [
+    "src/hooks/useWishes.tsx",
+    "src/hooks/useCollections.tsx",
+    "src/lib/wishQueries.ts",
+    "src/lib/wishStorage.ts",
+    "src/lib/collectionQueries.ts",
+    "src/lib/localSeed.ts",
+    "src/lib/localStore.ts",
+    "src/screens/TodayScreen.tsx",
+    "src/screens/WishesLeftPage.tsx",
+    "src/screens/WishesRightPage.tsx",
+    "src/screens/wishesTabState.tsx",
+    "src/screens/CollectionsLeftPage.tsx",
+    "src/screens/CollectionsRightPage.tsx",
+    "src/screens/collectionsTabState.tsx",
+    "src/components/wishes/**",
+    "src/components/collections/**"
+  ]
 }

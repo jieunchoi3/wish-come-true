@@ -6,10 +6,10 @@ export const FAKE_TODAY = {
     sunset: '20:53',
   },
   availabilityOptions: [
-    { id: '30min', label: '30분' },
-    { id: 'few_hours', label: '몇 시간' },
-    { id: 'full_day', label: '하루종일' },
-    { id: 'weekend', label: '주말 통째로' },
+    { id: '30min', label: '30 min' },
+    { id: 'few_hours', label: 'a few hours' },
+    { id: 'full_day', label: 'all day' },
+    { id: 'weekend', label: 'the whole weekend' },
   ],
   moodOptions: [
     { id: 'cosy', label: 'cosy' },

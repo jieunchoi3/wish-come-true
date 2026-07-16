@@ -1,0 +1,401 @@
+{
+  "slug": "spring-joys",
+  "title": "Spring Things",
+  "description": "Small pleasures that feel like the year waking up.",
+  "emoji": "🌸",
+  "cover_style": "petal-pale",
+  "default_tags": {
+    "time_needed": "30min",
+    "cost": "free",
+    "company": "any",
+    "setting": "outdoors",
+    "seasons": [
+      "spring"
+    ],
+    "topic_tags": [
+      "spring"
+    ]
+  },
+  "items": [
+    {
+      "key": "spring-1",
+      "title": "Cherry blossom walk",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "spring-2",
+      "title": "Tulip season at a park or garden",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "spring-3",
+      "title": "First picnic of the year",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "spring-4",
+      "title": "Spring cleaning ritual — one room properly",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "spring-5",
+      "title": "Plant seeds on a windowsill",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "spring-6",
+      "title": "Hot cross buns on Good Friday",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "spring-7",
+      "title": "First bare-legs day",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "spring-8",
+      "title": "Watch ducklings at a pond",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "spring-9",
+      "title": "Pick wild garlic",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "spring-10",
+      "title": "Open every window for an hour",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "spring-11",
+      "title": "Wash and line-dry the duvet",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "spring-12",
+      "title": "Visit a garden centre just to smell things",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "spring-13",
+      "title": "First outdoor coffee without a coat",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "spring-14",
+      "title": "Make a spring playlist",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "spring-15",
+      "title": "Hang washing outside",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 15
+    },
+    {
+      "key": "spring-16",
+      "title": "Find magnolia trees in bloom",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 16
+    },
+    {
+      "key": "spring-17",
+      "title": "Easter egg hunt (even if you're the only hunter)",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 17
+    },
+    {
+      "key": "spring-18",
+      "title": "Repot a houseplant",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 18
+    },
+    {
+      "key": "spring-19",
+      "title": "Eat asparagus at its peak",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 19
+    },
+    {
+      "key": "spring-20",
+      "title": "Rainy spring walk with a proper umbrella",
+      "subtitle": "spring",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "any",
+        "setting": "outdoors",
+        "seasons": [
+          "spring"
+        ],
+        "topic_tags": [
+          "spring"
+        ]
+      },
+      "sort_order": 20
+    }
+  ]
+}

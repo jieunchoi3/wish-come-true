@@ -1,0 +1,411 @@
+{
+  "slug": "solo-firsts",
+  "title": "Solo Firsts",
+  "description": "Things worth doing alone at least once.",
+  "emoji": "🚶",
+  "cover_style": "ink-walk",
+  "default_tags": {
+    "time_needed": "few_hours",
+    "cost": "moderate",
+    "company": "solo",
+    "setting": "indoors_out",
+    "seasons": [
+      "any"
+    ],
+    "topic_tags": [
+      "solo",
+      "brave"
+    ]
+  },
+  "items": [
+    {
+      "key": "solo-cinema-trip",
+      "title": "Solo cinema trip",
+      "subtitle": "pick the film only you want",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo"
+        ]
+      },
+      "sort_order": 1
+    },
+    {
+      "key": "solo-dinner-at-a-nice-restaurant",
+      "title": "Solo dinner at a nice restaurant",
+      "subtitle": "book a table for one, no phone",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "splurge",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo",
+          "brave"
+        ]
+      },
+      "sort_order": 2
+    },
+    {
+      "key": "solo-weekend-trip",
+      "title": "Solo weekend trip",
+      "subtitle": "one bag, one town, no itinerary",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "weekend",
+        "cost": "moderate",
+        "company": "solo",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo",
+          "brave"
+        ]
+      },
+      "sort_order": 3
+    },
+    {
+      "key": "solo-hike",
+      "title": "Solo hike",
+      "subtitle": "trail map, your own pace",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "full_day",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo"
+        ]
+      },
+      "sort_order": 4
+    },
+    {
+      "key": "sit-in-a-caf-with-no-phone",
+      "title": "Sit in a café with no phone",
+      "subtitle": "one drink, one hour, watch the room",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo"
+        ]
+      },
+      "sort_order": 5
+    },
+    {
+      "key": "solo-museum-visit",
+      "title": "Solo museum visit",
+      "subtitle": "linger at one room as long as you like",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo",
+          "art"
+        ]
+      },
+      "sort_order": 6
+    },
+    {
+      "key": "ask-a-question-in-a-talk-or-q-a",
+      "title": "Ask a question in a talk or Q&A",
+      "subtitle": "raise your hand, use your voice",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo",
+          "brave"
+        ]
+      },
+      "sort_order": 7
+    },
+    {
+      "key": "travel-alone-for-a-week",
+      "title": "Travel alone for a week",
+      "subtitle": "foreign city, your own rhythm",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "trip",
+        "cost": "splurge",
+        "company": "solo",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo",
+          "brave"
+        ]
+      },
+      "sort_order": 8
+    },
+    {
+      "key": "solo-matinee",
+      "title": "Solo matinee",
+      "subtitle": "weekday afternoon, empty row",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo"
+        ]
+      },
+      "sort_order": 9
+    },
+    {
+      "key": "eat-lunch-alone-at-the-counter",
+      "title": "Eat lunch alone at the counter",
+      "subtitle": "watch the kitchen work",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "moderate",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo"
+        ]
+      },
+      "sort_order": 10
+    },
+    {
+      "key": "solo-gallery-afternoon",
+      "title": "Solo gallery afternoon",
+      "subtitle": "one exhibition, no rushing",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo",
+          "art"
+        ]
+      },
+      "sort_order": 11
+    },
+    {
+      "key": "walk-a-new-neighbourhood-alone",
+      "title": "Walk a new neighbourhood alone",
+      "subtitle": "no destination, just corners",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo"
+        ]
+      },
+      "sort_order": 12
+    },
+    {
+      "key": "solo-concert-or-gig",
+      "title": "Solo concert or gig",
+      "subtitle": "stand where you want, leave when you want",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "moderate",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo",
+          "brave"
+        ]
+      },
+      "sort_order": 13
+    },
+    {
+      "key": "take-yourself-to-afternoon-tea",
+      "title": "Take yourself to afternoon tea",
+      "subtitle": "tiered stand, no sharing required",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "splurge",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo"
+        ]
+      },
+      "sort_order": 14
+    },
+    {
+      "key": "solo-swim-or-lido-session",
+      "title": "Solo swim or lido session",
+      "subtitle": "lanes or open water, your count",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "summer"
+        ],
+        "topic_tags": [
+          "solo"
+        ]
+      },
+      "sort_order": 15
+    },
+    {
+      "key": "bookshop-browse-alone",
+      "title": "Bookshop browse alone",
+      "subtitle": "read the first chapter on the floor",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo"
+        ]
+      },
+      "sort_order": 16
+    },
+    {
+      "key": "solo-sunrise-watch",
+      "title": "Solo sunrise watch",
+      "subtitle": "thermos, no one to hurry you",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "30min",
+        "cost": "free",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo"
+        ]
+      },
+      "sort_order": 17
+    },
+    {
+      "key": "go-to-a-market-alone",
+      "title": "Go to a market alone",
+      "subtitle": "taste samples, buy one strange thing",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "outdoors",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo"
+        ]
+      },
+      "sort_order": 18
+    },
+    {
+      "key": "solo-train-day-trip",
+      "title": "Solo train day trip",
+      "subtitle": "return ticket, wander off at a stop",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "full_day",
+        "cost": "moderate",
+        "company": "solo",
+        "setting": "travel",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo",
+          "brave"
+        ]
+      },
+      "sort_order": 19
+    },
+    {
+      "key": "write-in-a-pub-alone",
+      "title": "Write in a pub alone",
+      "subtitle": "one pint, one notebook, no performance",
+      "meta": {},
+      "default_tags": {
+        "time_needed": "few_hours",
+        "cost": "cheap",
+        "company": "solo",
+        "setting": "indoors_out",
+        "seasons": [
+          "any"
+        ],
+        "topic_tags": [
+          "solo",
+          "brave"
+        ]
+      },
+      "sort_order": 20
+    }
+  ]
+}

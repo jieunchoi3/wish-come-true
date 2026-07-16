@@ -261,7 +261,7 @@ export type Database = {
       wishlist_cost_level: 'free' | 'cheap' | 'moderate' | 'splurge'
       wishlist_company_type: 'solo' | 'friends' | 'date' | 'family' | 'any'
       wishlist_setting_type: 'home' | 'indoors_out' | 'outdoors' | 'travel'
-      wishlist_item_status: 'open' | 'done'
+      wishlist_item_status: 'open' | 'committed' | 'done'
     }
     CompositeTypes: Record<string, never>
   }
