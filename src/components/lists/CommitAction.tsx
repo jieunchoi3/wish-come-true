@@ -1,4 +1,5 @@
 import { useLists } from '../../hooks/useLists'
+import { isFocusedThisMonth } from '../../lib/committedMonth'
 import type { ListItemView } from '../../types/database'
 
 interface CommitActionProps {
@@ -15,7 +16,7 @@ export function CommitAction({
   variant = 'inline',
 }: CommitActionProps) {
   const { commitItem, uncommitItem } = useLists()
-  const isCommitted = item.status === 'committed'
+  const isCommitted = isFocusedThisMonth(item)
 
   if (item.status === 'done') return null
 

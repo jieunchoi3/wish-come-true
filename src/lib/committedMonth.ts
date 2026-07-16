@@ -30,6 +30,15 @@ export function getCommittedMonth(itemId: string): string | null {
   return loadRecord(MONTHS_KEY)[itemId] ?? null
 }
 
+/** Item chosen for This Month — DB status or local pick when commit persisted client-side. */
+export function isFocusedThisMonth(
+  item: { id: string; status: string },
+  monthKey = currentMonthKey(),
+): boolean {
+  if (item.status === 'committed') return true
+  return getCommittedMonth(item.id) === monthKey
+}
+
 export function clearCommittedMonth(itemId: string) {
   const months = loadRecord(MONTHS_KEY)
   delete months[itemId]

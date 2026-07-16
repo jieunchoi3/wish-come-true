@@ -56,7 +56,7 @@ interface ListsContextValue {
   updateList: (id: string, patch: { title?: string; emoji?: string | null }) => Promise<boolean>
   deleteList: (id: string) => Promise<boolean>
   createItem: (input: CreateListItemInput) => Promise<ListItemView | null>
-  updateItem: (id: string, patch: ListItemUpdate, isSeeded: boolean) => Promise<void>
+  updateItem: (id: string, patch: ListItemUpdate, isSeeded: boolean) => Promise<boolean>
   markDone: (item: ListItemView) => Promise<void>
   markDoneQuick: (item: ListItemView) => Promise<void>
   undoDone: (item: ListItemView) => Promise<void>
@@ -356,8 +356,8 @@ export function ListsProvider({
   )
 
   const updateItem = useCallback(
-    async (id: string, patch: ListItemUpdate, isSeeded: boolean) => {
-      if (!supabase) return
+    async (id: string, patch: ListItemUpdate, isSeeded: boolean): Promise<boolean> => {
+      if (!supabase) return false
 
       if (isSeeded) {
         // Optimistic: flip UI immediately, sync in the background
@@ -406,7 +406,7 @@ export function ListsProvider({
         if (!user) {
           // Background sync failed — don't flash the full-page loader
           await fetchAll({ silent: true })
-          return
+          return false
         }
 
         const progPatch = {
@@ -432,12 +432,12 @@ export function ListsProvider({
         if (upsertError) {
           setError(upsertError.message)
           await fetchAll({ silent: true })
-          return
+          return false
         }
         if (data) {
           setProgressMap((prev) => new Map(prev).set(id, data))
         }
-        return
+        return true
       }
 
       setRawItems((prev) =>
@@ -452,7 +452,9 @@ export function ListsProvider({
       if (updateError) {
         setError(updateError.message)
         await fetchAll()
+        return false
       }
+      return true
     },
     [fetchAll],
   )

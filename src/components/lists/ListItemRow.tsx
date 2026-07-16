@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { COMPLETION_ACTION_LABEL } from '../../constants/completion'
 import type { ListItemView } from '../../types/database'
 import { useLists } from '../../hooks/useLists'
+import { isFocusedThisMonth } from '../../lib/committedMonth'
 import { RubberStampButton } from '../wishes/WishUi'
 import { CommitAction } from './CommitAction'
 import { ItemCompleteSheet } from './ItemCompleteSheet'
@@ -102,7 +103,7 @@ export function ListItemRow({ item }: ListItemRowProps) {
               <div className="list-item-tier-content">
                 <p
                   className={`list-item-title${
-                    item.status === 'committed' ? ' list-item-title--committed' : ''
+                    isFocusedThisMonth(item) ? ' list-item-title--committed' : ''
                   }`}
                 >
                   {item.title}

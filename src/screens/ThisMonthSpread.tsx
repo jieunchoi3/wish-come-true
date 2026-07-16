@@ -10,6 +10,7 @@ import { useLists } from '../hooks/useLists'
 import {
   currentMonthKey,
   getCommittedMonth,
+  isFocusedThisMonth,
   markRolloverPrompted,
   needsRolloverPrompt,
   recordCommittedMonth,
@@ -40,35 +41,46 @@ function BrowseLink({ onClick }: { onClick: () => void }) {
 }
 
 export function ThisMonthLeftPage() {
-  const { items } = useLists()
+  const { items, lists, loading } = useLists()
   const monthKey = currentMonthKey()
 
-  const committed = items.filter((i) => i.status === 'committed')
+  const focused = useMemo(
+    () => items.filter((i) => isFocusedThisMonth(i, monthKey)),
+    [items, monthKey],
+  )
   const doneThisMonth = items.filter(
     (i) => i.status === 'done' && getCommittedMonth(i.id) === monthKey,
   )
-  const totalFocus = committed.length + doneThisMonth.length
+  const totalFocus = focused.length + doneThisMonth.length
   const doneCount = doneThisMonth.length
   const progress = totalFocus > 0 ? doneCount / totalFocus : 0
+
+  const listEmojiById = useMemo(() => {
+    const map = new Map<string, string>()
+    for (const list of lists) {
+      map.set(list.id, list.emoji?.trim() || '📋')
+    }
+    return map
+  }, [lists])
 
   return (
     <div className="flex h-full min-h-0 flex-col">
       <h1
-        className="mb-3 font-hand text-4xl leading-tight text-ink lg:text-5xl"
+        className="mb-3 shrink-0 font-hand text-4xl leading-tight text-ink lg:text-5xl"
         style={{ transform: 'rotate(-0.6deg)' }}
       >
         {monthBanner()}
       </h1>
 
       <p
-        className="mb-6 max-w-xs font-hand text-xl text-ink/55"
+        className="mb-6 max-w-xs shrink-0 font-hand text-xl text-ink/55"
         style={{ transform: 'rotate(0.3deg)' }}
       >
         what you actually decided to do this month.
       </p>
 
       {totalFocus > 0 && (
-        <div className="mb-6">
+        <div className="mb-6 shrink-0">
           <ProgressRing
             id="this-month"
             progress={progress}
@@ -79,6 +91,23 @@ export function ThisMonthLeftPage() {
           />
         </div>
       )}
+
+      {loading ? (
+        <p className="font-hand text-lg text-ink/30">opening this month…</p>
+      ) : focused.length > 0 ? (
+        <div className="wishes-scroll min-h-0 flex-1">
+          <ScrapCollage className="pb-8">
+            {focused.map((item, index) => (
+              <ThisMonthCard
+                key={item.id}
+                item={item}
+                listEmoji={listEmojiById.get(item.list_id) ?? '📋'}
+                index={index}
+              />
+            ))}
+          </ScrapCollage>
+        </div>
+      ) : null}
     </div>
   )
 }
@@ -315,6 +344,7 @@ function ThisMonthCard({
 
 export function ThisMonthRightPage({ onBrowseLists }: { onBrowseLists: () => void }) {
   const { items, lists, loading, commitItem } = useLists()
+  const monthKey = currentMonthKey()
 
   const listEmojiById = useMemo(() => {
     const map = new Map<string, string>()
@@ -332,9 +362,9 @@ export function ThisMonthRightPage({ onBrowseLists }: { onBrowseLists: () => voi
     return map
   }, [lists])
 
-  const committed = useMemo(
-    () => items.filter((i) => i.status === 'committed'),
-    [items],
+  const focused = useMemo(
+    () => items.filter((i) => isFocusedThisMonth(i, monthKey)),
+    [items, monthKey],
   )
 
   if (loading) {
@@ -345,7 +375,7 @@ export function ThisMonthRightPage({ onBrowseLists }: { onBrowseLists: () => voi
     )
   }
 
-  if (committed.length === 0) {
+  if (focused.length === 0) {
     return (
       <EmptyMonthPreview
         items={items}
@@ -358,25 +388,16 @@ export function ThisMonthRightPage({ onBrowseLists }: { onBrowseLists: () => voi
   }
 
   return (
-    <div className="flex h-full min-h-0 flex-col">
+    <div className="flex h-full min-h-0 flex-col justify-end">
       <p
-        className="mb-2 shrink-0 font-hand text-lg text-ink/40"
+        className="mb-4 font-hand text-lg text-ink/45"
         style={{ transform: 'rotate(-0.2deg)' }}
       >
-        your focus
+        {focused.length === 1
+          ? 'one thing on the left — add more if you like.'
+          : `${focused.length} things on the left — add more if you like.`}
       </p>
-      <div className="wishes-scroll min-h-0 flex-1">
-        <ScrapCollage className="pb-8">
-          {committed.map((item, index) => (
-            <ThisMonthCard
-              key={item.id}
-              item={item}
-              listEmoji={listEmojiById.get(item.list_id) ?? '📋'}
-              index={index}
-            />
-          ))}
-        </ScrapCollage>
-      </div>
+      <BrowseLink onClick={onBrowseLists} />
     </div>
   )
 }
