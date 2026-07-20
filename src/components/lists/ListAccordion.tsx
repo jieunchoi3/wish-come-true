@@ -1,4 +1,4 @@
-import { useState, type MouseEvent } from 'react'
+import { useEffect, useState, type MouseEvent } from 'react'
 import type { ListWithCounts } from '../../types/database'
 import { DEFAULT_LIST_EMOJI } from '../../constants/listEmojis'
 import { ProgressRing } from '../collections/ProgressRing'
@@ -23,10 +23,17 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [busy, setBusy] = useState(false)
   const [addError, setAddError] = useState<string | null>(null)
+  const [completedExpanded, setCompletedExpanded] = useState(false)
 
   const items = itemsForList(list.id)
+  const openItems = items.filter((item) => item.status !== 'done')
+  const doneItems = items.filter((item) => item.status === 'done')
   const progress = list.totalCount > 0 ? list.doneCount / list.totalCount : 0
   const canRename = !list.is_seeded
+
+  useEffect(() => {
+    if (!open) setCompletedExpanded(false)
+  }, [open])
 
   function openEdit(e: MouseEvent) {
     e.stopPropagation()
@@ -235,11 +242,37 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
 
           {open && !editing && (
             <div className="mt-3 max-h-[min(40vh,320px)] overflow-y-auto border-t border-ink/10 pt-2">
-              <ul className="space-y-1">
-                {items.map((item) => (
-                  <ListItemRow key={item.id} item={item} />
-                ))}
-              </ul>
+              {openItems.length > 0 ? (
+                <ul className="space-y-1">
+                  {openItems.map((item) => (
+                    <ListItemRow key={item.id} item={item} />
+                  ))}
+                </ul>
+              ) : (
+                <p className="py-2 font-hand text-sm text-ink/40">
+                  nothing left here — nice work.
+                </p>
+              )}
+
+              {doneItems.length > 0 && (
+                <details
+                  className="completed-items-collapsible mt-4 border-t border-ink/10 pt-2"
+                  open={completedExpanded}
+                  onToggle={(e) => setCompletedExpanded(e.currentTarget.open)}
+                >
+                  <summary
+                    className="cursor-pointer font-hand text-sm text-ink/45 select-none"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    completed · {doneItems.length}
+                  </summary>
+                  <ul className="mt-2 space-y-1">
+                    {doneItems.map((item) => (
+                      <ListItemRow key={item.id} item={item} />
+                    ))}
+                  </ul>
+                </details>
+              )}
 
               {adding ? (
                 <div

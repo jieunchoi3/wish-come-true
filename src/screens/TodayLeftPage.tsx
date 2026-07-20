@@ -1,24 +1,21 @@
 import { useMemo, useState } from 'react'
-import { DateStamp, WeatherSticker } from '../components/ScrapbookElements'
+import { DateStamp } from '../components/ScrapbookElements'
 import { PhotoboothPolaroid } from '../components/PhotoboothPolaroid'
 import { MemoryDetailSheet } from '../components/lists/MemoryDetailSheet'
-import { Scrap } from '../components/primitives'
 import { Tape } from '../components/primitives/Tape'
 import { useLists } from '../hooks/useLists'
-import { useWeather } from '../hooks/useWeather'
-import { pickPhotoboothItem } from '../lib/photobooth'
+import { PHOTOBOOTH_COUNT, pickPhotoboothItems } from '../lib/photobooth'
 import { londonDateISO } from '../lib/season'
 import { tapeColorForId, tapeRotation } from '../lib/utils'
 import type { ListItemView } from '../types/database'
 
 export function TodayLeftPage() {
   const { items } = useLists()
-  const { weather, loading: weatherLoading } = useWeather()
   const date = new Date()
   const todayISO = londonDateISO(date)
 
-  const photoboothItem = useMemo(
-    () => pickPhotoboothItem(items, todayISO, date),
+  const photoboothItems = useMemo(
+    () => pickPhotoboothItems(items, PHOTOBOOTH_COUNT, todayISO, date),
     [items, todayISO],
   )
 
@@ -26,7 +23,7 @@ export function TodayLeftPage() {
 
   return (
     <div className="relative flex h-full min-h-0 flex-col">
-      <div className="relative mb-3 inline-block pt-2">
+      <div className="relative mb-4 inline-block pt-2">
         <Tape
           color={tapeColorForId('date-sticker')}
           rotation={tapeRotation('date-sticker')}
@@ -35,29 +32,18 @@ export function TodayLeftPage() {
         <DateStamp date={date} />
       </div>
 
-      <div className="mb-4 w-fit">
-        <Scrap id="weather-scrap" index={0} layout={false} tapePosition="top-right">
-          <div className="px-4 py-3">
-            {weather ? (
-              <WeatherSticker
-                temp={weather.temp}
-                condition={weather.condition}
-                sunset={weather.sunset}
+      {photoboothItems.length > 0 && (
+        <div className="min-h-0 flex-1 overflow-y-auto pb-2">
+          <div className="grid grid-cols-3 gap-x-1.5 gap-y-2.5">
+            {photoboothItems.map((item) => (
+              <PhotoboothPolaroid
+                key={item.id}
+                item={item}
+                onOpen={() => setDetailItem(item)}
               />
-            ) : (
-              <p className="font-hand text-base text-ink/35">
-                {weatherLoading ? 'checking the sky…' : 'weather offline'}
-              </p>
-            )}
+            ))}
           </div>
-        </Scrap>
-      </div>
-
-      {photoboothItem && (
-        <PhotoboothPolaroid
-          item={photoboothItem}
-          onOpen={() => setDetailItem(photoboothItem)}
-        />
+        </div>
       )}
 
       {detailItem && (

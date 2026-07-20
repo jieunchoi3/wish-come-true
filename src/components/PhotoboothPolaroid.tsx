@@ -1,7 +1,6 @@
-import { RubberStamp } from './ScrapbookElements'
 import { PolaroidFrame } from './PolaroidFrame'
 import { Scrap } from './primitives'
-import { formatDoneStampDate, formatRelativeAgo, hashString } from '../lib/utils'
+import { cardRotation, formatMemoryDate, hashString } from '../lib/utils'
 import type { ListItemView } from '../types/database'
 
 function tapePositionForId(id: string): 'top-left' | 'top-right' | 'top-center' {
@@ -17,42 +16,34 @@ interface PhotoboothPolaroidProps {
 }
 
 export function PhotoboothPolaroid({ item, onOpen }: PhotoboothPolaroidProps) {
-  const stampDate = formatDoneStampDate(item.completed_at!)
-  const doneAgo = formatRelativeAgo(new Date(item.completed_at!))
+  const completedDate = formatMemoryDate(item.completed_at!)
   const tapeSide = tapePositionForId(item.id)
+  const tilt = cardRotation(item.id) * 0.45
 
   return (
-    <div className="w-fit max-w-[11.5rem]">
-      <button type="button" onClick={onOpen} className="text-left">
+    <div
+      className="w-full"
+      style={{ transform: `rotate(${tilt}deg)` }}
+    >
+      <button type="button" onClick={onOpen} className="w-full text-left">
         <Scrap
           id={`photobooth-${item.id}`}
           index={0}
           tapePosition={tapeSide}
           layout={false}
         >
-          <div className="p-2 pb-1">
-            <div className="relative">
-              <PolaroidFrame className="w-full">
-                <img
-                  src={item.completion_photo_url!}
-                  alt=""
-                  className="h-full w-full object-cover"
-                />
-              </PolaroidFrame>
-              <RubberStamp date={stampDate} />
-            </div>
-            <p
-              className="mt-2 font-hand text-base leading-snug text-ink/75"
-              style={{ transform: 'rotate(-0.2deg)' }}
-            >
+          <div className="p-1.5 pb-1">
+            <PolaroidFrame className="w-full !pb-3 [&>div:first-child]:min-w-0">
+              <img
+                src={item.completion_photo_url!}
+                alt=""
+                className="h-full w-full object-cover"
+              />
+            </PolaroidFrame>
+            <p className="mt-1.5 line-clamp-2 font-hand text-[0.7rem] leading-snug text-ink/75">
               {item.title}
             </p>
-            <p
-              className="font-hand text-sm text-ink/45"
-              style={{ transform: 'rotate(0.15deg)' }}
-            >
-              you did this {doneAgo}
-            </p>
+            <p className="font-hand text-[0.65rem] text-ink/45">{completedDate}</p>
           </div>
         </Scrap>
       </button>

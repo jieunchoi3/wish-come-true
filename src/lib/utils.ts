@@ -120,6 +120,15 @@ export function formatDoneStampDate(iso: string): string {
   return `${dd}·${mm}·${yy}`
 }
 
+/** Caption date under memory polaroids — e.g. 20 Jul 2026 */
+export function formatMemoryDate(iso: string): string {
+  return new Date(iso).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  })
+}
+
 /** Hand-drawn box border-radius */
 export const HAND_DRAWN_RADIUS =
   '255px 15px 225px 15px / 15px 225px 15px 255px'

@@ -32,7 +32,21 @@ export function MemoryPhotoPicker({
   className = 'w-full',
 }: MemoryPhotoPickerProps) {
   const inputId = useId()
+  const inputRef = useRef<HTMLInputElement>(null)
   const zoneRef = useRef<HTMLDivElement>(null)
+  const onFileRef = useRef(onFile)
+  onFileRef.current = onFile
+
+  function openFilePicker() {
+    if (uploading) return
+    zoneRef.current?.focus()
+    inputRef.current?.click()
+  }
+
+  function handleFile(file: File) {
+    if (uploading) return
+    onFile(file)
+  }
 
   useEffect(() => {
     const zone = zoneRef.current
@@ -42,17 +56,17 @@ export function MemoryPhotoPicker({
       const file = pickImageFile(e.clipboardData)
       if (!file) return
       e.preventDefault()
-      onFile(file)
+      onFileRef.current(file)
     }
 
     zone.addEventListener('paste', onPaste)
     return () => zone.removeEventListener('paste', onPaste)
-  }, [onFile])
+  }, [])
 
   function handleDrop(e: React.DragEvent) {
     e.preventDefault()
     const file = pickImageFile(e.dataTransfer)
-    if (file) onFile(file)
+    if (file) handleFile(file)
   }
 
   return (
@@ -63,7 +77,27 @@ export function MemoryPhotoPicker({
       onDrop={handleDrop}
       onDragOver={(e) => e.preventDefault()}
     >
-      <label htmlFor={inputId} className="block cursor-pointer">
+      <input
+        ref={inputRef}
+        id={inputId}
+        type="file"
+        accept="image/*"
+        className="sr-only"
+        disabled={uploading}
+        onChange={(e) => {
+          const file = e.target.files?.[0]
+          if (file) handleFile(file)
+          e.target.value = ''
+        }}
+      />
+
+      <button
+        type="button"
+        disabled={uploading}
+        onClick={openFilePicker}
+        className="block w-full cursor-pointer border-0 bg-transparent p-0 text-left disabled:cursor-not-allowed disabled:opacity-60"
+        aria-label="paste or upload photo"
+      >
         <PolaroidFrame className="w-full">
           {photoUrl ? (
             <img
@@ -75,43 +109,20 @@ export function MemoryPhotoPicker({
             placeholder ?? (
               <div className="flex min-h-[200px] w-full flex-col items-center justify-center gap-2 p-6">
                 <span className="font-hand text-lg text-ink/35">add a photo</span>
-                <span className="font-hand text-sm text-ink/30">
-                  click · paste · drop
-                </span>
               </div>
             )
           )}
         </PolaroidFrame>
-        <input
-          id={inputId}
-          type="file"
-          accept="image/*"
-          className="hidden"
-          onChange={(e) => {
-            const file = e.target.files?.[0]
-            if (file) onFile(file)
-            e.target.value = ''
-          }}
-        />
-      </label>
+      </button>
 
-      <div className="mt-2 flex flex-wrap items-center gap-x-2 gap-y-1 font-hand text-sm text-ink/40">
-        <label htmlFor={inputId} className="cursor-pointer hover:text-ink/60">
-          choose a photo
-        </label>
-        <span aria-hidden>·</span>
-        <span>paste from clipboard</span>
-        <span aria-hidden>·</span>
-        <span>drop here</span>
-        {photoUrl && (
-          <>
-            <span aria-hidden>·</span>
-            <label htmlFor={inputId} className="cursor-pointer hover:text-ink/60">
-              change photo
-            </label>
-          </>
-        )}
-      </div>
+      <button
+        type="button"
+        disabled={uploading}
+        onClick={openFilePicker}
+        className="mt-2 font-hand text-sm text-ink/40 underline decoration-dotted decoration-ink/20 transition-colors hover:text-ink/60 disabled:cursor-not-allowed disabled:opacity-50"
+      >
+        paste or upload photo
+      </button>
 
       {uploading && uploadPct < 1 && (
         <div className="mt-2 h-0.5 w-full bg-ink/10">

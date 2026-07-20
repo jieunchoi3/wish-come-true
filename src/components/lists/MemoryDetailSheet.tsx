@@ -76,11 +76,12 @@ export function MemoryDetailSheet({
         file,
         setUploadPct,
       )
-      await updateItem(
+      const saved = await updateItem(
         item.id,
         { completion_photo_url: url },
         item.is_seeded,
       )
+      if (!saved) throw new Error('save failed')
       setPreviewUrl(url)
     } catch {
       setPreviewUrl(prev)

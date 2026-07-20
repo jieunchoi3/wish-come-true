@@ -6,7 +6,6 @@ import { ListsSearchBar } from '../components/lists/ListsSearchBar'
 import { ListItemRow } from '../components/lists/ListItemRow'
 import { useLists } from '../hooks/useLists'
 import { searchListsAndItems } from '../lib/smartSearch'
-import { HAND_DRAWN_RADIUS } from '../lib/utils'
 import type { ListItemView, ListWithCounts } from '../types/database'
 
 function PageHeading({ children }: { children: string }) {
@@ -120,21 +119,8 @@ export function ListsRightPage() {
   }
 
   const listControls = (
-    <div className="mb-3 flex shrink-0 flex-col gap-2">
+    <div className="mb-3 shrink-0">
       <ListsSearchBar value={query} onChange={setQuery} />
-      {!searching && (
-        <button
-          type="button"
-          onClick={() => {
-            setCreateError(null)
-            setNewListOpen(true)
-          }}
-          className="w-full border border-ink/20 bg-transparent px-3 py-2 text-left font-hand text-xl text-ink/55 transition hover:text-ink/80"
-          style={{ borderRadius: HAND_DRAWN_RADIUS }}
-        >
-          ＋ new list
-        </button>
-      )}
     </div>
   )
 
@@ -189,11 +175,11 @@ export function ListsRightPage() {
       {/* Desktop — your lists scroll independently under the rings */}
       <div className="hidden min-h-0 flex-1 flex-col lg:flex">
         <PageHeading>your lists</PageHeading>
-        <div className="wishes-scroll min-h-0 flex-1">{userListBody}</div>
+        <div className="wishes-scroll min-h-0 flex-1 pb-16">{userListBody}</div>
       </div>
 
       {/* Mobile — one column: my lists, then catalogue */}
-      <div className="pb-8 lg:hidden">
+      <div className="pb-20 lg:hidden">
         <PageHeading>your lists</PageHeading>
         {userListBody}
 
@@ -204,6 +190,20 @@ export function ListsRightPage() {
           </div>
         )}
       </div>
+
+      {!searching && (
+        <button
+          type="button"
+          onClick={() => {
+            setCreateError(null)
+            setNewListOpen(true)
+          }}
+          className="lists-fab absolute bottom-5 right-4 z-20 flex h-12 w-12 items-center justify-center font-hand text-3xl leading-none text-ink/65 transition hover:scale-[1.04] hover:text-ink active:scale-[0.98]"
+          aria-label="new list"
+        >
+          +
+        </button>
+      )}
     </div>
   )
 }
