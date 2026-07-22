@@ -32,16 +32,9 @@ export function MemoryPhotoPicker({
   className = 'w-full',
 }: MemoryPhotoPickerProps) {
   const inputId = useId()
-  const inputRef = useRef<HTMLInputElement>(null)
   const zoneRef = useRef<HTMLDivElement>(null)
   const onFileRef = useRef(onFile)
   onFileRef.current = onFile
-
-  function openFilePicker() {
-    if (uploading) return
-    zoneRef.current?.focus()
-    inputRef.current?.click()
-  }
 
   function handleFile(file: File) {
     if (uploading) return
@@ -69,21 +62,22 @@ export function MemoryPhotoPicker({
     if (file) handleFile(file)
   }
 
+  const pickerDisabled = uploading
+
   return (
     <div
       ref={zoneRef}
       tabIndex={0}
-      className={`outline-none ${className}`}
+      className={`relative outline-none ${className}`}
       onDrop={handleDrop}
       onDragOver={(e) => e.preventDefault()}
     >
       <input
-        ref={inputRef}
         id={inputId}
         type="file"
         accept="image/*"
-        className="sr-only"
-        disabled={uploading}
+        className="photo-file-input"
+        disabled={pickerDisabled}
         onChange={(e) => {
           const file = e.target.files?.[0]
           if (file) handleFile(file)
@@ -91,14 +85,16 @@ export function MemoryPhotoPicker({
         }}
       />
 
-      <button
-        type="button"
-        disabled={uploading}
-        onClick={openFilePicker}
-        className="block w-full cursor-pointer border-0 bg-transparent p-0 text-left disabled:cursor-not-allowed disabled:opacity-60"
+      <label
+        htmlFor={inputId}
+        className={`block w-full text-left ${
+          pickerDisabled
+            ? 'cursor-not-allowed opacity-60'
+            : 'cursor-pointer'
+        }`}
         aria-label="paste or upload photo"
       >
-        <PolaroidFrame className="w-full">
+        <PolaroidFrame className="w-full !pb-3 [&>div:first-child]:min-w-0">
           {photoUrl ? (
             <img
               src={photoUrl}
@@ -113,16 +109,18 @@ export function MemoryPhotoPicker({
             )
           )}
         </PolaroidFrame>
-      </button>
+      </label>
 
-      <button
-        type="button"
-        disabled={uploading}
-        onClick={openFilePicker}
-        className="mt-2 font-hand text-sm text-ink/40 underline decoration-dotted decoration-ink/20 transition-colors hover:text-ink/60 disabled:cursor-not-allowed disabled:opacity-50"
+      <label
+        htmlFor={inputId}
+        className={`mt-2 block font-hand text-sm text-ink/40 underline decoration-dotted decoration-ink/20 transition-colors hover:text-ink/60 ${
+          pickerDisabled
+            ? 'cursor-not-allowed opacity-50'
+            : 'cursor-pointer'
+        }`}
       >
         paste or upload photo
-      </button>
+      </label>
 
       {uploading && uploadPct < 1 && (
         <div className="mt-2 h-0.5 w-full bg-ink/10">
