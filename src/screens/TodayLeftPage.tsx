@@ -34,7 +34,7 @@ export function TodayLeftPage() {
 
       {photoboothItems.length > 0 && (
         <div className="min-h-0 flex-1 overflow-y-auto pb-2">
-          <div className="grid grid-cols-3 gap-x-1.5 gap-y-2.5">
+          <div className="grid grid-cols-3 gap-x-2 gap-y-5 pt-1">
             {photoboothItems.map((item) => (
               <PhotoboothPolaroid
                 key={item.id}

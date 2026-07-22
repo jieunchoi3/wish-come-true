@@ -123,13 +123,15 @@ export function MemoryDetailSheet({
           onFile={handlePhoto}
           uploading={uploading}
           uploadPct={uploadPct}
+          stampOverlay={
+            item.completed_at ? (
+              <RubberStamp
+                date={formatDoneStampDate(item.completed_at)}
+                className="pointer-events-none top-[38%] z-20 text-xl"
+              />
+            ) : undefined
+          }
         />
-        {item.completed_at && (
-          <RubberStamp
-            date={formatDoneStampDate(item.completed_at)}
-            className="pointer-events-none top-[42%] text-xl"
-          />
-        )}
       </div>
 
       {photoError && (

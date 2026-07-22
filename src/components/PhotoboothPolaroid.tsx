@@ -22,17 +22,17 @@ export function PhotoboothPolaroid({ item, onOpen }: PhotoboothPolaroidProps) {
 
   return (
     <div
-      className="w-full"
+      className="photobooth-polaroid-cell w-full"
       style={{ transform: `rotate(${tilt}deg)` }}
     >
-      <button type="button" onClick={onOpen} className="w-full text-left">
+      <button type="button" onClick={onOpen} className="block w-full text-left">
         <Scrap
           id={`photobooth-${item.id}`}
           index={0}
           tapePosition={tapeSide}
           layout={false}
         >
-          <div className="p-1.5 pb-1">
+          <div className="p-1.5">
             <PolaroidFrame className="w-full !pb-3 [&>div:first-child]:min-w-0">
               <img
                 src={item.completion_photo_url!}
@@ -40,12 +40,14 @@ export function PhotoboothPolaroid({ item, onOpen }: PhotoboothPolaroidProps) {
                 className="h-full w-full object-cover"
               />
             </PolaroidFrame>
-            <p className="mt-1.5 line-clamp-2 font-hand text-[0.7rem] leading-snug text-ink/75">
-              {item.title}
-            </p>
-            <p className="font-hand text-[0.65rem] text-ink/45">{completedDate}</p>
           </div>
         </Scrap>
+        <div className="memory-polaroid-caption mt-1 px-0.5">
+          <p className="line-clamp-2 font-hand text-[0.7rem] leading-snug text-ink/75">
+            {item.title}
+          </p>
+          <p className="font-hand text-[0.65rem] text-ink/45">{completedDate}</p>
+        </div>
       </button>
     </div>
   )

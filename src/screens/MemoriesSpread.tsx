@@ -37,7 +37,7 @@ function formatCaptionDate(iso: string): string {
 function denseOffset(index: number, id: string): { marginTop: number; marginLeft: number } {
   const h = Math.abs(hashString(`${id}:dense`))
   return {
-    marginTop: index === 0 ? 0 : -6 - (h % 6),
+    marginTop: index < 2 ? 0 : 4 + (h % 4),
     marginLeft: (h % 11) - 5,
   }
 }
@@ -311,14 +311,13 @@ function MemoryPolaroid({
 
   return (
     <div
-      className="w-[46%] shrink-0 sm:w-[44%]"
+      className="memory-polaroid-cell w-[46%] shrink-0 sm:w-[44%]"
       style={{
         marginTop: offset.marginTop,
         marginLeft: offset.marginLeft,
-        zIndex: 10 + index,
       }}
     >
-      <button type="button" onClick={onOpen} className="w-full text-left">
+      <button type="button" onClick={onOpen} className="block w-full text-left">
         <Scrap
           id={`memory-${item.id}`}
           index={index}
@@ -326,7 +325,7 @@ function MemoryPolaroid({
           layout={false}
           className="w-full"
         >
-          <div className="p-2 pb-1">
+          <div className="p-2">
             <div className="relative">
               <PolaroidFrame className="w-full">
                 {hasPhoto ? (
@@ -349,14 +348,17 @@ function MemoryPolaroid({
                   </div>
                 )}
               </PolaroidFrame>
-              <RubberStamp date={stampDate} />
+              <RubberStamp
+                date={stampDate}
+                className="pointer-events-none top-[38%]"
+              />
             </div>
-            <p className="mt-1.5 font-hand text-sm leading-snug text-ink/75">
-              {item.title}
-            </p>
-            <p className="font-hand text-xs text-ink/40">{captionDate}</p>
           </div>
         </Scrap>
+        <div className="memory-polaroid-caption mt-1.5 px-1 pb-4">
+          <p className="font-hand text-sm leading-snug text-ink/75">{item.title}</p>
+          <p className="font-hand text-xs text-ink/40">{captionDate}</p>
+        </div>
       </button>
     </div>
   )
