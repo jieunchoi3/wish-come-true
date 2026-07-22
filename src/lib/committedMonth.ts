@@ -35,6 +35,7 @@ export function isFocusedThisMonth(
   item: { id: string; status: string },
   monthKey = currentMonthKey(),
 ): boolean {
+  if (item.status === 'done') return false
   if (item.status === 'committed') return true
   return getCommittedMonth(item.id) === monthKey
 }

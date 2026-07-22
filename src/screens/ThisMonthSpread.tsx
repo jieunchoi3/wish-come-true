@@ -277,18 +277,24 @@ function ThisMonthCard({
   listEmoji: string
   index: number
 }) {
-  const { markDoneQuick, uncommitItem } = useLists()
+  const { items, markDoneQuick, uncommitItem } = useLists()
   const [completing, setCompleting] = useState(false)
   const [showRollover, setShowRollover] = useState(() =>
     needsRolloverPrompt(item.id),
   )
 
+  const liveItem = items.find((i) => i.id === item.id) ?? item
+
   async function handleDidIt() {
-    if (item.is_seeded) {
-      await markDoneQuick(item)
+    if (liveItem.is_seeded) {
+      await markDoneQuick(liveItem)
       return
     }
     setCompleting(true)
+  }
+
+  function handleCompleteClose() {
+    setCompleting(false)
   }
 
   function handleKeep() {
@@ -315,16 +321,16 @@ function ThisMonthCard({
               {listEmoji}
             </span>
             <h3 className="inline list-item-title text-lg">
-              {item.title}
+              {liveItem.title}
             </h3>
-            {item.note && (
-              <p className="list-item-note mt-1.5">{item.note}</p>
+            {liveItem.note && (
+              <p className="list-item-note mt-1.5">{liveItem.note}</p>
             )}
           </div>
 
           <div className="list-item-tier-actions mt-4">
             <div className="list-item-actions-row">
-              <CommitAction item={item} variant="primary" rotation={0.2} />
+              <CommitAction item={liveItem} variant="primary" rotation={0.2} />
             </div>
             <RubberStampButton
               label={COMPLETION_ACTION_LABEL}
@@ -343,7 +349,10 @@ function ThisMonthCard({
       </Scrap>
 
       {completing && (
-        <ItemCompleteSheet item={item} onClose={() => setCompleting(false)} />
+        <ItemCompleteSheet
+          item={liveItem}
+          onClose={handleCompleteClose}
+        />
       )}
     </>
   )

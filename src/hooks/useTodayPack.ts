@@ -236,6 +236,35 @@ export function useTodayPack(
     forDate,
   ])
 
+  useEffect(() => {
+    if (!packReady || packIds.length === 0) return
+
+    const closedIds = packIds.filter((id) => {
+      const item = itemsById.get(id)
+      return item && item.status !== 'open'
+    })
+    if (closedIds.length === 0) return
+
+    const nextIds = packIds.filter((id) => !closedIds.includes(id))
+    setPackIds(nextIds)
+    void persistPack(nextIds, shownIds, rerollsUsed, rowId).then((newRowId) => {
+      if (newRowId) setRowId(newRowId)
+    })
+    if (nextIds.filter((id) => !hiddenIds.has(id)).length < PACK_SIZE) {
+      void tryBackfill()
+    }
+  }, [
+    packReady,
+    packIds,
+    itemsById,
+    shownIds,
+    rerollsUsed,
+    rowId,
+    hiddenIds,
+    persistPack,
+    tryBackfill,
+  ])
+
   const removeFromPack = useCallback(
     async (id: string, opts?: { backfill?: boolean }) => {
       const nextIds = packIds.filter((x) => x !== id)

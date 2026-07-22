@@ -103,6 +103,48 @@ function mergePendingItems(prev: ListItem[], fetched: ListItem[]): ListItem[] {
   return [...pending, ...fetched]
 }
 
+function mergeSeededProgress(
+  existing: ListItemProgress | undefined,
+  id: string,
+  patch: ListItemUpdate,
+  fallbackUserId: string,
+): ListItemProgress {
+  return {
+    user_id: existing?.user_id ?? fallbackUserId,
+    list_item_id: id,
+    status: patch.status ?? existing?.status ?? 'open',
+    completed_at:
+      patch.completed_at !== undefined
+        ? patch.completed_at
+        : (existing?.completed_at ?? null),
+    completion_photo_url:
+      patch.completion_photo_url !== undefined
+        ? patch.completion_photo_url
+        : (existing?.completion_photo_url ?? null),
+    completion_note:
+      patch.completion_note !== undefined
+        ? patch.completion_note
+        : (existing?.completion_note ?? null),
+    snoozed_until:
+      patch.snoozed_until !== undefined
+        ? patch.snoozed_until
+        : (existing?.snoozed_until ?? null),
+    last_surfaced_at:
+      patch.last_surfaced_at !== undefined
+        ? patch.last_surfaced_at
+        : (existing?.last_surfaced_at ?? null),
+    surfaced_count:
+      patch.surfaced_count !== undefined
+        ? patch.surfaced_count
+        : (existing?.surfaced_count ?? 0),
+    last_notified_at:
+      patch.last_notified_at !== undefined
+        ? patch.last_notified_at
+        : (existing?.last_notified_at ?? null),
+    updated_at: new Date().toISOString(),
+  }
+}
+
 export function ListsProvider({
   children,
   userId,
@@ -360,72 +402,25 @@ export function ListsProvider({
       if (!supabase) return false
 
       if (isSeeded) {
-        // Optimistic: flip UI immediately, sync in the background
+        let merged!: ListItemProgress
         setProgressMap((prev) => {
-          const existing = prev.get(id)
-          const optimistic: ListItemProgress = {
-            user_id: existing?.user_id ?? '',
-            list_item_id: id,
-            status: patch.status ?? existing?.status ?? 'open',
-            completed_at:
-              patch.completed_at !== undefined
-                ? patch.completed_at
-                : (existing?.completed_at ?? null),
-            completion_photo_url:
-              patch.completion_photo_url !== undefined
-                ? patch.completion_photo_url
-                : (existing?.completion_photo_url ?? null),
-            completion_note:
-              patch.completion_note !== undefined
-                ? patch.completion_note
-                : (existing?.completion_note ?? null),
-            snoozed_until:
-              patch.snoozed_until !== undefined
-                ? patch.snoozed_until
-                : (existing?.snoozed_until ?? null),
-            last_surfaced_at:
-              patch.last_surfaced_at !== undefined
-                ? patch.last_surfaced_at
-                : (existing?.last_surfaced_at ?? null),
-            surfaced_count:
-              patch.surfaced_count !== undefined
-                ? patch.surfaced_count
-                : (existing?.surfaced_count ?? 0),
-            last_notified_at:
-              patch.last_notified_at !== undefined
-                ? patch.last_notified_at
-                : (existing?.last_notified_at ?? null),
-            updated_at: new Date().toISOString(),
-          }
-          return new Map(prev).set(id, optimistic)
+          merged = mergeSeededProgress(prev.get(id), id, patch, userId)
+          return new Map(prev).set(id, merged)
         })
 
         const {
           data: { user },
         } = await supabase.auth.getUser()
         if (!user) {
-          // Background sync failed — don't flash the full-page loader
           await fetchAll({ silent: true })
           return false
         }
 
-        const progPatch = {
-          status: patch.status,
-          completed_at: patch.completed_at,
-          completion_photo_url: patch.completion_photo_url,
-          completion_note: patch.completion_note,
-          snoozed_until: patch.snoozed_until,
-          last_surfaced_at: patch.last_surfaced_at,
-          surfaced_count: patch.surfaced_count,
-          last_notified_at: patch.last_notified_at,
-        }
+        const payload: ListItemProgress = { ...merged, user_id: user.id }
 
         const { data, error: upsertError } = await supabase
           .from(TABLES.itemProgress)
-          .upsert(
-            { user_id: user.id, list_item_id: id, ...progPatch },
-            { onConflict: 'user_id,list_item_id' },
-          )
+          .upsert(payload, { onConflict: 'user_id,list_item_id' })
           .select()
           .single()
 
@@ -456,7 +451,7 @@ export function ListsProvider({
       }
       return true
     },
-    [fetchAll],
+    [fetchAll, userId],
   )
 
   const markDoneQuick = useCallback(
