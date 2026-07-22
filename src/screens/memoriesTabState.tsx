@@ -5,17 +5,18 @@ import {
   useState,
   type ReactNode,
 } from 'react'
-import { createPortal } from 'react-dom'
-import { MemoryDetailSheet } from '../components/lists/MemoryDetailSheet'
-import { useLists } from '../hooks/useLists'
 import type { ListItemView } from '../types/database'
+
+export type ChapterFlipDirection = 'next' | 'prev'
+export type ChapterAnimPhase = 'idle' | 'leave' | 'enter'
 
 interface MemoriesTabState {
   activeChapterId: string | null
-  chapterVisible: boolean
+  chapterAnim: ChapterAnimPhase
+  flipDirection: ChapterFlipDirection | null
   selectedItem: ListItemView | null
-  selectChapter: (listId: string) => void
-  goToChapter: (listId: string) => void
+  selectChapter: (listId: string, direction?: ChapterFlipDirection) => void
+  goToChapter: (listId: string, direction: ChapterFlipDirection) => void
   setInitialChapter: (listId: string) => void
   openMemory: (item: ListItemView) => void
   closeMemory: () => void
@@ -23,44 +24,55 @@ interface MemoriesTabState {
 
 const Ctx = createContext<MemoriesTabState | null>(null)
 
-const CHAPTER_MS = 280
+/** Match CSS flip duration in index.css */
+export const CHAPTER_FLIP_MS = 680
 
 export function MemoriesTabProvider({ children }: { children: ReactNode }) {
-  const { items } = useLists()
   const [activeChapterId, setActiveChapterId] = useState<string | null>(null)
-  const [chapterVisible, setChapterVisible] = useState(true)
+  const [chapterAnim, setChapterAnim] = useState<ChapterAnimPhase>('idle')
+  const [flipDirection, setFlipDirection] =
+    useState<ChapterFlipDirection | null>(null)
   const [selectedItem, setSelectedItem] = useState<ListItemView | null>(null)
-  const [pendingId, setPendingId] = useState<string | null>(null)
 
   const goToChapter = useCallback(
-    (listId: string) => {
-      if (listId === activeChapterId) return
-      setChapterVisible(false)
-      setPendingId(listId)
+    (listId: string, direction: ChapterFlipDirection) => {
+      if (listId === activeChapterId || chapterAnim !== 'idle') return
+
+      setFlipDirection(direction)
+      requestAnimationFrame(() => {
+        setChapterAnim('leave')
+      })
+
       window.setTimeout(() => {
         setActiveChapterId(listId)
-        setPendingId(null)
-        setChapterVisible(true)
-      }, CHAPTER_MS)
+        setChapterAnim('enter')
+
+        window.setTimeout(() => {
+          setChapterAnim('idle')
+          setFlipDirection(null)
+        }, CHAPTER_FLIP_MS)
+      }, CHAPTER_FLIP_MS)
     },
-    [activeChapterId],
+    [activeChapterId, chapterAnim],
   )
 
   const selectChapter = useCallback(
-    (listId: string) => {
-      goToChapter(listId)
+    (listId: string, direction: ChapterFlipDirection = 'next') => {
+      goToChapter(listId, direction)
     },
     [goToChapter],
   )
 
   const setInitialChapter = useCallback((listId: string) => {
     setActiveChapterId(listId)
-    setChapterVisible(true)
+    setChapterAnim('idle')
+    setFlipDirection(null)
   }, [])
 
   const value: MemoriesTabState = {
-    activeChapterId: pendingId ?? activeChapterId,
-    chapterVisible,
+    activeChapterId,
+    chapterAnim,
+    flipDirection,
     selectedItem,
     selectChapter,
     goToChapter,
@@ -69,23 +81,7 @@ export function MemoriesTabProvider({ children }: { children: ReactNode }) {
     closeMemory: () => setSelectedItem(null),
   }
 
-  return (
-    <Ctx.Provider value={value}>
-      {children}
-      {selectedItem &&
-        createPortal(
-          <div className="fixed inset-0 z-[100]">
-            <MemoryDetailSheet
-              item={
-                items.find((row) => row.id === selectedItem.id) ?? selectedItem
-              }
-              onClose={() => setSelectedItem(null)}
-            />
-          </div>,
-          document.body,
-        )}
-    </Ctx.Provider>
-  )
+  return <Ctx.Provider value={value}>{children}</Ctx.Provider>
 }
 
 export function useMemoriesTab(): MemoriesTabState {
@@ -94,4 +90,5 @@ export function useMemoriesTab(): MemoriesTabState {
   return ctx
 }
 
-export { CHAPTER_MS }
+/** @deprecated Use CHAPTER_FLIP_MS */
+export const CHAPTER_MS = CHAPTER_FLIP_MS

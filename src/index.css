@@ -616,6 +616,88 @@ body {
   border-radius: 0 6px 0 0;
 }
 
+.memory-page-curl--disabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Memory chapter — 3D page turn (hinge at binder spine / left edge) */
+.memory-chapter-flip-viewport {
+  position: relative;
+  overflow: hidden;
+  perspective: 1600px;
+  perspective-origin: 12% 55%;
+}
+
+.memory-chapter-page {
+  height: 100%;
+  min-height: 100%;
+  transform-origin: 0% 62%;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  background-color: #f8f4eb;
+  transition:
+    transform 680ms cubic-bezier(0.33, 1, 0.68, 1),
+    box-shadow 680ms ease;
+  will-change: transform;
+}
+
+.memory-chapter-page--leave-next {
+  transform: rotateY(-98deg) rotateX(2deg);
+  box-shadow: 22px 12px 40px rgba(43, 42, 39, 0.24);
+}
+
+.memory-chapter-page--leave-prev {
+  transform: rotateY(98deg) rotateX(2deg);
+  box-shadow: -14px 12px 40px rgba(43, 42, 39, 0.2);
+}
+
+.memory-chapter-page--enter-next {
+  transition: none;
+  animation: memory-chapter-enter-next 680ms cubic-bezier(0.33, 1, 0.68, 1)
+    forwards;
+}
+
+.memory-chapter-page--enter-prev {
+  transition: none;
+  animation: memory-chapter-enter-prev 680ms cubic-bezier(0.33, 1, 0.68, 1)
+    forwards;
+}
+
+@keyframes memory-chapter-enter-next {
+  from {
+    transform: rotateY(98deg) rotateX(2deg);
+    box-shadow: -12px 10px 32px rgba(43, 42, 39, 0.18);
+  }
+  to {
+    transform: rotateY(0deg) rotateX(0deg);
+    box-shadow: none;
+  }
+}
+
+@keyframes memory-chapter-enter-prev {
+  from {
+    transform: rotateY(-98deg) rotateX(2deg);
+    box-shadow: 16px 10px 32px rgba(43, 42, 39, 0.18);
+  }
+  to {
+    transform: rotateY(0deg) rotateX(0deg);
+    box-shadow: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memory-chapter-page,
+  .memory-chapter-page--enter-next,
+  .memory-chapter-page--enter-prev {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
 .memory-contents-entry:focus-visible {
   outline: 1px dotted rgba(43, 42, 39, 0.35);
   outline-offset: 2px;

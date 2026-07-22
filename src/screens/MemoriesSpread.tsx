@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react'
 import { RubberStamp } from '../components/ScrapbookElements'
+import { MemoryDetailSheet } from '../components/lists/MemoryDetailSheet'
 import { PolaroidFrame } from '../components/PolaroidFrame'
 import { ScrapCollage } from '../components/ScrapCollage'
 import { Scrap } from '../components/primitives'
@@ -18,6 +19,7 @@ import {
   buildContents,
   chapterItems,
   defaultChapterId,
+  type ContentsEntry as ContentsRow,
 } from './memoriesData'
 import { useMemoriesTab } from './memoriesTabState'
 
@@ -45,19 +47,32 @@ function PageCurl({
   direction,
   onClick,
   label,
+  disabled = false,
 }: {
   direction: 'prev' | 'next'
   onClick: () => void
   label: string
+  disabled?: boolean
 }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className={`memory-page-curl memory-page-curl--${direction}`}
+      disabled={disabled}
+      className={`memory-page-curl memory-page-curl--${direction}${
+        disabled ? ' memory-page-curl--disabled' : ''
+      }`}
       aria-label={label}
     />
   )
+}
+
+function chapterPageClass(
+  anim: 'idle' | 'leave' | 'enter',
+  direction: 'next' | 'prev' | null,
+): string {
+  if (anim === 'idle' || !direction) return 'memory-chapter-page'
+  return `memory-chapter-page memory-chapter-page--${anim}-${direction}`
 }
 
 export function MemoriesLeftPage() {
@@ -110,6 +125,7 @@ export function MemoriesLeftPage() {
                     count={count}
                     active={active}
                     index={index}
+                    contents={contents}
                   />
                 </li>
               )
@@ -126,18 +142,26 @@ function ContentsEntry({
   count,
   active,
   index,
+  contents,
 }: {
   list: { id: string; title: string; emoji: string | null }
   count: number
   active: boolean
   index: number
+  contents: ContentsRow[]
 }) {
-  const { selectChapter } = useMemoriesTab()
+  const { selectChapter, activeChapterId } = useMemoriesTab()
 
   return (
     <button
       type="button"
-      onClick={() => selectChapter(list.id)}
+      onClick={() => {
+        if (list.id === activeChapterId) return
+        const currentIdx = contents.findIndex((c) => c.list.id === activeChapterId)
+        const direction =
+          currentIdx === -1 || index >= currentIdx ? 'next' : 'prev'
+        selectChapter(list.id, direction)
+      }}
       className={`memory-contents-entry w-full px-1 py-2 text-left transition-colors ${
         active
           ? 'font-medium text-ink'
@@ -170,11 +194,18 @@ export function MemoriesRightPage() {
   const { lists, items, loading } = useLists()
   const {
     activeChapterId,
-    chapterVisible,
+    chapterAnim,
+    flipDirection,
     openMemory,
+    selectedItem,
+    closeMemory,
     goToChapter,
     setInitialChapter,
   } = useMemoriesTab()
+
+  const liveSelected = selectedItem
+    ? items.find((row) => row.id === selectedItem.id) ?? selectedItem
+    : null
 
   const contents = useMemo(() => buildContents(lists, items), [lists, items])
   const activeList = contents.find((c) => c.list.id === activeChapterId)?.list
@@ -198,11 +229,7 @@ export function MemoriesRightPage() {
     if (fallback) setInitialChapter(fallback)
   }, [activeChapterId, contents, setInitialChapter])
 
-  const chapterStyle = {
-    opacity: chapterVisible ? 1 : 0,
-    transform: chapterVisible ? 'translateX(0)' : 'translateX(24px)',
-    transition: 'opacity 280ms ease-out, transform 280ms ease-out',
-  }
+  const chapterFlipping = chapterAnim !== 'idle'
 
   if (loading) {
     return (
@@ -242,23 +269,30 @@ export function MemoriesRightPage() {
       )}
 
       <div className="relative min-h-0 flex-1 overflow-hidden">
-        <div className="wishes-scroll h-full pb-14" style={chapterStyle}>
-          {done.length === 0 ? (
-            <p className="font-hand text-base text-ink/45">
-              no memories in this chapter yet.
-            </p>
-          ) : (
-            <ScrapCollage className="flex flex-wrap items-start">
-              {done.map((item, index) => (
-                <MemoryPolaroid
-                  key={item.id}
-                  item={item}
-                  index={index}
-                  onOpen={() => openMemory(item)}
-                />
-              ))}
-            </ScrapCollage>
-          )}
+        <div className="memory-chapter-flip-viewport h-full">
+          <div
+            key={activeChapterId ?? 'none'}
+            className={chapterPageClass(chapterAnim, flipDirection)}
+          >
+            <div className="wishes-scroll h-full pb-14">
+              {done.length === 0 ? (
+                <p className="font-hand text-base text-ink/45">
+                  no memories in this chapter yet.
+                </p>
+              ) : (
+                <ScrapCollage className="flex flex-wrap items-start">
+                  {done.map((item, index) => (
+                    <MemoryPolaroid
+                      key={item.id}
+                      item={item}
+                      index={index}
+                      onOpen={() => openMemory(item)}
+                    />
+                  ))}
+                </ScrapCollage>
+              )}
+            </div>
+          </div>
         </div>
 
         {showNav && activeChapterId && (
@@ -266,22 +300,27 @@ export function MemoriesRightPage() {
             <PageCurl
               direction="prev"
               label="Previous chapter"
+              disabled={chapterFlipping}
               onClick={() => {
                 const id = adjacentChapterId(contents, activeChapterId, 'prev')
-                if (id) goToChapter(id)
+                if (id) goToChapter(id, 'prev')
               }}
             />
             <PageCurl
               direction="next"
               label="Next chapter"
+              disabled={chapterFlipping}
               onClick={() => {
                 const id = adjacentChapterId(contents, activeChapterId, 'next')
-                if (id) goToChapter(id)
+                if (id) goToChapter(id, 'next')
               }}
             />
           </>
         )}
 
+        {liveSelected && (
+          <MemoryDetailSheet item={liveSelected} onClose={closeMemory} />
+        )}
       </div>
     </div>
   )
