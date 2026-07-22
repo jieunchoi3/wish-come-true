@@ -1,8 +1,26 @@
 const MAX_EDGE = 1600
 
-export async function compressImage(file: File): Promise<Blob> {
-  const bitmap = await createImageBitmap(file)
-  const { width, height } = bitmap
+function loadImageFromFile(file: File): Promise<HTMLImageElement> {
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file)
+    const img = new Image()
+    img.onload = () => {
+      URL.revokeObjectURL(url)
+      resolve(img)
+    }
+    img.onerror = () => {
+      URL.revokeObjectURL(url)
+      reject(new Error('could not decode image'))
+    }
+    img.src = url
+  })
+}
+
+async function drawToJpegBlob(
+  source: CanvasImageSource,
+  width: number,
+  height: number,
+): Promise<Blob> {
   const scale = Math.min(1, MAX_EDGE / Math.max(width, height))
   const w = Math.round(width * scale)
   const h = Math.round(height * scale)
@@ -10,9 +28,10 @@ export async function compressImage(file: File): Promise<Blob> {
   const canvas = document.createElement('canvas')
   canvas.width = w
   canvas.height = h
-  const ctx = canvas.getContext('2d')!
-  ctx.drawImage(bitmap, 0, 0, w, h)
-  bitmap.close()
+  const ctx = canvas.getContext('2d')
+  if (!ctx) throw new Error('compress failed')
+
+  ctx.drawImage(source, 0, 0, w, h)
 
   return new Promise((resolve, reject) => {
     canvas.toBlob(
@@ -21,6 +40,19 @@ export async function compressImage(file: File): Promise<Blob> {
       0.85,
     )
   })
+}
+
+export async function compressImage(file: File): Promise<Blob> {
+  try {
+    const bitmap = await createImageBitmap(file)
+    const { width, height } = bitmap
+    const blob = await drawToJpegBlob(bitmap, width, height)
+    bitmap.close()
+    return blob
+  } catch {
+    const img = await loadImageFromFile(file)
+    return drawToJpegBlob(img, img.naturalWidth, img.naturalHeight)
+  }
 }
 
 export async function uploadWishImage(

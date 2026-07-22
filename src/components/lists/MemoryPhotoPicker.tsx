@@ -35,7 +35,6 @@ export function MemoryPhotoPicker({
   stampOverlay,
 }: MemoryPhotoPickerProps) {
   const inputId = useId()
-  const inputRef = useRef<HTMLInputElement>(null)
   const zoneRef = useRef<HTMLDivElement>(null)
   const onFileRef = useRef(onFile)
   onFileRef.current = onFile
@@ -43,11 +42,6 @@ export function MemoryPhotoPicker({
   function handleFile(file: File) {
     if (uploading) return
     onFile(file)
-  }
-
-  function openFilePicker() {
-    if (uploading) return
-    inputRef.current?.click()
   }
 
   useEffect(() => {
@@ -72,6 +66,9 @@ export function MemoryPhotoPicker({
   }
 
   const pickerDisabled = uploading
+  const linkClass = pickerDisabled
+    ? 'cursor-not-allowed opacity-50'
+    : 'cursor-pointer hover:text-ink/60'
 
   return (
     <div
@@ -81,7 +78,26 @@ export function MemoryPhotoPicker({
       onDrop={handleDrop}
       onDragOver={(e) => e.preventDefault()}
     >
-      <div className="relative w-full">
+      <input
+        id={inputId}
+        type="file"
+        accept="image/jpeg,image/png,image/heic,image/webp,image/gif,image/*"
+        className="sr-only"
+        disabled={pickerDisabled}
+        aria-label="upload photo"
+        onChange={(e) => {
+          const file = e.target.files?.[0]
+          if (file) handleFile(file)
+          e.target.value = ''
+        }}
+      />
+
+      <label
+        htmlFor={inputId}
+        className={`relative block w-full ${linkClass}`}
+        aria-disabled={pickerDisabled}
+        onClick={pickerDisabled ? (e) => e.preventDefault() : undefined}
+      >
         <PolaroidFrame className="w-full !pb-3 [&>div:first-child]:min-w-0">
           <div className="pointer-events-none h-full w-full">
             {photoUrl ? (
@@ -101,37 +117,17 @@ export function MemoryPhotoPicker({
             )}
           </div>
         </PolaroidFrame>
-
         {stampOverlay}
+      </label>
 
-        <input
-          ref={inputRef}
-          id={inputId}
-          type="file"
-          accept="image/jpeg,image/png,image/heic,image/webp,image/gif,image/*"
-          className="photo-file-overlay"
-          disabled={pickerDisabled}
-          aria-label="upload photo"
-          onChange={(e) => {
-            const file = e.target.files?.[0]
-            if (file) handleFile(file)
-            e.target.value = ''
-          }}
-        />
-      </div>
-
-      <button
-        type="button"
-        disabled={pickerDisabled}
-        onClick={openFilePicker}
-        className={`mt-2 font-hand text-sm text-ink/40 underline decoration-dotted decoration-ink/20 transition-colors hover:text-ink/60 ${
-          pickerDisabled
-            ? 'cursor-not-allowed opacity-50'
-            : 'cursor-pointer'
-        }`}
+      <label
+        htmlFor={inputId}
+        className={`mt-2 inline-block font-hand text-sm text-ink/40 underline decoration-dotted decoration-ink/20 transition-colors ${linkClass}`}
+        aria-disabled={pickerDisabled}
+        onClick={pickerDisabled ? (e) => e.preventDefault() : undefined}
       >
         paste or upload photo
-      </button>
+      </label>
 
       {uploading && uploadPct < 1 && (
         <div className="mt-2 h-0.5 w-full bg-ink/10">
