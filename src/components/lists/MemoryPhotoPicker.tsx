@@ -84,7 +84,7 @@ export function MemoryPhotoPicker({
         aria-disabled={pickerDisabled}
       >
         <PolaroidFrame className="w-full !pb-3 [&>div:first-child]:min-w-0">
-          <div className="pointer-events-none h-full w-full">
+          <div className="pointer-events-none h-full w-full min-h-0">
             {photoUrl ? (
               <img
                 src={photoUrl}
@@ -93,7 +93,7 @@ export function MemoryPhotoPicker({
               />
             ) : (
               placeholder ?? (
-                <div className="flex min-h-[200px] w-full flex-col items-center justify-center gap-2 p-6">
+                <div className="flex h-full w-full flex-col items-center justify-center gap-2 p-6">
                   <span className="font-hand text-lg text-ink/35">
                     add a photo
                   </span>

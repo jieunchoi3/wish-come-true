@@ -226,6 +226,11 @@ body {
   animation: sheet-in 300ms ease-out forwards;
 }
 
+.paper-sheet-panel .paper-sheet-card > div {
+  filter: drop-shadow(0 16px 36px rgba(43, 42, 39, 0.12))
+    drop-shadow(0 4px 14px rgba(43, 42, 39, 0.08));
+}
+
 @keyframes sheet-in {
   from {
     opacity: 0;

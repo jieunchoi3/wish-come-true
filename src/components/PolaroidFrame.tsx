@@ -19,8 +19,10 @@ export function PolaroidFrame({
       className={`inline-block bg-white p-2 pb-8 shadow-[1px_2px_8px_rgba(44,42,38,0.15)] ${className}`}
     >
       <div
-        className={`flex aspect-[4/5] w-full min-w-[120px] items-center justify-center overflow-hidden bg-paper-shadow/40 ${
-          placeholder ? 'bg-gradient-to-br from-sage/20 to-rose/20' : ''
+        className={`flex aspect-[4/5] w-full min-w-[120px] overflow-hidden bg-paper-shadow/40 ${
+          placeholder
+            ? 'items-center justify-center bg-gradient-to-br from-sage/20 to-rose/20'
+            : 'items-stretch [&>*]:min-h-0 [&>*]:w-full'
         }`}
       >
         {placeholder ? (

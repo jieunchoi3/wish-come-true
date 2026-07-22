@@ -109,7 +109,7 @@ export function MemoryDetailSheet({
 
   const placeholder = (
     <div
-      className="flex min-h-[200px] w-full flex-col items-center justify-center gap-3 p-6"
+      className="flex h-full w-full flex-col items-center justify-center gap-3 p-6"
       style={{ backgroundColor: accent }}
     >
       <span className="text-4xl" aria-hidden>

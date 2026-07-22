@@ -43,14 +43,14 @@ export function PaperSheet({ id, children, onClose, className = '' }: PaperSheet
       )}
       <div
         ref={panelRef}
-        className="paper-sheet-panel relative z-10 min-h-0 flex-1 overflow-y-auto"
+        className="paper-sheet-panel relative z-10 min-h-0 flex-1 overflow-y-auto px-2 py-3 sm:px-3 sm:py-4"
       >
         <Scrap
           id={id}
           index={0}
           layout={false}
           tapePosition="top-center"
-          className="mx-2 my-2 min-h-full"
+          className="paper-sheet-card mx-1 my-1 min-h-full sm:mx-2 sm:my-2"
         >
           <div className="px-7 py-8">{children}</div>
         </Scrap>

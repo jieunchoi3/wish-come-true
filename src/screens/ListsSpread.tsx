@@ -7,6 +7,7 @@ import { ListItemRow } from '../components/lists/ListItemRow'
 import { useLists } from '../hooks/useLists'
 import { searchListsAndItems } from '../lib/smartSearch'
 import type { ListItemView, ListWithCounts } from '../types/database'
+import { useListsTab } from './listsTabState'
 
 function PageHeading({ children }: { children: string }) {
   return (
@@ -42,6 +43,7 @@ function ListCards({
 /** Left spread — seeded / catalogue lists (desktop only). */
 export function ListsLeftPage() {
   const { lists, loading } = useLists()
+  const { query, setQuery } = useListsTab()
   const seededLists = lists.filter((l) => l.is_seeded)
 
   if (loading) {
@@ -54,7 +56,9 @@ export function ListsLeftPage() {
 
   return (
     <div className="hidden h-full min-h-0 flex-col lg:flex">
-      <PageHeading>lists to browse</PageHeading>
+      <div className="mb-3 shrink-0">
+        <ListsSearchBar value={query} onChange={setQuery} />
+      </div>
       <div className="wishes-scroll min-h-0 flex-1">
         <ListCards lists={seededLists} />
       </div>
@@ -65,8 +69,8 @@ export function ListsLeftPage() {
 /** Right spread — my lists (+ mobile combines both sides). */
 export function ListsRightPage() {
   const { lists, items, loading, createList, error, clearError } = useLists()
+  const { query, setQuery } = useListsTab()
   const [newListOpen, setNewListOpen] = useState(false)
-  const [query, setQuery] = useState('')
   const [creating, setCreating] = useState(false)
   const [createError, setCreateError] = useState<string | null>(null)
   const [openListId, setOpenListId] = useState<string | null>(null)
@@ -119,7 +123,7 @@ export function ListsRightPage() {
   }
 
   const listControls = (
-    <div className="mb-3 shrink-0">
+    <div className="mb-3 shrink-0 lg:hidden">
       <ListsSearchBar value={query} onChange={setQuery} />
     </div>
   )
@@ -185,7 +189,6 @@ export function ListsRightPage() {
 
         {!searching && seededLists.length > 0 && (
           <div className="mt-6 border-t border-ink/10 pt-6">
-            <PageHeading>lists to browse</PageHeading>
             <ListCards lists={seededLists} />
           </div>
         )}

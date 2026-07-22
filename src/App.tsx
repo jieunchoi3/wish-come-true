@@ -10,6 +10,7 @@ import type { ConnectionFailure } from './lib/supabaseHealth'
 import { ListsLeftPage, ListsRightPage } from './screens/ListsSpread'
 import { MemoriesLeftPage, MemoriesRightPage } from './screens/MemoriesSpread'
 import { MemoriesTabProvider } from './screens/memoriesTabState'
+import { ListsTabProvider } from './screens/listsTabState'
 import { ThisMonthLeftPage } from './screens/ThisMonthSpread'
 import { TodayRightPage } from './screens/TodayRightPage'
 
@@ -66,7 +67,9 @@ function ReadyApp({ session }: { session: Session }) {
     <ListsProvider userId={session.user.id}>
       <DataErrorGate>
         <MemoriesTabProvider>
-          <BinderApp />
+          <ListsTabProvider>
+            <BinderApp />
+          </ListsTabProvider>
         </MemoriesTabProvider>
       </DataErrorGate>
     </ListsProvider>

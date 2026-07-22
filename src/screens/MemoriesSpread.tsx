@@ -369,7 +369,7 @@ function MemoryPolaroid({
                   />
                 ) : (
                   <div
-                    className="flex h-full min-h-[100px] w-full flex-col items-center justify-center gap-2 p-3"
+                    className="flex h-full w-full flex-col items-center justify-center gap-2 p-3"
                     style={{ backgroundColor: accent }}
                   >
                     <span className="text-2xl" aria-hidden>
