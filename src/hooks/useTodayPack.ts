@@ -29,7 +29,7 @@ export function useTodayPack(
   listTitles: Map<string, string>,
   weather: TodayWeather | null,
 ) {
-  const { updateItem, markDoneQuick, markSurfaced } = useLists()
+  const { updateItem, markSurfaced } = useLists()
   const [rowId, setRowId] = useState<string | null>(null)
   const [packIds, setPackIds] = useState<string[]>([])
   const [shownIds, setShownIds] = useState<string[]>([])
@@ -276,19 +276,9 @@ export function useTodayPack(
     [packIds, shownIds, rerollsUsed, rowId, persistPack, tryBackfill],
   )
 
-  const handleDoneIt = useCallback(
-    (item: ListItemView) => {
-      if (item.is_seeded) {
-        void markDoneQuick(item).catch(() => {})
-        runAnimThenHide(item.id, 'commit', () => {
-          void removeFromPack(item.id)
-        })
-        return
-      }
-      setCompletingItem(item)
-    },
-    [markDoneQuick, runAnimThenHide, removeFromPack],
-  )
+  const handleDoneIt = useCallback((item: ListItemView) => {
+    setCompletingItem(item)
+  }, [])
 
   const handleCompleteClose = useCallback(
     (item: ListItemView) => {

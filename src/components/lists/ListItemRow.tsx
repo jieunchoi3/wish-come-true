@@ -12,7 +12,7 @@ interface ListItemRowProps {
 }
 
 export function ListItemRow({ item }: ListItemRowProps) {
-  const { markDoneQuick, undoDone, deleteItem, updateItem } = useLists()
+  const { undoDone, deleteItem, updateItem } = useLists()
   const [completing, setCompleting] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [editing, setEditing] = useState(false)
@@ -24,11 +24,7 @@ export function ListItemRow({ item }: ListItemRowProps) {
   const opacity = isDone ? 0.55 : 1
   const canEdit = !item.is_seeded
 
-  async function handleDidIt() {
-    if (item.is_seeded) {
-      void markDoneQuick(item)
-      return
-    }
+  function handleDidIt() {
     setCompleting(true)
   }
 

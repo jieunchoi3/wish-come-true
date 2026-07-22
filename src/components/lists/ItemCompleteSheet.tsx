@@ -70,8 +70,11 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
     <PaperSheet id={`complete-${item.id}`} onClose={onClose}>
       <p className="font-hand text-xl text-ink/55">you did it.</p>
       <h2 className="mt-1 font-serif text-2xl text-ink">{item.title}</h2>
+      <p className="mt-2 font-hand text-base text-ink/45">
+        got a photo? optional — tap the polaroid or skip straight to done it.
+      </p>
 
-      <div className="mt-5">
+      <div className="mt-4">
         <MemoryPhotoPicker
           photoUrl={previewUrl}
           onFile={handlePhoto}
@@ -99,7 +102,7 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
         />
       </div>
       <button type="button" onClick={onClose} className="mt-4 font-hand text-ink/40">
-        not yet
+        not yet — don&apos;t mark done
       </button>
     </PaperSheet>
   )

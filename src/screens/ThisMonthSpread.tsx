@@ -277,7 +277,7 @@ function ThisMonthCard({
   listEmoji: string
   index: number
 }) {
-  const { items, markDoneQuick, uncommitItem } = useLists()
+  const { items, uncommitItem } = useLists()
   const [completing, setCompleting] = useState(false)
   const [showRollover, setShowRollover] = useState(() =>
     needsRolloverPrompt(item.id),
@@ -285,11 +285,7 @@ function ThisMonthCard({
 
   const liveItem = items.find((i) => i.id === item.id) ?? item
 
-  async function handleDidIt() {
-    if (liveItem.is_seeded) {
-      await markDoneQuick(liveItem)
-      return
-    }
+  function handleDidIt() {
     setCompleting(true)
   }
 
