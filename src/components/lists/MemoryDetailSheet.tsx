@@ -23,6 +23,11 @@ function formatCaptionDate(iso: string): string {
   })
 }
 
+/** Strip cache-bust query before persisting to Supabase. */
+function storagePhotoUrl(url: string): string {
+  return url.split('?')[0] ?? url
+}
+
 interface MemoryDetailSheetProps {
   item: ListItemView
   onClose: () => void
@@ -34,26 +39,28 @@ export function MemoryDetailSheet({
   onClose,
   backLabel = 'back to the chapter',
 }: MemoryDetailSheetProps) {
-  const { updateItem } = useLists()
-  const accent = CATEGORY_ACCENTS[item.category]
-  const completedLabel = item.completed_at
-    ? formatCaptionDate(item.completed_at)
+  const { items, updateItem } = useLists()
+  const liveItem = items.find((row) => row.id === item.id) ?? item
+  const accent = CATEGORY_ACCENTS[liveItem.category]
+  const completedLabel = liveItem.completed_at
+    ? formatCaptionDate(liveItem.completed_at)
     : ''
   const imaginedSpan =
-    !item.is_seeded && item.created_at && item.completed_at
-      ? formatImaginedBeforeDone(item.created_at, item.completed_at)
+    !liveItem.is_seeded && liveItem.created_at && liveItem.completed_at
+      ? formatImaginedBeforeDone(liveItem.created_at, liveItem.completed_at)
       : null
 
   const [previewUrl, setPreviewUrl] = useState<string | null>(
-    item.completion_photo_url,
+    liveItem.completion_photo_url,
   )
   const [uploading, setUploading] = useState(false)
   const [uploadPct, setUploadPct] = useState(0)
   const [photoError, setPhotoError] = useState<string | null>(null)
 
   useEffect(() => {
-    setPreviewUrl(item.completion_photo_url)
-  }, [item.completion_photo_url, item.id])
+    if (uploading) return
+    setPreviewUrl(liveItem.completion_photo_url)
+  }, [liveItem.completion_photo_url, liveItem.id, uploading])
 
   async function handlePhoto(file: File) {
     const prev = previewUrl
@@ -72,20 +79,28 @@ export function MemoryDetailSheet({
 
       const url = await uploadCompletionPhoto(
         user.id,
-        item.id,
+        liveItem.id,
         file,
         setUploadPct,
       )
       const saved = await updateItem(
-        item.id,
-        { completion_photo_url: url },
-        item.is_seeded,
+        liveItem.id,
+        {
+          completion_photo_url: storagePhotoUrl(url),
+          status: liveItem.status,
+          completed_at: liveItem.completed_at,
+        },
+        liveItem.is_seeded,
       )
       if (!saved) throw new Error('save failed')
       setPreviewUrl(url)
-    } catch {
+    } catch (err) {
       setPreviewUrl(prev)
-      setPhotoError('could not save photo — try again')
+      setPhotoError(
+        err instanceof Error && err.message === 'not signed in'
+          ? 'sign in to save photos'
+          : 'could not save photo — try again',
+      )
     } finally {
       setUploading(false)
       URL.revokeObjectURL(local)
@@ -98,16 +113,16 @@ export function MemoryDetailSheet({
       style={{ backgroundColor: accent }}
     >
       <span className="text-4xl" aria-hidden>
-        {categoryEmoji(item.category)}
+        {categoryEmoji(liveItem.category)}
       </span>
       <p className="text-center font-serif text-lg font-medium text-ink">
-        {item.title}
+        {liveItem.title}
       </p>
     </div>
   )
 
   return (
-    <PaperSheet id={`memory-detail-${item.id}`} onClose={onClose}>
+    <PaperSheet id={`memory-detail-${liveItem.id}`} onClose={onClose}>
       <button
         type="button"
         onClick={onClose}
@@ -124,9 +139,9 @@ export function MemoryDetailSheet({
           uploading={uploading}
           uploadPct={uploadPct}
           stampOverlay={
-            item.completed_at ? (
+            liveItem.completed_at ? (
               <RubberStamp
-                date={formatDoneStampDate(item.completed_at)}
+                date={formatDoneStampDate(liveItem.completed_at)}
                 className="pointer-events-none top-[38%] z-20 text-xl"
               />
             ) : undefined
@@ -139,14 +154,16 @@ export function MemoryDetailSheet({
       )}
 
       <h2 className="mt-6 font-serif text-2xl font-medium text-ink">
-        {item.title}
+        {liveItem.title}
       </h2>
 
-      {item.completion_note && (
-        <p className="mt-2 font-hand text-lg text-ink/65">{item.completion_note}</p>
+      {liveItem.completion_note && (
+        <p className="mt-2 font-hand text-lg text-ink/65">
+          {liveItem.completion_note}
+        </p>
       )}
-      {item.note && !item.completion_note && (
-        <p className="mt-2 font-hand text-lg text-ink/55">{item.note}</p>
+      {liveItem.note && !liveItem.completion_note && (
+        <p className="mt-2 font-hand text-lg text-ink/55">{liveItem.note}</p>
       )}
 
       <p className="mt-3 font-hand text-base text-ink/40">{completedLabel}</p>

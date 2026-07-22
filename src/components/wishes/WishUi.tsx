@@ -16,20 +16,12 @@ export function PaperSheet({ id, children, onClose, className = '' }: PaperSheet
     if (!onClose) return
     const close = onClose
 
-    function handlePointerDown(event: MouseEvent) {
-      const target = event.target as Node
-      if (panelRef.current?.contains(target)) return
-      close()
-    }
-
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') close()
     }
 
-    document.addEventListener('mousedown', handlePointerDown)
     document.addEventListener('keydown', handleKeyDown)
     return () => {
-      document.removeEventListener('mousedown', handlePointerDown)
       document.removeEventListener('keydown', handleKeyDown)
     }
   }, [onClose])

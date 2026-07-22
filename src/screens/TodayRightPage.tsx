@@ -95,7 +95,7 @@ export function TodayRightPage() {
           your lists are here to browse. add your own things as they come to you.
         </p>
       ) : (
-        <div className="relative min-h-0 flex-1 overflow-hidden">
+        <div className="wishes-scroll relative min-h-0 flex-1">
           <LifePackSpread
             title=""
             moodLine={moodLine}

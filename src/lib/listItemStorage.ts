@@ -25,5 +25,5 @@ export async function uploadCompletionPhoto(
   const { data } = supabase.storage
     .from(WISHLIST_STORAGE_BUCKET)
     .getPublicUrl(path)
-  return data.publicUrl
+  return `${data.publicUrl}?t=${Date.now()}`
 }

@@ -47,6 +47,7 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
             photoFile,
             setUploadPct,
           )
+          completionPhotoUrl = completionPhotoUrl.split('?')[0] ?? completionPhotoUrl
         }
       }
 

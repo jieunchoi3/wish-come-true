@@ -35,6 +35,7 @@ export function MemoryPhotoPicker({
   stampOverlay,
 }: MemoryPhotoPickerProps) {
   const inputId = useId()
+  const inputRef = useRef<HTMLInputElement>(null)
   const zoneRef = useRef<HTMLDivElement>(null)
   const onFileRef = useRef(onFile)
   onFileRef.current = onFile
@@ -78,25 +79,9 @@ export function MemoryPhotoPicker({
       onDrop={handleDrop}
       onDragOver={(e) => e.preventDefault()}
     >
-      <input
-        id={inputId}
-        type="file"
-        accept="image/jpeg,image/png,image/heic,image/webp,image/gif,image/*"
-        className="sr-only"
-        disabled={pickerDisabled}
-        aria-label="upload photo"
-        onChange={(e) => {
-          const file = e.target.files?.[0]
-          if (file) handleFile(file)
-          e.target.value = ''
-        }}
-      />
-
       <label
-        htmlFor={inputId}
         className={`relative block w-full ${linkClass}`}
         aria-disabled={pickerDisabled}
-        onClick={pickerDisabled ? (e) => e.preventDefault() : undefined}
       >
         <PolaroidFrame className="w-full !pb-3 [&>div:first-child]:min-w-0">
           <div className="pointer-events-none h-full w-full">
@@ -118,16 +103,30 @@ export function MemoryPhotoPicker({
           </div>
         </PolaroidFrame>
         {stampOverlay}
+        <input
+          ref={inputRef}
+          id={inputId}
+          type="file"
+          accept="image/jpeg,image/png,image/heic,image/webp,image/gif,image/*"
+          className="hidden"
+          disabled={pickerDisabled}
+          aria-label="upload photo"
+          onChange={(e) => {
+            const file = e.target.files?.[0]
+            if (file) handleFile(file)
+            e.target.value = ''
+          }}
+        />
       </label>
 
-      <label
-        htmlFor={inputId}
+      <button
+        type="button"
+        disabled={pickerDisabled}
+        onClick={() => inputRef.current?.click()}
         className={`mt-2 inline-block font-hand text-sm text-ink/40 underline decoration-dotted decoration-ink/20 transition-colors ${linkClass}`}
-        aria-disabled={pickerDisabled}
-        onClick={pickerDisabled ? (e) => e.preventDefault() : undefined}
       >
         paste or upload photo
-      </label>
+      </button>
 
       {uploading && uploadPct < 1 && (
         <div className="mt-2 h-0.5 w-full bg-ink/10">
