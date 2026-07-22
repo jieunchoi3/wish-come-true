@@ -10,26 +10,22 @@ import type { ConnectionFailure } from './lib/supabaseHealth'
 import { ListsLeftPage, ListsRightPage } from './screens/ListsSpread'
 import { MemoriesLeftPage, MemoriesRightPage } from './screens/MemoriesSpread'
 import { MemoriesTabProvider } from './screens/memoriesTabState'
-import { ThisMonthLeftPage, ThisMonthRightPage } from './screens/ThisMonthSpread'
-import { TodayLeftPage } from './screens/TodayLeftPage'
+import { ThisMonthLeftPage } from './screens/ThisMonthSpread'
 import { TodayRightPage } from './screens/TodayRightPage'
 
 function BinderApp() {
-  const [activeTab, setActiveTab] = useState<BinderTabId>('month')
+  const [activeTab, setActiveTab] = useState<BinderTabId>('today')
 
   return (
     <Binder
       activeTab={activeTab}
       onTabChange={setActiveTab}
       renderSpread={(tab) => {
-        if (tab === 'month') {
+        if (tab === 'today') {
           return {
             left: <ThisMonthLeftPage />,
-            right: <ThisMonthRightPage onBrowseLists={() => setActiveTab('lists')} />,
+            right: <TodayRightPage />,
           }
-        }
-        if (tab === 'today') {
-          return { left: <TodayLeftPage />, right: <TodayRightPage /> }
         }
         if (tab === 'lists') {
           return { left: <ListsLeftPage />, right: <ListsRightPage /> }
