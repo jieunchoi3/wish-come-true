@@ -16,13 +16,31 @@ function pickImageFile(
   dataTransfer: DataTransfer | null | undefined,
 ): File | null {
   if (!dataTransfer) return null
+
   for (const entry of dataTransfer.items) {
-    if (entry.kind === 'file' && entry.type.startsWith('image/')) {
-      return entry.getAsFile()
-    }
+    if (entry.kind !== 'file') continue
+    const file = entry.getAsFile()
+    if (!file) continue
+    if (file.type.startsWith('image/')) return file
+    // macOS screenshots sometimes arrive with an empty MIME type
+    if (!file.type && file.size > 0) return file
   }
-  const file = dataTransfer.files[0]
-  return file?.type.startsWith('image/') ? file : null
+
+  for (let i = 0; i < dataTransfer.files.length; i++) {
+    const file = dataTransfer.files[i]
+    if (!file) continue
+    if (file.type.startsWith('image/')) return file
+    if (!file.type && file.size > 0) return file
+  }
+
+  return null
+}
+
+function isEditablePasteTarget(target: EventTarget | null): boolean {
+  if (!(target instanceof HTMLElement)) return false
+  return Boolean(
+    target.closest('input, textarea, select, [contenteditable="true"]'),
+  )
 }
 
 export function MemoryPhotoPicker({
@@ -38,7 +56,9 @@ export function MemoryPhotoPicker({
   const inputRef = useRef<HTMLInputElement>(null)
   const zoneRef = useRef<HTMLDivElement>(null)
   const onFileRef = useRef(onFile)
+  const uploadingRef = useRef(uploading)
   onFileRef.current = onFile
+  uploadingRef.current = uploading
 
   function handleFile(file: File) {
     if (uploading) return
@@ -46,18 +66,18 @@ export function MemoryPhotoPicker({
   }
 
   useEffect(() => {
-    const zone = zoneRef.current
-    if (!zone) return
+    zoneRef.current?.focus({ preventScroll: true })
 
     function onPaste(e: ClipboardEvent) {
+      if (uploadingRef.current || isEditablePasteTarget(e.target)) return
       const file = pickImageFile(e.clipboardData)
       if (!file) return
       e.preventDefault()
       onFileRef.current(file)
     }
 
-    zone.addEventListener('paste', onPaste)
-    return () => zone.removeEventListener('paste', onPaste)
+    document.addEventListener('paste', onPaste)
+    return () => document.removeEventListener('paste', onPaste)
   }, [])
 
   function handleDrop(e: React.DragEvent) {
