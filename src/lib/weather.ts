@@ -6,7 +6,7 @@ export interface TodayWeather {
   sunset: string
 }
 
-/** London — default when geolocation is unavailable */
+/** London — fixed coords so we never trigger browser location prompts */
 const LONDON = { lat: 51.5074, lon: -0.1278 }
 
 function mapWeatherCode(code: number): WeatherCondition {
@@ -27,31 +27,12 @@ function formatSunset(iso: string, timeZone: string): string {
   })
 }
 
-async function coords(): Promise<{ lat: number; lon: number }> {
-  if (typeof navigator === 'undefined' || !navigator.geolocation) {
-    return LONDON
-  }
-
-  try {
-    const pos = await new Promise<GeolocationPosition>((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(resolve, reject, {
-        enableHighAccuracy: false,
-        timeout: 4000,
-        maximumAge: 30 * 60 * 1000,
-      })
-    })
-    return { lat: pos.coords.latitude, lon: pos.coords.longitude }
-  } catch {
-    return LONDON
-  }
-}
-
 /**
  * Live weather via Open-Meteo (no API key).
- * Falls back to London if location is denied/unavailable.
+ * Uses London coords — no geolocation prompt.
  */
 export async function fetchTodayWeather(): Promise<TodayWeather> {
-  const { lat, lon } = await coords()
+  const { lat, lon } = LONDON
   const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Europe/London'
 
   const url = new URL('https://api.open-meteo.com/v1/forecast')
