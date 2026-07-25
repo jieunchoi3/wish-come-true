@@ -71,12 +71,25 @@ export function TodayRightPage() {
             <button
               type="button"
               onClick={handleReroll}
-              className="font-hand text-sm text-ink/40 underline decoration-dotted decoration-ink/15 transition-colors hover:text-ink/60"
+              className="inline-flex items-center gap-2 rounded-sm px-1 py-0.5 text-ink/45 transition hover:bg-ink/5 hover:text-ink/70"
               style={{ transform: 'rotate(-0.3deg)' }}
+              aria-label={`Shuffle suggestions (${rerollsRemaining} left today)`}
+              title={`Shuffle (${rerollsRemaining} left today)`}
             >
-              shuffle again{' '}
-              <span className="text-ink/35">
-                ({rerollsRemaining} left today)
+              <svg
+                viewBox="0 0 24 24"
+                className="h-5 w-5 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden
+              >
+                <path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5" />
+              </svg>
+              <span className="font-hand text-sm text-ink/35">
+                {rerollsRemaining} left today
               </span>
             </button>
           ) : (
