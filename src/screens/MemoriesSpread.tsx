@@ -1,6 +1,5 @@
 import { useEffect, useMemo } from 'react'
 import { RubberStamp } from '../components/ScrapbookElements'
-import { MemoryDetailSheet } from '../components/lists/MemoryDetailSheet'
 import { PolaroidFrame } from '../components/PolaroidFrame'
 import { ScrapCollage } from '../components/ScrapCollage'
 import { Scrap } from '../components/primitives'
@@ -197,15 +196,9 @@ export function MemoriesRightPage() {
     chapterAnim,
     flipDirection,
     openMemory,
-    selectedItem,
-    closeMemory,
     goToChapter,
     setInitialChapter,
   } = useMemoriesTab()
-
-  const liveSelected = selectedItem
-    ? items.find((row) => row.id === selectedItem.id) ?? selectedItem
-    : null
 
   const contents = useMemo(() => buildContents(lists, items), [lists, items])
   const activeList = contents.find((c) => c.list.id === activeChapterId)?.list
@@ -318,9 +311,6 @@ export function MemoriesRightPage() {
           </>
         )}
 
-        {liveSelected && (
-          <MemoryDetailSheet item={liveSelected} onClose={closeMemory} />
-        )}
       </div>
     </div>
   )

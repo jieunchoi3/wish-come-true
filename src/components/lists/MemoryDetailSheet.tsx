@@ -23,6 +23,19 @@ function formatCaptionDate(iso: string): string {
   })
 }
 
+function isoToDateInputValue(iso: string): string {
+  const d = new Date(iso)
+  const yyyy = d.getFullYear()
+  const mm = String(d.getMonth() + 1).padStart(2, '0')
+  const dd = String(d.getDate()).padStart(2, '0')
+  return `${yyyy}-${mm}-${dd}`
+}
+
+function dateInputToIso(dateStr: string): string {
+  const [y, m, d] = dateStr.split('-').map(Number)
+  return new Date(y, m - 1, d, 12, 0, 0, 0).toISOString()
+}
+
 /** Strip cache-bust query before persisting to Supabase. */
 function storagePhotoUrl(url: string): string {
   return url.split('?')[0] ?? url
@@ -56,6 +69,15 @@ export function MemoryDetailSheet({
   const [uploading, setUploading] = useState(false)
   const [uploadPct, setUploadPct] = useState(0)
   const [photoError, setPhotoError] = useState<string | null>(null)
+  const [editingDate, setEditingDate] = useState(false)
+  const [dateDraft, setDateDraft] = useState('')
+  const [dateSaving, setDateSaving] = useState(false)
+  const [dateError, setDateError] = useState<string | null>(null)
+
+  useEffect(() => {
+    setEditingDate(false)
+    setDateError(null)
+  }, [liveItem.id])
 
   useEffect(() => {
     if (uploading) return
@@ -105,6 +127,33 @@ export function MemoryDetailSheet({
       setUploading(false)
       URL.revokeObjectURL(local)
     }
+  }
+
+  function startEditDate() {
+    if (!liveItem.completed_at) return
+    setDateDraft(isoToDateInputValue(liveItem.completed_at))
+    setEditingDate(true)
+    setDateError(null)
+  }
+
+  async function saveDate() {
+    if (!dateDraft) return
+    setDateSaving(true)
+    setDateError(null)
+    const saved = await updateItem(
+      liveItem.id,
+      {
+        status: liveItem.status,
+        completed_at: dateInputToIso(dateDraft),
+      },
+      liveItem.is_seeded,
+    )
+    setDateSaving(false)
+    if (!saved) {
+      setDateError('couldn’t save date — try again')
+      return
+    }
+    setEditingDate(false)
   }
 
   const placeholder = (
@@ -166,7 +215,58 @@ export function MemoryDetailSheet({
         <p className="mt-2 font-hand text-lg text-ink/55">{liveItem.note}</p>
       )}
 
-      <p className="mt-3 font-hand text-base text-ink/40">{completedLabel}</p>
+      <div className="mt-3">
+        {editingDate ? (
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+            <label className="sr-only" htmlFor={`memory-date-${liveItem.id}`}>
+              Completion date
+            </label>
+            <input
+              id={`memory-date-${liveItem.id}`}
+              type="date"
+              value={dateDraft}
+              onChange={(e) => setDateDraft(e.target.value)}
+              disabled={dateSaving}
+              className="border-0 border-b border-ink/25 bg-transparent font-hand text-base text-ink outline-none"
+            />
+            <button
+              type="button"
+              disabled={dateSaving || !dateDraft}
+              onClick={() => void saveDate()}
+              className="font-hand text-sm text-ink/55 underline decoration-dotted hover:text-ink/75 disabled:opacity-40"
+            >
+              save
+            </button>
+            <button
+              type="button"
+              disabled={dateSaving}
+              onClick={() => {
+                setEditingDate(false)
+                setDateError(null)
+              }}
+              className="font-hand text-sm text-ink/40 underline decoration-dotted hover:text-ink/60"
+            >
+              cancel
+            </button>
+          </div>
+        ) : (
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <p className="font-hand text-base text-ink/40">{completedLabel}</p>
+            {liveItem.completed_at && (
+              <button
+                type="button"
+                onClick={startEditDate}
+                className="font-hand text-sm text-ink/45 underline decoration-dotted decoration-ink/20 hover:text-ink/65"
+              >
+                edit date
+              </button>
+            )}
+          </div>
+        )}
+        {dateError && (
+          <p className="mt-1 font-hand text-sm text-rose-deep">{dateError}</p>
+        )}
+      </div>
 
       {imaginedSpan && (
         <p

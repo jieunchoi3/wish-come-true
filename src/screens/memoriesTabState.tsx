@@ -2,9 +2,13 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useState,
   type ReactNode,
 } from 'react'
+import { createPortal } from 'react-dom'
+import { MemoryDetailSheet } from '../components/lists/MemoryDetailSheet'
+import { useLists } from '../hooks/useLists'
 import type { ListItemView } from '../types/database'
 
 export type ChapterFlipDirection = 'next' | 'prev'
@@ -26,6 +30,43 @@ const Ctx = createContext<MemoriesTabState | null>(null)
 
 /** Match CSS flip duration in index.css */
 export const CHAPTER_FLIP_MS = 680
+
+function getBinderOverlayRoot(): HTMLElement | null {
+  if (typeof document === 'undefined') return null
+  const spread = document.querySelector<HTMLElement>('.binder-spread')
+  if (spread && window.getComputedStyle(spread).display !== 'none') return spread
+  const mobile = document.querySelector<HTMLElement>('.binder-mobile')
+  if (mobile && window.getComputedStyle(mobile).display !== 'none') return mobile
+  return document.querySelector<HTMLElement>('.binder-shell')
+}
+
+function MemoriesDetailOverlay() {
+  const { selectedItem, closeMemory } = useMemoriesTab()
+  const { items } = useLists()
+  const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null)
+
+  useEffect(() => {
+    function updateRoot() {
+      setPortalRoot(getBinderOverlayRoot())
+    }
+    updateRoot()
+    window.addEventListener('resize', updateRoot)
+    return () => window.removeEventListener('resize', updateRoot)
+  }, [])
+
+  if (!selectedItem) return null
+
+  const overlayRoot = portalRoot ?? getBinderOverlayRoot()
+  if (!overlayRoot) return null
+
+  const liveItem =
+    items.find((row) => row.id === selectedItem.id) ?? selectedItem
+
+  return createPortal(
+    <MemoryDetailSheet item={liveItem} onClose={closeMemory} />,
+    overlayRoot,
+  )
+}
 
 export function MemoriesTabProvider({ children }: { children: ReactNode }) {
   const [activeChapterId, setActiveChapterId] = useState<string | null>(null)
@@ -81,7 +122,12 @@ export function MemoriesTabProvider({ children }: { children: ReactNode }) {
     closeMemory: () => setSelectedItem(null),
   }
 
-  return <Ctx.Provider value={value}>{children}</Ctx.Provider>
+  return (
+    <Ctx.Provider value={value}>
+      {children}
+      <MemoriesDetailOverlay />
+    </Ctx.Provider>
+  )
 }
 
 export function useMemoriesTab(): MemoriesTabState {
