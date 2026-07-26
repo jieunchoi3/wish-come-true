@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react'
 import { COMPLETION_ACTION_LABEL } from '../constants/completion'
-import { ProgressRing } from '../components/collections/ProgressRing'
 import { CommitAction } from '../components/lists/CommitAction'
 import { ItemCompleteSheet } from '../components/lists/ItemCompleteSheet'
 import { ScrapCollage } from '../components/ScrapCollage'
@@ -34,7 +33,6 @@ export function ThisMonthLeftPage() {
   )
   const totalFocus = focused.length + doneThisMonth.length
   const doneCount = doneThisMonth.length
-  const progress = totalFocus > 0 ? doneCount / totalFocus : 0
 
   const listEmojiById = useMemo(() => {
     const map = new Map<string, string>()
@@ -54,23 +52,36 @@ export function ThisMonthLeftPage() {
       </h1>
 
       <p
-        className="mb-6 max-w-xs shrink-0 font-hand text-xl text-ink/55"
+        className="mb-2 max-w-xs shrink-0 font-hand text-xl text-ink/55"
         style={{ transform: 'rotate(0.3deg)' }}
       >
         what you actually decided to do this month.
       </p>
 
       {totalFocus > 0 && (
-        <div className="mb-6 shrink-0">
-          <ProgressRing
-            id="this-month"
-            progress={progress}
-            ticked={doneCount}
-            total={totalFocus}
-            accent="#C9B8B5"
-            size={56}
-          />
-        </div>
+        <p
+          className="mb-4 shrink-0 font-hand text-sm text-ink/55"
+          style={{ transform: 'rotate(-0.2deg)' }}
+        >
+          <span className="relative inline-block pb-1">
+            {doneCount} of {totalFocus}
+            <svg
+              viewBox="0 0 56 6"
+              preserveAspectRatio="none"
+              className="pointer-events-none absolute -bottom-px left-0 h-1.5 w-full text-ink/25"
+              aria-hidden
+            >
+              <path
+                d="M1 4.5 C10 1.5, 18 5, 28 3.5 S46 2, 55 4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.1"
+                strokeLinecap="round"
+              />
+            </svg>
+          </span>{' '}
+          done so far.
+        </p>
       )}
 
       {loading ? (

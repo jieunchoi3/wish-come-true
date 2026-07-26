@@ -273,7 +273,7 @@ export function MemoriesRightPage() {
                   no memories in this chapter yet.
                 </p>
               ) : (
-                <ScrapCollage className="flex flex-wrap items-start">
+                <ScrapCollage className="grid grid-cols-3 gap-x-2 gap-y-3 items-start">
                   {done.map((item, index) => (
                     <MemoryPolaroid
                       key={item.id}
@@ -334,7 +334,7 @@ function MemoryPolaroid({
 
   return (
     <div
-      className="memory-polaroid-cell w-[46%] shrink-0 sm:w-[44%]"
+      className="memory-polaroid-cell w-full"
       style={{
         marginTop: offset.marginTop,
         marginLeft: offset.marginLeft,
