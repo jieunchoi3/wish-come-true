@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { ScrapCollage } from '../components/ScrapCollage'
 import { ListAccordion } from '../components/lists/ListAccordion'
+import { ReorderableListCards } from '../components/lists/ReorderableListCards'
 import { NewListSheet } from '../components/lists/NewListSheet'
 import { ListsSearchBar } from '../components/lists/ListsSearchBar'
 import { ListItemRow } from '../components/lists/ListItemRow'
@@ -23,10 +24,22 @@ function PageHeading({ children }: { children: string }) {
 function ListCards({
   lists,
   openListId,
+  onReorder,
 }: {
   lists: ListWithCounts[]
   openListId?: string | null
+  onReorder?: (orderedIds: string[]) => void | Promise<unknown>
 }) {
+  if (onReorder) {
+    return (
+      <ReorderableListCards
+        lists={lists}
+        openListId={openListId}
+        onReorder={(ids) => onReorder(ids)}
+      />
+    )
+  }
+
   return (
     <ScrapCollage className="pb-8">
       {lists.map((list) => (
@@ -42,7 +55,7 @@ function ListCards({
 
 /** Left spread — seeded / catalogue lists (desktop only). */
 export function ListsLeftPage() {
-  const { lists, loading } = useLists()
+  const { lists, loading, reorderLists } = useLists()
   const { query, setQuery } = useListsTab()
   const seededLists = lists.filter((l) => l.is_seeded)
 
@@ -60,7 +73,10 @@ export function ListsLeftPage() {
         <ListsSearchBar value={query} onChange={setQuery} />
       </div>
       <div className="wishes-scroll min-h-0 flex-1">
-        <ListCards lists={seededLists} />
+        <ListCards
+          lists={seededLists}
+          onReorder={(ids) => reorderLists(ids, { seeded: true })}
+        />
       </div>
     </div>
   )
@@ -68,7 +84,7 @@ export function ListsLeftPage() {
 
 /** Right spread — my lists (+ mobile combines both sides). */
 export function ListsRightPage() {
-  const { lists, items, loading, createList, error, clearError } = useLists()
+  const { lists, items, loading, createList, reorderLists, error, clearError } = useLists()
   const { query, setQuery } = useListsTab()
   const [newListOpen, setNewListOpen] = useState(false)
   const [creating, setCreating] = useState(false)
@@ -143,7 +159,11 @@ export function ListsRightPage() {
           nothing yet. add your own whenever something catches you.
         </p>
       )}
-      <ListCards lists={userLists} openListId={openListId} />
+      <ListCards
+        lists={userLists}
+        openListId={openListId}
+        onReorder={(ids) => reorderLists(ids)}
+      />
     </>
   )
 
@@ -189,7 +209,10 @@ export function ListsRightPage() {
 
         {!searching && seededLists.length > 0 && (
           <div className="mt-6 border-t border-ink/10 pt-6">
-            <ListCards lists={seededLists} />
+            <ListCards
+              lists={seededLists}
+              onReorder={(ids) => reorderLists(ids, { seeded: true })}
+            />
           </div>
         )}
       </div>

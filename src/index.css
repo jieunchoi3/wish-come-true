@@ -214,6 +214,31 @@ body {
   display: none;
 }
 
+/* Memories grid — room for rotated DONE stamps at column edges */
+.memories-scroll {
+  padding-inline: 12px;
+}
+
+.memory-polaroid-cell {
+  overflow: visible;
+}
+
+.memory-polaroid-cell .scrap-paper,
+.memory-polaroid-cell button {
+  overflow: visible;
+}
+
+.memory-done-stamp--sm {
+  padding: 2px 6px 3px;
+  border-width: 2px;
+  font-size: 0.62rem;
+  letter-spacing: 0.04em;
+}
+
+.list-drag-handle {
+  -webkit-user-drag: element;
+}
+
 @media (max-width: 1023px) {
   .wishes-scroll {
     overflow: visible;
@@ -372,7 +397,7 @@ body {
   cursor: not-allowed;
 }
 
-/* Today's Edition pack card — action hierarchy */
+/* Spontaneous suggestions pack card — action hierarchy */
 .pack-card-actions {
   line-height: 1.5;
 }
@@ -773,5 +798,6 @@ body {
 .memory-polaroid-cell {
   position: relative;
   isolation: isolate;
+  overflow: visible;
 }
 

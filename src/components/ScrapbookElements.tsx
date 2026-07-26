@@ -161,13 +161,22 @@ export function HandDrawnAction({
 interface RubberStampProps {
   date: string
   className?: string
+  size?: 'sm' | 'md'
 }
 
-export function RubberStamp({ date, className = '' }: RubberStampProps) {
+export function RubberStamp({
+  date,
+  className = '',
+  size = 'md',
+}: RubberStampProps) {
+  const sizeClass =
+    size === 'sm'
+      ? 'memory-done-stamp--sm px-1.5 py-0.5 text-[0.62rem] tracking-wide'
+      : 'px-2.5 py-1 text-lg tracking-wider'
+
   return (
     <div
-      className={`memory-done-stamp pointer-events-none absolute left-1/2 top-[38%] z-10 -translate-x-1/2 select-none font-hand text-lg font-semibold tracking-wider text-stamp/40 ${className}`}
-      style={{ transform: 'translateX(-50%) rotate(-14deg)' }}
+      className={`memory-done-stamp pointer-events-none absolute left-1/2 top-[38%] z-20 -translate-x-1/2 -rotate-[14deg] select-none font-hand font-semibold text-stamp/40 ${sizeClass} ${className}`}
       aria-hidden
     >
       DONE · {date}

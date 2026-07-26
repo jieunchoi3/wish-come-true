@@ -267,7 +267,7 @@ export function MemoriesRightPage() {
             key={activeChapterId ?? 'none'}
             className={chapterPageClass(chapterAnim, flipDirection)}
           >
-            <div className="wishes-scroll h-full pb-14">
+            <div className="wishes-scroll memories-scroll h-full pb-14">
               {done.length === 0 ? (
                 <p className="font-hand text-base text-ink/45">
                   no memories in this chapter yet.
@@ -349,33 +349,32 @@ function MemoryPolaroid({
           className="w-full"
         >
           <div className="p-2">
-            <div className="relative">
-              <PolaroidFrame className="w-full">
-                {hasPhoto ? (
-                  <img
-                    src={item.completion_photo_url!}
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
-                ) : (
-                  <div
-                    className="flex h-full w-full flex-col items-center justify-center gap-2 p-3"
-                    style={{ backgroundColor: accent }}
-                  >
-                    <span className="text-2xl" aria-hidden>
-                      {categoryEmoji(item.category)}
-                    </span>
-                    <p className="line-clamp-3 text-center font-serif text-xs font-medium leading-snug text-ink/80">
-                      {item.title}
-                    </p>
-                  </div>
-                )}
-              </PolaroidFrame>
-              <RubberStamp
-                date={stampDate}
-                className="pointer-events-none top-[38%]"
-              />
-            </div>
+            <PolaroidFrame
+              className="w-full"
+              overlay={
+                <RubberStamp date={stampDate} size="sm" className="top-[34%]" />
+              }
+            >
+              {hasPhoto ? (
+                <img
+                  src={item.completion_photo_url!}
+                  alt=""
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <div
+                  className="flex h-full w-full flex-col items-center justify-center gap-2 p-3"
+                  style={{ backgroundColor: accent }}
+                >
+                  <span className="text-2xl" aria-hidden>
+                    {categoryEmoji(item.category)}
+                  </span>
+                  <p className="line-clamp-3 text-center font-serif text-xs font-medium leading-snug text-ink/80">
+                    {item.title}
+                  </p>
+                </div>
+              )}
+            </PolaroidFrame>
           </div>
         </Scrap>
         <div className="memory-polaroid-caption mt-1.5 px-1 pb-4">

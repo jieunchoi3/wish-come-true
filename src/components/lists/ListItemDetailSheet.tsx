@@ -16,7 +16,7 @@ export function ListItemDetailSheet({
   item,
   whyThis,
   onClose,
-  backLabel = "back to today's edition",
+  backLabel = 'back to spontaneous suggestions',
 }: ListItemDetailSheetProps) {
   const imaginedAgo = item.created_at
     ? formatImaginedAgo(new Date(item.created_at))

@@ -27,11 +27,6 @@ function monthsAgoISO(months: number): string {
   return d.toISOString()
 }
 
-function daysSince(iso: string | null): number {
-  if (!iso) return Infinity
-  return (Date.now() - new Date(iso).getTime()) / (1000 * 60 * 60 * 24)
-}
-
 export function isSnoozeExpired(item: ListItemView): boolean {
   if (!item.snoozed_until) return true
   return item.snoozed_until < todayISO()
@@ -57,37 +52,39 @@ export function isEligibleForPack(
   return true
 }
 
-function tagDormancyScore(item: ListItemView, items: ListItemView[]): number {
-  if (item.topic_tags.length === 0) return 0
-  let total = 0
-  for (const tag of item.topic_tags) {
-    let latest: string | null = null
-    for (const other of items) {
-      if (!other.topic_tags.includes(tag)) continue
-      if (other.last_surfaced_at && (!latest || other.last_surfaced_at > latest)) {
-        latest = other.last_surfaced_at
-      }
+function hashSeed(...parts: string[]): number {
+  let h = 0
+  for (const p of parts) {
+    for (let i = 0; i < p.length; i++) {
+      h = (Math.imul(31, h) + p.charCodeAt(i)) >>> 0
     }
-    total += daysSince(latest)
   }
-  return total / item.topic_tags.length
+  return h || 1
 }
 
-function packWeight(item: ListItemView, items: ListItemView[]): number {
-  return (
-    daysSince(item.last_surfaced_at) * 2 +
-    daysSince(item.created_at) * 0.5 +
-    tagDormancyScore(item, items)
-  )
+function shuffleWithSeed<T>(arr: T[], seed: number): T[] {
+  const copy = [...arr]
+  let s = seed
+  for (let i = copy.length - 1; i > 0; i--) {
+    s = (s * 1103515245 + 12345) & 0x7fffffff
+    const j = s % (i + 1)
+    ;[copy[i], copy[j]] = [copy[j], copy[i]]
+  }
+  return copy
 }
 
-function comparePackItems(a: ListItemView, b: ListItemView, items: ListItemView[]): number {
-  const diff = packWeight(b, items) - packWeight(a, items)
-  if (diff !== 0) return diff
-  return new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
+function packWhyThis(
+  item: ListItemView,
+  listTitles: Map<string, string>,
+): string {
+  const listTitle = listTitles.get(item.list_id)
+  if (listTitle) {
+    return `from your ${listTitle.toLowerCase()} list — fancy it today?`
+  }
+  return item.note?.trim() || 'still on your list'
 }
 
-/** Life pack: up to `limit` open items from every list, mixed categories */
+/** Life pack: up to `limit` open items, randomly mixed across every list (imported + yours) */
 export function getLifePackItems(
   items: ListItemView[],
   listTitles: Map<string, string>,
@@ -95,31 +92,61 @@ export function getLifePackItems(
   excludeIds: Set<string> = new Set(),
   forDate: string = londonTodayISO(),
 ): { item: ListItemView; whyThis: string; imaginedAgo?: string }[] {
-  const pool = items
-    .filter((i) => isEligibleForPack(i, forDate) && !excludeIds.has(i.id))
-    .sort((a, b) => comparePackItems(a, b, items))
+  const pool = items.filter(
+    (i) =>
+      isEligibleForPack(i, forDate) &&
+      !excludeIds.has(i.id) &&
+      listTitles.has(i.list_id),
+  )
+  if (pool.length === 0) return []
 
-  const result: { item: ListItemView; whyThis: string; imaginedAgo?: string }[] =
-    []
+  const excludeKey = [...excludeIds].sort().join(',')
+  const seed = hashSeed(forDate, excludeKey, String(limit))
 
+  const byList = new Map<string, ListItemView[]>()
   for (const item of pool) {
-    if (result.length >= limit) break
-    if (item.is_seeded) {
-      const listTitle = listTitles.get(item.list_id) ?? 'lists'
-      result.push({
-        item,
-        whyThis: `from your ${listTitle.toLowerCase()} list — fancy it today?`,
-      })
-    } else {
-      result.push({
-        item,
-        whyThis: item.note?.trim() || 'still on your list',
-        imaginedAgo: item.created_at,
-      })
+    const group = byList.get(item.list_id) ?? []
+    group.push(item)
+    byList.set(item.list_id, group)
+  }
+
+  let listIds = shuffleWithSeed([...byList.keys()], seed)
+  const picked: ListItemView[] = []
+  const pickedIds = new Set<string>()
+
+  while (picked.length < limit && listIds.length > 0) {
+    const nextRound: string[] = []
+    for (const listId of listIds) {
+      if (picked.length >= limit) break
+      const candidates = shuffleWithSeed(
+        byList.get(listId)!,
+        seed + picked.length,
+      ).filter((i) => !pickedIds.has(i.id))
+      if (candidates.length === 0) continue
+      nextRound.push(listId)
+      picked.push(candidates[0])
+      pickedIds.add(candidates[0].id)
+    }
+    listIds = nextRound
+    if (nextRound.length === 0) break
+  }
+
+  if (picked.length < limit) {
+    const rest = shuffleWithSeed(
+      pool.filter((i) => !pickedIds.has(i.id)),
+      seed + 99,
+    )
+    for (const item of rest) {
+      if (picked.length >= limit) break
+      picked.push(item)
     }
   }
 
-  return result
+  return picked.slice(0, limit).map((item) => ({
+    item,
+    whyThis: packWhyThis(item, listTitles),
+    imaginedAgo: item.is_seeded ? undefined : item.created_at,
+  }))
 }
 
 /** Nostalgia: ONLY user items, created_at > 6 months ago, in-season for forDate */

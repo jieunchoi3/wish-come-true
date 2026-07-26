@@ -62,7 +62,7 @@ export function TodayRightPage() {
         className="mb-2 shrink-0 font-sans text-xl font-medium tracking-tight text-ink/70 lg:text-2xl"
         style={{ transform: 'rotate(-0.5deg)' }}
       >
-        today&apos;s edition
+        Spontaneous suggestions
       </p>
 
       {packReady && spreadItems.length > 0 && (

@@ -8,6 +8,11 @@ import {
   useState,
   type ReactNode,
 } from 'react'
+import {
+  loadSeededListOrder,
+  saveSeededListOrder,
+  sortListsBySavedOrder,
+} from '../lib/listOrder'
 import { computeEngagedListIds } from '../lib/listQueries'
 import {
   clearCommittedMonth,
@@ -54,6 +59,7 @@ interface ListsContextValue {
   itemsForList: (listId: string) => ListItemView[]
   createList: (title: string, emoji?: string) => Promise<List | null>
   updateList: (id: string, patch: { title?: string; emoji?: string | null }) => Promise<boolean>
+  reorderLists: (orderedIds: string[], opts?: { seeded?: boolean }) => Promise<boolean>
   deleteList: (id: string) => Promise<boolean>
   createItem: (input: CreateListItemInput) => Promise<ListItemView | null>
   updateItem: (id: string, patch: ListItemUpdate, isSeeded: boolean) => Promise<boolean>
@@ -160,6 +166,9 @@ export function ListsProvider({
   const [dismissedListIds, setDismissedListIds] = useState<Set<string>>(
     () => loadDismissedListIds(),
   )
+  const [seededListOrder, setSeededListOrder] = useState<string[]>(() =>
+    loadSeededListOrder(),
+  )
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const fetchGenerationRef = useRef(0)
@@ -241,15 +250,22 @@ export function ListsProvider({
   )
 
   const listsWithCounts = useMemo((): ListWithCounts[] => {
-    return lists
-      .filter((list) => !dismissedListIds.has(list.id))
-      .map((list) => {
-        const listItems = items.filter((i) => i.list_id === list.id)
-        const total = listItems.length
-        const done = listItems.filter((i) => i.status === 'done').length
-        return { ...list, doneCount: done, totalCount: total }
-      })
-  }, [lists, items, dismissedListIds])
+    const visible = lists.filter((list) => !dismissedListIds.has(list.id))
+    const userLists = visible
+      .filter((l) => !l.is_seeded)
+      .sort((a, b) => a.sort_order - b.sort_order || a.title.localeCompare(b.title))
+    const seededLists = sortListsBySavedOrder(
+      visible.filter((l) => l.is_seeded),
+      seededListOrder,
+    )
+
+    return [...userLists, ...seededLists].map((list) => {
+      const listItems = items.filter((i) => i.list_id === list.id)
+      const total = listItems.length
+      const done = listItems.filter((i) => i.status === 'done').length
+      return { ...list, doneCount: done, totalCount: total }
+    })
+  }, [lists, items, dismissedListIds, seededListOrder])
 
   const engagedListIds = useMemo(() => {
     const doneSeeded = new Set(
@@ -273,6 +289,12 @@ export function ListsProvider({
   const createList = useCallback(async (title: string, emoji = '📝') => {
     if (!supabase || !userId) return null
 
+    const userLists = lists.filter((l) => !l.is_seeded)
+    const nextSortOrder =
+      userLists.length === 0
+        ? 0
+        : Math.min(...userLists.map((l) => l.sort_order)) - 1
+
     const { data, error: insertError } = await supabase
       .from(TABLES.lists)
       .insert({
@@ -280,7 +302,7 @@ export function ListsProvider({
         title,
         emoji,
         is_seeded: false,
-        sort_order: 0,
+        sort_order: nextSortOrder,
       })
       .select()
       .single()
@@ -292,7 +314,7 @@ export function ListsProvider({
     setLists((prev) => [data, ...prev.filter((l) => l.id !== data.id)])
     setError(null)
     return data
-  }, [userId])
+  }, [userId, lists])
 
   const updateList = useCallback(
     async (
@@ -324,6 +346,48 @@ export function ListsProvider({
       return true
     },
     [fetchAll, lists],
+  )
+
+  const reorderLists = useCallback(
+    async (orderedIds: string[], opts?: { seeded?: boolean }): Promise<boolean> => {
+      const seeded = opts?.seeded ?? false
+
+      if (seeded) {
+        saveSeededListOrder(orderedIds)
+        setSeededListOrder(orderedIds)
+        return true
+      }
+
+      const orderMap = new Map(orderedIds.map((id, index) => [id, index]))
+      setLists((prev) =>
+        prev.map((list) =>
+          orderMap.has(list.id)
+            ? { ...list, sort_order: orderMap.get(list.id)! }
+            : list,
+        ),
+      )
+
+      if (!supabase) return true
+
+      const results = await Promise.all(
+        orderedIds.map((id, index) =>
+          supabase!
+            .from(TABLES.lists)
+            .update({ sort_order: index })
+            .eq('id', id)
+            .eq('is_seeded', false),
+        ),
+      )
+
+      const failed = results.find((r) => r.error)
+      if (failed?.error) {
+        setError(failed.error.message)
+        await fetchAll({ silent: true })
+        return false
+      }
+      return true
+    },
+    [fetchAll],
   )
 
   const deleteList = useCallback(
@@ -614,6 +678,7 @@ export function ListsProvider({
       itemsForList,
       createList,
       updateList,
+      reorderLists,
       deleteList,
       createItem,
       updateItem,
@@ -636,6 +701,7 @@ export function ListsProvider({
       itemsForList,
       createList,
       updateList,
+      reorderLists,
       deleteList,
       createItem,
       updateItem,

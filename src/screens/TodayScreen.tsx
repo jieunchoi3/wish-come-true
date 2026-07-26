@@ -105,7 +105,7 @@ export function TodayScreen() {
             className="mb-3 font-hand text-2xl text-ink/70"
             style={{ transform: 'rotate(-0.5deg)' }}
           >
-            today's edition
+            Spontaneous suggestions
           </p>
           <LifePackSpread
             title={lifePack.title}

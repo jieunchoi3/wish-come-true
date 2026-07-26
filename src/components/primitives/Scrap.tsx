@@ -52,7 +52,7 @@ export function Scrap({
     >
       <div className="relative" style={{ transform: `rotate(${rotation}deg)` }}>
         {tape && <Tape color={color} rotation={tRotation} position={tapePosition} />}
-        <Paper fill={fill} tornBottom={tornBottom}>
+        <Paper fill={fill} tornBottom={tornBottom} className="scrap-paper">
           {children}
         </Paper>
       </div>

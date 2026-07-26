@@ -61,19 +61,14 @@ export function resolvePackEntries(
   for (const id of itemIds) {
     const item = byId.get(id)
     if (!item || item.status !== 'open') continue
-    if (item.is_seeded) {
-      const listTitle = listTitles.get(item.list_id) ?? 'lists'
-      entries.push({
-        item,
-        whyThis: `from your ${listTitle.toLowerCase()} list — fancy it today?`,
-      })
-    } else {
-      entries.push({
-        item,
-        whyThis: item.note?.trim() || 'still on your list',
-        imaginedAgo: item.created_at,
-      })
-    }
+    const listTitle = listTitles.get(item.list_id)
+    entries.push({
+      item,
+      whyThis: listTitle
+        ? `from your ${listTitle.toLowerCase()} list — fancy it today?`
+        : item.note?.trim() || 'still on your list',
+      imaginedAgo: item.is_seeded ? undefined : item.created_at,
+    })
   }
   return entries
 }
@@ -169,7 +164,7 @@ export async function upsertTodayPack(input: {
   const payload = {
     user_id: input.userId,
     for_date: input.forDate,
-    title: "today's edition",
+    title: 'Spontaneous suggestions',
     mood_line: input.moodLine,
     items: input.itemIds as unknown as Json,
     connective_tissue: [] as string[],
