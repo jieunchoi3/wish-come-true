@@ -183,7 +183,13 @@ function ThisMonthCard({
 
   return (
     <>
-      <Scrap id={item.id} index={index} tapePosition="top-right">
+      <Scrap
+        id={item.id}
+        index={index}
+        tapePosition="top-right"
+        layout={false}
+        className="w-full"
+      >
         <div className="list-item-card px-5 py-4">
           <div className="list-item-tier-content">
             <span
@@ -200,7 +206,7 @@ function ThisMonthCard({
             )}
           </div>
 
-          <div className="list-item-tier-actions mt-4">
+          <div className="list-item-tier-actions relative z-10 mt-4">
             <div className="list-item-actions-row">
               <CommitAction item={liveItem} variant="primary" rotation={0.2} />
             </div>

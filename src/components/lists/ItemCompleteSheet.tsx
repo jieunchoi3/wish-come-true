@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { COMPLETION_ACTION_LABEL } from '../../constants/completion'
 import { MemoryPhotoPicker } from './MemoryPhotoPicker'
 import type { ListItemView } from '../../types/database'
 import { useLists } from '../../hooks/useLists'
+import { getBinderOverlayRoot } from '../../lib/binderOverlay'
 import { uploadCompletionPhoto } from '../../lib/listItemStorage'
 import { supabase } from '../../lib/supabase'
 import { PaperSheet, RubberStampButton } from '../wishes/WishUi'
@@ -13,13 +15,24 @@ interface ItemCompleteSheetProps {
 }
 
 export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
-  const { updateItem } = useLists()
+  const { items, updateItem } = useLists()
+  const liveItem = items.find((row) => row.id === item.id) ?? item
+  const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null)
   const [note, setNote] = useState('')
   const [stamping, setStamping] = useState(false)
   const [photoFile, setPhotoFile] = useState<File | null>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
   const [uploadPct, setUploadPct] = useState(0)
   const [saving, setSaving] = useState(false)
+
+  useEffect(() => {
+    function updateRoot() {
+      setPortalRoot(getBinderOverlayRoot())
+    }
+    updateRoot()
+    window.addEventListener('resize', updateRoot)
+    return () => window.removeEventListener('resize', updateRoot)
+  }, [])
 
   function handlePhoto(file: File) {
     setPhotoFile(file)
@@ -43,7 +56,7 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
         if (user) {
           completionPhotoUrl = await uploadCompletionPhoto(
             user.id,
-            item.id,
+            liveItem.id,
             photoFile,
             setUploadPct,
           )
@@ -52,14 +65,14 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
       }
 
       await updateItem(
-        item.id,
+        liveItem.id,
         {
           status: 'done',
           completed_at: now,
           completion_note: note.trim() || null,
           completion_photo_url: completionPhotoUrl,
         },
-        item.is_seeded,
+        liveItem.is_seeded,
       )
       window.setTimeout(onClose, 400)
     } finally {
@@ -67,10 +80,10 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
     }
   }
 
-  return (
-    <PaperSheet id={`complete-${item.id}`} onClose={onClose}>
+  const sheet = (
+    <PaperSheet id={`complete-${liveItem.id}`} onClose={onClose}>
       <p className="font-hand text-xl text-ink/55">you did it.</p>
-      <h2 className="mt-1 font-serif text-2xl text-ink">{item.title}</h2>
+      <h2 className="mt-1 font-serif text-2xl text-ink">{liveItem.title}</h2>
       <p className="mt-2 font-hand text-base text-ink/45">
         got a photo? optional — tap the polaroid or skip straight to done it.
       </p>
@@ -107,4 +120,8 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
       </button>
     </PaperSheet>
   )
+
+  const overlayRoot = portalRoot ?? getBinderOverlayRoot()
+  if (!overlayRoot) return sheet
+  return createPortal(sheet, overlayRoot)
 }

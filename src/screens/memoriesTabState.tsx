@@ -9,6 +9,7 @@ import {
 import { createPortal } from 'react-dom'
 import { MemoryDetailSheet } from '../components/lists/MemoryDetailSheet'
 import { useLists } from '../hooks/useLists'
+import { getBinderOverlayRoot } from '../lib/binderOverlay'
 import type { ListItemView } from '../types/database'
 
 export type ChapterFlipDirection = 'next' | 'prev'
@@ -30,15 +31,6 @@ const Ctx = createContext<MemoriesTabState | null>(null)
 
 /** Match CSS flip duration in index.css */
 export const CHAPTER_FLIP_MS = 680
-
-function getBinderOverlayRoot(): HTMLElement | null {
-  if (typeof document === 'undefined') return null
-  const spread = document.querySelector<HTMLElement>('.binder-spread')
-  if (spread && window.getComputedStyle(spread).display !== 'none') return spread
-  const mobile = document.querySelector<HTMLElement>('.binder-mobile')
-  if (mobile && window.getComputedStyle(mobile).display !== 'none') return mobile
-  return document.querySelector<HTMLElement>('.binder-shell')
-}
 
 function MemoriesDetailOverlay() {
   const { selectedItem, closeMemory } = useMemoriesTab()
