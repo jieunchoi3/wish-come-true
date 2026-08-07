@@ -29,7 +29,7 @@ export function Tape({
 }: TapeProps) {
   return (
     <div
-      className={`absolute z-30 h-[18px] w-[62px] rounded-[1px] ${positionStyles[position]} ${className}`}
+      className={`pointer-events-none absolute z-30 h-[18px] w-[62px] rounded-[1px] ${positionStyles[position]} ${className}`}
       style={{
         backgroundColor: TAPE_HEX[color],
         opacity: 0.85,

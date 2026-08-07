@@ -23,6 +23,7 @@ function monthBanner(date = new Date()): string {
 export function ThisMonthLeftPage() {
   const { items, lists, loading } = useLists()
   const monthKey = currentMonthKey()
+  const [completingItem, setCompletingItem] = useState<ListItemView | null>(null)
 
   const focused = useMemo(
     () => items.filter((i) => isFocusedThisMonth(i, monthKey)),
@@ -95,6 +96,7 @@ export function ThisMonthLeftPage() {
                 item={item}
                 listEmoji={listEmojiById.get(item.list_id) ?? '📋'}
                 index={index}
+                onDoneIt={() => setCompletingItem(item)}
               />
             ))}
           </ScrapCollage>
@@ -106,6 +108,13 @@ export function ThisMonthLeftPage() {
         >
           nothing chosen yet — add suggestions from today&apos;s edition →
         </p>
+      )}
+
+      {completingItem && (
+        <ItemCompleteSheet
+          item={completingItem}
+          onClose={() => setCompletingItem(null)}
+        />
       )}
     </div>
   )
@@ -148,26 +157,19 @@ function ThisMonthCard({
   item,
   listEmoji,
   index,
+  onDoneIt,
 }: {
   item: ListItemView
   listEmoji: string
   index: number
+  onDoneIt: () => void
 }) {
   const { items, uncommitItem } = useLists()
-  const [completing, setCompleting] = useState(false)
   const [showRollover, setShowRollover] = useState(() =>
     needsRolloverPrompt(item.id),
   )
 
   const liveItem = items.find((i) => i.id === item.id) ?? item
-
-  function handleDidIt() {
-    setCompleting(true)
-  }
-
-  function handleCompleteClose() {
-    setCompleting(false)
-  }
 
   function handleKeep() {
     recordCommittedMonth(item.id)
@@ -188,7 +190,8 @@ function ThisMonthCard({
         index={index}
         tapePosition="top-right"
         layout={false}
-        className="w-full"
+        flat
+        className="mb-3 w-full"
       >
         <div className="list-item-card px-5 py-4">
           <div className="list-item-tier-content">
@@ -212,7 +215,7 @@ function ThisMonthCard({
             </div>
             <RubberStampButton
               label={COMPLETION_ACTION_LABEL}
-              onClick={() => void handleDidIt()}
+              onClick={onDoneIt}
               rotation={-2}
             />
           </div>
@@ -225,13 +228,6 @@ function ThisMonthCard({
           )}
         </div>
       </Scrap>
-
-      {completing && (
-        <ItemCompleteSheet
-          item={liveItem}
-          onClose={handleCompleteClose}
-        />
-      )}
     </>
   )
 }

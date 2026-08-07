@@ -24,7 +24,7 @@ export function Paper({
 
   return (
     <div
-      className={`relative ${className}`}
+      className={`relative pointer-events-none ${className}`}
       style={{
         backgroundColor: bg,
         borderRadius: '2px',
@@ -47,7 +47,7 @@ export function Paper({
           aria-hidden
         />
       )}
-      <div className="relative">{children}</div>
+      <div className="relative pointer-events-auto">{children}</div>
     </div>
   )
 }

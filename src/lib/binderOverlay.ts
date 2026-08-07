@@ -5,5 +5,5 @@ export function getBinderOverlayRoot(): HTMLElement | null {
   if (spread && window.getComputedStyle(spread).display !== 'none') return spread
   const mobile = document.querySelector<HTMLElement>('.binder-mobile')
   if (mobile && window.getComputedStyle(mobile).display !== 'none') return mobile
-  return document.querySelector<HTMLElement>('.binder-shell')
+  return document.querySelector<HTMLElement>('.binder-shell') ?? document.getElementById('root')
 }

@@ -20,6 +20,8 @@ interface ScrapProps {
   tapeColor?: TapeColor
   tornBottom?: boolean
   layout?: boolean
+  /** Skip tilt — use on stacked cards with action buttons */
+  flat?: boolean
 }
 
 export function Scrap({
@@ -32,8 +34,9 @@ export function Scrap({
   tapeColor,
   tornBottom = false,
   layout = true,
+  flat = false,
 }: ScrapProps) {
-  const rotation = cardRotation(id)
+  const rotation = flat ? 0 : cardRotation(id)
   const fill = paperFillForId(id)
   const tRotation = tapeRotation(id)
   const color = tapeColor ?? tapeColorForId(id, index)
