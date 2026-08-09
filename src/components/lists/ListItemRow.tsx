@@ -109,7 +109,7 @@ export function ListItemRow({ item }: ListItemRowProps) {
                 )}
               </div>
 
-              <div className="list-item-tier-actions">
+              <div className="list-item-tier-actions scrap-interactive">
                 <div className="list-item-actions-row">
                   {!isDone && (
                     <CommitAction item={item} rotation={-0.3} />

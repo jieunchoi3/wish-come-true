@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { COMPLETION_ACTION_LABEL } from '../../constants/completion'
 import { MemoryPhotoPicker } from './MemoryPhotoPicker'
@@ -17,22 +17,12 @@ interface ItemCompleteSheetProps {
 export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
   const { items, updateItem } = useLists()
   const liveItem = items.find((row) => row.id === item.id) ?? item
-  const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null)
   const [note, setNote] = useState('')
   const [stamping, setStamping] = useState(false)
   const [photoFile, setPhotoFile] = useState<File | null>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
   const [uploadPct, setUploadPct] = useState(0)
   const [saving, setSaving] = useState(false)
-
-  useEffect(() => {
-    function updateRoot() {
-      setPortalRoot(getBinderOverlayRoot())
-    }
-    updateRoot()
-    window.addEventListener('resize', updateRoot)
-    return () => window.removeEventListener('resize', updateRoot)
-  }, [])
 
   function handlePhoto(file: File) {
     setPhotoFile(file)
@@ -121,7 +111,7 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
     </PaperSheet>
   )
 
-  const overlayRoot = portalRoot ?? getBinderOverlayRoot()
-  if (!overlayRoot) return sheet
+  const overlayRoot = getBinderOverlayRoot()
+  if (!overlayRoot) return null
   return createPortal(sheet, overlayRoot)
 }

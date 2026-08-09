@@ -243,6 +243,13 @@ body {
   -webkit-user-drag: element;
 }
 
+/* Scrapbook cards — only explicit zones receive clicks (stacked cards pass through) */
+.scrap-interactive {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto;
+}
+
 @media (max-width: 1023px) {
   .wishes-scroll {
     overflow: visible;

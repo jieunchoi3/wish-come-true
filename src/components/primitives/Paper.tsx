@@ -47,7 +47,7 @@ export function Paper({
           aria-hidden
         />
       )}
-      <div className="relative pointer-events-auto">{children}</div>
+      <div className="relative pointer-events-none">{children}</div>
     </div>
   )
 }

@@ -106,7 +106,7 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
         tapePosition="top-left"
         layout={false}
       >
-        <div className="px-3 py-3">
+        <div className="scrap-interactive px-3 py-3">
           <div className="flex items-center gap-3">
             <button
               type="button"

@@ -28,7 +28,7 @@ export function PaperSheet({ id, children, onClose, className = '' }: PaperSheet
 
   return (
     <div
-      className={`paper-sheet absolute inset-0 z-50 flex min-h-0 flex-col ${className}`}
+      className={`paper-sheet fixed inset-0 z-[100] flex min-h-0 flex-col ${className}`}
       role="dialog"
       aria-modal="true"
     >

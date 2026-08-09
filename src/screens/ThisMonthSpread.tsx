@@ -2,7 +2,6 @@ import { useMemo, useState } from 'react'
 import { COMPLETION_ACTION_LABEL } from '../constants/completion'
 import { CommitAction } from '../components/lists/CommitAction'
 import { ItemCompleteSheet } from '../components/lists/ItemCompleteSheet'
-import { ScrapCollage } from '../components/ScrapCollage'
 import { Scrap } from '../components/primitives'
 import { RubberStampButton } from '../components/wishes/WishUi'
 import { useLists } from '../hooks/useLists'
@@ -88,9 +87,8 @@ export function ThisMonthLeftPage() {
       {loading ? (
         <p className="font-hand text-lg text-ink/30">opening this month…</p>
       ) : focused.length > 0 ? (
-        <div className="wishes-scroll min-h-0 flex-1">
-          <ScrapCollage className="pb-8">
-            {focused.map((item, index) => (
+        <div className="wishes-scroll min-h-0 flex-1 pb-8">
+          {focused.map((item, index) => (
               <ThisMonthCard
                 key={item.id}
                 item={item}
@@ -99,7 +97,6 @@ export function ThisMonthLeftPage() {
                 onDoneIt={() => setCompletingItem(item)}
               />
             ))}
-          </ScrapCollage>
         </div>
       ) : (
         <p
@@ -129,7 +126,7 @@ function MonthRolloverPrompt({
 }) {
   return (
     <div
-      className="mt-3 border-t border-ink/10 pt-3"
+      className="scrap-interactive mt-3 border-t border-ink/10 pt-3"
       style={{ transform: 'rotate(-0.2deg)' }}
     >
       <p className="font-hand text-sm text-ink/50">still this month?</p>
@@ -209,13 +206,13 @@ function ThisMonthCard({
             )}
           </div>
 
-          <div className="list-item-tier-actions relative z-10 mt-4">
+          <div className="list-item-tier-actions scrap-interactive relative z-10 mt-4">
             <div className="list-item-actions-row">
               <CommitAction item={liveItem} variant="primary" rotation={0.2} />
             </div>
             <RubberStampButton
               label={COMPLETION_ACTION_LABEL}
-              onClick={onDoneIt}
+              onClick={() => onDoneIt()}
               rotation={-2}
             />
           </div>

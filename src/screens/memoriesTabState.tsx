@@ -2,7 +2,6 @@ import {
   createContext,
   useCallback,
   useContext,
-  useEffect,
   useState,
   type ReactNode,
 } from 'react'
@@ -35,20 +34,10 @@ export const CHAPTER_FLIP_MS = 680
 function MemoriesDetailOverlay() {
   const { selectedItem, closeMemory } = useMemoriesTab()
   const { items } = useLists()
-  const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null)
-
-  useEffect(() => {
-    function updateRoot() {
-      setPortalRoot(getBinderOverlayRoot())
-    }
-    updateRoot()
-    window.addEventListener('resize', updateRoot)
-    return () => window.removeEventListener('resize', updateRoot)
-  }, [])
 
   if (!selectedItem) return null
 
-  const overlayRoot = portalRoot ?? getBinderOverlayRoot()
+  const overlayRoot = getBinderOverlayRoot()
   if (!overlayRoot) return null
 
   const liveItem =

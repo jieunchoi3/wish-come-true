@@ -71,6 +71,8 @@ export function LifePackItemCard({
         index={index}
         tapePosition={index % 2 === 0 ? 'top-left' : 'top-right'}
         tornBottom={tornBottom}
+        layout={!compact}
+        flat={compact}
       >
         <div className="overflow-hidden px-7 py-6 pt-7">
           {hasPolaroid && (
@@ -110,7 +112,7 @@ export function LifePackItemCard({
             </p>
           </div>
 
-          <div className="pack-card-actions mt-4">
+          <div className="pack-card-actions scrap-interactive mt-4">
             <div className="pack-card-actions-row">
               <RubberStampButton
                 label={COMPLETION_ACTION_LABEL}

@@ -44,7 +44,7 @@ export function Scrap({
 
   return (
     <div
-      className={`relative ${className}`}
+      className={`relative pointer-events-none ${className}`}
       style={{
         width: pos ? `${pos.widthPercent}%` : undefined,
         marginLeft: pos ? `${pos.marginLeft}px` : undefined,
@@ -53,7 +53,10 @@ export function Scrap({
         zIndex: pos?.zIndex,
       }}
     >
-      <div className="relative" style={{ transform: `rotate(${rotation}deg)` }}>
+      <div
+        className="relative pointer-events-none"
+        style={{ transform: `rotate(${rotation}deg)` }}
+      >
         {tape && <Tape color={color} rotation={tRotation} position={tapePosition} />}
         <Paper fill={fill} tornBottom={tornBottom} className="scrap-paper">
           {children}
