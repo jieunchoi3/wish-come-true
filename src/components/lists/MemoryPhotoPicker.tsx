@@ -103,7 +103,7 @@ export function MemoryPhotoPicker({
         className={`relative block w-full ${linkClass}`}
         aria-disabled={pickerDisabled}
       >
-        <PolaroidFrame className="w-full !pb-3 [&>div:first-child]:min-w-0">
+        <PolaroidFrame className="w-full !pb-3">
           <div className="pointer-events-none h-full w-full min-h-0">
             {photoUrl ? (
               <img

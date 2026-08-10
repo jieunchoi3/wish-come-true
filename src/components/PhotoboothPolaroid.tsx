@@ -33,7 +33,7 @@ export function PhotoboothPolaroid({ item, onOpen }: PhotoboothPolaroidProps) {
           layout={false}
         >
           <div className="p-1.5">
-            <PolaroidFrame className="w-full !pb-3 [&>div:first-child]:min-w-0">
+            <PolaroidFrame className="w-full !pb-3">
               <img
                 src={item.completion_photo_url!}
                 alt=""

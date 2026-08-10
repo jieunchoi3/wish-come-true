@@ -18,26 +18,32 @@ export function PolaroidFrame({
   overlay,
 }: PolaroidFrameProps) {
   return (
-    <div
-      className={`relative overflow-visible inline-block bg-white p-2 pb-8 shadow-[1px_2px_8px_rgba(44,42,38,0.15)] ${className}`}
-    >
+    <div className="relative min-w-0 max-w-full">
       <div
-        className={`flex aspect-[4/5] w-full min-w-[120px] overflow-hidden bg-paper-shadow/40 ${
-          placeholder
-            ? 'items-center justify-center bg-gradient-to-br from-sage/20 to-rose/20'
-            : 'items-stretch [&>*]:min-h-0 [&>*]:w-full'
-        }`}
+        className={`block w-full overflow-hidden bg-white p-2 pb-8 shadow-[1px_2px_8px_rgba(44,42,38,0.15)] ${className}`}
       >
-        {placeholder ? (
-          <span className="font-hand text-2xl text-ink/25">a moment</span>
-        ) : (
-          children
+        <div
+          className={`relative aspect-[4/5] w-full min-w-0 overflow-hidden bg-paper-shadow/40 ${
+            placeholder
+              ? 'bg-gradient-to-br from-sage/20 to-rose/20'
+              : ''
+          }`}
+        >
+          {placeholder ? (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="font-hand text-2xl text-ink/25">a moment</span>
+            </div>
+          ) : (
+            <div className="absolute inset-0 min-h-0 min-w-0 [&>*]:h-full [&>*]:min-h-0 [&>*]:w-full [&>*]:min-w-0">
+              {children}
+            </div>
+          )}
+        </div>
+        {caption && (
+          <p className="mt-2 text-center font-hand text-lg text-ink/60">{caption}</p>
         )}
       </div>
       {overlay}
-      {caption && (
-        <p className="mt-2 text-center font-hand text-lg text-ink/60">{caption}</p>
-      )}
     </div>
   )
 }
