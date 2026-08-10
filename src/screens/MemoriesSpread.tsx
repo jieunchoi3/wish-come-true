@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from 'react'
 import { RubberStamp } from '../components/ScrapbookElements'
 import { PolaroidFrame } from '../components/PolaroidFrame'
+import { StarRating } from '../components/lists/StarRating'
 import { ScrapCollage } from '../components/ScrapCollage'
 import { Scrap } from '../components/primitives'
 import {
@@ -379,6 +380,9 @@ function MemoryPolaroid({
         </Scrap>
         <div className="memory-polaroid-caption mt-1.5 px-1 pb-4">
           <p className="font-hand text-sm leading-snug text-ink/75">{item.title}</p>
+          {item.rating != null && (
+            <StarRating value={item.rating} size="sm" className="mt-0.5" />
+          )}
           <p className="font-hand text-xs text-ink/40">{captionDate}</p>
         </div>
       </button>

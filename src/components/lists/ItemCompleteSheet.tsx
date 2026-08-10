@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { createPortal } from 'react-dom'
 import { COMPLETION_ACTION_LABEL } from '../../constants/completion'
 import { MemoryPhotoPicker } from './MemoryPhotoPicker'
+import { StarRating } from './StarRating'
 import type { ListItemView } from '../../types/database'
 import { useLists } from '../../hooks/useLists'
 import { getBinderOverlayRoot } from '../../lib/binderOverlay'
@@ -15,9 +16,11 @@ interface ItemCompleteSheetProps {
 }
 
 export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
-  const { items, updateItem } = useLists()
+  const { lists, items, updateItem } = useLists()
   const liveItem = items.find((row) => row.id === item.id) ?? item
+  const list = lists.find((row) => row.id === liveItem.list_id)
   const [note, setNote] = useState('')
+  const [rating, setRating] = useState<number | null>(null)
   const [stamping, setStamping] = useState(false)
   const [photoFile, setPhotoFile] = useState<File | null>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
@@ -61,6 +64,7 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
           completed_at: now,
           completion_note: note.trim() || null,
           completion_photo_url: completionPhotoUrl,
+          rating,
         },
         liveItem.is_seeded,
       )
@@ -87,6 +91,15 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
           className="w-40"
         />
       </div>
+
+      {list?.rating_enabled && (
+        <StarRating
+          className="mt-6"
+          label="rate it (optional)"
+          value={rating}
+          onChange={setRating}
+        />
+      )}
 
       <label className="mt-6 block">
         <span className="font-hand text-lg text-ink/50">how was it?</span>

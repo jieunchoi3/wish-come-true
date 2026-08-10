@@ -39,6 +39,7 @@ export interface ListItemView {
   completed_at: string | null
   completion_photo_url: string | null
   completion_note: string | null
+  rating: number | null
   snoozed_until: string | null
   last_surfaced_at: string | null
   surfaced_count: number
@@ -53,6 +54,7 @@ export interface ListWithCounts {
   slug: string | null
   is_seeded: boolean
   sort_order: number
+  rating_enabled: boolean
   created_at: string
   doneCount: number
   totalCount: number

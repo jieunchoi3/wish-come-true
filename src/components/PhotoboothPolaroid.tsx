@@ -1,4 +1,5 @@
 import { PolaroidFrame } from './PolaroidFrame'
+import { StarRating } from './lists/StarRating'
 import { Scrap } from './primitives'
 import { cardRotation, formatMemoryDate, hashString } from '../lib/utils'
 import type { ListItemView } from '../types/database'
@@ -46,6 +47,9 @@ export function PhotoboothPolaroid({ item, onOpen }: PhotoboothPolaroidProps) {
           <p className="line-clamp-2 font-hand text-[0.7rem] leading-snug text-ink/75">
             {item.title}
           </p>
+          {item.rating != null && (
+            <StarRating value={item.rating} size="sm" className="mt-0.5" />
+          )}
           <p className="font-hand text-[0.65rem] text-ink/45">{completedDate}</p>
         </div>
       </button>

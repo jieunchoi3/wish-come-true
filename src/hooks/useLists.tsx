@@ -57,8 +57,11 @@ interface ListsContextValue {
   clearError: () => void
   refresh: () => Promise<void>
   itemsForList: (listId: string) => ListItemView[]
-  createList: (title: string, emoji?: string) => Promise<List | null>
-  updateList: (id: string, patch: { title?: string; emoji?: string | null }) => Promise<boolean>
+  createList: (title: string, emoji?: string, ratingEnabled?: boolean) => Promise<List | null>
+  updateList: (
+    id: string,
+    patch: { title?: string; emoji?: string | null; rating_enabled?: boolean },
+  ) => Promise<boolean>
   reorderLists: (orderedIds: string[], opts?: { seeded?: boolean }) => Promise<boolean>
   deleteList: (id: string) => Promise<boolean>
   createItem: (input: CreateListItemInput) => Promise<ListItemView | null>
@@ -85,6 +88,7 @@ function mergeItem(
       completed_at: progress.completed_at,
       completion_photo_url: progress.completion_photo_url,
       completion_note: progress.completion_note,
+      rating: progress.rating,
       snoozed_until: progress.snoozed_until,
       last_surfaced_at: progress.last_surfaced_at,
       surfaced_count: progress.surfaced_count,
@@ -131,6 +135,8 @@ function mergeSeededProgress(
       patch.completion_note !== undefined
         ? patch.completion_note
         : (existing?.completion_note ?? null),
+    rating:
+      patch.rating !== undefined ? patch.rating : (existing?.rating ?? null),
     snoozed_until:
       patch.snoozed_until !== undefined
         ? patch.snoozed_until
@@ -286,7 +292,7 @@ export function ListsProvider({
     [items],
   )
 
-  const createList = useCallback(async (title: string, emoji = '📝') => {
+  const createList = useCallback(async (title: string, emoji = '📝', ratingEnabled = false) => {
     if (!supabase || !userId) return null
 
     const userLists = lists.filter((l) => !l.is_seeded)
@@ -303,6 +309,7 @@ export function ListsProvider({
         emoji,
         is_seeded: false,
         sort_order: nextSortOrder,
+        rating_enabled: ratingEnabled,
       })
       .select()
       .single()
@@ -319,7 +326,7 @@ export function ListsProvider({
   const updateList = useCallback(
     async (
       id: string,
-      patch: { title?: string; emoji?: string | null },
+      patch: { title?: string; emoji?: string | null; rating_enabled?: boolean },
     ): Promise<boolean> => {
       if (!supabase) return false
       const list = lists.find((l) => l.id === id)
@@ -551,6 +558,7 @@ export function ListsProvider({
           completed_at: null,
           completion_photo_url: null,
           completion_note: null,
+          rating: null,
         },
         item.is_seeded,
       )
@@ -590,6 +598,7 @@ export function ListsProvider({
           completed_at: existing?.completed_at ?? null,
           completion_photo_url: existing?.completion_photo_url ?? null,
           completion_note: existing?.completion_note ?? null,
+          rating: existing?.rating ?? null,
           snoozed_until: DISMISSED_SNOOZE_UNTIL,
           last_surfaced_at: existing?.last_surfaced_at ?? null,
           surfaced_count: existing?.surfaced_count ?? 0,

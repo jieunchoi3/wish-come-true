@@ -20,6 +20,7 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
   const [newTitle, setNewTitle] = useState('')
   const [draftTitle, setDraftTitle] = useState(list.title)
   const [draftEmoji, setDraftEmoji] = useState(list.emoji ?? DEFAULT_LIST_EMOJI)
+  const [draftRatingEnabled, setDraftRatingEnabled] = useState(list.rating_enabled ?? false)
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [busy, setBusy] = useState(false)
   const [addError, setAddError] = useState<string | null>(null)
@@ -39,6 +40,7 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
     e.stopPropagation()
     setDraftTitle(list.title)
     setDraftEmoji(list.emoji ?? DEFAULT_LIST_EMOJI)
+    setDraftRatingEnabled(list.rating_enabled ?? false)
     setConfirmDelete(false)
     setEditing(true)
   }
@@ -48,6 +50,7 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
     setConfirmDelete(false)
     setDraftTitle(list.title)
     setDraftEmoji(list.emoji ?? DEFAULT_LIST_EMOJI)
+    setDraftRatingEnabled(list.rating_enabled ?? false)
   }
 
   async function handleSaveName() {
@@ -60,7 +63,8 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
     const emoji = draftEmoji || DEFAULT_LIST_EMOJI
     const titleChanged = next !== list.title
     const emojiChanged = emoji !== (list.emoji ?? DEFAULT_LIST_EMOJI)
-    if (!titleChanged && !emojiChanged) {
+    const ratingChanged = draftRatingEnabled !== (list.rating_enabled ?? false)
+    if (!titleChanged && !emojiChanged && !ratingChanged) {
       closeEdit()
       return
     }
@@ -68,6 +72,7 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
     const ok = await updateList(list.id, {
       ...(titleChanged ? { title: next } : {}),
       ...(emojiChanged ? { emoji } : {}),
+      ...(ratingChanged ? { rating_enabled: draftRatingEnabled } : {}),
     })
     setBusy(false)
     if (ok) closeEdit()
@@ -181,6 +186,19 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
                       disabled={busy}
                       className="mt-1 w-full border-0 border-b border-ink/30 bg-transparent py-1 font-serif text-lg text-ink outline-none"
                     />
+                  </label>
+                  <label className="flex cursor-pointer items-center gap-2.5">
+                    <input
+                      type="checkbox"
+                      checked={draftRatingEnabled}
+                      onChange={(e) => setDraftRatingEnabled(e.target.checked)}
+                      disabled={busy}
+                      onClick={(e) => e.stopPropagation()}
+                      className="size-4 accent-ochre"
+                    />
+                    <span className="font-hand text-sm text-ink/55">
+                      rate items with stars when done
+                    </span>
                   </label>
                 </>
               ) : (

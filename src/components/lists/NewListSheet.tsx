@@ -5,7 +5,7 @@ import { ListEmojiPicker } from './ListEmojiPicker'
 
 interface NewListSheetProps {
   onClose: () => void
-  onCreate: (title: string, emoji: string) => Promise<void>
+  onCreate: (title: string, emoji: string, ratingEnabled: boolean) => Promise<void>
   busy?: boolean
   error?: string | null
 }
@@ -18,11 +18,12 @@ export function NewListSheet({
 }: NewListSheetProps) {
   const [emoji, setEmoji] = useState(DEFAULT_LIST_EMOJI)
   const [title, setTitle] = useState('')
+  const [ratingEnabled, setRatingEnabled] = useState(false)
 
   async function handleCreate() {
     const nextTitle = title.trim()
     if (!nextTitle || busy) return
-    await onCreate(nextTitle, emoji || DEFAULT_LIST_EMOJI)
+    await onCreate(nextTitle, emoji || DEFAULT_LIST_EMOJI, ratingEnabled)
   }
 
   return (
@@ -46,6 +47,19 @@ export function NewListSheet({
           disabled={busy}
           className="mt-1 w-full border-0 border-b border-ink/25 bg-transparent py-1 font-hand text-xl text-ink outline-none disabled:opacity-50"
         />
+      </label>
+
+      <label className="mt-5 flex cursor-pointer items-center gap-2.5">
+        <input
+          type="checkbox"
+          checked={ratingEnabled}
+          onChange={(e) => setRatingEnabled(e.target.checked)}
+          disabled={busy}
+          className="size-4 accent-ochre"
+        />
+        <span className="font-hand text-sm text-ink/55">
+          rate items with stars when done (1–5)
+        </span>
       </label>
 
       {error && (

@@ -3,6 +3,7 @@ import { COMPLETION_ACTION_LABEL } from '../../constants/completion'
 import type { ListItemView } from '../../types/database'
 import { useLists } from '../../hooks/useLists'
 import { isFocusedThisMonth } from '../../lib/committedMonth'
+import { StarRating } from './StarRating'
 import { RubberStampButton } from '../wishes/WishUi'
 import { CommitAction } from './CommitAction'
 import { ItemCompleteSheet } from './ItemCompleteSheet'
@@ -106,6 +107,9 @@ export function ListItemRow({ item }: ListItemRowProps) {
                 </p>
                 {item.note && (
                   <p className="list-item-note">{item.note}</p>
+                )}
+                {isDone && item.rating != null && (
+                  <StarRating value={item.rating} size="sm" className="mt-1" />
                 )}
               </div>
 

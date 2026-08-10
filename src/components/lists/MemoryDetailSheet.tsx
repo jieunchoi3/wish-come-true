@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { RubberStamp } from '../ScrapbookElements'
 import { MemoryPhotoPicker } from './MemoryPhotoPicker'
+import { StarRating } from './StarRating'
 import { PaperSheet } from '../wishes/WishUi'
 import {
   CATEGORY_ACCENTS,
@@ -52,8 +53,9 @@ export function MemoryDetailSheet({
   onClose,
   backLabel = 'back to the chapter',
 }: MemoryDetailSheetProps) {
-  const { items, updateItem } = useLists()
+  const { lists, items, updateItem } = useLists()
   const liveItem = items.find((row) => row.id === item.id) ?? item
+  const list = lists.find((row) => row.id === liveItem.list_id)
   const accent = CATEGORY_ACCENTS[liveItem.category]
   const completedLabel = liveItem.completed_at
     ? formatCaptionDate(liveItem.completed_at)
@@ -73,6 +75,7 @@ export function MemoryDetailSheet({
   const [dateDraft, setDateDraft] = useState('')
   const [dateSaving, setDateSaving] = useState(false)
   const [dateError, setDateError] = useState<string | null>(null)
+  const [ratingSaving, setRatingSaving] = useState(false)
 
   useEffect(() => {
     setEditingDate(false)
@@ -156,6 +159,21 @@ export function MemoryDetailSheet({
     setEditingDate(false)
   }
 
+  async function saveRating(nextRating: number | null) {
+    setRatingSaving(true)
+    const saved = await updateItem(
+      liveItem.id,
+      {
+        status: liveItem.status,
+        completed_at: liveItem.completed_at,
+        rating: nextRating,
+      },
+      liveItem.is_seeded,
+    )
+    setRatingSaving(false)
+    if (!saved) return
+  }
+
   const placeholder = (
     <div
       className="flex h-full w-full flex-col items-center justify-center gap-3 p-6"
@@ -205,6 +223,18 @@ export function MemoryDetailSheet({
       <h2 className="mt-6 font-serif text-2xl font-medium text-ink">
         {liveItem.title}
       </h2>
+
+      {list?.rating_enabled && (
+        <StarRating
+          className="mt-3"
+          label="your rating"
+          value={liveItem.rating}
+          onChange={(next) => void saveRating(next)}
+        />
+      )}
+      {ratingSaving && (
+        <p className="mt-1 font-hand text-xs text-ink/40">saving…</p>
+      )}
 
       {liveItem.completion_note && (
         <p className="mt-2 font-hand text-lg text-ink/65">

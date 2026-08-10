@@ -124,11 +124,11 @@ export function ListsRightPage() {
     return map
   }, [items])
 
-  async function handleCreateList(title: string, emoji: string) {
+  async function handleCreateList(title: string, emoji: string, ratingEnabled: boolean) {
     setCreating(true)
     setCreateError(null)
     clearError()
-    const created = await createList(title, emoji)
+    const created = await createList(title, emoji, ratingEnabled)
     setCreating(false)
     if (!created) {
       setCreateError('couldn’t create that list — try again')
