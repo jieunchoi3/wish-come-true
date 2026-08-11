@@ -53,9 +53,8 @@ export function MemoryDetailSheet({
   onClose,
   backLabel = 'back to the chapter',
 }: MemoryDetailSheetProps) {
-  const { lists, items, updateItem } = useLists()
+  const { items, updateItem } = useLists()
   const liveItem = items.find((row) => row.id === item.id) ?? item
-  const list = lists.find((row) => row.id === liveItem.list_id)
   const accent = CATEGORY_ACCENTS[liveItem.category]
   const completedLabel = liveItem.completed_at
     ? formatCaptionDate(liveItem.completed_at)
@@ -224,14 +223,12 @@ export function MemoryDetailSheet({
         {liveItem.title}
       </h2>
 
-      {list?.rating_enabled && (
-        <StarRating
-          className="mt-3"
-          label="your rating"
-          value={liveItem.rating}
-          onChange={(next) => void saveRating(next)}
-        />
-      )}
+      <StarRating
+        className="mt-3"
+        label="your rating (optional)"
+        value={liveItem.rating}
+        onChange={(next) => void saveRating(next)}
+      />
       {ratingSaving && (
         <p className="mt-1 font-hand text-xs text-ink/40">saving…</p>
       )}

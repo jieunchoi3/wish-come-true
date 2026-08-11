@@ -28,7 +28,7 @@ export function WishCard({ wish, index, onClick, compact = false }: WishCardProp
               <img
                 src={wish.image_url}
                 alt=""
-                className="h-full w-full object-cover"
+                className="polaroid-photo"
               />
             </PolaroidFrame>
           )}

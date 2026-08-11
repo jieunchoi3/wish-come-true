@@ -37,7 +37,7 @@ export function ListItemDetailSheet({
           <img
             src={item.image_url}
             alt=""
-            className="h-full w-full object-cover"
+            className="polaroid-photo"
           />
         </PolaroidFrame>
       )}

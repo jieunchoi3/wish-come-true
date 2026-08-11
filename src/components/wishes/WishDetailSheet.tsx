@@ -65,7 +65,7 @@ export function WishDetailSheet({
       <div className={tearing ? 'wish-tear' : ''}>
         {wish.image_url && (
           <PolaroidFrame className="mb-4 w-40">
-            <img src={wish.image_url} alt="" className="h-full w-full object-cover" />
+            <img src={wish.image_url} alt="" className="polaroid-photo" />
           </PolaroidFrame>
         )}
 

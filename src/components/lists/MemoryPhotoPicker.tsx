@@ -104,12 +104,12 @@ export function MemoryPhotoPicker({
         aria-disabled={pickerDisabled}
       >
         <PolaroidFrame className="w-full !pb-3">
-          <div className="pointer-events-none h-full w-full min-h-0">
+          <div className="pointer-events-none h-full w-full">
             {photoUrl ? (
               <img
                 src={photoUrl}
                 alt=""
-                className="h-full w-full object-cover"
+                className="polaroid-photo"
               />
             ) : (
               placeholder ?? (

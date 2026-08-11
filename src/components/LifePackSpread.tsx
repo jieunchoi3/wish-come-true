@@ -81,7 +81,7 @@ export function LifePackItemCard({
               className={`float-left mr-3 mb-1 ${compact ? 'w-[72px]' : 'w-20'}`}
             >
               {imageUrl && (
-                <img src={imageUrl} alt="" className="h-full w-full object-cover" />
+                <img src={imageUrl} alt="" className="polaroid-photo" />
               )}
             </PolaroidFrame>
           )}

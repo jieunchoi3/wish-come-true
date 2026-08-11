@@ -32,16 +32,15 @@ export function PhotoboothPolaroid({ item, onOpen }: PhotoboothPolaroidProps) {
           index={0}
           tapePosition={tapeSide}
           layout={false}
+          flat
         >
-          <div className="p-1.5">
-            <PolaroidFrame className="w-full !pb-3">
-              <img
-                src={item.completion_photo_url!}
-                alt=""
-                className="h-full w-full object-cover"
-              />
-            </PolaroidFrame>
-          </div>
+          <PolaroidFrame className="w-full !pb-3">
+            <img
+              src={item.completion_photo_url!}
+              alt=""
+              className="polaroid-photo"
+            />
+          </PolaroidFrame>
         </Scrap>
         <div className="memory-polaroid-caption mt-1 px-0.5">
           <p className="line-clamp-2 font-hand text-[0.7rem] leading-snug text-ink/75">

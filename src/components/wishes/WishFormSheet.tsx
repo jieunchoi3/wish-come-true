@@ -246,7 +246,7 @@ export function WishFormSheet({
               <img
                 src={previewUrl}
                 alt=""
-                className="h-full w-full object-cover transition-opacity duration-[1200ms]"
+                className="polaroid-photo transition-opacity duration-[1200ms]"
                 style={{ opacity: developing ? 0.25 : 1 }}
               />
             ) : (

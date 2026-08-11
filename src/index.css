@@ -232,6 +232,48 @@ body {
   overflow: visible;
 }
 
+/* Polaroid photo window — hard clip so posters never bleed past the white border */
+.polaroid-shell {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  background: #fff;
+  padding: 0.5rem;
+  padding-bottom: 2rem;
+  box-shadow: 1px 2px 8px rgba(44, 42, 38, 0.15);
+}
+
+.polaroid-window {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  isolation: isolate;
+  contain: layout paint;
+  clip-path: inset(0 round 0.5px);
+}
+
+.polaroid-photo-fill {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  min-width: 0;
+  min-height: 0;
+}
+
+.polaroid-photo-fill img,
+img.polaroid-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .memory-done-stamp--sm {
   padding: 2px 6px 3px;
   border-width: 2px;

@@ -347,26 +347,26 @@ function MemoryPolaroid({
           index={index}
           tapePosition={tapeSide}
           layout={false}
+          flat
           className="w-full"
         >
-          <div className="p-2">
-            <PolaroidFrame
-              className="w-full"
-              overlay={
-                <RubberStamp date={stampDate} size="sm" className="top-[34%]" />
-              }
-            >
-              {hasPhoto ? (
-                <img
-                  src={item.completion_photo_url!}
-                  alt=""
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                <div
-                  className="flex h-full w-full flex-col items-center justify-center gap-2 p-3"
-                  style={{ backgroundColor: accent }}
-                >
+          <PolaroidFrame
+            className="w-full"
+            overlay={
+              <RubberStamp date={stampDate} size="sm" className="top-[34%]" />
+            }
+          >
+            {hasPhoto ? (
+              <img
+                src={item.completion_photo_url!}
+                alt=""
+                className="polaroid-photo"
+              />
+            ) : (
+              <div
+                className="flex h-full w-full flex-col items-center justify-center gap-2 p-3"
+                style={{ backgroundColor: accent }}
+              >
                   <span className="text-2xl" aria-hidden>
                     {categoryEmoji(item.category)}
                   </span>
@@ -375,8 +375,7 @@ function MemoryPolaroid({
                   </p>
                 </div>
               )}
-            </PolaroidFrame>
-          </div>
+          </PolaroidFrame>
         </Scrap>
         <div className="memory-polaroid-caption mt-1.5 px-1 pb-4">
           <p className="font-hand text-sm leading-snug text-ink/75">{item.title}</p>
