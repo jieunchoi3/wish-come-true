@@ -6,6 +6,8 @@ import { NewListSheet } from '../components/lists/NewListSheet'
 import { ListsSearchBar } from '../components/lists/ListsSearchBar'
 import { ListItemRow } from '../components/lists/ListItemRow'
 import { useLists } from '../hooks/useLists'
+import { uploadListCover } from '../lib/listItemStorage'
+import { supabase } from '../lib/supabase'
 import { searchListsAndItems } from '../lib/smartSearch'
 import type { ListItemView, ListWithCounts } from '../types/database'
 import { useListsTab } from './listsTabState'
@@ -84,7 +86,7 @@ export function ListsLeftPage() {
 
 /** Right spread — my lists (+ mobile combines both sides). */
 export function ListsRightPage() {
-  const { lists, items, loading, createList, reorderLists, error, clearError } = useLists()
+  const { lists, items, loading, createList, updateList, reorderLists, error, clearError } = useLists()
   const { query, setQuery } = useListsTab()
   const [newListOpen, setNewListOpen] = useState(false)
   const [creating, setCreating] = useState(false)
@@ -124,16 +126,39 @@ export function ListsRightPage() {
     return map
   }, [items])
 
-  async function handleCreateList(title: string, emoji: string, ratingEnabled: boolean) {
+  async function handleCreateList(
+    title: string,
+    emoji: string,
+    ratingEnabled: boolean,
+    coverFile: File | null,
+  ) {
     setCreating(true)
     setCreateError(null)
     clearError()
     const created = await createList(title, emoji, ratingEnabled)
-    setCreating(false)
     if (!created) {
+      setCreating(false)
       setCreateError('couldn’t create that list — try again')
       return
     }
+
+    if (coverFile && supabase) {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
+      if (user) {
+        try {
+          const url = await uploadListCover(user.id, created.id, coverFile)
+          await updateList(created.id, {
+            cover_url: url.split('?')[0] ?? url,
+          })
+        } catch {
+          setCreateError('list created, but cover photo didn’t save — try edit')
+        }
+      }
+    }
+
+    setCreating(false)
     setOpenListId(created.id)
     setNewListOpen(false)
   }

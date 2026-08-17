@@ -60,7 +60,12 @@ interface ListsContextValue {
   createList: (title: string, emoji?: string, ratingEnabled?: boolean) => Promise<List | null>
   updateList: (
     id: string,
-    patch: { title?: string; emoji?: string | null; rating_enabled?: boolean },
+    patch: {
+      title?: string
+      emoji?: string | null
+      rating_enabled?: boolean
+      cover_url?: string | null
+    },
   ) => Promise<boolean>
   reorderLists: (orderedIds: string[], opts?: { seeded?: boolean }) => Promise<boolean>
   deleteList: (id: string) => Promise<boolean>
@@ -326,7 +331,12 @@ export function ListsProvider({
   const updateList = useCallback(
     async (
       id: string,
-      patch: { title?: string; emoji?: string | null; rating_enabled?: boolean },
+      patch: {
+        title?: string
+        emoji?: string | null
+        rating_enabled?: boolean
+        cover_url?: string | null
+      },
     ): Promise<boolean> => {
       if (!supabase) return false
       const list = lists.find((l) => l.id === id)

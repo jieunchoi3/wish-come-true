@@ -19,6 +19,7 @@ export type Database = {
           is_seeded: boolean
           sort_order: number
           rating_enabled: boolean
+          cover_url: string | null
           created_at: string
           updated_at: string
         }
@@ -31,6 +32,7 @@ export type Database = {
           is_seeded?: boolean
           sort_order?: number
           rating_enabled?: boolean
+          cover_url?: string | null
           created_at?: string
           updated_at?: string
         }
@@ -43,6 +45,7 @@ export type Database = {
           is_seeded?: boolean
           sort_order?: number
           rating_enabled?: boolean
+          cover_url?: string | null
           created_at?: string
           updated_at?: string
         }

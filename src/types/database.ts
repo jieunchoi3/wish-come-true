@@ -55,6 +55,7 @@ export interface ListWithCounts {
   is_seeded: boolean
   sort_order: number
   rating_enabled: boolean
+  cover_url: string | null
   created_at: string
   doneCount: number
   totalCount: number

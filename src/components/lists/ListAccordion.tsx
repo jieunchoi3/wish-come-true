@@ -3,9 +3,12 @@ import type { ListWithCounts } from '../../types/database'
 import { DEFAULT_LIST_EMOJI } from '../../constants/listEmojis'
 import { ProgressRing } from '../collections/ProgressRing'
 import { Scrap } from '../primitives'
+import { ListCoverPicker } from './ListCoverPicker'
 import { ListEmojiPicker } from './ListEmojiPicker'
 import { ListItemRow } from './ListItemRow'
 import { useLists } from '../../hooks/useLists'
+import { uploadListCover } from '../../lib/listItemStorage'
+import { supabase } from '../../lib/supabase'
 
 interface ListAccordionProps {
   list: ListWithCounts
@@ -25,6 +28,11 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
   const [busy, setBusy] = useState(false)
   const [addError, setAddError] = useState<string | null>(null)
   const [completedExpanded, setCompletedExpanded] = useState(false)
+  const [coverPreviewUrl, setCoverPreviewUrl] = useState<string | null>(
+    list.cover_url ?? null,
+  )
+  const [coverUploading, setCoverUploading] = useState(false)
+  const [coverError, setCoverError] = useState<string | null>(null)
 
   const items = itemsForList(list.id)
   const openItems = items.filter((item) => item.status !== 'done')
@@ -35,6 +43,28 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
   useEffect(() => {
     if (!open) setCompletedExpanded(false)
   }, [open])
+
+  useEffect(() => {
+    if (coverUploading) return
+    setCoverPreviewUrl(list.cover_url ?? null)
+  }, [list.cover_url, list.id, coverUploading])
+
+  function listIcon(coverUrl: string | null, emoji: string) {
+    if (coverUrl) {
+      return (
+        <img
+          src={coverUrl}
+          alt=""
+          className="size-11 shrink-0 rounded border border-ink/10 object-cover"
+        />
+      )
+    }
+    return (
+      <span className="shrink-0 text-2xl" aria-hidden>
+        {emoji}
+      </span>
+    )
+  }
 
   function openEdit(e: MouseEvent) {
     e.stopPropagation()
@@ -102,6 +132,51 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
     setAddError(null)
   }
 
+  async function handleCoverUpload(file: File) {
+    const prev = coverPreviewUrl
+    const local = URL.createObjectURL(file)
+    setCoverPreviewUrl(local)
+    setCoverUploading(true)
+    setCoverError(null)
+
+    try {
+      if (!supabase) throw new Error('offline')
+      const {
+        data: { user },
+      } = await supabase.auth.getUser()
+      if (!user) throw new Error('not signed in')
+
+      const url = await uploadListCover(user.id, list.id, file)
+      const saved = await updateList(list.id, {
+        cover_url: url.split('?')[0] ?? url,
+      })
+      if (!saved) throw new Error('save failed')
+      setCoverPreviewUrl(url)
+    } catch (err) {
+      setCoverPreviewUrl(prev)
+      setCoverError(
+        err instanceof Error && err.message === 'not signed in'
+          ? 'sign in to save photos'
+          : 'could not save cover — try again',
+      )
+    } finally {
+      setCoverUploading(false)
+      URL.revokeObjectURL(local)
+    }
+  }
+
+  async function handleCoverRemove() {
+    setCoverUploading(true)
+    setCoverError(null)
+    const ok = await updateList(list.id, { cover_url: null })
+    setCoverUploading(false)
+    if (!ok) {
+      setCoverError('could not remove cover — try again')
+      return
+    }
+    setCoverPreviewUrl(null)
+  }
+
   return (
     <div className="mb-10 pt-4">
       <Scrap
@@ -120,9 +195,9 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
               }}
               className="flex min-w-0 flex-1 items-center gap-3 text-left"
             >
-              <span className="text-2xl" aria-hidden>
-                {editing ? draftEmoji : (list.emoji ?? '📋')}
-              </span>
+              {editing
+                ? listIcon(coverPreviewUrl, draftEmoji)
+                : listIcon(list.cover_url ?? null, list.emoji ?? '📋')}
               <div className="min-w-0 flex-1">
                 <h3 className="font-serif text-lg text-ink">{list.title}</h3>
                 <p className="font-hand text-sm text-ink/50">
@@ -187,6 +262,16 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
                       className="mt-1 w-full border-0 border-b border-ink/30 bg-transparent py-1 font-serif text-lg text-ink outline-none"
                     />
                   </label>
+                  <ListCoverPicker
+                    coverUrl={coverPreviewUrl}
+                    onFile={(file) => void handleCoverUpload(file)}
+                    onRemove={() => void handleCoverRemove()}
+                    uploading={coverUploading}
+                    disabled={busy}
+                  />
+                  {coverError && (
+                    <p className="font-hand text-sm text-rose-deep">{coverError}</p>
+                  )}
                   <label className="flex cursor-pointer items-center gap-2.5">
                     <input
                       type="checkbox"
