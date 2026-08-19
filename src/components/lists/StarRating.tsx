@@ -2,7 +2,7 @@ interface StarRatingProps {
   value: number | null
   onChange?: (value: number | null) => void
   max?: number
-  size?: 'sm' | 'md'
+  size?: 'sm' | 'md' | 'lg'
   className?: string
   /** Shown above stars when interactive */
   label?: string
@@ -17,7 +17,12 @@ export function StarRating({
   label,
 }: StarRatingProps) {
   const interactive = Boolean(onChange)
-  const sizeClass = size === 'sm' ? 'text-[0.7rem] gap-px' : 'text-xl gap-0.5'
+  const sizeClass =
+    size === 'sm'
+      ? 'text-[0.7rem] gap-px'
+      : size === 'lg'
+        ? 'text-3xl gap-1'
+        : 'text-xl gap-0.5'
 
   return (
     <div className={className}>

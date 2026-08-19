@@ -77,7 +77,16 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
     <PaperSheet id={`complete-${liveItem.id}`} onClose={onClose}>
       <p className="font-hand text-xl text-ink/55">you did it.</p>
       <h2 className="mt-1 font-serif text-2xl text-ink">{liveItem.title}</h2>
-      <p className="mt-2 font-hand text-base text-ink/45">
+
+      <StarRating
+        className="mt-5 scrap-interactive"
+        label="rate it"
+        value={rating}
+        onChange={setRating}
+        size="lg"
+      />
+
+      <p className="mt-5 font-hand text-base text-ink/45">
         got a photo? optional — tap the polaroid or skip straight to done it.
       </p>
 
@@ -91,14 +100,7 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
         />
       </div>
 
-      <StarRating
-        className="mt-6"
-        label="how would you rate it?"
-        value={rating}
-        onChange={setRating}
-      />
-
-      <label className="mt-6 block">
+      <label className="mt-6 block scrap-interactive">
         <span className="font-hand text-lg text-ink/50">how was it?</span>
         <textarea
           value={note}
@@ -107,7 +109,7 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
           className="mt-2 w-full resize-none border-0 border-b border-ink/20 bg-transparent font-hand text-xl text-ink outline-none"
         />
       </label>
-      <div className={`mt-8 ${stamping ? 'stamp-press' : ''}`}>
+      <div className={`mt-8 scrap-interactive ${stamping ? 'stamp-press' : ''}`}>
         <RubberStampButton
           label={COMPLETION_ACTION_LABEL}
           rotation={-1}
