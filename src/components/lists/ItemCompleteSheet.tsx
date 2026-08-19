@@ -16,9 +16,8 @@ interface ItemCompleteSheetProps {
 }
 
 export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
-  const { lists, items, updateItem } = useLists()
+  const { items, updateItem } = useLists()
   const liveItem = items.find((row) => row.id === item.id) ?? item
-  const list = lists.find((row) => row.id === liveItem.list_id)
   const [note, setNote] = useState('')
   const [rating, setRating] = useState<number | null>(null)
   const [stamping, setStamping] = useState(false)
@@ -92,14 +91,12 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
         />
       </div>
 
-      {list?.rating_enabled && (
-        <StarRating
-          className="mt-6"
-          label="rate it (optional)"
-          value={rating}
-          onChange={setRating}
-        />
-      )}
+      <StarRating
+        className="mt-6"
+        label="how would you rate it?"
+        value={rating}
+        onChange={setRating}
+      />
 
       <label className="mt-6 block">
         <span className="font-hand text-lg text-ink/50">how was it?</span>
