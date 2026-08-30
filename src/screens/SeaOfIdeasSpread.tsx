@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react'
 import { Scrap } from '../components/primitives'
+import { DeleteIconButton } from '../components/primitives/DeleteIconButton'
 import { useLists } from '../hooks/useLists'
 import type { ListItemView, ListWithCounts } from '../types/database'
 
@@ -73,13 +74,11 @@ function AbandonedListCard({
               </button>
             </>
           ) : (
-            <button
-              type="button"
+            <DeleteIconButton
+              label="Delete forever"
               onClick={() => setConfirmDelete(true)}
-              className="text-stamp/70 underline decoration-dotted"
-            >
-              delete forever
-            </button>
+              disabled={busy}
+            />
           )}
         </div>
       </div>
@@ -144,13 +143,11 @@ function AbandonedItemRow({
             </button>
           </>
         ) : (
-          <button
-            type="button"
+          <DeleteIconButton
+            label="Delete forever"
             onClick={() => setConfirmDelete(true)}
-            className="text-stamp/70 underline decoration-dotted"
-          >
-            delete forever
-          </button>
+            disabled={busy}
+          />
         )}
       </div>
     </li>

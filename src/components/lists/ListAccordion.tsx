@@ -3,6 +3,7 @@ import type { ListWithCounts } from '../../types/database'
 import { DEFAULT_LIST_EMOJI } from '../../constants/listEmojis'
 import { ProgressRing } from '../collections/ProgressRing'
 import { Scrap } from '../primitives'
+import { DeleteIconButton } from '../primitives/DeleteIconButton'
 import { ListCoverPicker } from './ListCoverPicker'
 import { ListEmojiPicker } from './ListEmojiPicker'
 import { ListItemRow } from './ListItemRow'
@@ -372,16 +373,13 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
                     >
                       abandon list
                     </button>
-                    <button
-                      type="button"
+                    <DeleteIconButton
+                      label="Delete list"
                       onClick={() => {
                         setConfirmDelete(true)
                         setConfirmAbandon(false)
                       }}
-                      className="text-stamp/70 underline decoration-dotted"
-                    >
-                      delete list
-                    </button>
+                    />
                   </>
                 )}
               </div>

@@ -7,6 +7,7 @@ import { StarRating } from './StarRating'
 import { RubberStampButton } from '../wishes/WishUi'
 import { CommitAction } from './CommitAction'
 import { ItemCompleteSheet } from './ItemCompleteSheet'
+import { DeleteIconButton } from '../primitives/DeleteIconButton'
 
 interface ListItemRowProps {
   item: ListItemView
@@ -201,16 +202,13 @@ export function ListItemRow({ item }: ListItemRowProps) {
                         >
                           abandon
                         </button>
-                        <button
-                          type="button"
+                        <DeleteIconButton
+                          label="Delete"
                           onClick={() => {
                             setConfirmDelete(true)
                             setConfirmAbandon(false)
                           }}
-                          className="list-item-action-secondary list-item-action-remove"
-                        >
-                          delete
-                        </button>
+                        />
                       </>
                     )
                   )}

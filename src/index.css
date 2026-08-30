@@ -636,6 +636,28 @@ img.polaroid-photo {
   color: rgba(176, 142, 139, 1);
 }
 
+.delete-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border: none;
+  background: transparent;
+  color: var(--color-stamp);
+  cursor: pointer;
+  line-height: 0;
+  transition: color 150ms ease, opacity 150ms ease;
+}
+
+.delete-icon-btn:hover:not(:disabled) {
+  color: #a04444;
+}
+
+.delete-icon-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
 .list-item-done-badge {
   flex-shrink: 0;
   font-family: var(--font-hand);
