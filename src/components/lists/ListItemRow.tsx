@@ -13,9 +13,10 @@ interface ListItemRowProps {
 }
 
 export function ListItemRow({ item }: ListItemRowProps) {
-  const { undoDone, deleteItem, updateItem } = useLists()
+  const { undoDone, deleteItem, abandonItem, updateItem } = useLists()
   const [completing, setCompleting] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
+  const [confirmAbandon, setConfirmAbandon] = useState(false)
   const [editing, setEditing] = useState(false)
   const [draftTitle, setDraftTitle] = useState(item.title)
   const [draftNote, setDraftNote] = useState(item.note ?? '')
@@ -33,6 +34,14 @@ export function ListItemRow({ item }: ListItemRowProps) {
     setBusy(true)
     await deleteItem(item.id)
     setBusy(false)
+    setConfirmDelete(false)
+  }
+
+  async function handleAbandon() {
+    setBusy(true)
+    await abandonItem(item.id)
+    setBusy(false)
+    setConfirmAbandon(false)
   }
 
   async function handleSaveEdit() {
@@ -136,13 +145,32 @@ export function ListItemRow({ item }: ListItemRowProps) {
                         setDraftNote(item.note ?? '')
                         setEditing(true)
                         setConfirmDelete(false)
+                        setConfirmAbandon(false)
                       }}
                       className="list-item-action-secondary"
                     >
                       edit
                     </button>
                   )}
-                  {confirmDelete ? (
+                  {confirmAbandon ? (
+                    <>
+                      <button
+                        type="button"
+                        disabled={busy}
+                        onClick={() => void handleAbandon()}
+                        className="list-item-action-secondary"
+                      >
+                        yes, to the sea
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setConfirmAbandon(false)}
+                        className="list-item-action-secondary"
+                      >
+                        keep
+                      </button>
+                    </>
+                  ) : confirmDelete ? (
                     <>
                       <button
                         type="button"
@@ -150,7 +178,7 @@ export function ListItemRow({ item }: ListItemRowProps) {
                         onClick={() => void handleDelete()}
                         className="list-item-action-secondary list-item-action-remove"
                       >
-                        yes, remove
+                        yes, delete forever
                       </button>
                       <button
                         type="button"
@@ -161,15 +189,29 @@ export function ListItemRow({ item }: ListItemRowProps) {
                       </button>
                     </>
                   ) : (
-                    canEdit &&
                     !isDone && (
-                      <button
-                        type="button"
-                        onClick={() => setConfirmDelete(true)}
-                        className="list-item-action-secondary list-item-action-remove"
-                      >
-                        remove
-                      </button>
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setConfirmAbandon(true)
+                            setConfirmDelete(false)
+                          }}
+                          className="list-item-action-secondary"
+                        >
+                          abandon
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setConfirmDelete(true)
+                            setConfirmAbandon(false)
+                          }}
+                          className="list-item-action-secondary list-item-action-remove"
+                        >
+                          delete
+                        </button>
+                      </>
                     )
                   )}
                 </div>

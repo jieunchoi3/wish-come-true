@@ -42,6 +42,7 @@ export function isEligibleForPack(
   forDate: string = londonTodayISO(),
 ): boolean {
   if (item.status !== 'open') return false
+  if (item.abandoned_at) return false
   if (!isSnoozeExpired(item)) return false
   if (item.last_surfaced_at) {
     const cutoff = daysAgoISO(14)

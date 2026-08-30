@@ -16,7 +16,7 @@ interface ListAccordionProps {
 }
 
 export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps) {
-  const { itemsForList, updateList, deleteList, createItem } = useLists()
+  const { itemsForList, updateList, deleteList, abandonList, createItem } = useLists()
   const [open, setOpen] = useState(defaultOpen)
   const [editing, setEditing] = useState(false)
   const [adding, setAdding] = useState(false)
@@ -25,6 +25,7 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
   const [draftEmoji, setDraftEmoji] = useState(list.emoji ?? DEFAULT_LIST_EMOJI)
   const [draftRatingEnabled, setDraftRatingEnabled] = useState(list.rating_enabled ?? false)
   const [confirmDelete, setConfirmDelete] = useState(false)
+  const [confirmAbandon, setConfirmAbandon] = useState(false)
   const [busy, setBusy] = useState(false)
   const [addError, setAddError] = useState<string | null>(null)
   const [completedExpanded, setCompletedExpanded] = useState(false)
@@ -72,12 +73,14 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
     setDraftEmoji(list.emoji ?? DEFAULT_LIST_EMOJI)
     setDraftRatingEnabled(list.rating_enabled ?? false)
     setConfirmDelete(false)
+    setConfirmAbandon(false)
     setEditing(true)
   }
 
   function closeEdit() {
     setEditing(false)
     setConfirmDelete(false)
+    setConfirmAbandon(false)
     setDraftTitle(list.title)
     setDraftEmoji(list.emoji ?? DEFAULT_LIST_EMOJI)
     setDraftRatingEnabled(list.rating_enabled ?? false)
@@ -114,6 +117,15 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
     await deleteList(list.id)
     setBusy(false)
     setConfirmDelete(false)
+  }
+
+  async function handleAbandonList(e: MouseEvent) {
+    e.stopPropagation()
+    setBusy(true)
+    await abandonList(list.id)
+    setBusy(false)
+    setConfirmAbandon(false)
+    setEditing(false)
   }
 
   async function handleAddItem() {
@@ -312,7 +324,25 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
                   done
                 </button>
 
-                {confirmDelete ? (
+                {confirmAbandon ? (
+                  <>
+                    <button
+                      type="button"
+                      disabled={busy}
+                      onClick={(e) => void handleAbandonList(e)}
+                      className="underline decoration-dotted"
+                    >
+                      yes, to the sea
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setConfirmAbandon(false)}
+                      className="underline decoration-dotted"
+                    >
+                      keep list
+                    </button>
+                  </>
+                ) : confirmDelete ? (
                   <>
                     <button
                       type="button"
@@ -320,24 +350,39 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
                       onClick={(e) => void handleDeleteList(e)}
                       className="text-stamp/80 underline decoration-dotted"
                     >
-                      {list.is_seeded ? 'yes, hide list' : 'yes, delete list'}
+                      {list.is_seeded ? 'yes, delete forever' : 'yes, delete list'}
                     </button>
                     <button
                       type="button"
                       onClick={() => setConfirmDelete(false)}
                       className="underline decoration-dotted"
                     >
-                      keep
+                      keep list
                     </button>
                   </>
                 ) : (
-                  <button
-                    type="button"
-                    onClick={() => setConfirmDelete(true)}
-                    className="text-stamp/70 underline decoration-dotted"
-                  >
-                    {list.is_seeded ? 'hide list' : 'delete list'}
-                  </button>
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setConfirmAbandon(true)
+                        setConfirmDelete(false)
+                      }}
+                      className="underline decoration-dotted"
+                    >
+                      abandon list
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setConfirmDelete(true)
+                        setConfirmAbandon(false)
+                      }}
+                      className="text-stamp/70 underline decoration-dotted"
+                    >
+                      delete list
+                    </button>
+                  </>
                 )}
               </div>
             </div>

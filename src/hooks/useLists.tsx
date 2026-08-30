@@ -19,6 +19,12 @@ import {
   recordCommittedMonth,
 } from '../lib/committedMonth'
 import { DISMISSED_SNOOZE_UNTIL, isItemDismissed } from '../lib/dismissed'
+import { isItemAbandoned } from '../lib/abandoned'
+import {
+  abandonListId,
+  loadAbandonedListIds,
+  restoreListId,
+} from '../lib/abandonedLists'
 import {
   dismissListId,
   loadDismissedListIds,
@@ -51,6 +57,8 @@ export interface CreateListItemInput {
 interface ListsContextValue {
   lists: ListWithCounts[]
   items: ListItemView[]
+  abandonedItems: ListItemView[]
+  abandonedLists: ListWithCounts[]
   engagedListIds: Set<string>
   loading: boolean
   error: string | null
@@ -65,16 +73,21 @@ interface ListsContextValue {
       emoji?: string | null
       rating_enabled?: boolean
       cover_url?: string | null
+      abandoned_at?: string | null
     },
   ) => Promise<boolean>
   reorderLists: (orderedIds: string[], opts?: { seeded?: boolean }) => Promise<boolean>
   deleteList: (id: string) => Promise<boolean>
+  abandonList: (id: string) => Promise<boolean>
+  restoreList: (id: string) => Promise<boolean>
   createItem: (input: CreateListItemInput) => Promise<ListItemView | null>
   updateItem: (id: string, patch: ListItemUpdate, isSeeded: boolean) => Promise<boolean>
   markDone: (item: ListItemView) => Promise<void>
   markDoneQuick: (item: ListItemView) => Promise<void>
   undoDone: (item: ListItemView) => Promise<void>
   deleteItem: (id: string) => Promise<boolean>
+  abandonItem: (id: string) => Promise<boolean>
+  restoreItem: (id: string) => Promise<boolean>
   markSurfaced: (item: ListItemView) => Promise<void>
   commitItem: (item: ListItemView) => Promise<void>
   uncommitItem: (item: ListItemView) => Promise<void>
@@ -94,6 +107,7 @@ function mergeItem(
       completion_photo_url: progress.completion_photo_url,
       completion_note: progress.completion_note,
       rating: progress.rating,
+      abandoned_at: progress.abandoned_at,
       snoozed_until: progress.snoozed_until,
       last_surfaced_at: progress.last_surfaced_at,
       surfaced_count: progress.surfaced_count,
@@ -142,6 +156,10 @@ function mergeSeededProgress(
         : (existing?.completion_note ?? null),
     rating:
       patch.rating !== undefined ? patch.rating : (existing?.rating ?? null),
+    abandoned_at:
+      patch.abandoned_at !== undefined
+        ? patch.abandoned_at
+        : (existing?.abandoned_at ?? null),
     snoozed_until:
       patch.snoozed_until !== undefined
         ? patch.snoozed_until
@@ -176,6 +194,9 @@ export function ListsProvider({
   )
   const [dismissedListIds, setDismissedListIds] = useState<Set<string>>(
     () => loadDismissedListIds(),
+  )
+  const [abandonedListIds, setAbandonedListIds] = useState<Set<string>>(
+    () => loadAbandonedListIds(),
   )
   const [seededListOrder, setSeededListOrder] = useState<string[]>(() =>
     loadSeededListOrder(),
@@ -250,18 +271,55 @@ export function ListsProvider({
     fetchAll()
   }, [fetchAll])
 
-  const items = useMemo(
+  const allItems = useMemo(
     () =>
-      rawItems
-        .map((row) =>
-          mergeItem(row, row.is_seeded ? progressMap.get(row.id) : undefined),
-        )
-        .filter((row) => !isItemDismissed(row)),
+      rawItems.map((row) =>
+        mergeItem(row, row.is_seeded ? progressMap.get(row.id) : undefined),
+      ),
     [rawItems, progressMap],
   )
 
+  const items = useMemo(
+    () =>
+      allItems.filter(
+        (row) => !isItemDismissed(row) && !isItemAbandoned(row),
+      ),
+    [allItems],
+  )
+
+  const abandonedItems = useMemo(
+    () =>
+      allItems
+        .filter((row) => isItemAbandoned(row) && !isItemDismissed(row))
+        .sort(
+          (a, b) =>
+            (b.abandoned_at ?? '').localeCompare(a.abandoned_at ?? '') ||
+            a.title.localeCompare(b.title),
+        ),
+    [allItems],
+  )
+
+  const isListHidden = useCallback(
+    (list: List) => {
+      if (dismissedListIds.has(list.id)) return true
+      if (list.is_seeded && abandonedListIds.has(list.id)) return true
+      if (!list.is_seeded && list.abandoned_at) return true
+      return false
+    },
+    [abandonedListIds, dismissedListIds],
+  )
+
+  const isListAbandonedInSea = useCallback(
+    (list: List) => {
+      if (list.is_seeded && abandonedListIds.has(list.id)) return true
+      if (!list.is_seeded && list.abandoned_at) return true
+      return false
+    },
+    [abandonedListIds],
+  )
+
   const listsWithCounts = useMemo((): ListWithCounts[] => {
-    const visible = lists.filter((list) => !dismissedListIds.has(list.id))
+    const visible = lists.filter((list) => !isListHidden(list))
     const userLists = visible
       .filter((l) => !l.is_seeded)
       .sort((a, b) => a.sort_order - b.sort_order || a.title.localeCompare(b.title))
@@ -276,7 +334,26 @@ export function ListsProvider({
       const done = listItems.filter((i) => i.status === 'done').length
       return { ...list, doneCount: done, totalCount: total }
     })
-  }, [lists, items, dismissedListIds, seededListOrder])
+  }, [lists, items, isListHidden, seededListOrder])
+
+  const abandonedLists = useMemo((): ListWithCounts[] => {
+    return lists
+      .filter((list) => isListAbandonedInSea(list))
+      .sort((a, b) => a.title.localeCompare(b.title))
+      .map((list) => {
+        const listItems = allItems.filter(
+          (i) =>
+            i.list_id === list.id &&
+            !isItemDismissed(i) &&
+            !isItemAbandoned(i),
+        )
+        return {
+          ...list,
+          doneCount: listItems.filter((i) => i.status === 'done').length,
+          totalCount: listItems.length,
+        }
+      })
+  }, [allItems, isListAbandonedInSea, lists])
 
   const engagedListIds = useMemo(() => {
     const doneSeeded = new Set(
@@ -336,6 +413,7 @@ export function ListsProvider({
         emoji?: string | null
         rating_enabled?: boolean
         cover_url?: string | null
+        abandoned_at?: string | null
       },
     ): Promise<boolean> => {
       if (!supabase) return false
@@ -435,6 +513,36 @@ export function ListsProvider({
       return true
     },
     [fetchAll, lists],
+  )
+
+  const abandonList = useCallback(
+    async (id: string): Promise<boolean> => {
+      const list = lists.find((l) => l.id === id)
+      if (!list) return false
+
+      if (list.is_seeded) {
+        setAbandonedListIds(abandonListId(id))
+        return true
+      }
+
+      return updateList(id, { abandoned_at: new Date().toISOString() })
+    },
+    [lists, updateList],
+  )
+
+  const restoreList = useCallback(
+    async (id: string): Promise<boolean> => {
+      const list = lists.find((l) => l.id === id)
+      if (!list) return false
+
+      if (list.is_seeded) {
+        setAbandonedListIds(restoreListId(id))
+        return true
+      }
+
+      return updateList(id, { abandoned_at: null })
+    },
+    [lists, updateList],
   )
 
   const createItem = useCallback(
@@ -592,13 +700,46 @@ export function ListsProvider({
     [updateItem],
   )
 
+  const abandonItem = useCallback(
+    async (id: string): Promise<boolean> => {
+      const item = rawItems.find((i) => i.id === id)
+      if (!item) return false
+      const merged = mergeItem(
+        item,
+        item.is_seeded ? progressMap.get(id) : undefined,
+      )
+      if (merged.status === 'committed') {
+        clearCommittedMonth(id)
+      }
+      return updateItem(
+        id,
+        {
+          abandoned_at: new Date().toISOString(),
+          status: 'open',
+          snoozed_until: null,
+        },
+        item.is_seeded,
+      )
+    },
+    [progressMap, rawItems, updateItem],
+  )
+
+  const restoreItem = useCallback(
+    async (id: string): Promise<boolean> => {
+      const item = rawItems.find((i) => i.id === id)
+      if (!item) return false
+      return updateItem(id, { abandoned_at: null }, item.is_seeded)
+    },
+    [rawItems, updateItem],
+  )
+
   const deleteItem = useCallback(
     async (id: string): Promise<boolean> => {
       if (!supabase) return false
       const item = rawItems.find((i) => i.id === id)
       if (!item) return false
 
-      // Imported catalogue rows stay in the shared seed — dismiss them for you only.
+      // Imported catalogue rows stay in the shared seed — permanently hide for this user.
       if (item.is_seeded) {
         const existing = progressMap.get(id)
         const optimistic: ListItemProgress = {
@@ -609,6 +750,7 @@ export function ListsProvider({
           completion_photo_url: existing?.completion_photo_url ?? null,
           completion_note: existing?.completion_note ?? null,
           rating: existing?.rating ?? null,
+          abandoned_at: null,
           snoozed_until: DISMISSED_SNOOZE_UNTIL,
           last_surfaced_at: existing?.last_surfaced_at ?? null,
           surfaced_count: existing?.surfaced_count ?? 0,
@@ -689,6 +831,8 @@ export function ListsProvider({
     () => ({
       lists: listsWithCounts,
       items,
+      abandonedItems,
+      abandonedLists,
       engagedListIds,
       loading,
       error,
@@ -699,12 +843,16 @@ export function ListsProvider({
       updateList,
       reorderLists,
       deleteList,
+      abandonList,
+      restoreList,
       createItem,
       updateItem,
       markDone,
       markDoneQuick,
       undoDone,
       deleteItem,
+      abandonItem,
+      restoreItem,
       markSurfaced,
       commitItem,
       uncommitItem,
@@ -712,6 +860,8 @@ export function ListsProvider({
     [
       listsWithCounts,
       items,
+      abandonedItems,
+      abandonedLists,
       engagedListIds,
       loading,
       error,
@@ -722,12 +872,16 @@ export function ListsProvider({
       updateList,
       reorderLists,
       deleteList,
+      abandonList,
+      restoreList,
       createItem,
       updateItem,
       markDone,
       markDoneQuick,
       undoDone,
       deleteItem,
+      abandonItem,
+      restoreItem,
       markSurfaced,
       commitItem,
       uncommitItem,

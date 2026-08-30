@@ -20,6 +20,7 @@ export type Database = {
           sort_order: number
           rating_enabled: boolean
           cover_url: string | null
+          abandoned_at: string | null
           created_at: string
           updated_at: string
         }
@@ -33,6 +34,7 @@ export type Database = {
           sort_order?: number
           rating_enabled?: boolean
           cover_url?: string | null
+          abandoned_at?: string | null
           created_at?: string
           updated_at?: string
         }
@@ -46,6 +48,7 @@ export type Database = {
           sort_order?: number
           rating_enabled?: boolean
           cover_url?: string | null
+          abandoned_at?: string | null
           created_at?: string
           updated_at?: string
         }
@@ -75,6 +78,7 @@ export type Database = {
           completion_photo_url: string | null
           completion_note: string | null
           rating: number | null
+          abandoned_at: string | null
           snoozed_until: string | null
           last_surfaced_at: string | null
           surfaced_count: number
@@ -104,6 +108,7 @@ export type Database = {
           completion_photo_url?: string | null
           completion_note?: string | null
           rating?: number | null
+          abandoned_at?: string | null
           snoozed_until?: string | null
           last_surfaced_at?: string | null
           surfaced_count?: number
@@ -133,6 +138,7 @@ export type Database = {
           completion_photo_url?: string | null
           completion_note?: string | null
           rating?: number | null
+          abandoned_at?: string | null
           snoozed_until?: string | null
           last_surfaced_at?: string | null
           surfaced_count?: number
@@ -150,6 +156,7 @@ export type Database = {
           completion_photo_url: string | null
           completion_note: string | null
           rating: number | null
+          abandoned_at: string | null
           snoozed_until: string | null
           last_surfaced_at: string | null
           surfaced_count: number
@@ -164,6 +171,7 @@ export type Database = {
           completion_photo_url?: string | null
           completion_note?: string | null
           rating?: number | null
+          abandoned_at?: string | null
           snoozed_until?: string | null
           last_surfaced_at?: string | null
           surfaced_count?: number
@@ -178,6 +186,7 @@ export type Database = {
           completion_photo_url?: string | null
           completion_note?: string | null
           rating?: number | null
+          abandoned_at?: string | null
           snoozed_until?: string | null
           last_surfaced_at?: string | null
           surfaced_count?: number

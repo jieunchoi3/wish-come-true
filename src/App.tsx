@@ -13,6 +13,7 @@ import { MemoriesTabProvider } from './screens/memoriesTabState'
 import { ListsTabProvider } from './screens/listsTabState'
 import { ThisMonthLeftPage } from './screens/ThisMonthSpread'
 import { TodayRightPage } from './screens/TodayRightPage'
+import { SeaOfIdeasLeftPage, SeaOfIdeasRightPage } from './screens/SeaOfIdeasSpread'
 
 function BinderApp() {
   const [activeTab, setActiveTab] = useState<BinderTabId>('today')
@@ -30,6 +31,9 @@ function BinderApp() {
         }
         if (tab === 'lists') {
           return { left: <ListsLeftPage />, right: <ListsRightPage /> }
+        }
+        if (tab === 'ideas') {
+          return { left: <SeaOfIdeasLeftPage />, right: <SeaOfIdeasRightPage /> }
         }
         return { left: <MemoriesLeftPage />, right: <MemoriesRightPage /> }
       }}

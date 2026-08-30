@@ -1,4 +1,4 @@
-export type BinderTabId = 'today' | 'lists' | 'memories'
+export type BinderTabId = 'today' | 'lists' | 'memories' | 'ideas'
 
 interface BinderTab {
   id: BinderTabId
@@ -10,6 +10,7 @@ export const BINDER_TABS: BinderTab[] = [
   { id: 'today', label: 'today', color: '#A8B5A2' },
   { id: 'lists', label: 'lists', color: '#D9A85F' },
   { id: 'memories', label: 'memories', color: '#B5C4C0' },
+  { id: 'ideas', label: 'sea of ideas', color: '#A8AFCC' },
 ]
 
 interface BinderTabsProps {
