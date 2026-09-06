@@ -11,6 +11,11 @@ interface PaperSheetProps {
 /** Slide-in paper sheet — overlays its positioned parent, not page chrome above it */
 export function PaperSheet({ id, children, onClose, className = '' }: PaperSheetProps) {
   const panelRef = useRef<HTMLDivElement>(null)
+  const blockBackdropCloseUntilRef = useRef(0)
+
+  function blockBackdropClose(ms = 500) {
+    blockBackdropCloseUntilRef.current = performance.now() + ms
+  }
 
   useEffect(() => {
     if (!onClose) return
@@ -20,11 +25,33 @@ export function PaperSheet({ id, children, onClose, className = '' }: PaperSheet
       if (event.key === 'Escape') close()
     }
 
+    function handleWindowFocus() {
+      blockBackdropClose(450)
+    }
+
+    function handlePointerDown(event: PointerEvent) {
+      const target = event.target
+      if (!(target instanceof HTMLElement)) return
+      if (target.matches('input[type="file"]') || target.closest('label')) {
+        blockBackdropClose(650)
+      }
+    }
+
     document.addEventListener('keydown', handleKeyDown)
+    window.addEventListener('focus', handleWindowFocus)
+    document.addEventListener('pointerdown', handlePointerDown, true)
     return () => {
       document.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener('focus', handleWindowFocus)
+      document.removeEventListener('pointerdown', handlePointerDown, true)
     }
   }, [onClose])
+
+  function handleBackdropClose() {
+    if (!onClose) return
+    if (performance.now() < blockBackdropCloseUntilRef.current) return
+    onClose()
+  }
 
   return (
     <div
@@ -38,7 +65,7 @@ export function PaperSheet({ id, children, onClose, className = '' }: PaperSheet
           className="paper-sheet-backdrop absolute inset-0 cursor-pointer border-0 bg-desk/20 p-0"
           aria-label="Close"
           tabIndex={-1}
-          onClick={onClose}
+          onClick={handleBackdropClose}
         />
       )}
       <div
@@ -52,7 +79,7 @@ export function PaperSheet({ id, children, onClose, className = '' }: PaperSheet
           tapePosition="top-center"
           className="paper-sheet-card pointer-events-auto w-fit max-w-xl sm:my-2"
         >
-          <div className="px-7 py-8">{children}</div>
+          <div className="px-7 py-8 scrap-interactive">{children}</div>
         </Scrap>
       </div>
     </div>

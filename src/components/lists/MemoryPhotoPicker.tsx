@@ -100,11 +100,12 @@ export function MemoryPhotoPicker({
       onDragOver={(e) => e.preventDefault()}
     >
       <label
-        className={`relative block w-full ${linkClass}`}
+        className={`relative block w-full cursor-pointer ${linkClass}`}
         aria-disabled={pickerDisabled}
+        onPointerDown={(e) => e.stopPropagation()}
       >
         <PolaroidFrame className="w-full !pb-3">
-          <div className="pointer-events-none h-full w-full">
+          <div className="h-full w-full">
             {photoUrl ? (
               <img
                 src={photoUrl}
@@ -142,6 +143,7 @@ export function MemoryPhotoPicker({
       <button
         type="button"
         disabled={pickerDisabled}
+        onPointerDown={(e) => e.stopPropagation()}
         onClick={() => inputRef.current?.click()}
         className={`mt-2 inline-block font-hand text-sm text-ink/40 underline decoration-dotted decoration-ink/20 transition-colors ${linkClass}`}
       >

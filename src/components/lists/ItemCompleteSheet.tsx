@@ -90,7 +90,7 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
         got a photo? optional — tap the polaroid or skip straight to done it.
       </p>
 
-      <div className="mt-4">
+      <div className="mt-4 scrap-interactive">
         <MemoryPhotoPicker
           photoUrl={previewUrl}
           onFile={handlePhoto}
