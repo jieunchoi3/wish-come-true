@@ -14,10 +14,7 @@ import { useListsTab } from './listsTabState'
 
 function PageHeading({ children }: { children: string }) {
   return (
-    <h2
-      className="mb-2 shrink-0 font-hand text-lg text-ink/40"
-      style={{ transform: 'rotate(-0.3deg)' }}
-    >
+    <h2 className="mb-2 shrink-0 font-hand text-lg text-ink/40">
       {children}
     </h2>
   )

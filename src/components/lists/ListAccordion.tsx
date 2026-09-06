@@ -195,9 +195,9 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
       <Scrap
         id={list.id}
         index={0}
-        tape
-        tapePosition="top-left"
+        tape={false}
         layout={false}
+        flat
       >
         <div className="scrap-interactive px-3 py-3">
           <div className="flex items-center gap-3">
