@@ -7,7 +7,9 @@ import { DeleteIconButton } from '../primitives/DeleteIconButton'
 import { ListCoverPicker } from './ListCoverPicker'
 import { ListEmojiPicker } from './ListEmojiPicker'
 import { ListItemRow } from './ListItemRow'
+import { ItemReferencePicker } from './ItemReferencePicker'
 import { useLists } from '../../hooks/useLists'
+import { saveItemReferencePhoto } from '../../lib/itemReferencePhoto'
 import { uploadListCover } from '../../lib/listItemStorage'
 import { supabase } from '../../lib/supabase'
 
@@ -17,11 +19,22 @@ interface ListAccordionProps {
 }
 
 export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps) {
-  const { itemsForList, updateList, deleteList, abandonList, createItem } = useLists()
+  const {
+    itemsForList,
+    updateList,
+    deleteList,
+    abandonList,
+    createItem,
+    updateItem,
+  } = useLists()
   const [open, setOpen] = useState(defaultOpen)
   const [editing, setEditing] = useState(false)
   const [adding, setAdding] = useState(false)
   const [newTitle, setNewTitle] = useState('')
+  const [newNote, setNewNote] = useState('')
+  const [newImagePreview, setNewImagePreview] = useState<string | null>(null)
+  const [newImageFile, setNewImageFile] = useState<File | null>(null)
+  const [addImageUploading, setAddImageUploading] = useState(false)
   const [draftTitle, setDraftTitle] = useState(list.title)
   const [draftEmoji, setDraftEmoji] = useState(list.emoji ?? DEFAULT_LIST_EMOJI)
   const [draftRatingEnabled, setDraftRatingEnabled] = useState(list.rating_enabled ?? false)
@@ -129,20 +142,67 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
     setEditing(false)
   }
 
+  function resetAddForm() {
+    setNewTitle('')
+    setNewNote('')
+    setNewImageFile(null)
+    setNewImagePreview((prev) => {
+      if (prev?.startsWith('blob:')) URL.revokeObjectURL(prev)
+      return null
+    })
+    setAddError(null)
+  }
+
+  function handleNewReferenceFile(file: File) {
+    setNewImageFile(file)
+    setNewImagePreview((prev) => {
+      if (prev?.startsWith('blob:')) URL.revokeObjectURL(prev)
+      return URL.createObjectURL(file)
+    })
+  }
+
+  function handleRemoveNewReference() {
+    setNewImageFile(null)
+    setNewImagePreview((prev) => {
+      if (prev?.startsWith('blob:')) URL.revokeObjectURL(prev)
+      return null
+    })
+  }
+
   async function handleAddItem() {
     const title = newTitle.trim()
     if (!title) return
     setBusy(true)
     setAddError(null)
-    const result = await createItem({ list_id: list.id, title })
-    setBusy(false)
+    const note = newNote.trim() || null
+    const result = await createItem({ list_id: list.id, title, note })
     if (!result) {
+      setBusy(false)
       setAddError('couldn’t add that — try again')
       return
     }
-    setNewTitle('')
+
+    if (newImageFile) {
+      setAddImageUploading(true)
+      try {
+        const imageUrl = await saveItemReferencePhoto(result.id, newImageFile)
+        if (imageUrl) {
+          await updateItem(result.id, { image_url: imageUrl }, false)
+        }
+      } catch {
+        setAddImageUploading(false)
+        setBusy(false)
+        setAddError('added the item, but the photo didn’t upload — try edit')
+        resetAddForm()
+        setAdding(false)
+        return
+      }
+      setAddImageUploading(false)
+    }
+
+    setBusy(false)
+    resetAddForm()
     setAdding(false)
-    setAddError(null)
   }
 
   async function handleCoverUpload(file: File) {
@@ -435,14 +495,28 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
                       if (e.key === 'Enter') void handleAddItem()
                       if (e.key === 'Escape') {
                         setAdding(false)
-                        setNewTitle('')
-                        setAddError(null)
+                        resetAddForm()
                       }
                     }}
                     placeholder="what do you want to add?"
                     autoFocus
                     disabled={busy}
                     className="w-full border-0 border-b border-ink/25 bg-transparent py-1 font-hand text-lg text-ink outline-none"
+                  />
+                  <textarea
+                    value={newNote}
+                    onChange={(e) => setNewNote(e.target.value)}
+                    rows={2}
+                    placeholder="note (optional)"
+                    disabled={busy}
+                    className="w-full resize-none border-0 bg-transparent font-hand text-sm text-ink/70 outline-none"
+                  />
+                  <ItemReferencePicker
+                    imageUrl={newImagePreview}
+                    onFile={handleNewReferenceFile}
+                    onRemove={newImagePreview ? handleRemoveNewReference : undefined}
+                    uploading={addImageUploading}
+                    disabled={busy}
                   />
                   {addError && (
                     <p className="font-hand text-sm text-stamp/80">{addError}</p>
@@ -457,15 +531,14 @@ export function ListAccordion({ list, defaultOpen = false }: ListAccordionProps)
                       }}
                       className="underline decoration-dotted disabled:opacity-40"
                     >
-                      {busy ? 'adding…' : 'add'}
+                      {busy ? (addImageUploading ? 'uploading photo…' : 'adding…') : 'add'}
                     </button>
                     <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation()
                         setAdding(false)
-                        setNewTitle('')
-                        setAddError(null)
+                        resetAddForm()
                       }}
                       className="underline decoration-dotted"
                     >

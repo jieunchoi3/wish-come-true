@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { COMPLETION_ACTION_LABEL } from '../../constants/completion'
 import type { ListItemView } from '../../types/database'
 import { useLists } from '../../hooks/useLists'
 import { isFocusedThisMonth } from '../../lib/committedMonth'
+import { saveItemReferencePhoto } from '../../lib/itemReferencePhoto'
 import { StarRating } from './StarRating'
 import { RubberStampButton } from '../wishes/WishUi'
 import { CommitAction } from './CommitAction'
 import { ItemCompleteSheet } from './ItemCompleteSheet'
+import { ItemReferencePicker } from './ItemReferencePicker'
 import { DeleteIconButton } from '../primitives/DeleteIconButton'
 
 interface ListItemRowProps {
@@ -21,7 +23,22 @@ export function ListItemRow({ item }: ListItemRowProps) {
   const [editing, setEditing] = useState(false)
   const [draftTitle, setDraftTitle] = useState(item.title)
   const [draftNote, setDraftNote] = useState(item.note ?? '')
+  const [draftImageUrl, setDraftImageUrl] = useState<string | null>(
+    item.image_url ?? null,
+  )
+  const [pendingImageFile, setPendingImageFile] = useState<File | null>(null)
+  const [removeImage, setRemoveImage] = useState(false)
+  const [imageUploading, setImageUploading] = useState(false)
   const [busy, setBusy] = useState(false)
+
+  useEffect(() => {
+    if (editing) return
+    setDraftTitle(item.title)
+    setDraftNote(item.note ?? '')
+    setDraftImageUrl(item.image_url ?? null)
+    setPendingImageFile(null)
+    setRemoveImage(false)
+  }, [item, editing])
 
   const isDone = item.status === 'done'
   const opacity = isDone ? 0.55 : 1
@@ -45,17 +62,52 @@ export function ListItemRow({ item }: ListItemRowProps) {
     setConfirmAbandon(false)
   }
 
+  function handleReferenceFile(file: File) {
+    setPendingImageFile(file)
+    setRemoveImage(false)
+    setDraftImageUrl((prev) => {
+      if (prev?.startsWith('blob:')) URL.revokeObjectURL(prev)
+      return URL.createObjectURL(file)
+    })
+  }
+
+  function handleRemoveReference() {
+    setPendingImageFile(null)
+    setRemoveImage(true)
+    setDraftImageUrl((prev) => {
+      if (prev?.startsWith('blob:')) URL.revokeObjectURL(prev)
+      return null
+    })
+  }
+
   async function handleSaveEdit() {
     const title = draftTitle.trim()
     if (!title) return
     setBusy(true)
+
+    let imageUrl: string | null = item.image_url ?? null
+    if (removeImage) {
+      imageUrl = null
+    } else if (pendingImageFile) {
+      setImageUploading(true)
+      try {
+        imageUrl = await saveItemReferencePhoto(item.id, pendingImageFile)
+      } catch {
+        setBusy(false)
+        setImageUploading(false)
+        return
+      }
+      setImageUploading(false)
+    }
+
     await updateItem(
       item.id,
       {
         title,
         note: draftNote.trim() || null,
+        image_url: imageUrl,
       },
-      false,
+      item.is_seeded,
     )
     setBusy(false)
     setEditing(false)
@@ -79,9 +131,16 @@ export function ListItemRow({ item }: ListItemRowProps) {
               <textarea
                 value={draftNote}
                 onChange={(e) => setDraftNote(e.target.value)}
-                rows={2}
+                rows={3}
                 placeholder="note (optional)"
                 className="w-full resize-none border-0 bg-transparent font-hand text-sm text-ink/70 outline-none"
+              />
+              <ItemReferencePicker
+                imageUrl={draftImageUrl}
+                onFile={handleReferenceFile}
+                onRemove={draftImageUrl ? handleRemoveReference : undefined}
+                uploading={imageUploading}
+                disabled={busy}
               />
               <div className="flex gap-5">
                 <button
@@ -98,6 +157,9 @@ export function ListItemRow({ item }: ListItemRowProps) {
                     setEditing(false)
                     setDraftTitle(item.title)
                     setDraftNote(item.note ?? '')
+                    setDraftImageUrl(item.image_url ?? null)
+                    setPendingImageFile(null)
+                    setRemoveImage(false)
                   }}
                   className="list-item-action-secondary"
                 >
@@ -117,6 +179,13 @@ export function ListItemRow({ item }: ListItemRowProps) {
                 </p>
                 {item.note && (
                   <p className="list-item-note">{item.note}</p>
+                )}
+                {item.image_url && (
+                  <img
+                    src={item.image_url}
+                    alt=""
+                    className="mt-2 max-h-28 max-w-[160px] rounded border border-ink/10 object-cover"
+                  />
                 )}
                 {isDone && item.rating != null && (
                   <StarRating value={item.rating} size="sm" className="mt-1" />
@@ -144,6 +213,9 @@ export function ListItemRow({ item }: ListItemRowProps) {
                       onClick={() => {
                         setDraftTitle(item.title)
                         setDraftNote(item.note ?? '')
+                        setDraftImageUrl(item.image_url ?? null)
+                        setPendingImageFile(null)
+                        setRemoveImage(false)
                         setEditing(true)
                         setConfirmDelete(false)
                         setConfirmAbandon(false)
