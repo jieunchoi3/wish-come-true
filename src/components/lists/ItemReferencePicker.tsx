@@ -30,9 +30,9 @@ export function ItemReferencePicker({
 
   return (
     <div className={className}>
-      <span className="font-hand text-sm text-ink/45">reference photo</span>
+      <span className="font-hand text-sm text-ink/45">add photo</span>
       <p className="mt-0.5 font-hand text-xs text-ink/35">
-        optional — sketch, pattern, or inspiration to keep with this idea
+        optional — pattern, sketch, or reference to keep with this idea
       </p>
 
       <label
@@ -45,7 +45,7 @@ export function ItemReferencePicker({
             <img src={imageUrl} alt="" className="h-full w-full object-cover" />
           ) : (
             <div className="flex h-full w-full items-center justify-center p-3 text-center font-hand text-sm text-ink/35">
-              add reference
+              tap to add photo
             </div>
           )}
         </div>

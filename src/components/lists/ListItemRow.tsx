@@ -21,6 +21,7 @@ export function ListItemRow({ item }: ListItemRowProps) {
   const [confirmDelete, setConfirmDelete] = useState(false)
   const [confirmAbandon, setConfirmAbandon] = useState(false)
   const [editing, setEditing] = useState(false)
+  const [photoOpen, setPhotoOpen] = useState(false)
   const [draftTitle, setDraftTitle] = useState(item.title)
   const [draftNote, setDraftNote] = useState(item.note ?? '')
   const [draftImageUrl, setDraftImageUrl] = useState<string | null>(
@@ -32,13 +33,27 @@ export function ListItemRow({ item }: ListItemRowProps) {
   const [busy, setBusy] = useState(false)
 
   useEffect(() => {
-    if (editing) return
+    if (editing || photoOpen) return
     setDraftTitle(item.title)
     setDraftNote(item.note ?? '')
     setDraftImageUrl(item.image_url ?? null)
     setPendingImageFile(null)
     setRemoveImage(false)
-  }, [item, editing])
+  }, [item, editing, photoOpen])
+
+  function resetPhotoDraft() {
+    setDraftImageUrl(item.image_url ?? null)
+    setPendingImageFile(null)
+    setRemoveImage(false)
+  }
+
+  function openPhotoPanel() {
+    setEditing(false)
+    setConfirmDelete(false)
+    setConfirmAbandon(false)
+    resetPhotoDraft()
+    setPhotoOpen(true)
+  }
 
   const isDone = item.status === 'done'
   const opacity = isDone ? 0.55 : 1
@@ -80,24 +95,48 @@ export function ListItemRow({ item }: ListItemRowProps) {
     })
   }
 
+  async function resolveReferenceImageUrl(): Promise<string | null | undefined> {
+    if (!removeImage && !pendingImageFile) return undefined
+    if (removeImage) return null
+    setImageUploading(true)
+    try {
+      return await saveItemReferencePhoto(item.id, pendingImageFile!)
+    } catch {
+      return undefined
+    } finally {
+      setImageUploading(false)
+    }
+  }
+
+  async function handleSavePhotoOnly() {
+    setBusy(true)
+    const imageUrl = await resolveReferenceImageUrl()
+    if (imageUrl === undefined) {
+      setBusy(false)
+      return
+    }
+    const ok = await updateItem(
+      item.id,
+      { image_url: imageUrl },
+      item.is_seeded,
+    )
+    setBusy(false)
+    if (ok) {
+      setPhotoOpen(false)
+      setPendingImageFile(null)
+      setRemoveImage(false)
+    }
+  }
+
   async function handleSaveEdit() {
     const title = draftTitle.trim()
     if (!title) return
     setBusy(true)
 
-    let imageUrl: string | null = item.image_url ?? null
-    if (removeImage) {
-      imageUrl = null
-    } else if (pendingImageFile) {
-      setImageUploading(true)
-      try {
-        imageUrl = await saveItemReferencePhoto(item.id, pendingImageFile)
-      } catch {
-        setBusy(false)
-        setImageUploading(false)
-        return
-      }
-      setImageUploading(false)
+    const imageUrl = await resolveReferenceImageUrl()
+    if (imageUrl === undefined) {
+      setBusy(false)
+      return
     }
 
     await updateItem(
@@ -105,7 +144,7 @@ export function ListItemRow({ item }: ListItemRowProps) {
       {
         title,
         note: draftNote.trim() || null,
-        image_url: imageUrl,
+        ...(imageUrl !== undefined ? { image_url: imageUrl } : {}),
       },
       item.is_seeded,
     )
@@ -180,12 +219,47 @@ export function ListItemRow({ item }: ListItemRowProps) {
                 {item.note && (
                   <p className="list-item-note">{item.note}</p>
                 )}
-                {item.image_url && (
+                {item.image_url && !photoOpen && (
                   <img
                     src={item.image_url}
                     alt=""
                     className="mt-2 max-h-28 max-w-[160px] rounded border border-ink/10 object-cover"
                   />
+                )}
+                {photoOpen && canEdit && (
+                  <div
+                    className="mt-3 scrap-interactive"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <ItemReferencePicker
+                      imageUrl={draftImageUrl}
+                      onFile={handleReferenceFile}
+                      onRemove={draftImageUrl ? handleRemoveReference : undefined}
+                      uploading={imageUploading}
+                      disabled={busy}
+                    />
+                    <div className="mt-2 flex gap-5">
+                      <button
+                        type="button"
+                        disabled={busy || imageUploading}
+                        onClick={() => void handleSavePhotoOnly()}
+                        className="list-item-action-primary"
+                      >
+                        save photo
+                      </button>
+                      <button
+                        type="button"
+                        disabled={busy}
+                        onClick={() => {
+                          resetPhotoDraft()
+                          setPhotoOpen(false)
+                        }}
+                        className="list-item-action-secondary"
+                      >
+                        cancel
+                      </button>
+                    </div>
+                  </div>
                 )}
                 {isDone && item.rating != null && (
                   <StarRating value={item.rating} size="sm" className="mt-1" />
@@ -208,22 +282,36 @@ export function ListItemRow({ item }: ListItemRowProps) {
                     </button>
                   )}
                   {canEdit && !isDone && (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setDraftTitle(item.title)
-                        setDraftNote(item.note ?? '')
-                        setDraftImageUrl(item.image_url ?? null)
-                        setPendingImageFile(null)
-                        setRemoveImage(false)
-                        setEditing(true)
-                        setConfirmDelete(false)
-                        setConfirmAbandon(false)
-                      }}
-                      className="list-item-action-secondary"
-                    >
-                      edit
-                    </button>
+                    <>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          photoOpen ? setPhotoOpen(false) : openPhotoPanel()
+                        }
+                        className="list-item-action-secondary"
+                      >
+                        {photoOpen
+                          ? 'hide photo'
+                          : item.image_url
+                            ? 'change photo'
+                            : 'add photo'}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setPhotoOpen(false)
+                          setDraftTitle(item.title)
+                          setDraftNote(item.note ?? '')
+                          resetPhotoDraft()
+                          setEditing(true)
+                          setConfirmDelete(false)
+                          setConfirmAbandon(false)
+                        }}
+                        className="list-item-action-secondary"
+                      >
+                        edit
+                      </button>
+                    </>
                   )}
                   {confirmAbandon ? (
                     <>
