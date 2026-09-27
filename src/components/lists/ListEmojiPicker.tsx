@@ -3,8 +3,6 @@ import {
   DEFAULT_LIST_EMOJI,
   LIST_EMOJI_OPTIONS,
 } from '../../constants/listEmojis'
-import { chipRotation } from '../../lib/utils'
-
 interface ListEmojiPickerProps {
   value: string
   onChange: (emoji: string) => void
@@ -17,32 +15,24 @@ function firstGrapheme(text: string): string {
 
 function EmojiTile({
   emoji,
-  index,
   selected,
   onSelect,
 }: {
   emoji: string
-  index: number
   selected: boolean
   onSelect: () => void
 }) {
-  const rotation = chipRotation(index, false)
-
   return (
     <button
       type="button"
       onClick={onSelect}
       aria-label={`pick ${emoji}`}
       aria-pressed={selected}
-      className={`relative flex h-10 w-10 items-center justify-center bg-paper text-xl transition-all hover:opacity-90 ${
+      className={`relative flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-paper text-xl transition-all hover:opacity-90 ${
         selected
           ? 'border-2 border-yellow-500'
           : 'border border-ink/20'
       }`}
-      style={{
-        borderRadius: 2,
-        transform: `rotate(${rotation}deg)`,
-      }}
     >
       <span className="relative z-10" aria-hidden>
         {emoji}
@@ -73,11 +63,10 @@ export function ListEmojiPicker({ value, onChange }: ListEmojiPickerProps) {
         role="listbox"
         aria-label="pick a list emoji"
       >
-        {LIST_EMOJI_OPTIONS.map((emoji, index) => (
+        {LIST_EMOJI_OPTIONS.map((emoji) => (
           <EmojiTile
             key={emoji}
             emoji={emoji}
-            index={index}
             selected={!showCustom && value === emoji}
             onSelect={() => pickCurated(emoji)}
           />

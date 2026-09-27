@@ -1,4 +1,8 @@
 import { useEffect, useId, useRef, type ReactNode } from 'react'
+import {
+  isEditablePasteTarget,
+  pickImageFile,
+} from '../../lib/clipboardImage'
 import { PolaroidFrame } from '../PolaroidFrame'
 
 interface MemoryPhotoPickerProps {
@@ -10,37 +14,6 @@ interface MemoryPhotoPickerProps {
   className?: string
   /** Decorative overlay on the polaroid — must use pointer-events-none */
   stampOverlay?: ReactNode
-}
-
-function pickImageFile(
-  dataTransfer: DataTransfer | null | undefined,
-): File | null {
-  if (!dataTransfer) return null
-
-  for (const entry of dataTransfer.items) {
-    if (entry.kind !== 'file') continue
-    const file = entry.getAsFile()
-    if (!file) continue
-    if (file.type.startsWith('image/')) return file
-    // macOS screenshots sometimes arrive with an empty MIME type
-    if (!file.type && file.size > 0) return file
-  }
-
-  for (let i = 0; i < dataTransfer.files.length; i++) {
-    const file = dataTransfer.files[i]
-    if (!file) continue
-    if (file.type.startsWith('image/')) return file
-    if (!file.type && file.size > 0) return file
-  }
-
-  return null
-}
-
-function isEditablePasteTarget(target: EventTarget | null): boolean {
-  if (!(target instanceof HTMLElement)) return false
-  return Boolean(
-    target.closest('input, textarea, select, [contenteditable="true"]'),
-  )
 }
 
 export function MemoryPhotoPicker({

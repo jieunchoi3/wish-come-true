@@ -1,4 +1,14 @@
-import { useId, useRef, type ChangeEvent } from 'react'
+import {
+  useEffect,
+  useId,
+  useRef,
+  type ChangeEvent,
+  type DragEvent,
+} from 'react'
+import {
+  isEditablePasteTarget,
+  pickImageFile,
+} from '../../lib/clipboardImage'
 
 interface ItemReferencePickerProps {
   imageUrl: string | null
@@ -20,7 +30,28 @@ export function ItemReferencePicker({
 }: ItemReferencePickerProps) {
   const inputId = useId()
   const inputRef = useRef<HTMLInputElement>(null)
+  const zoneRef = useRef<HTMLDivElement>(null)
+  const onFileRef = useRef(onFile)
+  const pickerDisabledRef = useRef(false)
   const pickerDisabled = disabled || uploading
+  onFileRef.current = onFile
+  pickerDisabledRef.current = pickerDisabled
+
+  useEffect(() => {
+    if (pickerDisabled) return
+    zoneRef.current?.focus({ preventScroll: true })
+
+    function onPaste(e: ClipboardEvent) {
+      if (pickerDisabledRef.current || isEditablePasteTarget(e.target)) return
+      const file = pickImageFile(e.clipboardData)
+      if (!file) return
+      e.preventDefault()
+      onFileRef.current(file)
+    }
+
+    document.addEventListener('paste', onPaste)
+    return () => document.removeEventListener('paste', onPaste)
+  }, [pickerDisabled])
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0]
@@ -28,24 +59,37 @@ export function ItemReferencePicker({
     e.target.value = ''
   }
 
+  function handleDrop(e: DragEvent) {
+    e.preventDefault()
+    if (pickerDisabled) return
+    const file = pickImageFile(e.dataTransfer)
+    if (file) onFile(file)
+  }
+
   return (
-    <div className={className}>
+    <div
+      ref={zoneRef}
+      tabIndex={pickerDisabled ? -1 : 0}
+      className={`outline-none ${className}`}
+      onDrop={handleDrop}
+      onDragOver={(e) => e.preventDefault()}
+      onPointerDown={(e) => e.stopPropagation()}
+    >
       <span className="font-hand text-sm text-ink/45">add photo</span>
       <p className="mt-0.5 font-hand text-xs text-ink/35">
-        optional — pattern, sketch, or reference to keep with this idea
+        optional — paste, upload, or drop a pattern or reference
       </p>
 
       <label
         htmlFor={inputId}
         className={`mt-2 block max-w-[180px] ${pickerDisabled ? 'cursor-not-allowed opacity-60' : 'cursor-pointer'}`}
-        onPointerDown={(e) => e.stopPropagation()}
       >
         <div className="aspect-[4/3] w-full overflow-hidden rounded border border-ink/15 bg-paper-shadow/30 shadow-[1px_2px_6px_rgba(44,42,38,0.08)]">
           {imageUrl ? (
             <img src={imageUrl} alt="" className="h-full w-full object-cover" />
           ) : (
             <div className="flex h-full w-full items-center justify-center p-3 text-center font-hand text-sm text-ink/35">
-              tap to add photo
+              paste or tap to add
             </div>
           )}
         </div>
@@ -64,7 +108,6 @@ export function ItemReferencePicker({
         <button
           type="button"
           disabled={pickerDisabled}
-          onPointerDown={(e) => e.stopPropagation()}
           onClick={() => inputRef.current?.click()}
           className="text-ink/45 underline decoration-dotted hover:text-ink/65 disabled:opacity-40"
         >
@@ -74,7 +117,6 @@ export function ItemReferencePicker({
           <button
             type="button"
             disabled={pickerDisabled}
-            onPointerDown={(e) => e.stopPropagation()}
             onClick={onRemove}
             className="text-ink/40 underline decoration-dotted hover:text-ink/60 disabled:opacity-40"
           >

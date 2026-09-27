@@ -1,4 +1,6 @@
-import { useEffect, useRef, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { createPortal } from 'react-dom'
+import { getBinderOverlayRoot } from '../../lib/binderOverlay'
 import { Scrap } from '../primitives'
 
 interface PaperSheetProps {
@@ -12,6 +14,11 @@ interface PaperSheetProps {
 export function PaperSheet({ id, children, onClose, className = '' }: PaperSheetProps) {
   const panelRef = useRef<HTMLDivElement>(null)
   const blockBackdropCloseUntilRef = useRef(0)
+  const [portalReady, setPortalReady] = useState(false)
+
+  useEffect(() => {
+    setPortalReady(true)
+  }, [])
 
   function blockBackdropClose(ms = 500) {
     blockBackdropCloseUntilRef.current = performance.now() + ms
@@ -53,7 +60,7 @@ export function PaperSheet({ id, children, onClose, className = '' }: PaperSheet
     onClose()
   }
 
-  return (
+  const sheet = (
     <div
       className={`paper-sheet fixed inset-0 z-[100] flex min-h-0 flex-col ${className}`}
       role="dialog"
@@ -70,20 +77,26 @@ export function PaperSheet({ id, children, onClose, className = '' }: PaperSheet
       )}
       <div
         ref={panelRef}
-        className="paper-sheet-panel relative z-10 flex min-h-0 flex-1 flex-col items-center overflow-y-auto px-2 py-3 sm:px-3 sm:py-4 pointer-events-none"
+        className="paper-sheet-panel relative z-10 flex min-h-0 flex-1 flex-col items-center justify-center overflow-y-auto px-4 py-6 sm:px-6 sm:py-8 pointer-events-none"
       >
         <Scrap
           id={id}
           index={0}
           layout={false}
+          flat
           tapePosition="top-center"
-          className="paper-sheet-card pointer-events-auto w-fit max-w-xl sm:my-2"
+          className="paper-sheet-card pointer-events-auto mx-auto w-full max-w-lg sm:max-w-xl"
         >
-          <div className="px-7 py-8 scrap-interactive">{children}</div>
+          <div className="px-6 py-7 sm:px-8 sm:py-8 scrap-interactive">{children}</div>
         </Scrap>
       </div>
     </div>
   )
+
+  if (!portalReady) return null
+  const overlayRoot = getBinderOverlayRoot()
+  if (!overlayRoot) return null
+  return createPortal(sheet, overlayRoot)
 }
 
 interface RubberStampButtonProps {

@@ -1,11 +1,9 @@
 import { useState } from 'react'
-import { createPortal } from 'react-dom'
 import { COMPLETION_ACTION_LABEL } from '../../constants/completion'
 import { MemoryPhotoPicker } from './MemoryPhotoPicker'
 import { StarRating } from './StarRating'
 import type { ListItemView } from '../../types/database'
 import { useLists } from '../../hooks/useLists'
-import { getBinderOverlayRoot } from '../../lib/binderOverlay'
 import { uploadCompletionPhoto } from '../../lib/listItemStorage'
 import { supabase } from '../../lib/supabase'
 import { PaperSheet, RubberStampButton } from '../wishes/WishUi'
@@ -73,7 +71,7 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
     }
   }
 
-  const sheet = (
+  return (
     <PaperSheet id={`complete-${liveItem.id}`} onClose={onClose}>
       <p className="font-hand text-xl text-ink/55">you did it.</p>
       <h2 className="mt-1 font-serif text-2xl text-ink">{liveItem.title}</h2>
@@ -122,8 +120,4 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
       </button>
     </PaperSheet>
   )
-
-  const overlayRoot = getBinderOverlayRoot()
-  if (!overlayRoot) return null
-  return createPortal(sheet, overlayRoot)
 }
