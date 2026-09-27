@@ -4,6 +4,10 @@ import { MemoryPhotoPicker } from './MemoryPhotoPicker'
 import { StarRating } from './StarRating'
 import type { ListItemView } from '../../types/database'
 import { useLists } from '../../hooks/useLists'
+import {
+  dateInputToIso,
+  todayDateInputValue,
+} from '../../lib/completionDate'
 import { uploadCompletionPhoto } from '../../lib/listItemStorage'
 import { supabase } from '../../lib/supabase'
 import { PaperSheet, RubberStampButton } from '../wishes/WishUi'
@@ -23,6 +27,7 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
   const [uploadPct, setUploadPct] = useState(0)
   const [saving, setSaving] = useState(false)
+  const [completedDate, setCompletedDate] = useState(todayDateInputValue)
 
   function handlePhoto(file: File) {
     setPhotoFile(file)
@@ -35,7 +40,7 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
   async function handleDone() {
     setStamping(true)
     setSaving(true)
-    const now = new Date().toISOString()
+    if (!completedDate) return
 
     try {
       let completionPhotoUrl: string | null = null
@@ -58,7 +63,7 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
         liveItem.id,
         {
           status: 'done',
-          completed_at: now,
+          completed_at: dateInputToIso(completedDate),
           completion_note: note.trim() || null,
           completion_photo_url: completionPhotoUrl,
           rating,
@@ -107,12 +112,23 @@ export function ItemCompleteSheet({ item, onClose }: ItemCompleteSheetProps) {
           className="mt-2 w-full resize-none border-0 border-b border-ink/20 bg-transparent font-hand text-xl text-ink outline-none"
         />
       </label>
+
+      <label className="mt-5 block scrap-interactive">
+        <span className="font-hand text-lg text-ink/50">when did you do it?</span>
+        <input
+          type="date"
+          value={completedDate}
+          onChange={(e) => setCompletedDate(e.target.value)}
+          disabled={saving}
+          className="mt-2 border-0 border-b border-ink/25 bg-transparent font-hand text-xl text-ink outline-none"
+        />
+      </label>
       <div className={`mt-8 scrap-interactive ${stamping ? 'stamp-press' : ''}`}>
         <RubberStampButton
           label={COMPLETION_ACTION_LABEL}
           rotation={-1}
           onClick={handleDone}
-          disabled={saving}
+          disabled={saving || !completedDate}
         />
       </div>
       <button type="button" onClick={onClose} className="mt-4 font-hand text-ink/40">
