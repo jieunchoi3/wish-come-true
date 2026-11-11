@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { Session } from '@supabase/supabase-js'
 import { ConnectionError } from './components/ConnectionError'
+import { SoloSignInGate } from './components/SoloSignInGate'
 import { Binder, type BinderTabId } from './components/binder'
 import { ListsProvider, useLists } from './hooks/useLists'
 import { clearProfileMemory, loadProfileFromSupabase } from './lib/profile'
@@ -83,6 +84,8 @@ function ReadyApp({ session }: { session: Session }) {
 export default function App() {
   const [session, setSession] = useState<Session | null>(null)
   const [bootError, setBootError] = useState<ConnectionFailure | null>(null)
+  const [manualSignIn, setManualSignIn] = useState(false)
+  const [signInHint, setSignInHint] = useState<string | null>(null)
   const [authReady, setAuthReady] = useState(false)
 
   useEffect(() => {
@@ -102,6 +105,7 @@ export default function App() {
       if (nextSession) {
         setSession(nextSession)
         setBootError(null)
+        setManualSignIn(false)
         setAuthReady(true)
       } else if (event === 'SIGNED_OUT') {
         setSession(null)
@@ -133,12 +137,11 @@ export default function App() {
       if (cancelled) return
 
       if (error || !signed.session) {
-        setBootError({
-          kind: 'collections_error',
-          message:
-            error?.message ??
+        setSignInHint(
+          error?.message ??
             'silent sign-in failed — check VITE_SOLO_EMAIL / VITE_SOLO_PASSWORD',
-        })
+        )
+        setManualSignIn(true)
         setAuthReady(true)
         return
       }
@@ -169,6 +172,16 @@ export default function App() {
 
   if (bootError) {
     return <ConnectionError failure={bootError} />
+  }
+
+  if (!session && manualSignIn) {
+    return (
+      <SoloSignInGate
+        defaultEmail={soloEmail ?? ''}
+        hint={signInHint}
+        onSession={setSession}
+      />
+    )
   }
 
   if (!session) {

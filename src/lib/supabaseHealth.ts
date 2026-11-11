@@ -4,6 +4,7 @@ import { supabase, supabaseConfigured } from './supabase'
 export type ConnectionFailure =
   | { kind: 'missing_env' }
   | { kind: 'missing_solo' }
+  | { kind: 'solo_sign_in_failed'; message: string }
   | { kind: 'collections_error'; message: string }
   | { kind: 'collections_empty' }
   | { kind: 'not_authenticated' }
@@ -77,6 +78,14 @@ export function failureMessage(failure: ConnectionFailure): {
         title: 'not signed in',
         lines: [
           'Silent sign-in failed. Check VITE_SOLO_EMAIL and VITE_SOLO_PASSWORD.',
+        ],
+      }
+    case 'solo_sign_in_failed':
+      return {
+        title: 'sign-in password is out of date',
+        lines: [
+          failure.message,
+          'In Supabase → Authentication → Users, reset the password or copy the current one into VITE_SOLO_PASSWORD in .env.local (and Vercel env for production).',
         ],
       }
     case 'collections_empty':
